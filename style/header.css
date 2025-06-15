@@ -1,0 +1,222 @@
+/* header */
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px var(--Layout-x-padding);
+    background: var(--white-50);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(7.5px);
+    z-index: 10000;
+}
+
+#Logo {
+    display: flex;
+    padding: 0px var(--LOGO-x-padding);
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+}
+
+#Logo_img {
+    width: 70px;
+    height: 70px;
+}
+
+.Navbar {
+    display: flex;
+    padding: 10px 0px;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 15px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+#Search_medium {
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    gap: 10px;
+    visibility: hidden;
+}
+
+#Search_pc {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex: 1 0 0;
+}
+
+#search_Input {
+    display: flex;
+    width: 350px;
+    height: 40px;
+    padding: 0px 15px;
+    margin: 8px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 0px solid;
+    font-size: 18px;
+    border-radius: var(--Search-SearchBox-radius, 40px);
+    background: transparent;
+    /* Button */
+    box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+}
+
+#search_Input:focus {
+    outline: 0;
+    border-radius: var(--Search-SearchBox-radius, 40px);
+    background: var(--white-50);
+
+    /* search-Hover */
+    box-shadow: 5px -5px 4px 0px rgba(255, 255, 255, 0.50) inset, 0px 0px 5px 0px rgba(210, 210, 210, 0.80) inset, 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+}
+
+#SearchBox {
+    display: none;
+    height: auto;
+    max-width: 650px;
+    padding: 20px 20px;
+    align-items: flex-start;
+    flex-shrink: 0;
+    align-self: center;
+    background: var(--white-50);
+    border-radius: var(--MusicCard-radius);
+    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(7.5px);
+}
+
+#search_setring {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 0px solid;
+    background-image: url(../assets/icon/setring.svg);
+    background-size: 100%;
+    object-fit: cover;
+}
+
+/* 登入按鈕 */
+#SiginIn {
+    display: flex;
+    width: auto;
+    height: 50px;
+    padding: 10px 15px 15px 15px;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--Button-radius, 15px);
+    border: 1px solid var(--White, #FFF);
+    background: var(--Button02, linear-gradient(269deg, rgba(255, 255, 255, 0.00) 0.67%, rgba(255, 255, 255, 0.60) 99.44%));
+    /* Music */
+    box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+    transition: 0.15s ease;
+}
+
+#SiginIn:hover {
+    box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 0.80) inset, 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+}
+
+#SiginIn:active {
+    translate: 1px;
+}
+
+#SiginIn_medium {
+    display: flex;
+    width: 60px;
+    height: 50px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    aspect-ratio: 6/5;
+    visibility: hidden;
+}
+
+/* 關鍵字按鈕 */
+.SearchKeywords {
+    display: flex;
+    padding: 10px 15px;
+    align-items: center;
+    gap: 5px;
+    border-color: transparent;
+    border-radius: var(--Button-radius);
+    border-bottom: 6px dashed var(--Color-01);
+    border-left: 5px dashed var(--Color-01);
+    /* Button */
+    box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+}
+
+.SearchKeywords:hover {
+    background-color: var(--Color-08);
+    transition-duration: 1s;
+}
+
+#SearchHistory {
+    display: flex;
+    align-items: center;
+    gap: 43px;
+    align-self: stretch;
+}
+
+/* 歷史紀錄按鈕 */
+.SearchHistory_button {
+    display: flex;
+    padding: 10px 15px;
+    align-items: center;
+    gap: 5px;
+    align-self: stretch;
+    border-radius: 10px;
+
+    /* Button */
+    box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+}
+
+.SearchHistory_button:hover {
+    background-color: #E2F263;
+    transition-duration: 1s;
+}
+
+/* 清除歷史紀錄按鈕 */
+.ClearButton {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-color: transparent;
+    border-radius: var(--Button-radius);
+
+    /* Button */
+    box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+}
+
+.ClearButton:hover {
+    background-color: #E2F263;
+    transition-duration: 1s;
+}
+
+.ClearButton:active {
+    transform: scale(0.5);
+}
