@@ -25,11 +25,29 @@ html {
     --List-radius: 10px;
 }
 
+h1 {
+    font-family: "Noto Sans TC";
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    margin: 0px;
+}
+
 h2 {
     font-family: "Noto Sans TC";
     font-size: 48px;
     font-style: normal;
     font-weight: 900;
+    line-height: normal;
+    margin: 0px;
+}
+
+h3 {
+    font-family: "Noto Sans TC";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
     line-height: normal;
     margin: 0px;
 }
@@ -76,7 +94,6 @@ p {
 }
 
 a {
-
     text-decoration: none;
 }
 

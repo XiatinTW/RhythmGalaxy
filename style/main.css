@@ -10,6 +10,13 @@
     align-items: flex-start;
 }
 
+#main1_1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+}
+
 #MusicCharts {
     display: flex;
     padding: 0px;
@@ -35,7 +42,7 @@
     display: flex;
     height: 240px;
     max-width: 100%;
-    overflow-y: auto;
+    overflow-x: auto;
     padding: 15px 65px;
     align-items: center;
     gap: 52px;
@@ -61,7 +68,7 @@
     flex-direction: column;
     align-items: flex-start;
     flex: 1 0 0;
-    gap: 10px;
+    gap: 15px;
     overflow-x: auto;
 }
 
@@ -73,4 +80,48 @@
 #Music_Charts_List:hover::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
+}
+
+/* main1_2 第二面*/
+.main1_2 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.main1_2 img {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+}
+
+.main1_2_text {
+    display: flex;
+    min-width: 350px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.main1_2_text a {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--Button-radius);
+    background: var(--white-50);
+    box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+}
+
+.main1_2_text a:hover {
+    background: var(--Color-08);
+    box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+}
+
+.main1_2_text a:visited {
+    color: var(--Color-04);
 }
