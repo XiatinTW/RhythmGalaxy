@@ -219,14 +219,17 @@
             color: var(--Color-04);
         }
 
-        .Recommended div::-webkit-scrollbar {
-            height: 6px;
-            background: transparent;
+        .Recommended {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: flex-start;
         }
-
-        .Recommended div:hover::-webkit-scrollbar-thumb {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
+        .LatestReleases {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: flex-start;
         }
     </style>
 </head>
@@ -325,7 +328,7 @@
         <main id="main1">
             <div id="main1_1">
                 <h2 style="min-width: 350px;">Trending Hits</h2>
-                <div ID="MusicCradList">
+                <div class="MusicCradList">
                     <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
                         <div class="MusicCrad_1">
                             <div class="MusicCrad_2"></div>
@@ -649,7 +652,7 @@
             </div>
             <div class="Recommended">
                 <h2 style="min-width: 350px;">Hot Picks for You</h2>
-                <div ID="MusicCradList">
+                <div class="MusicCradList">
                     <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
                         <div class="MusicCrad_1">
                             <div class="MusicCrad_2"></div>
@@ -766,7 +769,7 @@
             </div>
             <div class="LatestReleases">
                 <h2 style="min-width: 350px;"> Fresh Releases</h2>
-                <div ID="MusicCradList">
+                <div class="MusicCradList">
                     <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
                         <div class="MusicCrad_1">
                             <div class="MusicCrad_2"></div>

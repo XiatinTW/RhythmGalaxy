@@ -37,32 +37,33 @@ document.querySelectorAll('.MusicCrad').forEach(parent => {
   }
 });
 // 水平滑動
-const scrollContainer = document.querySelector('#MusicCradList');
-let isDown = false;
-let startX;
-let scrollLeft;
+document.querySelectorAll('.MusicCradList').forEach(scrollContainer => {
+  let isDown = false;
+  let startX;
+  let scrollLeft;
 
-scrollContainer.addEventListener('mousedown', (e) => {
-  isDown = true;
-  scrollContainer.classList.add('active');
-  startX = e.pageX - scrollContainer.offsetLeft;
-  scrollLeft = scrollContainer.scrollLeft;
-});
+  scrollContainer.addEventListener('mousedown', (e) => {
+    isDown = true;
+    scrollContainer.classList.add('active');
+    startX = e.pageX - scrollContainer.offsetLeft;
+    scrollLeft = scrollContainer.scrollLeft;
+  });
 
-scrollContainer.addEventListener('mouseleave', () => {
-  isDown = false;
-  scrollContainer.classList.remove('active');
-});
+  scrollContainer.addEventListener('mouseleave', () => {
+    isDown = false;
+    scrollContainer.classList.remove('active');
+  });
 
-scrollContainer.addEventListener('mouseup', () => {
-  isDown = false;
-  scrollContainer.classList.remove('active');
-});
+  scrollContainer.addEventListener('mouseup', () => {
+    isDown = false;
+    scrollContainer.classList.remove('active');
+  });
 
-scrollContainer.addEventListener('mousemove', (e) => {
-  if (!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - scrollContainer.offsetLeft;
-  const walk = (x - startX) * 1; // 拖曳速度
-  scrollContainer.scrollLeft = scrollLeft - walk;
+  scrollContainer.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainer.offsetLeft;
+    const walk = (x - startX) * 1; // 拖曳速度
+    scrollContainer.scrollLeft = scrollLeft - walk;
+  });
 });

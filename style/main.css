@@ -38,7 +38,7 @@
     color: white;
 }
 
-#MusicCradList {
+.MusicCradList {
     display: flex;
     height: 240px;
     max-width: 100%;
@@ -50,12 +50,12 @@
     align-self: stretch;
 }
 
-#MusicCradList::-webkit-scrollbar {
+.MusicCradList::-webkit-scrollbar {
     height: 6px;
     background: transparent;
 }
 
-#MusicCradList:hover::-webkit-scrollbar-thumb {
+.MusicCradList:hover::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
 }
