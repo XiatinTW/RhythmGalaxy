@@ -340,10 +340,10 @@
 
         .PlayBarCard {
             position: absolute;
-            top: -400px;
+            top: -500px;
             right: 0;
             width: 250px;
-            height: 360px;
+            height: 400px;
             padding: 20px;
             z-index: 999;
             border-radius: var(--MusicCrad-radius, 20px);
@@ -352,32 +352,63 @@
         .PlayBarCard span {
             position: absolute;
             width: 290px;
-            height: 400px;
+            height: 500px;
             top: 0px;
             left: 0px;
             border-radius: var(--MusicCrad-radius, 20px);
+            background-color: var(--white-50);
+            box-shadow: 0px 6px 6px 0px rgba(255, 255, 255, 0.30) inset, 0px 6px 6px 0px rgba(255, 255, 255, 0.44) inset;
+            filter: drop-shadow(0px 4px 30px rgba(0, 0, 0, 0.15));
+            backdrop-filter: blur(2.5px);
+        }
 
-            /* 原始 inset 內陰影 */
-            box-shadow:
-                0px 6px 6px 0px rgba(255, 255, 255, 0.30) inset,
-                0px 6px 6px 0px rgba(255, 255, 255, 0.44) inset,
+        .PlayBarCard .MusicCrad {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            left: 50%;
+            transform: translate(-50%);
+            min-width: unset;
+        }
 
-                /* 加上 glass 效果的外層光暈 */
-                0 0 0 2px rgba(255, 255, 255, 0.6),
-                0 16px 32px rgba(0, 0, 0, 0.12);
+        .PlayBarCard .MusicCrad_2 {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            left: 0PX;
+        }
 
-            /* 背景霧化效果 */
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
+        .PlayBarCard .CD_icon {
+            width: 70px;
+            height: 70px;
+            margin: 10px 0px;
+        }
 
-            /* 半透明玻璃背景 */
-            background: rgba(255, 255, 255, 0.08);
+        .PlayBarCard .MusicCrad:hover .CD_icon {
+            padding: 0px 25px;
+        }
 
-            /* glass 的邊框風格 */
-            border: 2px solid transparent;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-
-            /* 其他樣式如需保留再補上 */
+        .PlayBarCard_toll {
+            display: inline-flex;
+            height: 35px;
+            width: auto;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 170px auto 0px auto;
+            padding: 0px 10px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+            border-radius: var(--Button-radius);
+            background-color: var(--White);
+            box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(20px);
+        }
+        .PlayBarCard_toll p:hover {
+            color: var(--Color-01);
+            cursor: pointer;
         }
     </style>
 </head>
@@ -1098,6 +1129,20 @@
         </div>
         <div class="PlayBarCard">
             <span></span>
+            <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                <div class="MusicCrad_1">
+                    <div class="MusicCrad_2"></div>
+                    <div class="CD_icon">
+                        <div class="CD3"></div>
+                        <div class="CD"></div>
+                        <div class="CD1"></div>
+                    </div>
+                </div>
+            </button>
+            <div class="PlayBarCard_toll">
+                <p>歌詞</p>
+                <p>相關音樂</p>
+            </div>
         </div>
     </div>
 </body>
