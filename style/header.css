@@ -95,10 +95,11 @@
     align-items: flex-start;
     flex-shrink: 0;
     align-self: center;
-    background: var(--white-50);
+    background: var(--White);
     border-radius: var(--MusicCard-radius);
     box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(7.5px);
+    gap: 15px;
 }
 
 #search_setring {
@@ -112,6 +113,13 @@
     background-image: url(../assets/icon/setring.svg);
     background-size: 100%;
     object-fit: cover;
+}
+
+#PopularKeywords {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
 }
 
 /* 登入按鈕 */
@@ -178,6 +186,14 @@
     align-self: stretch;
 }
 
+#SearchHistoryBox {
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    flex-direction: column;
+    gap: 10px;
+}
+
 /* 歷史紀錄按鈕 */
 .SearchHistory_button {
     display: flex;
@@ -186,10 +202,6 @@
     gap: 5px;
     align-self: stretch;
     border-radius: 10px;
-
-    /* Button */
-    box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(20px);
 }
 
 .SearchHistory_button:hover {

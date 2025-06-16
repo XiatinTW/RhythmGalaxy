@@ -125,3 +125,17 @@
 .main1_2_text a:visited {
     color: var(--Color-04);
 }
+
+.Recommended {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.LatestReleases {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+}

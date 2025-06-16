@@ -10,6 +10,7 @@
         @import url(./style.css);
         @import url(./style/header.css);
         @import url(./style/main.css);
+        @import url(./style/footer.css);
         @import url(./style/object.css);
 
         body,
@@ -175,152 +176,208 @@
             justify-content: flex-start;
         }
 
-        /* main1_2 */
-        .main1_2 {
-            display: flex;
+        #AudioPlayer {
+            position: fixed;
+            bottom: 0;
             width: 100%;
-            justify-content: center;
+            background: var(--PlayStyle);
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            font-family: sans-serif;
+        }
+
+        .playerContent {
+            display: flex;
+            padding: 5px 15px;
             align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
+            gap: 11px;
+            flex: 1 0 0;
+            align-self: stretch;
         }
 
-        .main1_2 img {
-            width: 100%;
-            max-width: 550px;
-            height: auto;
-        }
-
-        .main1_2_text {
+        .songInfo {
             display: flex;
-            min-width: 350px;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .main1_2_text a {
-            display: flex;
-            padding: 10px;
+            flex-direction: row;
             justify-content: center;
-            align-items: center;
-            border-radius: var(--Button-radius);
-            background: var(--white-50);
-            box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(20px);
-        }
-
-        .main1_2_text a:hover {
-            background: var(--Color-08);
-            box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
-        }
-
-        .main1_2_text a:visited {
-            color: var(--Color-04);
-        }
-
-        .Recommended {
-            display: flex;
-            width: 100%;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .LatestReleases {
-            display: flex;
-            width: 100%;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        footer {
-            display: flex;
-            padding: 50px var(--Layout-x-padding) 90px var(--Layout-x-padding);
-            align-items: flex-start;
-            gap: 45px;
-            background: var(--Color-02);
-        }
-
-        .footer_body {
-            display: flex;
-            align-items: flex-start;
-            align-content: flex-start;
-            gap: 45px;
             flex: 1 0 0;
-            flex-wrap: wrap;
         }
 
-        .footer_text {
+        .songInfo .cover {
+            width: 50px;
+            height: 50px;
+            background-color: var(--Color-gray-300);
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .songInfo .text {
             display: flex;
-            min-width: 150px;
             flex-direction: column;
             align-items: flex-start;
-            gap: 20px;
-            flex: 1 0 0;
-            color: var(--White);
-        }
-
-        .footer_text a {
-            color: var(--White);
-        }
-
-
-        .footer_text a:hover {
-            color: var(--Color-08);
-            text-decoration: underline;
-        }
-        .footer_text2 {
-            display: flex;
-            min-width: 150px;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 20px;
-            flex: 1 0 0;
-            color: var(--White);
-        }
-        .footer_button {
-            display: flex;
-            padding-right: 125px;
             justify-content: center;
+            gap: 3px;
+            flex: 1 0 0;
+            align-self: stretch;
+        }
+
+        .controls {
+            display: flex;
+            padding: 3px 5px;
+            justify-content: flex-end;
             align-items: center;
             gap: 10px;
             flex: 1 0 0;
+            align-self: stretch;
         }
 
-        #facebook {
-            width: 30px;
-            height: 30px;
-            background-color: var(--White);
-            mask-image: url('./assets/icon/Icon-facebook.svg');
+        .controls .Previous {
+            width: 20px;
+            height: 20px;
+            background-color: var(--Color-gray-300);
+            mask-image: url('./assets/icon/Icon-Previous.svg');
             mask-size: contain;
             mask-repeat: no-repeat;
             mask-position: center;
+            border: transparent;
         }
 
-        #instagram {
+        .controls .Play {
             width: 30px;
             height: 30px;
-            background-color: var(--White);
-            mask-image: url('./assets/icon/Icon-instagram.svg');
+            background-color: var(--Color-gray-500);
+            mask-image: url('./assets/icon/Icon-Pause.svg');
             mask-size: contain;
             mask-repeat: no-repeat;
             mask-position: center;
+            border: transparent;
         }
 
-        #youtube {
-            width: 30px;
-            height: 30px;
-            background-color: var(--White);
-            mask-image: url('./assets/icon/Icon-youtube.svg');
+        .controls .Next {
+            width: 20px;
+            height: 20px;
+            background-color: var(--Color-gray-300);
+            mask-image: url('./assets/icon/Icon-Next.svg');
             mask-size: contain;
             mask-repeat: no-repeat;
             mask-position: center;
+            border: transparent;
         }
-        .footer_text3 {
-            color: var(--White);
+
+        .controls .Previous:hover,
+        .Play:hover,
+        .Next:hover {
+            background-color: var(--Color-01);
+            cursor: pointer;
         }
-        .footer_text3 p {
-            color: var(--White);
+
+        .controls .lyrics {
+            display: flex;
+            padding: 0px 10px;
+            align-items: center;
+            gap: 10px;
+            flex: 1 0 0;
+            align-self: stretch;
+            color: var(--Color-gray-500);
+        }
+
+        .Playtool {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .Playtool .Volume {
+            width: 30px;
+            height: 30px;
+            background-color: var(--Color-01);
+            mask-image: url('./assets/icon/Icon-Volume_normal.svg');
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            border: transparent;
+        }
+
+        .Playtool .Loop {
+            width: 25px;
+            height: 25px;
+            background-color: var(--Color-gray-300);
+            mask-image: url('./assets/icon/Icon-Loop.svg');
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            border: transparent;
+        }
+
+        .Playtool .Shuffle {
+            width: 25px;
+            height: 25px;
+            background-color: var(--Color-gray-300);
+            mask-image: url('./assets/icon/Icon-Shuffle.svg');
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            border: transparent;
+        }
+
+        .Playtool .Top {
+            width: 25px;
+            height: 25px;
+            background-color: var(--Color-gray-300);
+            mask-image: url('./assets/icon/Icon-Top.svg');
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            border: transparent;
+        }
+
+        .Playtool .Top:hover,
+        .Shuffle:hover,
+        .Loop:hover {
+            background-color: var(--Color-01);
+            cursor: pointer;
+        }
+
+        .PlayBarCard {
+            position: absolute;
+            top: -400px;
+            right: 0;
+            width: 250px;
+            height: 360px;
+            padding: 20px;
+            z-index: 999;
+            border-radius: var(--MusicCrad-radius, 20px);
+        }
+
+        .PlayBarCard span {
+            position: absolute;
+            width: 290px;
+            height: 400px;
+            top: 0px;
+            left: 0px;
+            border-radius: var(--MusicCrad-radius, 20px);
+
+            /* 原始 inset 內陰影 */
+            box-shadow:
+                0px 6px 6px 0px rgba(255, 255, 255, 0.30) inset,
+                0px 6px 6px 0px rgba(255, 255, 255, 0.44) inset,
+
+                /* 加上 glass 效果的外層光暈 */
+                0 0 0 2px rgba(255, 255, 255, 0.6),
+                0 16px 32px rgba(0, 0, 0, 0.12);
+
+            /* 背景霧化效果 */
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+            /* 半透明玻璃背景 */
+            background: rgba(255, 255, 255, 0.08);
+
+            /* glass 的邊框風格 */
+            border: 2px solid transparent;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+
+            /* 其他樣式如需保留再補上 */
         }
     </style>
 </head>
@@ -342,7 +399,7 @@
                             <button class="SearchKeywords">🔥I am a keyword</button>
                         </div>
                     </div>
-                    <div>
+                    <div id="SearchHistoryBox">
                         <div id="SearchHistory">
                             <h5>Search History</h5>
                             <button class="ClearButton">Clear</button>
@@ -1014,6 +1071,35 @@
             </div>
         </div>
     </footer>
+    <div id="AudioPlayer">
+        <div class="progressBar">
+            <div class="progress"></div>
+        </div>
+        <div class="playerContent">
+            <div class="songInfo">
+                <div class="cover"></div>
+                <div class="text">
+                    <p class="title">music</p>
+                    <p class="artist">singer</p>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="Previous"></button>
+                <button class="Play"></button>
+                <button class="Next"></button>
+                <p class="lyrics">Lyrics</p>
+            </div>
+            <div class="Playtool">
+                <button class="Volume"></button>
+                <button class="Loop"></button>
+                <button class="Shuffle"></button>
+                <button class="Top"></button>
+            </div>
+        </div>
+        <div class="PlayBarCard">
+            <span></span>
+        </div>
+    </div>
 </body>
 
 </html>
