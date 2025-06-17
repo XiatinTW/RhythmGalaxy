@@ -1,0 +1,339 @@
+#AudioPlayer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: var(--PlayStyle);
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    font-family: sans-serif;
+}
+
+.playerContent {
+    display: flex;
+    padding: 5px 15px;
+    align-items: center;
+    gap: 11px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+.songInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex: 1 0 0;
+}
+
+.songInfo .cover {
+    width: 50px;
+    height: 50px;
+    background-color: var(--Color-gray-300);
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.songInfo .text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+.controls {
+    display: flex;
+    padding: 3px 5px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+.controls .Previous {
+    width: 20px;
+    height: 20px;
+    background-color: var(--Color-gray-300);
+    mask-image: url('../assets/icon/Icon-Previous.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    border: transparent;
+}
+
+.controls .Play {
+    width: 30px;
+    height: 30px;
+    background-color: var(--Color-gray-500);
+    mask-image: url('../assets/icon/Icon-Pause.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    border: transparent;
+}
+
+.controls .Next {
+    width: 20px;
+    height: 20px;
+    background-color: var(--Color-gray-300);
+    mask-image: url('../assets/icon/Icon-Next.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    border: transparent;
+}
+
+.controls .Previous:hover,
+.Play:hover,
+.Next:hover {
+    background-color: var(--Color-01);
+    cursor: pointer;
+}
+
+.controls .lyrics {
+    display: flex;
+    padding: 0px 10px;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+    color: var(--Color-gray-500);
+}
+
+.Playtool {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.Playtool .Volume {
+    width: 30px;
+    height: 30px;
+    background-color: var(--Color-01);
+    mask-image: url('../assets/icon/Icon-Volume_normal.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    border: transparent;
+}
+
+.Playtool .Loop {
+    width: 25px;
+    height: 25px;
+    background-color: var(--Color-gray-300);
+    mask-image: url('../assets/icon/Icon-Loop.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    border: transparent;
+}
+
+.Playtool .Shuffle {
+    width: 25px;
+    height: 25px;
+    background-color: var(--Color-gray-300);
+    mask-image: url('../assets/icon/Icon-Shuffle.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    border: transparent;
+}
+
+.Playtool .Top {
+    width: 25px;
+    height: 25px;
+    background-color: var(--Color-gray-300);
+    mask-image: url('../assets/icon/Icon-Top.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    border: transparent;
+}
+
+.Playtool .Down {
+    width: 25px;
+    height: 25px;
+    background-color: var(--Color-gray-300);
+    mask-image: url('../assets/icon/Icon-Down.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    border: transparent;
+}
+
+.Playtool .Top:hover,
+.Shuffle:hover,
+.Loop:hover {
+    background-color: var(--Color-01);
+    cursor: pointer;
+}
+
+.PlayBarCard_body {
+    display: flex;
+    width: 290px;
+    height: 500px;
+    margin: -20px 0px 0px -20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border-radius: var(--MusicCrad-radius, 20px);
+    background-color: var(--white-50);
+    box-shadow: 0px 6px 6px 0px rgba(255, 255, 255, 0.30) inset, 0px 6px 6px 0px rgba(255, 255, 255, 0.44) inset;
+    filter: drop-shadow(0px 4px 30px rgba(0, 0, 0, 0.15));
+    backdrop-filter: blur(2.5px);
+}
+
+.PlayBarCard {
+    position: absolute;
+    top: -500px;
+    right: 0;
+    width: 250px;
+    height: 400px;
+    padding: 20px;
+    z-index: 999;
+    border-radius: var(--MusicCrad-radius, 20px);
+    display: none;
+}
+
+.PlayBarCard .MusicCrad {
+    width: 150px;
+    height: 150px;
+    min-width: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+}
+
+.PlayBarCard .MusicCrad_2 {
+    position: absolute;
+    top: 25px;
+    width: 80px;
+    height: 80px;
+    left: 0PX;
+}
+
+.PlayBarCard .CD_icon {
+    width: 70px;
+    height: 70px;
+    margin: 30px 0px;
+}
+
+.PlayBarCard .MusicCrad:hover .CD_icon {
+    padding: 0px 25px;
+}
+
+.PlayBarCard_toll {
+    display: flex;
+    height: 35px;
+    width: auto;
+    padding: 0px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: var(--Button-radius);
+    background-color: var(--White);
+    box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+}
+
+.PlayBarCard_toll p:hover {
+    color: var(--Color-01);
+    cursor: pointer;
+}
+
+.PlayBarCard_lyrics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 17px;
+    flex: 1 0 0;
+    align-self: stretch;
+    padding-bottom: 10px;
+    overflow-y: auto;
+}
+
+.PlayBarCard_lyrics h6 {
+    color: var(--Color-gray-500);
+}
+
+.PlayBarCard_lyrics::-webkit-scrollbar {
+    width: 5px;
+    background: transparent;
+}
+
+.PlayBarCard_lyrics:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+/* 進度條 */
+.progressBar {
+    height: 5px;
+    background-color: var(--white-50);
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    width: 20%;
+    /* 動態控制進度 */
+    background-color: var(--Color-01);
+}
+
+.VolumeBar {
+    position: relative;
+    width: 80px;
+    height: 15px;
+}
+
+.VolumeBar_bg {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #ccc;
+    /* 灰色底線 */
+    border-radius: 2px;
+    z-index: 0;
+}
+
+.VolumeBar_bu {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 20px;
+    background: var(--Color-01);
+    top: 0;
+    left: 0;
+    transform: translate(-50%, 0);
+    cursor: pointer;
+    z-index: 2;
+}
+
+.VolumeBar_li {
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    top: 6px;
+    left: 0;
+    height: 3px;
+    background: var(--Color-01);
+    z-index: 1;
+}

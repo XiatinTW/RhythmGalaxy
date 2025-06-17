@@ -12,6 +12,7 @@
         @import url(./style/main.css);
         @import url(./style/footer.css);
         @import url(./style/object.css);
+        @import url(./style/audioplayer.css);
 
         body,
         html {
@@ -174,241 +175,6 @@
             align-items: center;
             gap: 10px;
             justify-content: flex-start;
-        }
-
-        #AudioPlayer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background: var(--PlayStyle);
-            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-            font-family: sans-serif;
-        }
-
-        .playerContent {
-            display: flex;
-            padding: 5px 15px;
-            align-items: center;
-            gap: 11px;
-            flex: 1 0 0;
-            align-self: stretch;
-        }
-
-        .songInfo {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            flex: 1 0 0;
-        }
-
-        .songInfo .cover {
-            width: 50px;
-            height: 50px;
-            background-color: var(--Color-gray-300);
-            border-radius: 5px;
-            margin-right: 10px;
-        }
-
-        .songInfo .text {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            gap: 3px;
-            flex: 1 0 0;
-            align-self: stretch;
-        }
-
-        .controls {
-            display: flex;
-            padding: 3px 5px;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 10px;
-            flex: 1 0 0;
-            align-self: stretch;
-        }
-
-        .controls .Previous {
-            width: 20px;
-            height: 20px;
-            background-color: var(--Color-gray-300);
-            mask-image: url('./assets/icon/Icon-Previous.svg');
-            mask-size: contain;
-            mask-repeat: no-repeat;
-            mask-position: center;
-            border: transparent;
-        }
-
-        .controls .Play {
-            width: 30px;
-            height: 30px;
-            background-color: var(--Color-gray-500);
-            mask-image: url('./assets/icon/Icon-Pause.svg');
-            mask-size: contain;
-            mask-repeat: no-repeat;
-            mask-position: center;
-            border: transparent;
-        }
-
-        .controls .Next {
-            width: 20px;
-            height: 20px;
-            background-color: var(--Color-gray-300);
-            mask-image: url('./assets/icon/Icon-Next.svg');
-            mask-size: contain;
-            mask-repeat: no-repeat;
-            mask-position: center;
-            border: transparent;
-        }
-
-        .controls .Previous:hover,
-        .Play:hover,
-        .Next:hover {
-            background-color: var(--Color-01);
-            cursor: pointer;
-        }
-
-        .controls .lyrics {
-            display: flex;
-            padding: 0px 10px;
-            align-items: center;
-            gap: 10px;
-            flex: 1 0 0;
-            align-self: stretch;
-            color: var(--Color-gray-500);
-        }
-
-        .Playtool {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .Playtool .Volume {
-            width: 30px;
-            height: 30px;
-            background-color: var(--Color-01);
-            mask-image: url('./assets/icon/Icon-Volume_normal.svg');
-            mask-size: contain;
-            mask-repeat: no-repeat;
-            mask-position: center;
-            border: transparent;
-        }
-
-        .Playtool .Loop {
-            width: 25px;
-            height: 25px;
-            background-color: var(--Color-gray-300);
-            mask-image: url('./assets/icon/Icon-Loop.svg');
-            mask-size: contain;
-            mask-repeat: no-repeat;
-            mask-position: center;
-            border: transparent;
-        }
-
-        .Playtool .Shuffle {
-            width: 25px;
-            height: 25px;
-            background-color: var(--Color-gray-300);
-            mask-image: url('./assets/icon/Icon-Shuffle.svg');
-            mask-size: contain;
-            mask-repeat: no-repeat;
-            mask-position: center;
-            border: transparent;
-        }
-
-        .Playtool .Top {
-            width: 25px;
-            height: 25px;
-            background-color: var(--Color-gray-300);
-            mask-image: url('./assets/icon/Icon-Top.svg');
-            mask-size: contain;
-            mask-repeat: no-repeat;
-            mask-position: center;
-            border: transparent;
-        }
-
-        .Playtool .Top:hover,
-        .Shuffle:hover,
-        .Loop:hover {
-            background-color: var(--Color-01);
-            cursor: pointer;
-        }
-
-        .PlayBarCard {
-            position: absolute;
-            top: -500px;
-            right: 0;
-            width: 250px;
-            height: 400px;
-            padding: 20px;
-            z-index: 999;
-            border-radius: var(--MusicCrad-radius, 20px);
-        }
-
-        .PlayBarCard span {
-            position: absolute;
-            width: 290px;
-            height: 500px;
-            top: 0px;
-            left: 0px;
-            border-radius: var(--MusicCrad-radius, 20px);
-            background-color: var(--white-50);
-            box-shadow: 0px 6px 6px 0px rgba(255, 255, 255, 0.30) inset, 0px 6px 6px 0px rgba(255, 255, 255, 0.44) inset;
-            filter: drop-shadow(0px 4px 30px rgba(0, 0, 0, 0.15));
-            backdrop-filter: blur(2.5px);
-        }
-
-        .PlayBarCard .MusicCrad {
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            left: 50%;
-            transform: translate(-50%);
-            min-width: unset;
-        }
-
-        .PlayBarCard .MusicCrad_2 {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            left: 0PX;
-        }
-
-        .PlayBarCard .CD_icon {
-            width: 70px;
-            height: 70px;
-            margin: 10px 0px;
-        }
-
-        .PlayBarCard .MusicCrad:hover .CD_icon {
-            padding: 0px 25px;
-        }
-
-        .PlayBarCard_toll {
-            display: inline-flex;
-            height: 35px;
-            width: auto;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            margin: 170px auto 0px auto;
-            padding: 0px 10px;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            flex-shrink: 0;
-            border-radius: var(--Button-radius);
-            background-color: var(--White);
-            box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(20px);
-        }
-        .PlayBarCard_toll p:hover {
-            color: var(--Color-01);
-            cursor: pointer;
         }
     </style>
 </head>
@@ -1120,6 +886,11 @@
                 <button class="Next"></button>
                 <p class="lyrics">Lyrics</p>
             </div>
+            <div class="VolumeBar">
+                <span class="VolumeBar_bg"></span>
+                <span class="VolumeBar_bu"></span>
+                <span class="VolumeBar_li"></span>
+            </div>
             <div class="Playtool">
                 <button class="Volume"></button>
                 <button class="Loop"></button>
@@ -1128,20 +899,67 @@
             </div>
         </div>
         <div class="PlayBarCard">
-            <span></span>
-            <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                <div class="MusicCrad_1">
-                    <div class="MusicCrad_2"></div>
-                    <div class="CD_icon">
-                        <div class="CD3"></div>
-                        <div class="CD"></div>
-                        <div class="CD1"></div>
+            <div class="PlayBarCard_body">
+                <span></span>
+                <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                    <div class="MusicCrad_1">
+                        <div class="MusicCrad_2"></div>
+                        <div class="CD_icon">
+                            <div class="CD3"></div>
+                            <div class="CD"></div>
+                            <div class="CD1"></div>
+                        </div>
+                    </div>
+                </button>
+                <div class="PlayBarCard_toll">
+                    <p class="tab-btn" data-target="lyrics">歌詞</p>
+                    <p class="tab-btn" data-target="related">相關音樂</p>
+                </div>
+                <div id="lyrics" class="tab-content show">
+                    <div class="PlayBarCard_lyrics">
+                        <h6>歌詞第一段</h6>
+                        <h6 style="color: var(--Color-04);">歌詞第二段</h6>
+                        <h6>歌詞第三段</h6>
+                        <h6>歌詞第四段</h6>
+                        <h6>歌詞第五段</h6>
+                        <h6>歌詞第六段</h6>
+                        <h6>歌詞第七段</h6>
                     </div>
                 </div>
-            </button>
-            <div class="PlayBarCard_toll">
-                <p>歌詞</p>
-                <p>相關音樂</p>
+                <div id="related" class="PlayBarCard_lyrics tab-content hide">
+                    <div class="Music_List">
+                        <div class="Music_item_img"></div>
+                        <div class="Music_item_text">
+                            <h6>music</h6>
+                            <p>singer</p>
+                        </div>
+                        <p class="Music_item_playtime">03:30</p>
+                    </div>
+                    <div class="Music_List">
+                        <div class="Music_item_img"></div>
+                        <div class="Music_item_text">
+                            <h6>music</h6>
+                            <p>singer</p>
+                        </div>
+                        <p class="Music_item_playtime">03:30</p>
+                    </div>
+                    <div class="Music_List">
+                        <div class="Music_item_img"></div>
+                        <div class="Music_item_text">
+                            <h6>music</h6>
+                            <p>singer</p>
+                        </div>
+                        <p class="Music_item_playtime">03:30</p>
+                    </div>
+                    <div class="Music_List">
+                        <div class="Music_item_img"></div>
+                        <div class="Music_item_text">
+                            <h6>music</h6>
+                            <p>singer</p>
+                        </div>
+                        <p class="Music_item_playtime">03:30</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

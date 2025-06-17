@@ -147,7 +147,6 @@
 
 .Music_item_text {
     display: flex;
-    min-width: 150px;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
