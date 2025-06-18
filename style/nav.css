@@ -1,0 +1,163 @@
+#Nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 240px;
+    max-width: 400px;
+    padding: 80px 0px 30px 2px;
+    background: var(--white-50);
+    backdrop-filter: blur(20px);
+    z-index: 1;
+    flex-shrink: 0;
+}
+
+/* NAV按鈕 */
+.LeftButton {
+    display: inline-flex;
+    padding: 10px 30px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+
+.LeftButton_H {
+    border-right: 5px solid var(--Color-03);
+    backdrop-filter: blur(20px);
+}
+
+.LeftButton_H>span {
+    background-color: var(--Color-03) !important;
+}
+
+.LeftButton_H>p {
+    color: var(--Color-03);
+}
+
+.LeftButton:hover {
+    border-right: 5px solid var(--Color-03);
+    background: var(--Button02, linear-gradient(269deg, rgba(255, 255, 255, 0.00) 0.67%, rgba(255, 255, 255, 0.60) 99.44%));
+    /* Button */
+    box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+}
+
+.LeftButton:hover>span {
+    background-color: var(--Color-03);
+}
+
+.LeftButton:hover>p {
+    color: var(--Color-03);
+}
+
+/* icon NAV套用 */
+.Explore>span {
+    width: 35px;
+    height: 35px;
+    background-color: var(--Color-gray-300);
+    mask-image: url('../assets/icon/Icon-explore.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+.Genres>span {
+    width: 35px;
+    height: 35px;
+    background-color: var(--Color-gray-300);
+    mask-image: url('../assets/icon/Icon-Genres.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+.Activity>span {
+    width: 35px;
+    height: 35px;
+    background-color: var(--Color-gray-300);
+    mask-image: url('../assets/icon/Icon-Activity.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+.Radio>span {
+    width: 35px;
+    height: 35px;
+    background-color: var(--Color-gray-300);
+    mask-image: url('../assets/icon/Icon-Radio.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+.Podcast>span {
+    width: 30px;
+    height: 30px;
+    background-color: var(--Color-gray-300);
+    mask-image: url('../assets/icon/Icon-Podcast.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+.Recent>span {
+    width: 30px;
+    height: 30px;
+    background-color: var(--Color-gray-300);
+    mask-image: url('../assets/icon/Icon-Recent.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+.Favorites>span {
+    width: 30px;
+    height: 30px;
+    background-color: var(--Color-gray-300);
+    mask-image: url('../assets/icon/Icon-like.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+.Offline>span {
+    width: 30px;
+    height: 30px;
+    background-color: var(--Color-gray-300);
+    mask-image: url('../assets/icon/Icon-Offline.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+.Create>span {
+    width: 30px;
+    height: 30px;
+    background-color: var(--Color-gray-300);
+    mask-image: url('../assets/icon/Icon-share.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+.Album>span {
+    width: 30px;
+    height: 30px;
+    background-color: var(--Color-gray-300);
+    mask-image: url('../assets/icon/Icon-Album.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+/* NAV 標題 */
+.Nav_Menu {
+    display: flex;
+    padding: 20px 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
+}

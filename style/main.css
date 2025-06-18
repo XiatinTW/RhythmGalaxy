@@ -126,14 +126,7 @@
     color: var(--Color-04);
 }
 
-.Recommended {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.LatestReleases {
+.AlbumMusic {
     display: flex;
     width: 100%;
     flex-direction: column;

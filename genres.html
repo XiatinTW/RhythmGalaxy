@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rhythm Galaxy</title>
+    <title>Document</title>
     <script src="script.js" defer></script>
+
     <style>
         @import url(./style.css);
         @import url(./style/header.css);
@@ -14,6 +15,7 @@
         @import url(./style/object.css);
         @import url(./style/audioplayer.css);
         @import url(./style/nav.css);
+        @import url(./style/genres.css);
 
         body,
         html {
@@ -29,7 +31,6 @@
 </head>
 
 <body>
-    <!-- 花了兩天 -->
     <header id="header">
         <div id="Logo">
             <img id="Logo_img" src="./assets/img/Logo.png" alt="Logo">
@@ -68,11 +69,11 @@
             <div id="LeftList_menu">
             </div>
             <h6 class="Nav_Menu ">Menu</h6>
-            <a href="#" class="LeftButton Explore LeftButton_H">
+            <a href="#" class="LeftButton Explore">
                 <span></span>
                 <p>Explore</p>
             </a>
-            <a href="#" class="LeftButton Genres">
+            <a href="#" class="LeftButton Genres LeftButton_H">
                 <span></span>
                 <p>Genres</p>
             </a>
@@ -119,333 +120,9 @@
                 <p>K-pop music</p>
             </a>
         </nav>
-        <main id="main1">
-            <div id="main1_1">
-                <h2 style="min-width: 350px;">Trending Hits</h2>
-                <div class="MusicCradList">
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                </div>
-                <div id="MusicCharts">
-                    <h2 style="min-width: 320px;">Music Charts</h2>
-                    <a href="#" class="view-all h6">View all</a>
-                </div>
-                <div id="MusicCharts_playmusic">
-                    <div id="Music_Charts_List">
-                        <div class="Music_List">
-                            <div class="Music_item_img"></div>
-                            <div class="Music_item_text">
-                                <h6>music</h6>
-                                <p>singer</p>
-                            </div>
-                            <p class="Music_item_playtime">03:30</p>
-                            <div class="Music_item2">
-                                <button class="Music_item_like">
-                                    <div class="icon_like"></div>
-                                    <p class="Music_item_like_text">0</p>
-                                </button>
-                                <button class="Music_item_share">
-                                    <div class="icon_share"></div>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="Music_List">
-                            <div class="Music_item_img"></div>
-                            <div class="Music_item_text">
-                                <h6>music</h6>
-                                <p>singer</p>
-                            </div>
-                            <p class="Music_item_playtime">03:30</p>
-                            <div class="Music_item2">
-                                <button class="Music_item_like">
-                                    <div class="icon_like"></div>
-                                    <p class="Music_item_like_text">0</p>
-                                </button>
-                                <button class="Music_item_share">
-                                    <div class="icon_share"></div>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="Music_List">
-                            <div class="Music_item_img"></div>
-                            <div class="Music_item_text">
-                                <h6>music</h6>
-                                <p>singer</p>
-                            </div>
-                            <p class="Music_item_playtime">03:30</p>
-                            <div class="Music_item2">
-                                <button class="Music_item_like">
-                                    <div class="icon_like"></div>
-                                    <p class="Music_item_like_text">0</p>
-                                </button>
-                                <button class="Music_item_share">
-                                    <div class="icon_share"></div>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="Music_List">
-                            <div class="Music_item_img"></div>
-                            <div class="Music_item_text">
-                                <h6>music</h6>
-                                <p>singer</p>
-                            </div>
-                            <p class="Music_item_playtime">03:30</p>
-                            <div class="Music_item2">
-                                <button class="Music_item_like">
-                                    <div class="icon_like"></div>
-                                    <p class="Music_item_like_text">0</p>
-                                </button>
-                                <button class="Music_item_share">
-                                    <div class="icon_share"></div>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="Music_List">
-                            <div class="Music_item_img"></div>
-                            <div class="Music_item_text">
-                                <h6>music</h6>
-                                <p>singer</p>
-                            </div>
-                            <p class="Music_item_playtime">03:30</p>
-                            <div class="Music_item2">
-                                <button class="Music_item_like">
-                                    <div class="icon_like"></div>
-                                    <p class="Music_item_like_text">0</p>
-                                </button>
-                                <button class="Music_item_share">
-                                    <div class="icon_share"></div>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="Music_List">
-                            <div class="Music_item_img"></div>
-                            <div class="Music_item_text">
-                                <h6>music</h6>
-                                <p>singer</p>
-                            </div>
-                            <p class="Music_item_playtime">03:30</p>
-                            <div class="Music_item2">
-                                <button class="Music_item_like">
-                                    <div class="icon_like"></div>
-                                    <p class="Music_item_like_text">0</p>
-                                </button>
-                                <button class="Music_item_share">
-                                    <div class="icon_share"></div>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="Music_List">
-                            <div class="Music_item_img"></div>
-                            <div class="Music_item_text">
-                                <h6>music</h6>
-                                <p>singer</p>
-                            </div>
-                            <p class="Music_item_playtime">03:30</p>
-                            <div class="Music_item2">
-                                <button class="Music_item_like">
-                                    <div class="icon_like"></div>
-                                    <p class="Music_item_like_text">0</p>
-                                </button>
-                                <button class="Music_item_share">
-                                    <div class="icon_share"></div>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="Music_List">
-                            <div class="Music_item_img"></div>
-                            <div class="Music_item_text">
-                                <h6>music</h6>
-                                <p>singer</p>
-                            </div>
-                            <p class="Music_item_playtime">03:30</p>
-                            <div class="Music_item2">
-                                <button class="Music_item_like">
-                                    <div class="icon_like"></div>
-                                    <p class="Music_item_like_text">0</p>
-                                </button>
-                                <button class="Music_item_share">
-                                    <div class="icon_share"></div>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="Music_List">
-                            <div class="Music_item_img"></div>
-                            <div class="Music_item_text">
-                                <h6>music</h6>
-                                <p>singer</p>
-                            </div>
-                            <p class="Music_item_playtime">03:30</p>
-                            <div class="Music_item2">
-                                <button class="Music_item_like">
-                                    <div class="icon_like"></div>
-                                    <p class="Music_item_like_text">0</p>
-                                </button>
-                                <button class="Music_item_share">
-                                    <div class="icon_share"></div>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="Music_List">
-                            <div class="Music_item_img"></div>
-                            <div class="Music_item_text">
-                                <h6>music</h6>
-                                <p>singer</p>
-                            </div>
-                            <p class="Music_item_playtime">03:30</p>
-                            <div class="Music_item2">
-                                <button class="Music_item_like">
-                                    <div class="icon_like"></div>
-                                    <p class="Music_item_like_text">0</p>
-                                </button>
-                                <button class="Music_item_share">
-                                    <div class="icon_share"></div>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div ID="DailyMusic">
-                        <h6 class="title">Daily Music</h6>
-                        <button class="MusicCrad" data-bg="./assets/img/500x500.jpg" style="padding: 45px 20px;">
-                            <div class="MusicCrad_1">
-                                <div class="MusicCrad_2"></div>
-                                <div class="CD_icon">
-                                    <div class="CD3"></div>
-                                    <div class="CD"></div>
-                                    <div class="CD1"></div>
-                                </div>
-                            </div>
-                        </button>
-                        <div class="DailyMusic_title">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                        <hr>
-                        <div class="DailyMusic_text">
-                            <p>text</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="main1_2">
-                <img src="./assets/img/ArtistPhotos.jpg" alt="ArtistPhotos">
-                <div class="main1_2_text">
-                    <h1>挑選喜歡的藝人</h1>
-                    <h3>創造專屬自己的專輯。馬上來體驗吧!</h3>
-                    <a href="#">開始使用</a>
-                </div>
-            </div>
-            <div class="AlbumMusic Recommended">
-                <h2 style="min-width: 350px;">Hot Picks for You</h2>
+        <main id="main_genres">
+            <div id="PoPMusic" class="AlbumMusic">
+                <h2 style="min-width: 350px;">PoP Music</h2>
                 <div class="MusicCradList">
                     <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
                         <div class="MusicCrad_1">
@@ -561,8 +238,136 @@
                     </button>
                 </div>
             </div>
-            <div class="AlbumMusic LatestReleases">
-                <h2 style="min-width: 350px;"> Fresh Releases</h2>
+            <div class="genres_list">
+                <a href="#PoPMusic" class="genres_bt p">POP</a>
+                <a href="#HipHopMusic" class="genres_bt p">Hip-Hop</a>
+                <a href="#JazzMusic" class="genres_bt p">Jazz</a>
+                <a href="#" class="genres_bt p">K-Pop</a>
+                <a href="#" class="genres_bt p">EDM</a>
+                <a href="#" class="genres_bt p">Decades</a>
+                <a href="#" class="genres_bt p">R&B and Soul</a>
+                <a href="#" class="genres_bt p">Country Music</a>
+                <a href="#" class="genres_bt p">Dance Music</a>
+            </div>
+            <div id="HipHopMusic" class="AlbumMusic">
+                <h2 style="min-width: 350px;">Hip-Hop Music</h2>
+                <div class="MusicCradList">
+                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                        <div class="MusicCrad_1">
+                            <div class="MusicCrad_2"></div>
+                            <div class="CD_icon">
+                                <div class="CD3"></div>
+                                <div class="CD"></div>
+                                <div class="CD1"></div>
+                            </div>
+                        </div>
+                        <div class="MusicCrad_text">
+                            <h5>Music</h5>
+                            <p>singer</p>
+                        </div>
+                    </button>
+                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                        <div class="MusicCrad_1">
+                            <div class="MusicCrad_2"></div>
+                            <div class="CD_icon">
+                                <div class="CD3"></div>
+                                <div class="CD"></div>
+                                <div class="CD1"></div>
+                            </div>
+                        </div>
+                        <div class="MusicCrad_text">
+                            <h5>Music</h5>
+                            <p>singer</p>
+                        </div>
+                    </button>
+                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                        <div class="MusicCrad_1">
+                            <div class="MusicCrad_2"></div>
+                            <div class="CD_icon">
+                                <div class="CD3"></div>
+                                <div class="CD"></div>
+                                <div class="CD1"></div>
+                            </div>
+                        </div>
+                        <div class="MusicCrad_text">
+                            <h5>Music</h5>
+                            <p>singer</p>
+                        </div>
+                    </button>
+                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                        <div class="MusicCrad_1">
+                            <div class="MusicCrad_2"></div>
+                            <div class="CD_icon">
+                                <div class="CD3"></div>
+                                <div class="CD"></div>
+                                <div class="CD1"></div>
+                            </div>
+                        </div>
+                        <div class="MusicCrad_text">
+                            <h5>Music</h5>
+                            <p>singer</p>
+                        </div>
+                    </button>
+                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                        <div class="MusicCrad_1">
+                            <div class="MusicCrad_2"></div>
+                            <div class="CD_icon">
+                                <div class="CD3"></div>
+                                <div class="CD"></div>
+                                <div class="CD1"></div>
+                            </div>
+                        </div>
+                        <div class="MusicCrad_text">
+                            <h5>Music</h5>
+                            <p>singer</p>
+                        </div>
+                    </button>
+                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                        <div class="MusicCrad_1">
+                            <div class="MusicCrad_2"></div>
+                            <div class="CD_icon">
+                                <div class="CD3"></div>
+                                <div class="CD"></div>
+                                <div class="CD1"></div>
+                            </div>
+                        </div>
+                        <div class="MusicCrad_text">
+                            <h5>Music</h5>
+                            <p>singer</p>
+                        </div>
+                    </button>
+                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                        <div class="MusicCrad_1">
+                            <div class="MusicCrad_2"></div>
+                            <div class="CD_icon">
+                                <div class="CD3"></div>
+                                <div class="CD"></div>
+                                <div class="CD1"></div>
+                            </div>
+                        </div>
+                        <div class="MusicCrad_text">
+                            <h5>Music</h5>
+                            <p>singer</p>
+                        </div>
+                    </button>
+                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                        <div class="MusicCrad_1">
+                            <div class="MusicCrad_2"></div>
+                            <div class="CD_icon">
+                                <div class="CD3"></div>
+                                <div class="CD"></div>
+                                <div class="CD1"></div>
+                            </div>
+                        </div>
+                        <div class="MusicCrad_text">
+                            <h5>Music</h5>
+                            <p>singer</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div id="JazzMusic" class="AlbumMusic">
+                <h2 style="min-width: 350px;">Jazz Music</h2>
                 <div class="MusicCradList">
                     <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
                         <div class="MusicCrad_1">
@@ -813,4 +618,5 @@
         </div>
     </div>
 </body>
+
 </html>
