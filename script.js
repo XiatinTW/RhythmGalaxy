@@ -1,19 +1,18 @@
 const input = document.getElementById("search_Input");
 const searchBox = document.getElementById("SearchBox");
-
-input.addEventListener("focus", () => {
-  searchBox.style.display = "block";
-});
-
-document.addEventListener("click", (event) => {
-  // 點擊的不是輸入框或 searchBox，也不是它們的子元素
-  if (
-    !input.contains(event.target) &&
-    !searchBox.contains(event.target)
-  ) {
-    searchBox.style.display = "none";
-  }
-});
+if (input && searchBox) {
+  input.addEventListener("focus", () => {
+    searchBox.style.display = "block";
+  });
+  document.addEventListener("click", (event) => {
+    if (
+      !input.contains(event.target) &&
+      !searchBox.contains(event.target)
+    ) {
+      searchBox.style.display = "none";
+    }
+  });
+}
 
 // musicCrad 圖片
 document.querySelectorAll('.MusicCrad').forEach(parent => {
@@ -116,12 +115,13 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 
 const topBtn = document.querySelector('.Top');
 const card = document.querySelector('.PlayBarCard');
-
-topBtn.addEventListener('click', () => {
-  const isShow = card.classList.toggle('show');
-  card.classList.toggle('hide', !isShow);
-  topBtn.classList.toggle('Down', isShow);
-});
+if (topBtn && card) {
+  topBtn.addEventListener('click', () => {
+    const isShow = card.classList.toggle('show');
+    card.classList.toggle('hide', !isShow);
+    topBtn.classList.toggle('Down', isShow);
+  });
+}
 
 // 音量調整功能
 
@@ -228,28 +228,13 @@ volumeBtn.addEventListener('click', () => {
     // 這裡可加 audio.volume = lastVolume;
   }
 });
-// 篩選按鈕
-const ActivitySearch_bt = document.getElementById("ActivitySearch_bt");
-const ActivitySearchBox = document.getElementById("ActivitySearchBox");
-
-input.addEventListener("focus", () => {
-  ActivitySearchBox.style.display = "flex";
-});
-
-document.addEventListener("click", (event) => {
-  if (
-    !input.contains(event.target) &&
-    !ActivitySearchBox.contains(event.target)
-  ) {
-    ActivitySearchBox.style.display = "none";
-  }
-});
-
 
 /* 簡單切換 class */
 const toggleBtn = document.getElementById('NAV_bt');
 const sidebar  = document.getElementById('Nav');
-
-toggleBtn.addEventListener('click', () => {
-  sidebar.classList.toggle('Nav_D');
-});
+if (toggleBtn && sidebar) {
+  toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('Nav_D');
+    console.log('clicked!');
+  });
+}
