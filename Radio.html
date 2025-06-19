@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rhythm Galaxy - activity</title>
+    <title>Rhythm Galaxy - radio</title>
     <script src="script.js" defer></script>
     <script src="script2.js" defer></script>
     <script src="playbar.js" defer></script>
+
     <style>
         @import url(./style.css);
         @import url(./style/nav.css);
@@ -16,7 +17,7 @@
         @import url(./style/footer.css);
         @import url(./style/object.css);
         @import url(./style/audioplayer.css);
-        @import url(./style/activity.css);
+        @import url(./style/radio.css);
 
         body,
         html {
@@ -27,16 +28,6 @@
 
         .layout {
             display: flex;
-        }
-
-        /* js */
-        .ActivityCardTab::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            background: var(--bg-img);
-            filter: blur(8px) brightness(0.8);
         }
     </style>
 </head>
@@ -89,11 +80,11 @@
                 <span></span>
                 <p>Genres</p>
             </a>
-            <a href="activity.html" class="LeftButton Activity LeftButton_H">
+            <a href="activity.html" class="LeftButton Activity">
                 <span></span>
                 <p>Activity</p>
             </a>
-            <a href="Radio.html" class="LeftButton Radio">
+            <a href="Radio.html" class="LeftButton Radio LeftButton_H">
                 <span></span>
                 <p>Radio</p>
             </a>
@@ -132,112 +123,135 @@
                 <p>K-pop music</p>
             </a>
         </nav>
-        <main id="main_activity">
-            <div class="ActivityCard">
-                <h2>Recent Activities</h2>
-                <div class="ActivityCard_list_wrapper">
-                    <div class="ActivityCard_list">
-                        <div class="ActivityCardTab">
-                            <img src="./assets/img/Activity/Activity_img01.jpg" alt="activity_img">
-                            <div class="ActivityCard_text1">
-                                <h2 class="ActivityCard_title">搖滾樂~</h2>
-                                <div class="ActivityCard_text2">
-                                    <p>2025.06.28 18:30 XXX地方</p>
-                                    <p>你的熱情，就是這場音樂祭最強的燃料，年輕，就是要大聲唱出來！熱血席次，限量搶購中！立即購票，點燃屬於你的搖滾人生！</p>
-                                    <p>#歌手 #台中 #XXX地方</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ActivityCardTab">
-                            <img src="./assets/img/Activity/Activity_img02.jpg" alt="activity_img">
-                            <div class="ActivityCard_text1">
-                                <h2 class="ActivityCard_title">搖滾樂~</h2>
-                                <div class="ActivityCard_text2">
-                                    <p>2025.06.28 18:30 XXX地方</p>
-                                    <p>你的熱情，就是這場音樂祭最強的燃料，年輕，就是要大聲唱出來！熱血席次，限量搶購中！立即購票，點燃屬於你的搖滾人生！</p>
-                                    <p>#歌手 #台中 #XXX地方</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <main id="main_radio">
+            <div class="Radio_title">
+                <h2>Favorite Radio</h2>
+            </div>
+            <div class="RadioCard">
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
+                </div>
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
+                </div>
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
+                </div>
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
+                </div>
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
+                </div>
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
+                </div>
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
+                </div>
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
                 </div>
             </div>
-            <div class="Activity_body">
-                <div class="activity_list_title">
-                    <h2>Activity List</h2>
-                    <div class="activity_list_tool">
-                        <input class="ActivitySearch" type="text">
-                        <button class="ActivitySearch_bt"><span></span></button>
-                        <div class="ActivitySearchBox">
-                            <div class="ActivitySearchBox_grid">
-                                <button style="grid-row: 1; grid-column: 1;">全部</button>
-                                <button style="grid-row: 2; grid-column: 1;">北部</button>
-                                <button style="grid-row: 3; grid-column: 1;">中部</button>
-                                <button style="grid-row: 4; grid-column: 1;">南部</button>
-                                <button style="grid-row: 5; grid-column: 1;">東部</button>
-                                <button style="grid-row: 1; grid-column: 2;">外島</button>
-                            </div>
-                            <select class="ActivitySearchselect">
-                                <option>14天內</option>
-                                <option>這個月</option>
-                                <option>近三個月</option>
-                                <option>選擇日期</option>
-                            </select>
-                        </div>
-                    </div>
+            <div class="Radio_title">
+                <h2>Radio List</h2>
+            </div>
+            <div class="Radio_list">
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
                 </div>
-                <!-- 活動表 -->
-                <div class="Activity_list">
-                    <div class="Activity_list_box">
-                        <div class="Activity_data">
-                            <h2>JUNE</h2>
-                            <h1>28</h1>
-                            <h4>Saturday</h4>
-                        </div>
-                        <div class="ActivityCardList">
-                            <div class="ActivityCardBox">
-                                <img src="./assets/img/Activity/Activity_img01.jpg" alt="activity">
-                                <div class="ActivityCardBox_text">
-                                    <h5>搖滾樂</h5>
-                                    <P>18:30 XXX地方</P>
-                                    <p>#歌手 #台中 #XXX地方</p>
-                                </div>
-                            </div>
-                            <div class="ActivityCardBox">
-                                <img src="./assets/img/Activity/Activity_img01.jpg" alt="activity">
-                                <div class="ActivityCardBox_text">
-                                    <h5>搖滾樂</h5>
-                                    <P>18:30 XXX地方</P>
-                                    <p>#歌手 #台中 #XXX地方</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="Activity_list_box">
-                        <div class="Activity_data">
-                            <h2>JULY</h2>
-                            <h1>19</h1>
-                            <h4>Saturday</h4>
-                        </div>
-                        <div class="ActivityCardList">
-                            <div class="ActivityCardBox">
-                                <img src="./assets/img/Activity/Activity_img02.jpg" alt="activity">
-                                <div class="ActivityCardBox_text">
-                                    <h5>搖滾樂</h5>
-                                    <P>18:30 XXX地方</P>
-                                    <p>#歌手 #台中 #XXX地方</p>
-                                </div>
-                            </div>
-                            <div class="ActivityCardBox">
-                                <img src="./assets/img/Activity/Activity_img02.jpg" alt="activity">
-                                <div class="ActivityCardBox_text">
-                                    <h5>搖滾樂</h5>
-                                    <P>18:30 XXX地方</P>
-                                    <p>#歌手 #台中 #XXX地方</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
+                </div>
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
+                </div>
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
+                </div>
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
+                </div>
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
+                </div>
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
+                </div>
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
+                </div>
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
+                </div>
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
+                </div>
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
+                </div>
+                <div class="RadioCard_body">
+                    <span class="RadioPlay"></span>
+                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
+                    <h3>Radio01</h3>
+                    <h3>92.9FM</h3>
                 </div>
             </div>
         </main>

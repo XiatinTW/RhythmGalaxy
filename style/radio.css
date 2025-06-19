@@ -1,0 +1,118 @@
+#main_radio {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 60px;
+    min-height: calc(100vh - 60px);
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.Radio_title {
+    display: flex;
+    width: 1440px;
+    padding: 50px var(--Layout-x-padding2);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 41px;
+}
+
+.RadioCard {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    height: 350px;
+    padding: 20px var(--Layout-x-padding);
+    align-items: flex-end;
+    gap: 25px;
+    flex-shrink: 0;
+}
+
+.RadioCard::-webkit-scrollbar {
+    height: 8px;
+    background: transparent;
+}
+
+.RadioCard:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.RadioCard_body {
+    display: flex;
+    width: 180px;
+    height: 250px;
+    min-width: 180px;
+    min-height: 250px;
+    padding: 15px 20px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 5px;
+    flex-shrink: 0;
+    border-radius: var(--MusicCrad-radius);
+    box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+    transition: all 0.5s;
+}
+
+.RadioCard_body:hover {
+    display: flex;
+    width: 190px;
+    height: 260px;
+    min-width: 180px;
+    min-height: 250px;
+    padding: 30px 20px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 5px;
+    flex-shrink: 0;
+    background-color: var(--white-50);
+    border-radius: var(--MusicCrad-radius);
+    box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 0.80) inset, 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+}
+
+.RadioCard_body:hover h3 {
+    color: var(--Color-01);
+}
+
+.RadioCard_body:hover span {
+    background-color: var(--Color-01);
+}
+
+.RadioPlay {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 30px;
+    align-self: flex-end;
+    background-color: var(--Color-gray-300);
+    mask-image: url('../assets/icon/Icon-Play.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    transition: all 0.5s;
+}
+
+.RadioCrad_img {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+    border-radius: var(--MusicCrad-radius);
+}
+
+.Radio_list {
+    display: flex;
+    width: auto;
+    padding: 50px 95px;
+    align-items: flex-end;
+    align-content: flex-end;
+    gap: 25px;
+    flex-wrap: wrap;
+}
