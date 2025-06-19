@@ -14,6 +14,7 @@ document.addEventListener("click", (event) => {
     searchBox.style.display = "none";
   }
 });
+
 // musicCrad 圖片
 document.querySelectorAll('.MusicCrad').forEach(parent => {
   const bg = parent.dataset.bg;
@@ -38,6 +39,37 @@ document.querySelectorAll('.MusicCrad').forEach(parent => {
 });
 // 水平滑動
 document.querySelectorAll('.MusicCradList').forEach(scrollContainer => {
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  scrollContainer.addEventListener('mousedown', (e) => {
+    isDown = true;
+    scrollContainer.classList.add('active');
+    startX = e.pageX - scrollContainer.offsetLeft;
+    scrollLeft = scrollContainer.scrollLeft;
+  });
+
+  scrollContainer.addEventListener('mouseleave', () => {
+    isDown = false;
+    scrollContainer.classList.remove('active');
+  });
+
+  scrollContainer.addEventListener('mouseup', () => {
+    isDown = false;
+    scrollContainer.classList.remove('active');
+  });
+
+  scrollContainer.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainer.offsetLeft;
+    const walk = (x - startX) * 1; // 拖曳速度
+    scrollContainer.scrollLeft = scrollLeft - walk;
+  });
+});
+// 水平滑動
+document.querySelectorAll('.ActivityCard_list_wrapper').forEach(scrollContainer => {
   let isDown = false;
   let startX;
   let scrollLeft;
@@ -194,5 +226,21 @@ volumeBtn.addEventListener('click', () => {
       volumeBtn.style.webkitMaskImage = "url('./assets/icon/Icon-Volume_normal.svg')";
     }
     // 這裡可加 audio.volume = lastVolume;
+  }
+});
+// 篩選按鈕
+const ActivitySearch_bt = document.getElementById("ActivitySearch_bt");
+const ActivitySearchBox = document.getElementById("ActivitySearchBox");
+
+input.addEventListener("focus", () => {
+  ActivitySearchBox.style.display = "flex";
+});
+
+document.addEventListener("click", (event) => {
+  if (
+    !input.contains(event.target) &&
+    !ActivitySearchBox.contains(event.target)
+  ) {
+    ActivitySearchBox.style.display = "none";
   }
 });

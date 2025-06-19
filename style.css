@@ -9,6 +9,9 @@ html {
     --Nav-x-padding: 20px;
     --PlayStyle: linear-gradient(90deg, #FFF 17%, rgba(255, 255, 255, 0.70) 30.77%);
     --Search-SearchBox-radius: 40px;
+    --RecentEventsCrad-radius: 20px;
+    --RecentEventsCrad-x-padding: 150px;
+    --RecentEventsCrad-ActivityList-x-padding: 45px;
     --White: white;
     --Color-01: #34268C;
     --Color-02: #1E1C59;
@@ -47,6 +50,15 @@ h2 {
 h3 {
     font-family: "Noto Sans TC";
     font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0px;
+}
+
+h4 {
+    font-family: "Noto Sans TC";
+    font-size: 36px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -93,6 +105,7 @@ p {
     margin: 0px;
     line-height: 100%;
 }
+
 .p {
     color: #000;
     /* P-Font-tw/en */
