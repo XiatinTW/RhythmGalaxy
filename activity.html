@@ -81,6 +81,7 @@
             filter: blur(8px) brightness(0.8);
         }
 
+        /* 圖片修正 */
         .ActivityCardTab>* {
             position: relative;
             z-index: 1;
@@ -112,7 +113,7 @@
             max-width: 544px;
             flex: 1 0 0;
             border-radius: 20px;
-            background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+            background: lightgray 50% / cover no-repeat;
         }
 
         .ActivityCard_text1 {
@@ -150,6 +151,7 @@
             padding-right: 150px;
             flex-direction: column;
             align-items: flex-start;
+            gap: 55px;
         }
 
         .activity_list_tool {
@@ -276,8 +278,16 @@
             backdrop-filter: blur(5px);
         }
 
+        .Activity_list {
+            display: flex;
+            width: 100%;
+            gap: 55px;
+            flex-direction: column;
+        }
+
         .Activity_list_box {
             display: flex;
+            width: 100%;
             padding: 51px var(--RecentEventsCrad-ActivityList-x-padding);
             align-items: flex-start;
             gap: 45px;
@@ -310,6 +320,7 @@
             gap: 20px;
             align-self: stretch;
             flex-wrap: wrap;
+            border-bottom: 1px solid var(--Color-07);
         }
 
         .ActivityCardBox img {
@@ -319,6 +330,40 @@
             flex: 1 0 0;
             border-radius: 15px;
             background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+        }
+
+        .ActivityCardBox_text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+            flex: 1 0 0;
+        }
+
+        .NAV_bt {
+            width: 30px;
+            height: 30px;
+            background-color: var(--Color-04);
+            mask-image: url('./assets/icon/Icon-Nav.svg');
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+        }
+
+        #LeftList_menu {
+            display: flex;
+            width: 100%;
+            justify-content: right;
+        }
+
+        #Nav.Nav_D {
+            min-width: unset;
+            width: 100px;
+            align-items: center;
+        }
+
+        #Nav.Nav_D a {
+            justify-content: center
         }
     </style>
 </head>
@@ -358,19 +403,20 @@
         </div>
     </header>
     <div class="layout">
-        <nav id="Nav">
+        <nav id="Nav" class="Nav_D">
             <div id="LeftList_menu">
+                <span id="NAV_bt" class="NAV_bt"></span>
             </div>
             <h6 class="Nav_Menu ">Menu</h6>
             <a href="#" class="LeftButton Explore">
                 <span></span>
                 <p>Explore</p>
             </a>
-            <a href="#" class="LeftButton Genres LeftButton_H">
+            <a href="#" class="LeftButton Genres">
                 <span></span>
                 <p>Genres</p>
             </a>
-            <a href="#" class="LeftButton Activity">
+            <a href="#" class="LeftButton Activity LeftButton_H">
                 <span></span>
                 <p>Activity</p>
             </a>
@@ -430,7 +476,7 @@
                             </div>
                         </div>
                         <div class="ActivityCardTab">
-                            <img src="./assets/img/Activity/Activity_img01.jpg" alt="activity_img">
+                            <img src="./assets/img/Activity/Activity_img02.jpg" alt="activity_img">
                             <div class="ActivityCard_text1">
                                 <h2 class="ActivityCard_title">搖滾樂~</h2>
                                 <div class="ActivityCard_text2">
@@ -466,31 +512,100 @@
                             </select>
                         </div>
                     </div>
-                    <div class="Activity_list">
-                        <div class="Activity_list_box">
-                            <div class="Activity_data">
-                                <h2>JUNE</h2>
-                                <h1>28</h1>
-                                <h4>Saturday</h4>
+                </div>
+                <!-- 活動表 -->
+                <div class="Activity_list">
+                    <div class="Activity_list_box">
+                        <div class="Activity_data">
+                            <h2>JUNE</h2>
+                            <h1>28</h1>
+                            <h4>Saturday</h4>
+                        </div>
+                        <div class="ActivityCardList">
+                            <div class="ActivityCardBox">
+                                <img src="./assets/img/Activity/Activity_img01.jpg" alt="activity">
+                                <div class="ActivityCardBox_text">
+                                    <h5>搖滾樂</h5>
+                                    <P>18:30 XXX地方</P>
+                                    <p>#歌手 #台中 #XXX地方</p>
+                                </div>
                             </div>
-                            <div class="ActivityCardList">
-                                <div class="ActivityCardBox">
-                                    <img src="./assets/img/Activity/Activity_img01.jpg" alt="activity">
-                                    <div class="ActivityCardBox_text">
-                                        <h5>搖滾樂</h5>
-                                        <P>18:30 XXX地方</P>
-                                        <p>#歌手 #台中 #XXX地方</p>
-                                    </div>
+                            <div class="ActivityCardBox">
+                                <img src="./assets/img/Activity/Activity_img01.jpg" alt="activity">
+                                <div class="ActivityCardBox_text">
+                                    <h5>搖滾樂</h5>
+                                    <P>18:30 XXX地方</P>
+                                    <p>#歌手 #台中 #XXX地方</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Activity_list_box">
+                        <div class="Activity_data">
+                            <h2>JULY</h2>
+                            <h1>19</h1>
+                            <h4>Saturday</h4>
+                        </div>
+                        <div class="ActivityCardList">
+                            <div class="ActivityCardBox">
+                                <img src="./assets/img/Activity/Activity_img02.jpg" alt="activity">
+                                <div class="ActivityCardBox_text">
+                                    <h5>搖滾樂</h5>
+                                    <P>18:30 XXX地方</P>
+                                    <p>#歌手 #台中 #XXX地方</p>
+                                </div>
+                            </div>
+                            <div class="ActivityCardBox">
+                                <img src="./assets/img/Activity/Activity_img02.jpg" alt="activity">
+                                <div class="ActivityCardBox_text">
+                                    <h5>搖滾樂</h5>
+                                    <P>18:30 XXX地方</P>
+                                    <p>#歌手 #台中 #XXX地方</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </main>
-
     </div>
+    <footer>
+        <div class="footer_body">
+            <div class="footer_text">
+                <h6>關於</h6>
+                <a class="p" href="#">關於?</a>
+                <a class="p" href="#">最新消息</a>
+                <a class="p" href="#">會員服務條款</a>
+                <a class="p" href="#">隱私權保護政策</a>
+                <a class="p" href="#">著作權保護措施</a>
+                <a class="p" href="#">免責聲明</a>
+            </div>
+            <div class="footer_text">
+                <h6>快速導覽</h6>
+                <a class="p" href="#">探索</a>
+                <a class="p" href="#">類別</a>
+                <a class="p" href="#">最近活動</a>
+                <a class="p" href="#">電台收聽</a>
+                <a class="p" href="#">熱門節目Podcast</a>
+            </div>
+            <div class="footer_text">
+                <h6>其他</h6>
+                <a class="p" href="#">常見問題</a>
+                <a class="p" href="#">尋求幫助</a>
+                <a class="p" href="#">使用者指南</a>
+            </div>
+            <div class="footer_text2">
+                <div class="footer_button">
+                    <a href="#" id="facebook"></a>
+                    <a href="#" id="instagram"></a>
+                    <a href="#" id="youtube"></a>
+                </div>
+                <div class="footer_text3">
+                    <p>© 2023 Rhythm Galaxy. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 

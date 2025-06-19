@@ -244,3 +244,12 @@ document.addEventListener("click", (event) => {
     ActivitySearchBox.style.display = "none";
   }
 });
+
+
+/* 簡單切換 class */
+const toggleBtn = document.getElementById('NAV_bt');
+const sidebar  = document.getElementById('Nav');
+
+toggleBtn.addEventListener('click', () => {
+  sidebar.classList.toggle('Nav_D');
+});
