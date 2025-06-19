@@ -77,7 +77,7 @@
             position: absolute;
             inset: 0;
             z-index: 0;
-            background: linear-gradient(0deg, rgba(64, 64, 64, 0.60) 0%, rgba(64, 64, 64, 0.60) 100%), url(./assets/img/Activity/Activity_img01.jpg) lightgray 50% / cover no-repeat;
+            background: var(--bg-img);
             filter: blur(8px) brightness(0.8);
         }
 
@@ -114,6 +114,8 @@
             flex: 1 0 0;
             border-radius: 20px;
             background: lightgray 50% / cover no-repeat;
+            position: relative;
+            z-index: 1;
         }
 
         .ActivityCard_text1 {
@@ -339,35 +341,6 @@
             gap: 15px;
             flex: 1 0 0;
         }
-
-        .NAV_bt {
-            width: 30px;
-            height: 30px;
-            background-color: var(--Color-04);
-            mask-image: url('./assets/icon/Icon-Nav.svg');
-            mask-size: contain;
-            mask-repeat: no-repeat;
-            mask-position: center;
-        }
-        .NAV_bt:hover {
-            background-color: var(--white-50);
-        }
-
-        #LeftList_menu {
-            display: flex;
-            width: 100%;
-            justify-content: right;
-        }
-
-        #Nav.Nav_D {
-            min-width: unset;
-            width: 100px;
-            align-items: center;
-        }
-
-        #Nav.Nav_D a {
-            justify-content: center
-        }
     </style>
 </head>
 
@@ -406,7 +379,7 @@
         </div>
     </header>
     <div class="layout">
-        <nav id="Nav" class="Nav_D">
+        <nav id="Nav" class="">
             <div id="LeftList_menu">
                 <button id="NAV_bt" class="NAV_bt"></button>
             </div>
@@ -609,7 +582,6 @@
             </div>
         </div>
     </footer>
-
 </body>
 
 </html>

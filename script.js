@@ -36,7 +36,7 @@ document.querySelectorAll('.MusicCrad').forEach(parent => {
     child2.style.backgroundRepeat = 'no-repeat';
   }
 });
-// 水平滑動
+// 音樂Crad水平滑動
 document.querySelectorAll('.MusicCradList').forEach(scrollContainer => {
   let isDown = false;
   let startX;
@@ -67,7 +67,7 @@ document.querySelectorAll('.MusicCradList').forEach(scrollContainer => {
     scrollContainer.scrollLeft = scrollLeft - walk;
   });
 });
-// 水平滑動
+// 活動Crad水平滑動
 document.querySelectorAll('.ActivityCard_list_wrapper').forEach(scrollContainer => {
   let isDown = false;
   let startX;
@@ -99,9 +99,9 @@ document.querySelectorAll('.ActivityCard_list_wrapper').forEach(scrollContainer 
   });
 });
 
-// 切換 Tab
+// 切換 播放列Card收放
 document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', function() {
+  btn.addEventListener('click', function () {
     // 切換內容顯示
     document.querySelectorAll('.tab-content').forEach(div => {
       div.classList.remove('show');
@@ -122,6 +122,25 @@ if (topBtn && card) {
     topBtn.classList.toggle('Down', isShow);
   });
 }
+
+/* 簡單切換 Nav */
+const toggleBtn = document.getElementById('NAV_bt');
+const sidebar = document.getElementById('Nav');
+if (toggleBtn && sidebar) {
+  toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('Nav_D');
+    console.log('clicked!');
+  });
+}
+
+// 活動Crad背景圖抓取.ActivityCardTab有子元素img取得src，然後把style屬性寫在變數--bg-img讓他讀取。
+document.querySelectorAll('.ActivityCardTab').forEach(tab => {
+  const img = tab.querySelector('img');
+  if (img) {
+    const src = img.getAttribute('src');
+    tab.style.setProperty('--bg-img', `linear-gradient(0deg, rgba(64,64,64,0.6), rgba(64,64,64,0.6)), url(${src}) center / cover no-repeat`);
+  }
+});
 
 // 音量調整功能
 
@@ -228,13 +247,3 @@ volumeBtn.addEventListener('click', () => {
     // 這裡可加 audio.volume = lastVolume;
   }
 });
-
-/* 簡單切換 class */
-const toggleBtn = document.getElementById('NAV_bt');
-const sidebar  = document.getElementById('Nav');
-if (toggleBtn && sidebar) {
-  toggleBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('Nav_D');
-    console.log('clicked!');
-  });
-}

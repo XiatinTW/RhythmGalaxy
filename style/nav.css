@@ -161,3 +161,33 @@
     gap: 10px;
     justify-content: flex-start;
 }
+
+.NAV_bt {
+    width: 30px;
+    height: 30px;
+    background-color: var(--Color-04);
+    mask-image: url('../assets/icon/Icon-Nav.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+.NAV_bt:hover {
+    background-color: var(--white-50);
+}
+
+#LeftList_menu {
+    display: flex;
+    width: 100%;
+    justify-content: right;
+}
+/* 切換互動 */
+#Nav.Nav_D {
+    min-width: unset;
+    width: 100px;
+    align-items: center;
+}
+
+#Nav.Nav_D a {
+    justify-content: center
+}
