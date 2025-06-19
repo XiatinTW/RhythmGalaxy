@@ -184,18 +184,30 @@
     box-shadow: 0px 6px 6px 0px rgba(255, 255, 255, 0.30) inset, 0px 6px 6px 0px rgba(255, 255, 255, 0.44) inset;
     filter: drop-shadow(0px 4px 30px rgba(0, 0, 0, 0.15));
     backdrop-filter: blur(2.5px);
+
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.PlayBarCard_body.active {
+    max-height: 500px;
+    opacity: 1;
+    visibility: visible;
 }
 
 .PlayBarCard {
+    display: flex;
     position: absolute;
     top: -500px;
     right: 0;
-    width: 250px;
-    height: 400px;
+    width: 100%;
+    height: 100%;
     padding: 20px;
     z-index: 999;
     border-radius: var(--MusicCrad-radius, 20px);
-    display: none;
+    justify-content: flex-end;
 }
 
 .PlayBarCard .MusicCrad {
@@ -274,14 +286,6 @@
     border-radius: 10px;
 }
 
-.show {
-    display: block;
-}
-
-.hide {
-    display: none;
-}
-
 /* 進度條 */
 .progressBar {
     height: 5px;
@@ -336,4 +340,10 @@
     height: 3px;
     background: var(--Color-01);
     z-index: 1;
+}
+.PlayBarCard_body .show {
+    display: flex;
+}
+.PlayBarCard_body .hide {
+    display: none;
 }

@@ -99,27 +99,16 @@ document.querySelectorAll('.ActivityCard_list_wrapper').forEach(scrollContainer 
   });
 });
 
-// 切換 播放列Card收放
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', function () {
-    // 切換內容顯示
-    document.querySelectorAll('.tab-content').forEach(div => {
-      div.classList.remove('show');
-      div.classList.add('hide');
-    });
-    const target = this.dataset.target;
-    document.getElementById(target).classList.remove('hide');
-    document.getElementById(target).classList.add('show');
-  });
-});
-
+// 切換播放列Card收放
 const topBtn = document.querySelector('.Top');
-const card = document.querySelector('.PlayBarCard');
+const card = document.querySelector('.PlayBarCard_body'); // ⚠️ 注意 class 改對
+
 if (topBtn && card) {
   topBtn.addEventListener('click', () => {
-    const isShow = card.classList.toggle('show');
-    card.classList.toggle('hide', !isShow);
-    topBtn.classList.toggle('Down', isShow);
+    const isActive = card.classList.toggle('active');
+
+    // 根據狀態改變按鈕樣式（例如箭頭方向）
+    topBtn.classList.toggle('Down', isActive);
   });
 }
 
@@ -139,6 +128,17 @@ document.querySelectorAll('.ActivityCardTab').forEach(tab => {
   if (img) {
     const src = img.getAttribute('src');
     tab.style.setProperty('--bg-img', `linear-gradient(0deg, rgba(64,64,64,0.6), rgba(64,64,64,0.6)), url(${src}) center / cover no-repeat`);
+  }
+});
+// 篩選按鈕 顯示/隱藏
+document.querySelector('.ActivitySearch_bt').addEventListener('click', () => {
+  document.querySelector('.ActivitySearchBox').classList.toggle('active');
+});
+document.addEventListener('click', (e) => {
+  const box = document.querySelector('.ActivitySearchBox');
+  const button = document.querySelector('.ActivitySearch_bt');
+  if (!box.contains(e.target) && !button.contains(e.target)) {
+    box.classList.remove('active');
   }
 });
 

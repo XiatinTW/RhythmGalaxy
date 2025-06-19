@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rhythm Galaxy</title>
     <script src="script.js" defer></script>
+    <script src="script2.js" defer></script>
     <style>
         @import url(./style.css);
+        @import url(./style/nav.css);
         @import url(./style/header.css);
         @import url(./style/main.css);
         @import url(./style/footer.css);
         @import url(./style/object.css);
         @import url(./style/audioplayer.css);
-        @import url(./style/nav.css);
 
         body,
         html {
@@ -68,15 +69,15 @@
             <div id="LeftList_menu">
             </div>
             <h6 class="Nav_Menu ">Menu</h6>
-            <a href="#" class="LeftButton Explore LeftButton_H">
+            <a href="index.html" class="LeftButton Explore LeftButton_H">
                 <span></span>
                 <p>Explore</p>
             </a>
-            <a href="#" class="LeftButton Genres">
+            <a href="genres.html" class="LeftButton Genres">
                 <span></span>
                 <p>Genres</p>
             </a>
-            <a href="#" class="LeftButton Activity">
+            <a href="activity.html" class="LeftButton Activity">
                 <span></span>
                 <p>Activity</p>
             </a>
@@ -761,10 +762,10 @@
                     </div>
                 </button>
                 <div class="PlayBarCard_toll">
-                    <p class="tab-btn" data-target="lyrics">歌詞</p>
-                    <p class="tab-btn" data-target="related">相關音樂</p>
+                    <p class="lyrics_bt">歌詞</p>
+                    <p class="related_bt">相關音樂</p>
                 </div>
-                <div id="lyrics" class="tab-content show">
+                <div id="lyrics" class="show">
                     <div class="PlayBarCard_lyrics">
                         <h6>歌詞第一段</h6>
                         <h6 style="color: var(--Color-04);">歌詞第二段</h6>
@@ -775,7 +776,7 @@
                         <h6>歌詞第七段</h6>
                     </div>
                 </div>
-                <div id="related" class="PlayBarCard_lyrics tab-content hide">
+                <div id="related" class="PlayBarCard_lyrics hide">
                     <div class="Music_List">
                         <div class="Music_item_img"></div>
                         <div class="Music_item_text">
@@ -812,7 +813,6 @@
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

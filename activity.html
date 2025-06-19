@@ -4,16 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rhythm Galaxy</title>
+    <title>Rhythm Galaxy - activity</title>
     <script src="script.js" defer></script>
+    <script src="script2.js" defer></script>
     <style>
         @import url(./style.css);
+        @import url(./style/nav.css);
         @import url(./style/header.css);
         @import url(./style/main.css);
         @import url(./style/footer.css);
         @import url(./style/object.css);
         @import url(./style/audioplayer.css);
-        @import url(./style/nav.css);
+        @import url(./style/activity.css);
 
         body,
         html {
@@ -26,52 +28,7 @@
             display: flex;
         }
 
-        #main_activity {
-            width: 100%;
-            max-width: 100%;
-            margin-top: 60px;
-            min-height: calc(100vh - 60px);
-            flex: 1;
-            padding: 20px;
-            display: flex;
-            overflow: hidden;
-            flex-direction: column;
-        }
-
-        .ActivityCard {
-            display: flex;
-            width: 100%;
-            flex-direction: column;
-            align-items: start;
-            gap: 20px;
-        }
-
-        .ActivityCard_list {
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            gap: 45px;
-            padding-left: var(--RecentEventsCrad-x-padding);
-            flex-shrink: 0;
-            overflow-y: hidden;
-            scroll-behavior: smooth;
-        }
-
-        .ActivityCardTab {
-            display: flex;
-            position: relative;
-            min-width: 1146px;
-            max-width: 1146px;
-            padding: 50px 41px;
-            align-items: flex-start;
-            align-content: flex-start;
-            gap: 20px;
-            flex-wrap: wrap;
-            flex-direction: row;
-            border-radius: var(--RecentEventsCrad-radius);
-            overflow: hidden;
-        }
-
+        /* js */
         .ActivityCardTab::before {
             content: "";
             position: absolute;
@@ -79,267 +36,6 @@
             z-index: 0;
             background: var(--bg-img);
             filter: blur(8px) brightness(0.8);
-        }
-
-        /* 圖片修正 */
-        .ActivityCardTab>* {
-            position: relative;
-            z-index: 1;
-        }
-
-        .ActivityCard_title {
-            display: -webkit-box;
-            align-self: stretch;
-            overflow: hidden;
-            color: var(--White);
-            text-overflow: ellipsis;
-        }
-
-        .ActivityCard_text2 {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 20px;
-            align-self: stretch;
-        }
-
-        .ActivityCard_text2 p {
-            color: var(--White);
-        }
-
-        .ActivityCardTab img {
-            height: 306px;
-            min-width: 250px;
-            max-width: 544px;
-            flex: 1 0 0;
-            border-radius: 20px;
-            background: lightgray 50% / cover no-repeat;
-            position: relative;
-            z-index: 1;
-        }
-
-        .ActivityCard_text1 {
-            display: flex;
-            min-width: 250px;
-            max-width: 500px;
-            padding: 15px 0px;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 35px;
-            flex: 1 0 0;
-        }
-
-        .ActivityCard_list_wrapper {
-            display: flex;
-            width: 100%;
-            max-width: 100%;
-            overflow-x: auto;
-            padding-bottom: 20px;
-        }
-
-        .ActivityCard_list_wrapper::-webkit-scrollbar {
-            height: 8px;
-            background: transparent;
-        }
-
-        .ActivityCard_list_wrapper:hover::-webkit-scrollbar-thumb {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-        }
-
-        .Activity_body {
-            display: flex;
-            width: auto;
-            padding-right: 150px;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 55px;
-        }
-
-        .activity_list_tool {
-            display: flex;
-            justify-content: center;
-            align-items: end;
-            align-self: stretch;
-            flex-direction: row;
-            position: relative;
-            gap: 15px;
-        }
-
-        .ActivitySearch {
-            width: 180px;
-            height: 35px;
-            border-radius: 30px;
-            padding: 0px 15px;
-            border: transparent;
-            background: var(--white-50, rgba(255, 255, 255, 0.50));
-            box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(20px);
-        }
-
-        .ActivitySearch:focus {
-            outline: 0;
-            border-radius: var(--Search-SearchBox-radius);
-            background: var(--white-50);
-            box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 0.25) inset;
-        }
-
-        .activity_list_title {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
-        .ActivitySearchBox {
-            display: none;
-            width: 275px;
-            height: auto;
-            min-width: 275px;
-            padding: 11px 13px;
-            align-items: flex-start;
-            gap: 10px;
-            border-radius: var(--Nav-x-padding);
-            background: var(--white-50);
-            box-shadow: -5px 5px 5px 0px rgba(255, 255, 255, 0.50) inset, 0px 4px 10px 3px rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(5px);
-            position: absolute;
-            top: 80px;
-            right: 0;
-            z-index: 10;
-        }
-
-        .ActivitySearchBox button {
-            display: inline-flex;
-            padding: 10px;
-            border: transparent;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            grid-row: 1 / span 1;
-            grid-column: 1 / span 1;
-            border-radius: var(--Button-radius, 15px);
-            background: transparent;
-            box-shadow: 0px -2px 2px 0px rgba(255, 255, 255, 0.25) inset, 0px 2px 2px 0px rgba(255, 255, 255, 0.44) inset;
-            backdrop-filter: blur(20px);
-        }
-
-        .ActivitySearchBox button:hover {
-            background-color: var(--Color-08);
-        }
-
-        .ActivitySearchBox_grid {
-            display: grid;
-            width: 140px;
-            row-gap: 10px;
-            column-gap: 10px;
-            grid-template-rows: repeat(5, minmax(0, 1fr));
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .ActivitySearchselect {
-            display: flex;
-            padding: 10px;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-end;
-            gap: 10px;
-            flex-shrink: 0;
-            border-radius: var(--Button-radius);
-            background: var(--Color-02);
-            z-index: 20;
-            color: var(--Color-05)
-        }
-
-        .ActivitySearch_bt {
-            display: flex;
-            width: 35px;
-            height: 35px;
-            border: transparent;
-            border-radius: 30px;
-            justify-content: center;
-            align-items: center;
-            aspect-ratio: 1/1;
-            background: var(--white-50);
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        }
-
-        .ActivitySearch_bt span {
-            width: 100%;
-            height: 100%;
-            background-color: var(--Color-02);
-            mask-image: url('./assets/icon/Icon-filter.svg');
-            mask-size: contain;
-            mask-repeat: no-repeat;
-            mask-position: center;
-        }
-
-        .ActivitySearch_bt:hover {
-            box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 0.80) inset, 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(5px);
-        }
-
-        .Activity_list {
-            display: flex;
-            width: 100%;
-            gap: 55px;
-            flex-direction: column;
-        }
-
-        .Activity_list_box {
-            display: flex;
-            width: 100%;
-            padding: 51px var(--RecentEventsCrad-ActivityList-x-padding);
-            align-items: flex-start;
-            gap: 45px;
-            align-self: stretch;
-            border-radius: 20px;
-            background: var(--white-50);
-            box-shadow: -5px 5px 5px 0px rgba(255, 255, 255, 0.50) inset, 0px 4px 10px 3px rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(5px);
-        }
-
-        .Activity_data {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .ActivityCardList {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 13px;
-            flex: 1 0 0;
-        }
-
-        .ActivityCardBox {
-            display: flex;
-            padding: 10px 0px;
-            align-items: flex-start;
-            align-content: flex-start;
-            gap: 20px;
-            align-self: stretch;
-            flex-wrap: wrap;
-            border-bottom: 1px solid var(--Color-07);
-        }
-
-        .ActivityCardBox img {
-            height: 150px;
-            min-width: 200px;
-            max-width: 300px;
-            flex: 1 0 0;
-            border-radius: 15px;
-            background: url(<path-to-image>) lightgray 50% / cover no-repeat;
-        }
-
-        .ActivityCardBox_text {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
-            flex: 1 0 0;
         }
     </style>
 </head>
@@ -384,15 +80,15 @@
                 <button id="NAV_bt" class="NAV_bt"></button>
             </div>
             <h6 class="Nav_Menu ">Menu</h6>
-            <a href="#" class="LeftButton Explore">
+            <a href="index.html" class="LeftButton Explore">
                 <span></span>
                 <p>Explore</p>
             </a>
-            <a href="#" class="LeftButton Genres">
+            <a href="genres.html" class="LeftButton Genres">
                 <span></span>
                 <p>Genres</p>
             </a>
-            <a href="#" class="LeftButton Activity LeftButton_H">
+            <a href="activity.html" class="LeftButton Activity LeftButton_H">
                 <span></span>
                 <p>Activity</p>
             </a>
@@ -582,6 +278,101 @@
             </div>
         </div>
     </footer>
+    <div id="AudioPlayer">
+        <div class="progressBar">
+            <div class="progress"></div>
+        </div>
+        <div class="playerContent">
+            <div class="songInfo">
+                <div class="cover"></div>
+                <div class="text">
+                    <p class="title">music</p>
+                    <p class="artist">singer</p>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="Previous"></button>
+                <button class="Play"></button>
+                <button class="Next"></button>
+                <p class="lyrics">Lyrics</p>
+            </div>
+            <div class="VolumeBar">
+                <span class="VolumeBar_bg"></span>
+                <span class="VolumeBar_bu"></span>
+                <span class="VolumeBar_li"></span>
+            </div>
+            <div class="Playtool">
+                <button class="Volume"></button>
+                <button class="Loop"></button>
+                <button class="Shuffle"></button>
+                <button class="Top"></button>
+            </div>
+        </div>
+        <div class="PlayBarCard">
+            <div class="PlayBarCard_body">
+                <span></span>
+                <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                    <div class="MusicCrad_1">
+                        <div class="MusicCrad_2"></div>
+                        <div class="CD_icon">
+                            <div class="CD3"></div>
+                            <div class="CD"></div>
+                            <div class="CD1"></div>
+                        </div>
+                    </div>
+                </button>
+                <div class="PlayBarCard_toll">
+                    <p class="lyrics_bt">歌詞</p>
+                    <p class="related_bt">相關音樂</p>
+                </div>
+                <div id="lyrics" class="show">
+                    <div class="PlayBarCard_lyrics">
+                        <h6>歌詞第一段</h6>
+                        <h6 style="color: var(--Color-04);">歌詞第二段</h6>
+                        <h6>歌詞第三段</h6>
+                        <h6>歌詞第四段</h6>
+                        <h6>歌詞第五段</h6>
+                        <h6>歌詞第六段</h6>
+                        <h6>歌詞第七段</h6>
+                    </div>
+                </div>
+                <div id="related" class="PlayBarCard_lyrics hide">
+                    <div class="Music_List">
+                        <div class="Music_item_img"></div>
+                        <div class="Music_item_text">
+                            <h6>music</h6>
+                            <p>singer</p>
+                        </div>
+                        <p class="Music_item_playtime">03:30</p>
+                    </div>
+                    <div class="Music_List">
+                        <div class="Music_item_img"></div>
+                        <div class="Music_item_text">
+                            <h6>music</h6>
+                            <p>singer</p>
+                        </div>
+                        <p class="Music_item_playtime">03:30</p>
+                    </div>
+                    <div class="Music_List">
+                        <div class="Music_item_img"></div>
+                        <div class="Music_item_text">
+                            <h6>music</h6>
+                            <p>singer</p>
+                        </div>
+                        <p class="Music_item_playtime">03:30</p>
+                    </div>
+                    <div class="Music_List">
+                        <div class="Music_item_img"></div>
+                        <div class="Music_item_text">
+                            <h6>music</h6>
+                            <p>singer</p>
+                        </div>
+                        <p class="Music_item_playtime">03:30</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
