@@ -1,0 +1,30 @@
+{
+  "header_input01": {
+    "zh": "請輸入歌手、歌曲",
+    "en": "Please enter the singer and the song."
+  },
+  "header_input02": {
+    "zh": "熱門關鍵字",
+    "en": "PopularKeywords."
+  },
+  "header_input02-1": {
+    "zh": "🔥我是熱門關鍵字",
+    "en": "🔥I am a keyword."
+  },
+  "header_input03": {
+    "zh": "搜尋歷史",
+    "en": "Search History."
+  },
+  "header_input04": {
+    "zh": "清除",
+    "en": "Clear"
+  },
+  "paragraph": {
+    "zh": "Sign in",
+    "en": "登入."
+  },
+  "search_placeholder": {
+    "zh": "請輸入歌手、歌曲",
+    "en": "Enter artist or song"
+  }
+}

@@ -33,6 +33,40 @@
 </head>
 
 <body>
+    <bg class="body_background"></bg>
+    <div class="Login colse">
+        <div class="LoginBox">
+            <h2>Welcome</h2>
+            <p>Please enter your email and password to log in.</p>
+            <div id="LoginBox_account">
+                <p>Email</p>
+                <input type="email" name="LoginBox_account">
+            </div>
+            <div id="LoginBox_account">
+                <p>Password</p>
+                <input type="password" name="LoginBox_account">
+            </div>
+            <div id="LoginBox_Remember">
+                <div class="LoginBox_checkbox">
+                    <input checked="" type="checkbox" id="LRC" class="hidden-xs-up">
+                    <label for="LRC" class="LRC p"></label>
+                </div>
+                <p>Remember me</p>
+            </div>
+            <button id="SiginIn" class="h6">Log in</button>
+            <div class="LoginBox_SiginIn">
+                <div class="LoginBox_SiginIn_box">
+                    <span class="google"></span>
+                    <p>Google</p>
+                </div>
+                <div class="LoginBox_SiginIn_box">
+                    <span class="facebook"></span>
+                    <p>Facebook</p>
+                </div>
+            </div>
+            <p>Don't have an account?</p><a href="#" class="p">Sign up</a>
+        </div>
+    </div>
     <header id="header">
         <div id="Logo">
             <img id="Logo_img" src="./assets/img/Logo.png" alt="Logo">
@@ -65,7 +99,7 @@
             </Button>
             <span id="Nav_medium"><img src="./assets/icon/nav-medium.svg" alt="Nav"></span>
             <div id="SearchBox_medium">
-                <input id="search_Input" type="text" placeholder="請輸入歌手、歌曲">
+                <input id="search_Input_medium" type="text" placeholder="請輸入歌手、歌曲">
                 <div id="PopularKeywords">
                     <h5>PopularKeywords</h5>
                     <div id="SearchInput_list_button">

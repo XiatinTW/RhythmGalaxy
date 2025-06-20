@@ -290,3 +290,20 @@ document.querySelector('.lyrics_bt').addEventListener('click', () => {
 document.querySelector('.related_bt').addEventListener('click', () => {
   toggleSection('related', 'lyrics');
 });
+// 登入視窗 顯示
+document.querySelectorAll('#SiginIn').forEach(btn => {
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    document.querySelector('.Login').classList.remove('colse');
+    document.body.classList.add('no-scroll');
+  });
+});
+
+// 點擊 .Login 區塊關閉登入視窗
+document.querySelector('.Login').addEventListener('click', function (e) {
+  // 只在點擊背景時關閉，點擊內容不關閉
+  if (e.target === this) {
+    this.classList.add('colse');
+    document.body.classList.remove('no-scroll');
+  }
+});
