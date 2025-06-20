@@ -319,3 +319,58 @@
     flex: 1 0 0;
     align-self: stretch;
 }
+/* 按鈕列表 */
+.Button_list {
+    display: flex;
+    margin-top: 15px;
+    padding: 15px var(--Layout-x-padding, 32px);
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 10px;
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+
+.genres_bt {
+    height: 35px;
+    border-radius: 15px;
+    padding: 0px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+    transition: 0.5s;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.genres_bt:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
+.genres_bt:visited {
+    color: var(--Color-04);
+}
+
+.genres_bt::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    background-color: rgba(144, 103, 255, 0.5);
+    transform: skewX(45deg) translateX(230px);
+    transition: 0.5s ease;
+}
+
+.genres_bt:hover::before {
+    transform: skewX(45deg) translateX(-150px);
+}
+
+.genres_bt svg {
+    width: 3em;
+}

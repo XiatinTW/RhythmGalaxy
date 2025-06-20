@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rhythm Galaxy - radio</title>
+    <title>Document</title>
     <script src="script.js" defer></script>
     <script src="script2.js" defer></script>
     <script src="playbar.js" defer></script>
-
+    <script src="./style/podcast.js" defer></script>
     <style>
         @import url(./style.css);
         @import url(./style/nav.css);
@@ -16,8 +16,8 @@
         @import url(./style/main.css);
         @import url(./style/footer.css);
         @import url(./style/object.css);
+        @import url(./style/podcast.css);
         @import url(./style/audioplayer.css);
-        @import url(./style/radio.css);
 
         body,
         html {
@@ -84,11 +84,11 @@
                 <span></span>
                 <p>Activity</p>
             </a>
-            <a href="Radio.html" class="LeftButton Radio LeftButton_H">
+            <a href="Radio.html" class="LeftButton Radio">
                 <span></span>
                 <p>Radio</p>
             </a>
-            <a href="podcast.html" class="LeftButton Podcast">
+            <a href="podcast.html" class="LeftButton Podcast LeftButton_H">
                 <span></span>
                 <p>Podcast</p>
             </a>
@@ -123,138 +123,203 @@
                 <p>K-pop music</p>
             </a>
         </nav>
-        <main id="main_radio">
-            <div class="Radio_title">
-                <h2>Favorite Radio</h2>
-            </div>
-            <div class="RadioCard">
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
-                </div>
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
-                </div>
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
-                </div>
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
-                </div>
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
-                </div>
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
-                </div>
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
-                </div>
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
+        <div class="main_podcast">
+            <div class="PodcastList">
+                <h2>Recommended shows for you</h2>
+                <div class="PodcastCradList">
+                    <div class="PodcastCrad" podcast-bg="./assets/img/image-01.jpg">
+                        <h4>Podcast</h4>
+                        <p>Podcast</p>
+                    </div>
+                    <div class="PodcastCrad" podcast-bg="./assets/img/image-01.jpg">
+                        <h4>Podcast</h4>
+                        <p>Podcast</p>
+                    </div>
+                    <div class="PodcastCrad" podcast-bg="./assets/img/image-01.jpg">
+                        <h4>Podcast</h4>
+                        <p>Podcast</p>
+                    </div>
+                    <div class="PodcastCrad" podcast-bg="./assets/img/image-01.jpg">
+                        <h4>Podcast</h4>
+                        <p>Podcast</p>
+                    </div>
+                    <div class="PodcastCrad" podcast-bg="./assets/img/image-01.jpg">
+                        <h4>Podcast</h4>
+                        <p>Podcast</p>
+                    </div>
+                    <div class="PodcastCrad" podcast-bg="./assets/img/image-01.jpg">
+                        <h4>Podcast</h4>
+                        <p>Podcast</p>
+                    </div>
+                    <div class="PodcastCrad" podcast-bg="./assets/img/image-01.jpg">
+                        <h4>Podcast</h4>
+                        <p>Podcast</p>
+                    </div>
+                    <div class="PodcastCrad" podcast-bg="./assets/img/image-01.jpg">
+                        <h4>Podcast</h4>
+                        <p>Podcast</p>
+                    </div>
                 </div>
             </div>
-            <div class="Radio_title">
-                <h2>Radio List</h2>
+            <div class="Button_list">
+                <a href="#" class="genres_bt p">Personal Journal</a>
+                <a href="#" class="genres_bt p">Knowledge & Education</a>
+                <a href="#" class="genres_bt p">Entertainment</a>
+                <a href="#" class="genres_bt p">Horror</a>
+                <a href="#" class="genres_bt p">Pets</a>
+                <a href="#" class="genres_bt p">Politics</a>
+                <a href="#" class="genres_bt p">Current Events</a>
+                <a href="#" class="genres_bt p">Novels</a>
+                <a href="#" class="genres_bt p">Music</a>
+                <a href="#" class="genres_bt p">Spiritual Exploration</a>
             </div>
-            <div class="Radio_list">
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
+            <h2>Popular episode</h2>
+            <div class="podcastEpisode">
+                <div class="PodcastCrad2">
+                    <div class="PodcastCrad2_img">
+                        <img class="PodcastCrad2_img" src="./assets/img/image-01.jpg" alt="podcast_img">
+                    </div>
+                    <div class="PodcastCrad2_text">
+                        <div>
+                            <h6>標題</h6>
+                            <p>時間</p>
+                            <p>內容</p>
+                        </div>
+                        <div>
+                            <p>更新時間</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
+                <div class="PodcastCrad2">
+                    <div class="PodcastCrad2_img">
+                        <img class="PodcastCrad2_img" src="./assets/img/image-01.jpg" alt="podcast_img">
+                    </div>
+                    <div class="PodcastCrad2_text">
+                        <div>
+                            <h6>標題</h6>
+                            <p>時間</p>
+                            <p>內容</p>
+                        </div>
+                        <div>
+                            <p>更新時間</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
+                <div class="PodcastCrad2">
+                    <div class="PodcastCrad2_img">
+                        <img class="PodcastCrad2_img" src="./assets/img/image-01.jpg" alt="podcast_img">
+                    </div>
+                    <div class="PodcastCrad2_text">
+                        <div>
+                            <h6>標題</h6>
+                            <p>時間</p>
+                            <p>內容</p>
+                        </div>
+                        <div>
+                            <p>更新時間</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
+                <div class="PodcastCrad2">
+                    <div class="PodcastCrad2_img">
+                        <img class="PodcastCrad2_img" src="./assets/img/image-01.jpg" alt="podcast_img">
+                    </div>
+                    <div class="PodcastCrad2_text">
+                        <div>
+                            <h6>標題</h6>
+                            <p>時間</p>
+                            <p>內容</p>
+                        </div>
+                        <div>
+                            <p>更新時間</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
+                <div class="PodcastCrad2">
+                    <div class="PodcastCrad2_img">
+                        <img class="PodcastCrad2_img" src="./assets/img/image-01.jpg" alt="podcast_img">
+                    </div>
+                    <div class="PodcastCrad2_text">
+                        <div>
+                            <h6>標題</h6>
+                            <p>時間</p>
+                            <p>內容</p>
+                        </div>
+                        <div>
+                            <p>更新時間</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
+                <div class="PodcastCrad2">
+                    <div class="PodcastCrad2_img">
+                        <img class="PodcastCrad2_img" src="./assets/img/image-01.jpg" alt="podcast_img">
+                    </div>
+                    <div class="PodcastCrad2_text">
+                        <div>
+                            <h6>標題</h6>
+                            <p>時間</p>
+                            <p>內容</p>
+                        </div>
+                        <div>
+                            <p>更新時間</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
-                </div>
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
-                </div>
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
-                </div>
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
-                </div>
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
-                </div>
-                <div class="RadioCard_body">
-                    <span class="RadioPlay"></span>
-                    <img class="RadioCrad_img" src="./assets/img/500x500.jpg" alt="Radio">
-                    <h3>Radio01</h3>
-                    <h3>92.9FM</h3>
+                <div class="PodcastCrad2">
+                    <div class="PodcastCrad2_img">
+                        <img class="PodcastCrad2_img" src="./assets/img/image-01.jpg" alt="podcast_img">
+                    </div>
+                    <div class="PodcastCrad2_text">
+                        <div>
+                            <h6>標題</h6>
+                            <p>時間</p>
+                            <p>內容</p>
+                        </div>
+                        <div>
+                            <p>更新時間</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </main>
+            <div class="PodcastList">
+                <h2>Popular shows</h2>
+                <div class="PodcastCradList">
+                    <div class="PodcastCrad" podcast-bg="./assets/img/image-01.jpg">
+                        <h4>Podcast</h4>
+                        <p>Podcast</p>
+                    </div>
+                    <div class="PodcastCrad" podcast-bg="./assets/img/image-01.jpg">
+                        <h4>Podcast</h4>
+                        <p>Podcast</p>
+                    </div>
+                    <div class="PodcastCrad" podcast-bg="./assets/img/image-01.jpg">
+                        <h4>Podcast</h4>
+                        <p>Podcast</p>
+                    </div>
+                    <div class="PodcastCrad" podcast-bg="./assets/img/image-01.jpg">
+                        <h4>Podcast</h4>
+                        <p>Podcast</p>
+                    </div>
+                    <div class="PodcastCrad" podcast-bg="./assets/img/image-01.jpg">
+                        <h4>Podcast</h4>
+                        <p>Podcast</p>
+                    </div>
+                    <div class="PodcastCrad" podcast-bg="./assets/img/image-01.jpg">
+                        <h4>Podcast</h4>
+                        <p>Podcast</p>
+                    </div>
+                    <div class="PodcastCrad" podcast-bg="./assets/img/image-01.jpg">
+                        <h4>Podcast</h4>
+                        <p>Podcast</p>
+                    </div>
+                    <div class="PodcastCrad" podcast-bg="./assets/img/image-01.jpg">
+                        <h4>Podcast</h4>
+                        <p>Podcast</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <footer>
         <div class="footer_body">
@@ -389,5 +454,4 @@
         </div>
     </div>
 </body>
-
 </html>
