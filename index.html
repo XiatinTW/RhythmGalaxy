@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rhythm Galaxy</title>
     <script src="script.js" defer></script>
-    <script src="script2.js" defer></script>
     <script src="playbar.js" defer></script>
     <style>
         @import url(./style.css);
@@ -26,6 +25,85 @@
 
         .layout {
             display: flex;
+        }
+
+        @media (max-width: 767px) {
+            #Nav2 {
+                display: flex;
+                position: fixed;
+                top: 0;
+                right: -260px;
+                width: 200px;
+                height: 100vh;
+                z-index: 1000;
+                transition: right 0.3s;
+                box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+            }
+
+            #Nav2.active {
+                right: 0;
+                /* 顯示 */
+            }
+
+            #Nav {
+                display: none;
+            }
+
+            #header {
+                padding: 0px 24px;
+            }
+
+            #Logo {
+                padding: 0px 10px;
+            }
+
+            #search_setring {
+                display: none
+            }
+
+            #Search_pc {
+                display: none;
+            }
+
+            #Search_medium {
+                visibility: visible;
+            }
+
+            .Navbar>#SiginIn {
+                display: none;
+            }
+
+            #SiginIn_medium {
+                visibility: visible;
+            }
+
+            /* main */
+            #MusicCharts_playmusic {
+                justify-content: center;
+            }
+
+            .main1_2_text h1 {
+                /* H3 */
+                font-family: "Noto Sans TC";
+                font-size: 40px;
+                font-style: normal;
+                font-weight: 900;
+                line-height: normal;
+                line-height: 40px;
+                margin: 0px;
+            }
+
+            .main1_2_text h3 {
+                /* H6 */
+                font-family: "Noto Sans TC";
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                margin: 0px;
+                line-height: 100%;
+            }
+
         }
     </style>
 </head>
@@ -63,11 +141,89 @@
                 <p>Sign in</p>
             </Button>
             <span id="SiginIn_medium"><img src="./assets/icon/nav-medium.svg" alt="Nav"></span>
+            <div id="SearchBox_medium">
+                <input id="search_Input" type="text" placeholder="請輸入歌手、歌曲">
+                <div id="PopularKeywords">
+                    <h5>PopularKeywords</h5>
+                    <div id="SearchInput_list_button">
+                        <button class="SearchKeywords">🔥I am a keyword</button>
+                    </div>
+                </div>
+                <div id="SearchHistoryBox">
+                    <div id="SearchHistory">
+                        <h5>Search History</h5>
+                        <button class="ClearButton">Clear</button>
+                    </div>
+                    <div id="SearchHistory_buttonList">
+                        <p class="SearchHistory_button">I am History</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
     <div class="layout">
         <nav id="Nav">
             <div id="LeftList_menu">
+            </div>
+            <h6 class="Nav_Menu ">Menu</h6>
+            <a href="index.html" class="LeftButton Explore LeftButton_H">
+                <span></span>
+                <p>Explore</p>
+            </a>
+            <a href="genres.html" class="LeftButton Genres">
+                <span></span>
+                <p>Genres</p>
+            </a>
+            <a href="activity.html" class="LeftButton Activity">
+                <span></span>
+                <p>Activity</p>
+            </a>
+            <a href="Radio.html" class="LeftButton Radio">
+                <span></span>
+                <p>Radio</p>
+            </a>
+            <a href="podcast.html" class="LeftButton Podcast">
+                <span></span>
+                <p>Podcast</p>
+            </a>
+            <h6 class="Nav_Menu">Library</h6>
+            <a href="#" class="LeftButton Recent">
+                <span></span>
+                <p>Recent</p>
+            </a>
+            <a href="#" class="LeftButton Favorites">
+                <span></span>
+                <p>Favorites</p>
+            </a>
+            <a href="#" class="LeftButton Offline">
+                <span></span>
+                <p>Offline</p>
+            </a>
+            <h6 class="Nav_Menu">Playlist</h6>
+            <a href="#" class="LeftButton Create">
+                <span></span>
+                <p>Create playlist</p>
+            </a>
+            <a href="#" class="LeftButton Album">
+                <span></span>
+                <p>Light music</p>
+            </a>
+            <a href="#" class="LeftButton Album">
+                <span></span>
+                <p>Hip hop music</p>
+            </a>
+            <a href="#" class="LeftButton Album">
+                <span></span>
+                <p>K-pop music</p>
+            </a>
+        </nav>
+        <nav id="Nav2">
+            <div id="LeftList_menu">
+            </div>
+            <div class="SiginInBox">
+                <Button id="SiginIn" class="h6">
+                    <p>Sign in</p>
+                </Button>
             </div>
             <h6 class="Nav_Menu ">Menu</h6>
             <a href="index.html" class="LeftButton Explore LeftButton_H">
@@ -439,247 +595,248 @@
                 </div>
             </div>
             <div class="main1_2">
-                <img src="./assets/img/ArtistPhotos.jpg" alt="ArtistPhotos">
-                <div class="main1_2_text">
-                    <h1>挑選喜歡的藝人</h1>
-                    <h3>創造專屬自己的專輯。馬上來體驗吧!</h3>
-                    <a href="#">開始使用</a>
+                <div class="main1_2">
+                    <div class="ArtistPhotos"></div>
+                    <div class="main1_2_text">
+                        <h1>挑選喜歡的藝人</h1>
+                        <h3>創造專屬自己的專輯。馬上來體驗吧!</h3>
+                        <a href="#">開始使用</a>
+                    </div>
                 </div>
-            </div>
-            <div class="AlbumMusic Recommended">
-                <h2 style="min-width: 350px;">Hot Picks for You</h2>
-                <div class="MusicCradList">
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
+                <div class="AlbumMusic Recommended">
+                    <h2 style="min-width: 350px;">Hot Picks for You</h2>
+                    <div class="MusicCradList">
+                        <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                            <div class="MusicCrad_1">
+                                <div class="MusicCrad_2"></div>
+                                <div class="CD_icon">
+                                    <div class="CD3"></div>
+                                    <div class="CD"></div>
+                                    <div class="CD1"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
+                            <div class="MusicCrad_text">
+                                <h5>Music</h5>
+                                <p>singer</p>
                             </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
+                        </button>
+                        <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                            <div class="MusicCrad_1">
+                                <div class="MusicCrad_2"></div>
+                                <div class="CD_icon">
+                                    <div class="CD3"></div>
+                                    <div class="CD"></div>
+                                    <div class="CD1"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
+                            <div class="MusicCrad_text">
+                                <h5>Music</h5>
+                                <p>singer</p>
                             </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
+                        </button>
+                        <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                            <div class="MusicCrad_1">
+                                <div class="MusicCrad_2"></div>
+                                <div class="CD_icon">
+                                    <div class="CD3"></div>
+                                    <div class="CD"></div>
+                                    <div class="CD1"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
+                            <div class="MusicCrad_text">
+                                <h5>Music</h5>
+                                <p>singer</p>
                             </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
+                        </button>
+                        <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                            <div class="MusicCrad_1">
+                                <div class="MusicCrad_2"></div>
+                                <div class="CD_icon">
+                                    <div class="CD3"></div>
+                                    <div class="CD"></div>
+                                    <div class="CD1"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
+                            <div class="MusicCrad_text">
+                                <h5>Music</h5>
+                                <p>singer</p>
                             </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
+                        </button>
+                        <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                            <div class="MusicCrad_1">
+                                <div class="MusicCrad_2"></div>
+                                <div class="CD_icon">
+                                    <div class="CD3"></div>
+                                    <div class="CD"></div>
+                                    <div class="CD1"></div>
+                                </div>
+                            </div>
+                            <div class="MusicCrad_text">
+                                <h5>Music</h5>
+                                <p>singer</p>
+                            </div>
+                        </button>
+                        <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                            <div class="MusicCrad_1">
+                                <div class="MusicCrad_2"></div>
+                                <div class="CD_icon">
+                                    <div class="CD3"></div>
+                                    <div class="CD"></div>
+                                    <div class="CD1"></div>
+                                </div>
+                            </div>
+                            <div class="MusicCrad_text">
+                                <h5>Music</h5>
+                                <p>singer</p>
+                            </div>
+                        </button>
+                        <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                            <div class="MusicCrad_1">
+                                <div class="MusicCrad_2"></div>
+                                <div class="CD_icon">
+                                    <div class="CD3"></div>
+                                    <div class="CD"></div>
+                                    <div class="CD1"></div>
+                                </div>
+                            </div>
+                            <div class="MusicCrad_text">
+                                <h5>Music</h5>
+                                <p>singer</p>
+                            </div>
+                        </button>
+                        <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                            <div class="MusicCrad_1">
+                                <div class="MusicCrad_2"></div>
+                                <div class="CD_icon">
+                                    <div class="CD3"></div>
+                                    <div class="CD"></div>
+                                    <div class="CD1"></div>
+                                </div>
+                            </div>
+                            <div class="MusicCrad_text">
+                                <h5>Music</h5>
+                                <p>singer</p>
+                            </div>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="AlbumMusic LatestReleases">
-                <h2 style="min-width: 350px;"> Fresh Releases</h2>
-                <div class="MusicCradList">
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
+                <div class="AlbumMusic LatestReleases">
+                    <h2 style="min-width: 350px;"> Fresh Releases</h2>
+                    <div class="MusicCradList">
+                        <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                            <div class="MusicCrad_1">
+                                <div class="MusicCrad_2"></div>
+                                <div class="CD_icon">
+                                    <div class="CD3"></div>
+                                    <div class="CD"></div>
+                                    <div class="CD1"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
+                            <div class="MusicCrad_text">
+                                <h5>Music</h5>
+                                <p>singer</p>
                             </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
+                        </button>
+                        <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                            <div class="MusicCrad_1">
+                                <div class="MusicCrad_2"></div>
+                                <div class="CD_icon">
+                                    <div class="CD3"></div>
+                                    <div class="CD"></div>
+                                    <div class="CD1"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
+                            <div class="MusicCrad_text">
+                                <h5>Music</h5>
+                                <p>singer</p>
                             </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
+                        </button>
+                        <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                            <div class="MusicCrad_1">
+                                <div class="MusicCrad_2"></div>
+                                <div class="CD_icon">
+                                    <div class="CD3"></div>
+                                    <div class="CD"></div>
+                                    <div class="CD1"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
+                            <div class="MusicCrad_text">
+                                <h5>Music</h5>
+                                <p>singer</p>
                             </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
+                        </button>
+                        <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                            <div class="MusicCrad_1">
+                                <div class="MusicCrad_2"></div>
+                                <div class="CD_icon">
+                                    <div class="CD3"></div>
+                                    <div class="CD"></div>
+                                    <div class="CD1"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
+                            <div class="MusicCrad_text">
+                                <h5>Music</h5>
+                                <p>singer</p>
                             </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h5>Music</h5>
-                            <p>singer</p>
-                        </div>
-                    </button>
+                        </button>
+                        <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                            <div class="MusicCrad_1">
+                                <div class="MusicCrad_2"></div>
+                                <div class="CD_icon">
+                                    <div class="CD3"></div>
+                                    <div class="CD"></div>
+                                    <div class="CD1"></div>
+                                </div>
+                            </div>
+                            <div class="MusicCrad_text">
+                                <h5>Music</h5>
+                                <p>singer</p>
+                            </div>
+                        </button>
+                        <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                            <div class="MusicCrad_1">
+                                <div class="MusicCrad_2"></div>
+                                <div class="CD_icon">
+                                    <div class="CD3"></div>
+                                    <div class="CD"></div>
+                                    <div class="CD1"></div>
+                                </div>
+                            </div>
+                            <div class="MusicCrad_text">
+                                <h5>Music</h5>
+                                <p>singer</p>
+                            </div>
+                        </button>
+                        <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                            <div class="MusicCrad_1">
+                                <div class="MusicCrad_2"></div>
+                                <div class="CD_icon">
+                                    <div class="CD3"></div>
+                                    <div class="CD"></div>
+                                    <div class="CD1"></div>
+                                </div>
+                            </div>
+                            <div class="MusicCrad_text">
+                                <h5>Music</h5>
+                                <p>singer</p>
+                            </div>
+                        </button>
+                        <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                            <div class="MusicCrad_1">
+                                <div class="MusicCrad_2"></div>
+                                <div class="CD_icon">
+                                    <div class="CD3"></div>
+                                    <div class="CD"></div>
+                                    <div class="CD1"></div>
+                                </div>
+                            </div>
+                            <div class="MusicCrad_text">
+                                <h5>Music</h5>
+                                <p>singer</p>
+                            </div>
+                        </button>
+                    </div>
                 </div>
-            </div>
         </main>
     </div>
     <footer>

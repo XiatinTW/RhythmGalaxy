@@ -1,3 +1,4 @@
+
 // 音量調整功能
 const volumeBtn = document.querySelector('.Volume');
 const volumeBar = document.querySelector('.VolumeBar');
@@ -5,6 +6,7 @@ const volumeDot = document.querySelector('.VolumeBar_bu');
 const volumeLine = document.querySelector('.VolumeBar_li');
 
 let volumeHover = false;
+let isDragging = false;
 
 function showVolumeBar() {
   volumeBar.style.display = 'block';

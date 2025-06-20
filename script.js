@@ -13,6 +13,21 @@ if (input && searchBox) {
     }
   });
 }
+const input1 = document.getElementById("SiginIn_medium");
+const searchBox1 = document.getElementById("SearchBox");
+if (input1 && searchBox1) {
+  input1.addEventListener("focus", () => {
+    searchBox1.style.display = "block";
+  });
+  document.addEventListener("click", (event) => {
+    if (
+      !input1.contains(event.target) &&
+      !searchBox1.contains(event.target)
+    ) {
+      searchBox1.style.display = "none";
+    }
+  });
+}
 
 // musicCrad 圖片
 document.querySelectorAll('.MusicCrad').forEach(parent => {
@@ -193,14 +208,46 @@ document.querySelectorAll('.ActivityCardTab').forEach(tab => {
   }
 });
 // 篩選按鈕 顯示/隱藏
-document.querySelector('.ActivitySearch_bt').addEventListener('click', () => {
-  document.querySelector('.ActivitySearchBox').classList.toggle('active');
-});
-document.addEventListener('click', (e) => {
-  const box = document.querySelector('.ActivitySearchBox');
-  const button = document.querySelector('.ActivitySearch_bt');
-  if (!box.contains(e.target) && !button.contains(e.target)) {
-    box.classList.remove('active');
-  }
-});
+const activitySearchBtn = document.querySelector('.ActivitySearch_bt');
+const activitySearchBox = document.querySelector('.ActivitySearchBox');
 
+if (activitySearchBtn && activitySearchBox) {
+  activitySearchBtn.addEventListener('click', () => {
+    activitySearchBox.classList.toggle('active');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!activitySearchBox.contains(e.target) && !activitySearchBtn.contains(e.target)) {
+      activitySearchBox.classList.remove('active');
+    }
+  });
+}
+// 切換Nav2
+const nav = document.getElementById('Nav2');
+const siginInMedium = document.getElementById('SiginIn_medium');
+if (nav && siginInMedium) {
+  siginInMedium.addEventListener('click', function (e) {
+    e.stopPropagation();
+    nav.classList.toggle('active');
+  });
+  // 點擊其他地方自動關閉
+  document.addEventListener('click', function (e) {
+    if (!nav.contains(e.target) && !siginInMedium.contains(e.target)) {
+      nav.classList.remove('active');
+    }
+  });
+}
+// 歌詞&相關音樂切換
+function toggleSection(showId, hideId) {
+  document.getElementById(showId).classList.add('show');
+  document.getElementById(showId).classList.remove('hide');
+  document.getElementById(hideId).classList.add('hide');
+  document.getElementById(hideId).classList.remove('show');
+}
+
+document.querySelector('.lyrics_bt').addEventListener('click', () => {
+  toggleSection('lyrics', 'related');
+});
+document.querySelector('.related_bt').addEventListener('click', () => {
+  toggleSection('related', 'lyrics');
+});
