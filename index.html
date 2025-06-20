@@ -15,6 +15,7 @@
         @import url(./style/footer.css);
         @import url(./style/object.css);
         @import url(./style/audioplayer.css);
+        @import url(./style/RWD.css);
 
         body,
         html {
@@ -25,85 +26,6 @@
 
         .layout {
             display: flex;
-        }
-
-        @media (max-width: 767px) {
-            #Nav2 {
-                display: flex;
-                position: fixed;
-                top: 0;
-                right: -260px;
-                width: 200px;
-                height: 100vh;
-                z-index: 1000;
-                transition: right 0.3s;
-                box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
-            }
-
-            #Nav2.active {
-                right: 0;
-                /* 顯示 */
-            }
-
-            #Nav {
-                display: none;
-            }
-
-            #header {
-                padding: 0px 24px;
-            }
-
-            #Logo {
-                padding: 0px 10px;
-            }
-
-            #search_setring {
-                display: none
-            }
-
-            #Search_pc {
-                display: none;
-            }
-
-            #Search_medium {
-                visibility: visible;
-            }
-
-            .Navbar>#SiginIn {
-                display: none;
-            }
-
-            #SiginIn_medium {
-                visibility: visible;
-            }
-
-            /* main */
-            #MusicCharts_playmusic {
-                justify-content: center;
-            }
-
-            .main1_2_text h1 {
-                /* H3 */
-                font-family: "Noto Sans TC";
-                font-size: 40px;
-                font-style: normal;
-                font-weight: 900;
-                line-height: normal;
-                line-height: 40px;
-                margin: 0px;
-            }
-
-            .main1_2_text h3 {
-                /* H6 */
-                font-family: "Noto Sans TC";
-                font-size: 20px;
-                font-style: normal;
-                font-weight: 500;
-                line-height: normal;
-                margin: 0px;
-                line-height: 100%;
-            }
-
         }
     </style>
 </head>
@@ -140,7 +62,7 @@
             <Button id="SiginIn" class="h6">
                 <p>Sign in</p>
             </Button>
-            <span id="SiginIn_medium"><img src="./assets/icon/nav-medium.svg" alt="Nav"></span>
+            <span id="Nav_medium"><img src="./assets/icon/nav-medium.svg" alt="Nav"></span>
             <div id="SearchBox_medium">
                 <input id="search_Input" type="text" placeholder="請輸入歌手、歌曲">
                 <div id="PopularKeywords">

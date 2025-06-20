@@ -1,0 +1,172 @@
+@media (max-width: 767px) {
+    #Nav2 {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: -260px;
+        width: 200px;
+        height: 100vh;
+        z-index: 1000;
+        transition: right 0.3s;
+        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+    }
+
+    #Nav2.active {
+        right: 0;
+        /* 顯示 */
+    }
+
+    #Nav {
+        display: none;
+    }
+
+    #header {
+        padding: 0px 24px;
+    }
+
+    #Logo {
+        padding: 0px 10px;
+    }
+
+    #search_setring {
+        display: none
+    }
+
+    #Search_pc {
+        display: none;
+    }
+
+    #Search_medium {
+        visibility: visible;
+    }
+
+    .Navbar>#SiginIn {
+        display: none;
+    }
+
+    #Nav_medium {
+        visibility: visible;
+    }
+
+    /* main */
+    #MusicCharts_playmusic {
+        justify-content: center;
+    }
+
+    .main1_2_text h1 {
+        /* H3 */
+        font-family: "Noto Sans TC";
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+        line-height: 40px;
+        margin: 0px;
+    }
+
+    .main1_2_text h3 {
+        /* H6 */
+        font-family: "Noto Sans TC";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin: 0px;
+        line-height: 100%;
+    }
+
+    /* genres */
+    .Button_list {
+        padding: 15px 0px;
+    }
+
+    /* activity */
+    .ActivityCard_list {
+        padding: 0px;
+    }
+
+    .ActivityCardTab {
+        max-width: 350px;
+        min-width: 0px;
+        height: 700px;
+        flex-direction: column
+    }
+
+    .ActivityCardTab img {
+        width: 265px;
+        height: 300px;
+    }
+
+    .ActivityCard_text1 {
+        max-width: 270px;
+    }
+
+    .Activity_body h2 {
+        /* h3 */
+        font-family: "Noto Sans TC";
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+        line-height: 40px;
+        margin: 0px;
+    }
+
+    .activity_list_title {
+        min-width: 500px;
+        gap: 15px;
+    }
+
+    .Activity_data h2 {
+        /* H6*/
+        font-family: "Noto Sans TC";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin: 0px;
+        line-height: 100%;
+    }
+
+    .Activity_data h1 {
+        /* H5 */
+        font-family: "Noto Sans TC";
+        font-size: 32px;
+        font-style: normal;
+        line-height: normal;
+        margin: 0px;
+        line-height: 100%;
+    }
+
+    .Activity_data h4 {
+        /* P */
+        font-family: "Noto Sans TC";
+        font-size: 16px;
+        font-style: normal;
+        line-height: normal;
+        margin: 0px;
+        line-height: 100%;
+    }
+
+    /* radio */
+    .RadioCard {
+        padding: 20px 0px;
+    }
+
+    .Radio_list {
+        padding: 50px 0px;
+    }
+
+    /* podcast */
+    .PodcastCrad2 {
+        flex-direction: column;
+        width: 305px;
+        height: 460px;
+    }
+
+    .podcastEpisode {
+        flex-wrap: nowrap;
+        gap: 15px;
+        overflow-x: auto;
+    }
+}

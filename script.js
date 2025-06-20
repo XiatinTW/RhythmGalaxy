@@ -13,18 +13,26 @@ if (input && searchBox) {
     }
   });
 }
-const input1 = document.getElementById("SiginIn_medium");
-const searchBox1 = document.getElementById("SearchBox");
+// medium版搜尋
+const input1 = document.getElementById("Search_medium");
+const searchBox1 = document.getElementById("SearchBox_medium");
+
 if (input1 && searchBox1) {
-  input1.addEventListener("focus", () => {
-    searchBox1.style.display = "block";
+  let isBoxVisible = false;
+
+  input1.addEventListener("click", (event) => {
+    event.stopPropagation();
+    isBoxVisible = !isBoxVisible;
+    searchBox1.style.display = isBoxVisible ? "block" : "none";
   });
+
   document.addEventListener("click", (event) => {
     if (
       !input1.contains(event.target) &&
       !searchBox1.contains(event.target)
     ) {
       searchBox1.style.display = "none";
+      isBoxVisible = false;
     }
   });
 }
@@ -175,6 +183,37 @@ document.querySelectorAll('.PodcastCradList').forEach(scrollContainer => {
     scrollContainer.scrollLeft = scrollLeft - walk;
   });
 });
+// podcastEpisode水平滑動
+document.querySelectorAll('.podcastEpisode').forEach(scrollContainer => {
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  scrollContainer.addEventListener('mousedown', (e) => {
+    isDown = true;
+    scrollContainer.classList.add('active');
+    startX = e.pageX - scrollContainer.offsetLeft;
+    scrollLeft = scrollContainer.scrollLeft;
+  });
+
+  scrollContainer.addEventListener('mouseleave', () => {
+    isDown = false;
+    scrollContainer.classList.remove('active');
+  });
+
+  scrollContainer.addEventListener('mouseup', () => {
+    isDown = false;
+    scrollContainer.classList.remove('active');
+  });
+
+  scrollContainer.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainer.offsetLeft;
+    const walk = (x - startX) * 1; // 拖曳速度
+    scrollContainer.scrollLeft = scrollLeft - walk;
+  });
+});
 
 // 切換播放列Card收放
 const topBtn = document.querySelector('.Top');
@@ -224,7 +263,7 @@ if (activitySearchBtn && activitySearchBox) {
 }
 // 切換Nav2
 const nav = document.getElementById('Nav2');
-const siginInMedium = document.getElementById('SiginIn_medium');
+const siginInMedium = document.getElementById('Nav_medium');
 if (nav && siginInMedium) {
   siginInMedium.addEventListener('click', function (e) {
     e.stopPropagation();

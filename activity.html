@@ -16,6 +16,7 @@
         @import url(./style/object.css);
         @import url(./style/audioplayer.css);
         @import url(./style/activity.css);
+        @import url(./style/RWD.css);
 
         body,
         html {
@@ -71,13 +72,90 @@
             <Button id="SiginIn" class="h6">
                 <p>Sign in</p>
             </Button>
-            <span id="SiginIn_medium"><img src="./assets/icon/nav-medium.svg" alt="Nav"></span>
+            <span id="Nav_medium"><img src="./assets/icon/nav-medium.svg" alt="Nav"></span>
+            <div id="SearchBox_medium">
+                <input id="search_Input" type="text" placeholder="請輸入歌手、歌曲">
+                <div id="PopularKeywords">
+                    <h5>PopularKeywords</h5>
+                    <div id="SearchInput_list_button">
+                        <button class="SearchKeywords">🔥I am a keyword</button>
+                    </div>
+                </div>
+                <div id="SearchHistoryBox">
+                    <div id="SearchHistory">
+                        <h5>Search History</h5>
+                        <button class="ClearButton">Clear</button>
+                    </div>
+                    <div id="SearchHistory_buttonList">
+                        <p class="SearchHistory_button">I am History</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
     <div class="layout">
-        <nav id="Nav" class="Nav_D">
+        <nav id="Nav">
             <div id="LeftList_menu">
-                <button id="NAV_bt" class="NAV_bt"></button>
+            </div>
+            <h6 class="Nav_Menu ">Menu</h6>
+            <a href="index.html" class="LeftButton Explore">
+                <span></span>
+                <p>Explore</p>
+            </a>
+            <a href="genres.html" class="LeftButton Genres">
+                <span></span>
+                <p>Genres</p>
+            </a>
+            <a href="activity.html" class="LeftButton Activity LeftButton_H">
+                <span></span>
+                <p>Activity</p>
+            </a>
+            <a href="Radio.html" class="LeftButton Radio">
+                <span></span>
+                <p>Radio</p>
+            </a>
+            <a href="podcast.html" class="LeftButton Podcast">
+                <span></span>
+                <p>Podcast</p>
+            </a>
+            <h6 class="Nav_Menu">Library</h6>
+            <a href="#" class="LeftButton Recent">
+                <span></span>
+                <p>Recent</p>
+            </a>
+            <a href="#" class="LeftButton Favorites">
+                <span></span>
+                <p>Favorites</p>
+            </a>
+            <a href="#" class="LeftButton Offline">
+                <span></span>
+                <p>Offline</p>
+            </a>
+            <h6 class="Nav_Menu">Playlist</h6>
+            <a href="#" class="LeftButton Create">
+                <span></span>
+                <p>Create playlist</p>
+            </a>
+            <a href="#" class="LeftButton Album">
+                <span></span>
+                <p>Light music</p>
+            </a>
+            <a href="#" class="LeftButton Album">
+                <span></span>
+                <p>Hip hop music</p>
+            </a>
+            <a href="#" class="LeftButton Album">
+                <span></span>
+                <p>K-pop music</p>
+            </a>
+        </nav>
+        <nav id="Nav2">
+            <div id="LeftList_menu">
+            </div>
+            <div class="SiginInBox">
+                <Button id="SiginIn" class="h6">
+                    <p>Sign in</p>
+                </Button>
             </div>
             <h6 class="Nav_Menu ">Menu</h6>
             <a href="index.html" class="LeftButton Explore">

@@ -36,6 +36,16 @@
     border-radius: 10px;
 }
 
+.podcastEpisode::-webkit-scrollbar {
+    height: 8px;
+    background: transparent;
+}
+
+.podcastEpisode:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
 .PodcastCrad {
     display: flex;
     width: 170px;
