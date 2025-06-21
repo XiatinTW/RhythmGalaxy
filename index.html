@@ -35,8 +35,8 @@
     <bg class="body_background"></bg>
     <div class="Login colse">
         <div class="LoginBox">
-            <h2>Welcome</h2>
-            <p>Please enter your email and password to log in.</p>
+            <h2 data-lang="login_Welcome">Welcome</h2>
+            <p data-lang="login_text">Please enter your email and password to log in.</p>
             <div id="LoginBox_account">
                 <p>Email</p>
                 <input type="email" name="LoginBox_account">
@@ -50,9 +50,9 @@
                     <input checked="" type="checkbox" id="LRC" class="hidden-xs-up">
                     <label for="LRC" class="LRC p"></label>
                 </div>
-                <p>Remember me</p>
+                <p data-lang="login_Remember">Remember me</p>
             </div>
-            <button id="SiginIn" class="h6">Log in</button>
+            <button id="SiginIn" class="h6" data-lang="login_Login">Log in</button>
             <div class="LoginBox_SiginIn">
                 <div class="LoginBox_SiginIn_box">
                     <span class="google"></span>
@@ -63,7 +63,7 @@
                     <p>Facebook</p>
                 </div>
             </div>
-            <p>Don't have an account?</p><a href="#" class="p">Sign up</a>
+            <p data-lang="login_unaccount">Don't have an account?</p><a href="#" class="p" data-lang="login_Signup">Sign up</a>
         </div>
     </div>
     <header id="header">
@@ -73,45 +73,45 @@
         <div class="Navbar">
             <span id="Search_medium"><img src="./assets/icon/Search.svg" alt="search"></span>
             <div id="Search_pc">
-                <input id="search_Input" type="text" data-i18n-placeholder="header_input01">
+                <input id="search_Input" type="text" data-lang-placeholder="header_input01">
                 <div id="SearchBox">
                     <div id="PopularKeywords">
-                        <h5 data-i18n="header_input02"></h5>
+                        <h5 data-lang="header_input02">PopularKeywords.</h5>
                         <div id="SearchInput_list_button">
-                            <button class="SearchKeywords" data-i18n="header_input02-1"></button>
+                            <button class="SearchKeywords" data-lang="header_input02-1">🔥I am a keyword.</button>
                         </div>
                     </div>
                     <div id="SearchHistoryBox">
                         <div id="SearchHistory">
-                            <h5 data-i18n="header_input03"></h5>
-                            <button class="ClearButton" data-i18n="header_input04"></button>
+                            <h5 data-lang="header_input03">Search History</h5>
+                            <button class="ClearButton" data-lang="header_input04">Clear</button>
                         </div>
                         <div id="SearchHistory_buttonList">
-                            <p class="SearchHistory_button">I am History</p>
+                            <p class="SearchHistory_button" data-lang="header_input03-1">I am History.</p>
                         </div>
                     </div>
                 </div>
             </div>
             <button id="search_setring"></button>
             <Button id="SiginIn" class="h6">
-                <p>Sign in</p>
+                <p data-lang="paragraph">Sign in</p>
             </Button>
             <span id="Nav_medium"><img src="./assets/icon/nav-medium.svg" alt="Nav"></span>
             <div id="SearchBox_medium">
-                <input id="search_Input_medium" type="text" placeholder="請輸入歌手、歌曲">
+                <input id="search_Input_medium" type="text" data-lang-placeholder="header_input01">
                 <div id="PopularKeywords">
-                    <h5>PopularKeywords</h5>
+                    <h5 data-lang="header_input02">PopularKeywords</h5>
                     <div id="SearchInput_list_button">
-                        <button class="SearchKeywords">🔥I am a keyword</button>
+                        <button class="SearchKeywords" data-lang="header_input02-1">🔥I am a keyword.</button>
                     </div>
                 </div>
                 <div id="SearchHistoryBox">
                     <div id="SearchHistory">
-                        <h5>Search History</h5>
-                        <button class="ClearButton">Clear</button>
+                        <h5 data-lang="header_input03">Search History</h5>
+                        <button class="ClearButton" data-lang="header_input04">Clear</button>
                     </div>
                     <div id="SearchHistory_buttonList">
-                        <p class="SearchHistory_button">I am History</p>
+                        <p class="SearchHistory_button" data-lang="header_input03-1">I am History.</p>
                     </div>
                 </div>
             </div>
@@ -121,44 +121,44 @@
         <nav id="Nav">
             <div id="LeftList_menu">
             </div>
-            <h6 class="Nav_Menu ">Menu</h6>
+            <h6 class="Nav_Menu" data-lang="Nav_menu">Menu</h6>
             <a href="index.html" class="LeftButton Explore LeftButton_H">
                 <span></span>
-                <p>Explore</p>
+                <p data-lang="Nav_Explore">Explore</p>
             </a>
             <a href="genres.html" class="LeftButton Genres">
                 <span></span>
-                <p>Genres</p>
+                <p data-lang="Nav_Genres">Genres</p>
             </a>
             <a href="activity.html" class="LeftButton Activity">
                 <span></span>
-                <p>Activity</p>
+                <p data-lang="Nav_Activity">Activity</p>
             </a>
             <a href="Radio.html" class="LeftButton Radio">
                 <span></span>
-                <p>Radio</p>
+                <p data-lang="Nav_Radio">Radio</p>
             </a>
             <a href="podcast.html" class="LeftButton Podcast">
                 <span></span>
-                <p>Podcast</p>
+                <p data-lang="Nav_Podcast">Podcast</p>
             </a>
-            <h6 class="Nav_Menu">Library</h6>
+            <h6 class="Nav_Menu" data-lang="Nav_Library">Library</h6>
             <a href="#" class="LeftButton Recent">
                 <span></span>
-                <p>Recent</p>
+                <p data-lang="Nav_Recent">Recent</p>
             </a>
             <a href="#" class="LeftButton Favorites">
                 <span></span>
-                <p>Favorites</p>
+                <p data-lang="Nav_Favorites">Favorites</p>
             </a>
             <a href="#" class="LeftButton Offline">
                 <span></span>
-                <p>Offline</p>
+                <p data-lang="Nav_Offline">Offline</p>
             </a>
-            <h6 class="Nav_Menu">Playlist</h6>
+            <h6 class="Nav_Menu" data-lang="Nav_Playlist">Playlist</h6>
             <a href="#" class="LeftButton Create">
                 <span></span>
-                <p>Create playlist</p>
+                <p data-lang="Nav_Create">Create playlist</p>
             </a>
             <a href="#" class="LeftButton Album">
                 <span></span>
@@ -178,64 +178,52 @@
             </div>
             <div class="SiginInBox">
                 <Button id="SiginIn" class="h6">
-                    <p>Sign in</p>
+                    <p data-lang="paragraph">Sign in</p>
                 </Button>
             </div>
-            <h6 class="Nav_Menu ">Menu</h6>
+            <h6 class="Nav_Menu" data-lang="Nav_menu">Menu</h6>
             <a href="index.html" class="LeftButton Explore LeftButton_H">
                 <span></span>
-                <p>Explore</p>
+                <p data-lang="Nav_Explore">Explore</p>
             </a>
             <a href="genres.html" class="LeftButton Genres">
                 <span></span>
-                <p>Genres</p>
+                <p data-lang="Nav_Genres">Genres</p>
             </a>
             <a href="activity.html" class="LeftButton Activity">
                 <span></span>
-                <p>Activity</p>
+                <p data-lang="Nav_Activity">Activity</p>
             </a>
             <a href="Radio.html" class="LeftButton Radio">
                 <span></span>
-                <p>Radio</p>
+                <p data-lang="Nav_Radio">Radio</p>
             </a>
             <a href="podcast.html" class="LeftButton Podcast">
                 <span></span>
-                <p>Podcast</p>
+                <p data-lang="Nav_Podcast">Podcast</p>
             </a>
-            <h6 class="Nav_Menu">Library</h6>
+            <h6 class="Nav_Menu" data-lang="Nav_Library">Library</h6>
             <a href="#" class="LeftButton Recent">
                 <span></span>
-                <p>Recent</p>
+                <p data-lang="Nav_Recent">Recent</p>
             </a>
             <a href="#" class="LeftButton Favorites">
                 <span></span>
-                <p>Favorites</p>
+                <p data-lang="Nav_Favorites">Favorites</p>
             </a>
             <a href="#" class="LeftButton Offline">
                 <span></span>
-                <p>Offline</p>
+                <p data-lang="Nav_Offline">Offline</p>
             </a>
-            <h6 class="Nav_Menu">Playlist</h6>
+            <h6 class="Nav_Menu" data-lang="Nav_Playlist">Playlist</h6>
             <a href="#" class="LeftButton Create">
                 <span></span>
-                <p>Create playlist</p>
-            </a>
-            <a href="#" class="LeftButton Album">
-                <span></span>
-                <p>Light music</p>
-            </a>
-            <a href="#" class="LeftButton Album">
-                <span></span>
-                <p>Hip hop music</p>
-            </a>
-            <a href="#" class="LeftButton Album">
-                <span></span>
-                <p>K-pop music</p>
+                <p data-lang="Nav_Create">Create playlist</p>
             </a>
         </nav>
         <main id="main1">
             <div id="main1_1">
-                <h2 style="min-width: 350px;">Trending Hits</h2>
+                <h2 style="min-width: 350px;" data-lang="main_TrendingHits">Trending Hits</h2>
                 <div class="MusicCradList">
                     <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
                         <div class="MusicCrad_1">
@@ -351,8 +339,8 @@
                     </button>
                 </div>
                 <div id="MusicCharts">
-                    <h2 style="min-width: 320px;">Music Charts</h2>
-                    <a href="#" class="view-all h6">View all</a>
+                    <h2 style="min-width: 320px;" data-lang="main_MusicCharts">Music Charts</h2>
+                    <a href="#" class="view-all h6" data-lang="main_Viewall">View all</a>
                 </div>
                 <div id="MusicCharts_playmusic">
                     <div id="Music_Charts_List">
@@ -528,7 +516,7 @@
                         </div>
                     </div>
                     <div ID="DailyMusic">
-                        <h6 class="title">Daily Music</h6>
+                        <h6 class="title" data-lang="main_DailyMusic">Daily Music</h6>
                         <button class="MusicCrad" data-bg="./assets/img/500x500.jpg" style="padding: 45px 20px;">
                             <div class="MusicCrad_1">
                                 <div class="MusicCrad_2"></div>
@@ -554,13 +542,13 @@
                 <div class="main1_2">
                     <div class="ArtistPhotos"></div>
                     <div class="main1_2_text">
-                        <h1>挑選喜歡的藝人</h1>
-                        <h3>創造專屬自己的專輯。馬上來體驗吧!</h3>
-                        <a href="#">開始使用</a>
+                        <h1 data-lang="main1_2_title">挑選喜歡的藝人</h1>
+                        <h3 data-lang="main1_2_text">創造專屬自己的專輯。馬上來體驗吧!</h3>
+                        <a href="#" data-lang="main1_2_bt">開始使用</a>
                     </div>
                 </div>
                 <div class="AlbumMusic Recommended">
-                    <h2 style="min-width: 350px;">Hot Picks for You</h2>
+                    <h2 style="min-width: 350px;" data-lang="Recommended_title">Hot Picks for You</h2>
                     <div class="MusicCradList">
                         <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
                             <div class="MusicCrad_1">
@@ -677,7 +665,7 @@
                     </div>
                 </div>
                 <div class="AlbumMusic LatestReleases">
-                    <h2 style="min-width: 350px;"> Fresh Releases</h2>
+                    <h2 style="min-width: 350px;" data-lang="LatestReleases_title">Fresh Releases</h2>
                     <div class="MusicCradList">
                         <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
                             <div class="MusicCrad_1">
@@ -798,27 +786,27 @@
     <footer>
         <div class="footer_body">
             <div class="footer_text">
-                <h6>關於</h6>
-                <a class="p" href="#">關於?</a>
-                <a class="p" href="#">最新消息</a>
-                <a class="p" href="#">會員服務條款</a>
-                <a class="p" href="#">隱私權保護政策</a>
-                <a class="p" href="#">著作權保護措施</a>
-                <a class="p" href="#">免責聲明</a>
+                <h6 data-lang="footer_About">關於</h6>
+                <a class="p" href="#" data-lang="footer_About2">關於?</a>
+                <a class="p" href="#" data-lang="footer_Latest">最新消息</a>
+                <a class="p" href="#" data-lang="footer_MST">會員服務條款</a>
+                <a class="p" href="#" data-lang="footer_PPP">隱私權保護政策</a>
+                <a class="p" href="#" data-lang="footer_CPM">著作權保護措施</a>
+                <a class="p" href="#" data-lang="footer_Disclaimer">免責聲明</a>
             </div>
             <div class="footer_text">
-                <h6>快速導覽</h6>
-                <a class="p" href="#">探索</a>
-                <a class="p" href="#">類別</a>
-                <a class="p" href="#">最近活動</a>
-                <a class="p" href="#">電台收聽</a>
-                <a class="p" href="#">熱門節目Podcast</a>
+                <h6 data-lang="footer_QG">快速導覽</h6>
+                <a class="p" href="#" data-lang="footer_QG1">探索</a>
+                <a class="p" href="#" data-lang="footer_QG2">類別</a>
+                <a class="p" href="#" data-lang="footer_QG3">最近活動</a>
+                <a class="p" href="#" data-lang="footer_QG4">電台收聽</a>
+                <a class="p" href="#" data-lang="footer_QG5">熱門節目Podcast</a>
             </div>
             <div class="footer_text">
-                <h6>其他</h6>
-                <a class="p" href="#">常見問題</a>
-                <a class="p" href="#">尋求幫助</a>
-                <a class="p" href="#">使用者指南</a>
+                <h6 data-lang="footer_Others">其他</h6>
+                <a class="p" href="#" data-lang="footer_Others1">常見問題</a>
+                <a class="p" href="#" data-lang="footer_Others2">尋求幫助</a>
+                <a class="p" href="#" data-lang="footer_Others3">使用者指南</a>
             </div>
             <div class="footer_text2">
                 <div class="footer_button">
@@ -876,8 +864,8 @@
                     </div>
                 </button>
                 <div class="PlayBarCard_toll">
-                    <p class="lyrics_bt">歌詞</p>
-                    <p class="related_bt">相關音樂</p>
+                    <p class="lyrics_bt" data-lang="lyrics_bt">歌詞</p>
+                    <p class="related_bt" data-lang="related_bt">接著播放</p>
                 </div>
                 <div id="lyrics" class="show">
                     <div class="PlayBarCard_lyrics">

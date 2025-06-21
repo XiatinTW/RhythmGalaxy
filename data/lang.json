@@ -5,7 +5,7 @@
   },
   "header_input02": {
     "zh": "熱門關鍵字",
-    "en": "PopularKeywords."
+    "en": "PopularKeywords"
   },
   "header_input02-1": {
     "zh": "🔥我是熱門關鍵字",
@@ -13,18 +13,442 @@
   },
   "header_input03": {
     "zh": "搜尋歷史",
-    "en": "Search History."
+    "en": "Search History"
+  },
+  "header_input03-1": {
+    "zh": "我是瀏覽紀錄",
+    "en": "I am History."
   },
   "header_input04": {
     "zh": "清除",
     "en": "Clear"
   },
   "paragraph": {
-    "zh": "Sign in",
-    "en": "登入."
+    "zh": "登入",
+    "en": "Sign in"
   },
   "search_placeholder": {
     "zh": "請輸入歌手、歌曲",
     "en": "Enter artist or song"
+  },
+  "login_Welcome": {
+    "zh": "會員登入",
+    "en": "Welcome"
+  },
+  "login_text": {
+    "zh": "請輸入email及密碼，進行登入。",
+    "en": "Please enter your email and password to log in."
+  },
+  "login_Remember": {
+    "zh": "記住帳號",
+    "en": "Remember me."
+  },
+  "login_Login": {
+    "zh": "登入",
+    "en": "Log in"
+  },
+  "login_unaccount": {
+    "zh": "還沒有帳號嗎？",
+    "en": "Don't have an account?"
+  },
+  "login_Signup": {
+    "zh": "我要註冊",
+    "en": "Sign up"
+  },
+  "Nav_menu": {
+    "zh": "目錄",
+    "en": "Menu"
+  },
+  "Nav_Explore": {
+    "zh": "探索",
+    "en": "Explore"
+  },
+  "Nav_Genres": {
+    "zh": "類型",
+    "en": "Genres"
+  },
+  "Nav_Activity": {
+    "zh": "活動",
+    "en": "Activity"
+  },
+  "Nav_Radio": {
+    "zh": "電台",
+    "en": "Radio"
+  },
+  "Nav_Podcast": {
+    "zh": "Podcast節目",
+    "en": "Podcast"
+  },
+  "Nav_Library": {
+    "zh": "媒體庫",
+    "en": "Library"
+  },
+  "Nav_Recent": {
+    "zh": "觀看紀錄",
+    "en": "Recent"
+  },
+  "Nav_Favorites": {
+    "zh": "最愛",
+    "en": "Favorites"
+  },
+  "Nav_Offline": {
+    "zh": "保存內容",
+    "en": "Offline"
+  },
+  "Nav_Playlist": {
+    "zh": "播放清單",
+    "en": "Playlist"
+  },
+  "Nav_Create": {
+    "zh": "建立清單",
+    "en": "Create playlist"
+  },
+  "footer_About": {
+    "zh": "關於",
+    "en": "About"
+  },
+  "footer_About2": {
+    "zh": "關於Rhythm Galaxy",
+    "en": "About Rhythm Galaxy"
+  },
+  "footer_Latest": {
+    "zh": "最新消息",
+    "en": "Latest news"
+  },
+  "footer_MST": {
+    "zh": "會員服務條款",
+    "en": "Member Service Terms"
+  },
+  "footer_PPP": {
+    "zh": "隱私權保護政策",
+    "en": "Privacy Protection Policy"
+  },
+  "footer_CPM": {
+    "zh": "著作權保護措施",
+    "en": "Copyright protection measures"
+  },
+  "footer_Disclaimer": {
+    "zh": "免責聲明",
+    "en": "Disclaimer"
+  },
+  "footer_QG": {
+    "zh": "快速導覽",
+    "en": "Quick Guide"
+  },
+  "footer_QG1": {
+    "zh": "探索",
+    "en": "Explore"
+  },
+  "footer_QG2": {
+    "zh": "類別",
+    "en": "Genres"
+  },
+  "footer_QG3": {
+    "zh": "最近活動",
+    "en": "Activity"
+  },
+  "footer_QG4": {
+    "zh": "電台收聽",
+    "en": "Radio"
+  },
+  "footer_QG5": {
+    "zh": "熱門節目Podcast",
+    "en": "Podcast"
+  },
+  "footer_Others": {
+    "zh": "其他",
+    "en": "Others"
+  },
+  "footer_Others1": {
+    "zh": "常見問題",
+    "en": "FAQ?"
+  },
+  "footer_Others2": {
+    "zh": "尋求幫助",
+    "en": "help"
+  },
+  "footer_Others3": {
+    "zh": "使用者指南",
+    "en": "User Guide"
+  },
+  "lyrics_bt": {
+    "zh": "歌詞",
+    "en": "Lyrics"
+  },
+  "related_bt": {
+    "zh": "接著播放",
+    "en": "PlayNext"
+  },
+  "main_TrendingHits": {
+    "zh": "熱門歌曲",
+    "en": "Trending Hits"
+  },
+  "main_MusicCharts": {
+    "zh": "熱門排行榜",
+    "en": "Music Charts"
+  },
+  "main_Viewall": {
+    "zh": "查看更多",
+    "en": "View all"
+  },
+  "main_DailyMusic": {
+    "zh": "每日音樂",
+    "en": "Daily Music"
+  },
+  "main1_2_title": {
+    "zh": "挑選喜歡的藝人",
+    "en": "Tell us which artists you like."
+  },
+  "main1_2_text": {
+    "zh": "創造專屬自己的專輯。馬上來體驗吧!",
+    "en": "We'll create an experience just for you."
+  },
+  "main1_2_bt": {
+    "zh": "開始使用",
+    "en": "Les's go."
+  },
+  "Recommended_title": {
+    "zh": "精選熱門推薦",
+    "en": "Hot Picks for You."
+  },
+  "LatestReleases_title": {
+    "zh": "最新發行專輯",
+    "en": "Fresh Releases."
+  },
+  "main_genres_PoPMusic": {
+    "zh": "流行音樂",
+    "en": "PoP Music"
+  },
+  "main_genres_HipHopMusic": {
+    "zh": "嘻哈音樂",
+    "en": "Hip-Hop Music"
+  },
+  "main_genres_JazzMusic": {
+    "zh": "爵士音樂",
+    "en": "Jazz Music"
+  },
+  "main_genreslist-pop": {
+    "zh": "流行音樂",
+    "en": "POP"
+  },
+  "main_genreslist-Hip-Hop": {
+    "zh": "嘻哈音樂",
+    "en": "Hip-Hop"
+  },
+  "main_genreslist-Jazz": {
+    "zh": "爵士音樂",
+    "en": "Jazz"
+  },
+  "main_genreslist-K-Pop": {
+    "zh": "韓國流行音樂",
+    "en": "K-Pop"
+  },
+  "main_genreslist-J-Pop": {
+    "zh": "日本流行音樂",
+    "en": "J-Pop"
+  },
+  "main_genreslist-EDM": {
+    "zh": "電子舞曲",
+    "en": "EDM"
+  },
+  "main_genreslist-Decades": {
+    "zh": "年代感",
+    "en": "Decades"
+  },
+  "main_genreslist-R&B&Soul": {
+    "zh": "節奏藍調&靈魂樂",
+    "en": "R&B and Soul"
+  },
+  "main_genreslist-Country": {
+    "zh": "鄉村音樂",
+    "en": "Country Music"
+  },
+  "main_genreslist-Dance": {
+    "zh": "舞曲",
+    "en": "Dance Music"
+  },
+  "main_activity_ActivityCard": {
+    "zh": "最近活動",
+    "en": "Recent Activities"
+  },
+  "main_activity_ActivityList": {
+    "zh": "活動列表",
+    "en": "Activity List"
+  },
+  "main_activity_SearchBox1": {
+    "zh": "全部",
+    "en": "All"
+  },
+  "main_activity_SearchBox2": {
+    "zh": "北部",
+    "en": "North"
+  },
+  "main_activity_SearchBox3": {
+    "zh": "中部",
+    "en": "Middle"
+  },
+  "main_activity_SearchBox4": {
+    "zh": "南部",
+    "en": "South"
+  },
+  "main_activity_SearchBox5": {
+    "zh": "東部",
+    "en": "East"
+  },
+  "main_activity_SearchBox6": {
+    "zh": "外島",
+    "en": "Outlying"
+  },
+  "main_activity_Search1": {
+    "zh": "14天內",
+    "en": "Within 14 Days"
+  },
+  "main_activity_Search2": {
+    "zh": "這個月",
+    "en": "This Month"
+  },
+  "main_activity_Search3": {
+    "zh": "近三個月",
+    "en": "Last 3 Months"
+  },
+  "main_activity_Search4": {
+    "zh": "選擇日期",
+    "en": "Select Date"
+  },
+  "main_activity_data1": {
+    "zh": "1月",
+    "en": "Jan"
+  },
+  "main_activity_data2": {
+    "zh": "2月",
+    "en": "Feb"
+  },
+  "main_activity_data3": {
+    "zh": "3月",
+    "en": "Mar"
+  },
+  "main_activity_data4": {
+    "zh": "4月",
+    "en": "Apr"
+  },
+  "main_activity_data5": {
+    "zh": "5月",
+    "en": "May"
+  },
+  "main_activity_data6": {
+    "zh": "6月",
+    "en": "Jun"
+  },
+  "main_activity_data7": {
+    "zh": "7月",
+    "en": "Jul"
+  },
+  "main_activity_data8": {
+    "zh": "8月",
+    "en": "Aug"
+  },
+  "main_activity_data9": {
+    "zh": "9月",
+    "en": "Sep"
+  },
+  "main_activity_data10": {
+    "zh": "10月",
+    "en": "Oct"
+  },
+  "main_activity_data11": {
+    "zh": "11月",
+    "en": "Nov"
+  },
+  "main_activity_data12": {
+    "zh": "12月",
+    "en": "Dec"
+  },
+  "main_activity_week1": {
+    "zh": "星期一",
+    "en": "Monday"
+  },
+  "main_activity_week2": {
+    "zh": "星期二",
+    "en": "Tuesday"
+  },
+  "main_activity_week3": {
+    "zh": "星期三",
+    "en": "Wednesday"
+  },
+  "main_activity_week4": {
+    "zh": "星期四",
+    "en": "Thursday"
+  },
+  "main_activity_week5": {
+    "zh": "星期五",
+    "en": "Friday"
+  },
+  "main_activity_week6": {
+    "zh": "星期六",
+    "en": "Saturday"
+  },
+  "main_activity_week7": {
+    "zh": "星期日",
+    "en": "Sunday"
+  },
+  "main_radio_Favorite": {
+    "zh": "收藏的電台",
+    "en": "Favorite Radio"
+  },
+  "main_radio_List": {
+    "zh": "電台列表",
+    "en": "Radio List"
+  },
+  "main_podcast_PodcastList": {
+    "zh": "為您推薦的節目",
+    "en": "Recommended shows for you"
+  },
+  "main_podcast_List_PJ": {
+    "zh": "個人日誌",
+    "en": "Personal Journal"
+  },
+  "main_podcast_List_Education": {
+    "zh": "知識與教育",
+    "en": "Knowledge & Education"
+  },
+  "main_podcast_List_Entertainment": {
+    "zh": "娛樂",
+    "en": "Entertainment"
+  },
+  "main_podcast_List_Horror": {
+    "zh": "恐怖",
+    "en": "Horror"
+  },
+  "main_podcast_List_Pets": {
+    "zh": "寵物",
+    "en": "Pets"
+  },
+  "main_podcast_List_Politics": {
+    "zh": "政治",
+    "en": "Politics"
+  },
+  "main_podcast_List_CE": {
+    "zh": "時事",
+    "en": "Current Events"
+  },
+  "main_podcast_List_Novels": {
+    "zh": "小說",
+    "en": "Novels"
+  },
+  "main_podcast_List_Music": {
+    "zh": "音樂",
+    "en": "Music"
+  },
+  "main_podcast_List_Spiritual": {
+    "zh": "心靈探索",
+    "en": "Spiritual Exploration"
+  },
+  "main_podcast_podcastEpisode": {
+    "zh": "熱門單集",
+    "en": "Popular episode"
+  },
+  "main_podcast_HOT": {
+    "zh": "熱門節目",
+    "en": "Popular shows"
   }
 }

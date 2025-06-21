@@ -17,12 +17,23 @@
     align-items: flex-start;
     min-width: 240px;
     max-width: 400px;
-    padding: 80px 0px 30px 2px;
+    padding: 80px 0px 0px 2px;
     background: var(--white-50);
     backdrop-filter: blur(20px);
     z-index: 1;
     flex-shrink: 0;
     display: none;
+    height: 100vh;
+    overflow-y: auto;
+}
+#Nav2::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+}
+
+#Nav2:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
 }
 
 .SiginInBox {
@@ -181,6 +192,7 @@
     align-items: center;
     gap: 10px;
     justify-content: flex-start;
+    color: var(--Color-gray-500);
 }
 
 .NAV_bt {
@@ -212,4 +224,7 @@
 
 #Nav.Nav_D a {
     justify-content: center
+}
+#Nav.Nav_D .Nav_Menu {
+    padding: 20px 10px;
 }
