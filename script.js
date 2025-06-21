@@ -1,41 +1,122 @@
+// 搜尋框、彈窗等顯示/隱藏控制
 const input = document.getElementById("search_Input");
 const searchBox = document.getElementById("SearchBox");
 if (input && searchBox) {
-  input.addEventListener("focus", () => {
+  input.addEventListener("click", (event) => {
+    event.stopPropagation();
     searchBox.style.display = "block";
   });
-  document.addEventListener("click", (event) => {
-    if (
-      !input.contains(event.target) &&
-      !searchBox.contains(event.target)
-    ) {
-      searchBox.style.display = "none";
-    }
+  searchBox.addEventListener("click", (event) => {
+    event.stopPropagation();
   });
 }
-// medium版搜尋
+
 const input1 = document.getElementById("Search_medium");
 const searchBox1 = document.getElementById("SearchBox_medium");
-
+let isBoxVisible = false;
 if (input1 && searchBox1) {
-  let isBoxVisible = false;
-
   input1.addEventListener("click", (event) => {
     event.stopPropagation();
     isBoxVisible = !isBoxVisible;
     searchBox1.style.display = isBoxVisible ? "block" : "none";
   });
-
-  document.addEventListener("click", (event) => {
-    if (
-      !input1.contains(event.target) &&
-      !searchBox1.contains(event.target)
-    ) {
-      searchBox1.style.display = "none";
-      isBoxVisible = false;
-    }
+  searchBox1.addEventListener("click", (event) => {
+    event.stopPropagation();
   });
 }
+
+// 篩選按鈕
+const activitySearchBtn = document.querySelector('.ActivitySearch_bt');
+const activitySearchBox = document.querySelector('.ActivitySearchBox');
+if (activitySearchBtn && activitySearchBox) {
+  activitySearchBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    activitySearchBox.classList.toggle('active');
+  });
+  activitySearchBox.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+}
+
+// 切換Nav2
+const nav = document.getElementById('Nav2');
+const siginInMedium = document.getElementById('Nav_medium');
+if (nav && siginInMedium) {
+  siginInMedium.addEventListener('click', function (e) {
+    e.stopPropagation();
+    nav.classList.toggle('active');
+  });
+  nav.addEventListener('click', function (e) {
+    e.stopPropagation();
+  });
+}
+
+// 設定視窗
+const setringBox = document.querySelector('.setringBox');
+const setringBtn = document.querySelector('#search_setring');
+if (setringBox && setringBtn) {
+  setringBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    const isOpen = !setringBox.classList.contains('colse');
+    if (isOpen) {
+      setringBox.classList.add('colse');
+      document.body.classList.remove('colse');
+    } else {
+      setringBox.classList.remove('colse');
+      document.body.classList.add('colse');
+    }
+  });
+  setringBox.addEventListener('click', function (e) {
+    e.stopPropagation();
+  });
+}
+
+// 登入視窗
+document.querySelectorAll('#SiginIn').forEach(btn => {
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    document.querySelector('.Login').classList.remove('colse');
+    document.body.classList.add('no-scroll');
+  });
+});
+document.querySelector('.Login').addEventListener('click', function (e) {
+  // 只在點擊背景時關閉，點擊內容不關閉
+  if (e.target === this) {
+    this.classList.add('colse');
+    document.body.classList.remove('no-scroll');
+  }
+});
+
+// 統一外部點擊關閉
+document.addEventListener('click', function (e) {
+  // searchBox
+  if (input && searchBox && searchBox.style.display === "block" &&
+    !input.contains(e.target) && !searchBox.contains(e.target)) {
+    searchBox.style.display = "none";
+  }
+  // medium 版 searchBox
+  if (input1 && searchBox1 && searchBox1.style.display === "block" &&
+    !input1.contains(e.target) && !searchBox1.contains(e.target)) {
+    searchBox1.style.display = "none";
+    isBoxVisible = false;
+  }
+  // 活動篩選
+  if (activitySearchBox && activitySearchBox.classList.contains('active') &&
+    !activitySearchBox.contains(e.target) && !activitySearchBtn.contains(e.target)) {
+    activitySearchBox.classList.remove('active');
+  }
+  // Nav2
+  if (nav && nav.classList.contains('active') &&
+    !nav.contains(e.target) && !siginInMedium.contains(e.target)) {
+    nav.classList.remove('active');
+  }
+  // 設定視窗
+  if (setringBox && !setringBox.classList.contains('colse') &&
+    !setringBox.contains(e.target) && setringBtn && !setringBtn.contains(e.target)) {
+    setringBox.classList.add('colse');
+    document.body.classList.remove('colse');
+  }
+});
 
 // musicCrad 圖片
 document.querySelectorAll('.MusicCrad').forEach(parent => {
@@ -246,36 +327,7 @@ document.querySelectorAll('.ActivityCardTab').forEach(tab => {
     tab.style.setProperty('--bg-img', `linear-gradient(0deg, rgba(64,64,64,0.6), rgba(64,64,64,0.6)), url(${src}) center / cover no-repeat`);
   }
 });
-// 篩選按鈕 顯示/隱藏
-const activitySearchBtn = document.querySelector('.ActivitySearch_bt');
-const activitySearchBox = document.querySelector('.ActivitySearchBox');
 
-if (activitySearchBtn && activitySearchBox) {
-  activitySearchBtn.addEventListener('click', () => {
-    activitySearchBox.classList.toggle('active');
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!activitySearchBox.contains(e.target) && !activitySearchBtn.contains(e.target)) {
-      activitySearchBox.classList.remove('active');
-    }
-  });
-}
-// 切換Nav2
-const nav = document.getElementById('Nav2');
-const siginInMedium = document.getElementById('Nav_medium');
-if (nav && siginInMedium) {
-  siginInMedium.addEventListener('click', function (e) {
-    e.stopPropagation();
-    nav.classList.toggle('active');
-  });
-  // 點擊其他地方自動關閉
-  document.addEventListener('click', function (e) {
-    if (!nav.contains(e.target) && !siginInMedium.contains(e.target)) {
-      nav.classList.remove('active');
-    }
-  });
-}
 // 歌詞&相關音樂切換
 function toggleSection(showId, hideId) {
   document.getElementById(showId).classList.add('show');
@@ -289,21 +341,4 @@ document.querySelector('.lyrics_bt').addEventListener('click', () => {
 });
 document.querySelector('.related_bt').addEventListener('click', () => {
   toggleSection('related', 'lyrics');
-});
-// 登入視窗 顯示
-document.querySelectorAll('#SiginIn').forEach(btn => {
-  btn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    document.querySelector('.Login').classList.remove('colse');
-    document.body.classList.add('no-scroll');
-  });
-});
-
-// 點擊 .Login 區塊關閉登入視窗
-document.querySelector('.Login').addEventListener('click', function (e) {
-  // 只在點擊背景時關閉，點擊內容不關閉
-  if (e.target === this) {
-    this.classList.add('colse');
-    document.body.classList.remove('no-scroll');
-  }
 });
