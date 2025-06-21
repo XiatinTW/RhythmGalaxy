@@ -298,14 +298,12 @@ document.querySelectorAll('.podcastEpisode').forEach(scrollContainer => {
 
 // 切換播放列Card收放
 const topBtn = document.querySelector('.Top');
-const card = document.querySelector('.PlayBarCard_body'); // ⚠️ 注意 class 改對
+const card = document.querySelector('.PlayBarCard_body');
 
 if (topBtn && card) {
   topBtn.addEventListener('click', () => {
-    const isActive = card.classList.toggle('active');
-
-    // 根據狀態改變按鈕樣式（例如箭頭方向）
-    topBtn.classList.toggle('Down', isActive);
+    const isOpen = !card.classList.toggle('colse');
+    topBtn.classList.toggle('Down', isOpen);
   });
 }
 

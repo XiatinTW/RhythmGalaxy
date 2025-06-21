@@ -175,7 +175,6 @@
     display: flex;
     width: 290px;
     height: 500px;
-    margin: -20px 0px 0px -20px;
     flex-direction: column;
     align-items: center;
     gap: 20px;
@@ -184,30 +183,31 @@
     box-shadow: 0px 6px 6px 0px rgba(255, 255, 255, 0.30) inset, 0px 6px 6px 0px rgba(255, 255, 255, 0.44) inset;
     filter: drop-shadow(0px 4px 30px rgba(0, 0, 0, 0.15));
     backdrop-filter: blur(2.5px);
-
     overflow: hidden;
-    opacity: 0;
-    visibility: hidden;
-    transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
-}
-
-.PlayBarCard_body.active {
-    max-height: 500px;
     opacity: 1;
     visibility: visible;
+    transition: width 0.4s, height 0.4s, padding 0.4s, opacity 0.4s, visibility 0.4s;
+}
+
+.PlayBarCard_body.colse {
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    visibility: hidden;
+    padding: 0;
 }
 
 .PlayBarCard {
     display: flex;
     position: absolute;
-    top: -500px;
+    top: 0px;
     right: 0;
     width: 300px;
     height: 0px;
-    padding: 20px;
     z-index: 999;
     border-radius: var(--MusicCrad-radius, 20px);
     justify-content: flex-end;
+    align-items: flex-end;
 }
 
 .PlayBarCard .MusicCrad {
