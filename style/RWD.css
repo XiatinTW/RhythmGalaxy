@@ -149,8 +149,54 @@
     }
 
     /* radio */
+    #main_radio {
+        padding: 20px 20px;
+    }
     .RadioCard {
         padding: 20px 0px;
+    }
+
+    .RadioCard_body {
+        min-height: 0;
+        min-width: 0;
+        width: 150px;
+        height: auto;
+    }
+    .RadioCard_body:hover {
+        min-height: 0;
+        min-width: 0;
+        width: 190px;
+        height: auto;
+    }
+    .RadioCard_body img {
+        width: 50px;
+        height: 50px;
+    }
+    .RadioCard_body span {
+        width: 45px;
+        height: 45px;
+    }
+
+    .RadioCard_body h5 {
+        /* h6 */
+        font-family: "Noto Sans TC";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin: 0px;
+        line-height: 100%;
+    }
+
+    .RadioCard_body h3 {
+        /* h6 */
+        font-family: "Noto Sans TC";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin: 0px;
+        line-height: 100%;
     }
 
     .Radio_list {
