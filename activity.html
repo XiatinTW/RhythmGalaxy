@@ -511,36 +511,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        const track = document.getElementById("carouselTrack");
-        const cards = Array.from(track.children);
-        const cardWidth = cards[0].offsetWidth + 20; // 卡片寬度 + gap
-        let currentIndex = 0;
-
-        // 複製前幾張卡片，接到最後
-        cards.slice(0, 2).forEach(card => {
-            const clone = card.cloneNode(true);
-            track.appendChild(clone);
-        });
-
-        function autoScroll() {
-            currentIndex++;
-            track.style.transition = "transform 0.5s ease";
-            track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
-
-            // 當滑到原本最後一張（含 clone 前）時，瞬間重設位置
-            if (currentIndex === cards.length) {
-                setTimeout(() => {
-                    track.style.transition = "none";
-                    track.style.transform = "translateX(0)";
-                    currentIndex = 0;
-                }, 500); // 等動畫結束再重置
-            }
-        }
-
-        setInterval(autoScroll, 4000);
-    </script>
 </body>
 
 </html>
