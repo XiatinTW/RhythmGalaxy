@@ -91,7 +91,7 @@ volumeBtn.addEventListener('click', () => {
     audio.volume = 0;// 點擊靜音
     volumeBtn.style.maskImage = "url('./assets/icon/Icon-Volume_mute.svg')";
     volumeBtn.style.webkitMaskImage = "url('./assets/icon/Icon-Volume_mute.svg')";
-    // 這裡可加 audio.volume = 0;
+    audio.volume = 0;// 點擊靜音
   } else {
     // 取消靜音，恢復上次音量
     isMuted = false;
@@ -105,7 +105,92 @@ volumeBtn.addEventListener('click', () => {
       volumeBtn.style.maskImage = "url('./assets/icon/Icon-Volume_normal.svg')";
       volumeBtn.style.webkitMaskImage = "url('./assets/icon/Icon-Volume_normal.svg')";
     }
-    // 這裡可加 audio.volume = lastVolume;
   }
 });
-document.getElementById('mainAudio').volume = 0.7;
+
+document.addEventListener('DOMContentLoaded', () => {
+  const audio = document.getElementById('mainAudio');
+  const playBtn = document.querySelector('.playing');
+  const progress = document.querySelector('.progress');
+  const buttons = document.querySelectorAll('.MusicCrad');
+
+  // 預設音量為 100%
+  audio.volume = 1;
+
+  // 點擊 MusicCrad 切換音樂
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const audioSrc = button.dataset.audio;
+      if (audioSrc) {
+        audio.src = audioSrc;
+        audio.play();
+        updateAudioPlayerUI(button);
+        playBtn.classList.add('pause'); // 顯示暫停圖示
+      }
+    });
+  });
+
+  // 控制播放／暫停
+  playBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      playBtn.classList.add('pause');
+    } else {
+      audio.pause();
+      playBtn.classList.remove('pause');
+    }
+  });
+
+  // 更新 AudioPlayer 播放器 UI（標題、歌手、封面）
+  function updateAudioPlayerUI(button) {
+    const wrapper = button.parentElement;
+
+    // DailyMusic_title
+    const titleEl = wrapper.querySelector('.DailyMusic_title h5');
+    const artistEl = wrapper.querySelector('.DailyMusic_title p');
+
+    // musicCrad
+    const fallbackTitleEl = button.querySelector('h5');
+    const fallbackArtistEl = button.querySelector('p');
+
+    const title = titleEl?.textContent || fallbackTitleEl?.textContent || 'Music';
+    const artist = artistEl?.textContent || fallbackArtistEl?.textContent || 'Artist';
+    const coverUrl = button.dataset.bg || '';
+
+    // 套用到播放器 UI
+    const player = document.getElementById('AudioPlayer');
+    player.querySelector('.title').textContent = title;
+    player.querySelector('.artist').textContent = artist;
+    player.querySelector('.cover').style.backgroundImage = `url(${coverUrl})`;
+
+    // 同步 PlayBarCard 中的封面和內部元件
+    const card = document.querySelector('.PlayBarCard_body .MusicCrad');
+    if (card) {
+      card.style.backgroundImage = `url(${coverUrl})`;
+
+      const cardInner = card.querySelector('.MusicCrad_2');
+      const cd = card.querySelector('.CD');
+
+      if (cardInner) {
+        cardInner.style.backgroundImage = `url(${coverUrl})`;
+        cardInner.style.backgroundSize = 'cover';
+        cardInner.style.backgroundPosition = 'center';
+        cardInner.style.backgroundRepeat = 'no-repeat';
+      }
+
+      if (cd) {
+        cd.style.backgroundImage = `url(${coverUrl})`;
+        cd.style.backgroundSize = 'cover';
+        cd.style.backgroundPosition = 'center';
+        cd.style.backgroundRepeat = 'no-repeat';
+      }
+    }
+  }
+  // 播放時更新進度條寬度
+  audio.addEventListener('timeupdate', () => {
+    if (audio.duration) {
+      const percent = (audio.currentTime / audio.duration) * 100;
+      progress.style.width = percent + '%';
+    }
+  });
+});

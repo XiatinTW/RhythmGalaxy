@@ -17,16 +17,22 @@
 
 #Logo {
     display: flex;
-    padding: 0px var(--LOGO-x-padding);
     justify-content: center;
     align-items: center;
     gap: 10px;
     align-self: stretch;
+    width: 70px;
+    height: 70px;
+    background-image: url(../assets/img/LOGO.svg);
+    background-size: 100%;
 }
 
 #Logo_img {
     width: 70px;
     height: 70px;
+    background-image: url(../assets/img/LOGO.svg);
+    background-size: 100%;
+
 }
 
 .Navbar {
