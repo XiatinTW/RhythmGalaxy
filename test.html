@@ -6,145 +6,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .setringBox_langselect {
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background: #111;
+        }
+
+        .scroll-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px;
+        }
+
+        .card {
             position: relative;
+            flex: 0 0 350px;
+            height: 480px;
+            border-radius: 20px;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
             overflow: hidden;
-            display: block;
-            margin: auto;
-            width: 330px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* 左卡片 */
+        .card-left {
+            background: linear-gradient(135deg, #d45629, #e7865a);
+        }
+
+        /* 中卡片（帶遮罩與圖片） */
+        .card-center {
+            background: linear-gradient(135deg, #3b3e3e, #606262);
+        }
+
+        .card-center img {
+            position: absolute;
+            right: 0;
+            top: 0;
             height: 100%;
-            border-bottom: 0px;
-            border-radius: 3px;
-            font-size: 12px;
-            box-shadow: 0px 1em 2em -1.5em rgba(0, 0, 0, .5);
+            opacity: 0.3;
+        }
 
-            >i.toggle {
-                position: absolute;
-                z-index: 4;
-                right: 1.5em;
-                top: 1.6em;
-                color: #ccc
-            }
+        /* 右卡片 */
+        .card-right {
+            background: linear-gradient(135deg, #a10000, #d82f2f);
+        }
 
-            .title,
-            .placeholder {
-                position: relative;
-                display: block;
-                width: 100%;
-                height: 100%;
-                padding: 1.5em 2em;
-                background: rgba(255, 255, 255, 1);
-                border-top: 1px solid rgba(0, 0, 0, .05);
-                cursor: pointer;
-            }
-
-            &>input {
-                position: absolute;
-                left: 0px;
-                top: 0px;
-                z-index: 1;
-                width: 100%;
-                height: 100%;
-                display: block;
-                opacity: 0;
-                cursor: pointer;
-
-                &:checked {
-
-                    div.options label.optionlang .title {
-                        display: none !important;
-                    }
-                }
-
-                &:not(:checked) {
-                    z-index: 4;
-
-                    ~label.optionlang {
-                        >span.title {
-                            display: none;
-                        }
-                    }
-                }
-
-                &:disabled {
-                    cursor: no-drop;
-                }
-            }
-
-            &>span.placeholder {
-                position: relative;
-                z-index: 0;
-                display: inline-block;
-                width: 100%;
-                color: #999;
-                border-top: 0px;
-            }
-
-            label.optionlang {
-                display: block;
-                overflow: hidden;
-                z-index: 1;
-                width: 100%;
-                transition: all 1s ease-out;
-
-                span.title {
-                    position: relative;
-                    z-index: 2;
-                    transition: background .3s ease-out;
-
-                    &:hover {
-                        color: #fff;
-                        background: rgba(255, 255, 255, .3);
-                        box-shadow: inset 0px 1px 0px rgba(0, 0, 0, .1);
-                    }
-                }
-
-                input {
-                    display: none;
-
-                    &:checked~span.title {
-                        position: absolute;
-                        display: block;
-                        z-index: 3;
-                        top: 0px;
-                        font-size: 12px;
-                        background: #fff;
-                        border-top: 0px;
-                        box-shadow: none;
-                        color: inherit;
-                        width: 100%;
-                    }
-
-                    &:disabled {
-                        &~span.title {
-                            background: #f9f9f9 !important;
-                            color: #aaa;
-
-                            &:hover {
-                                color: #aaa;
-                                background: none;
-                                cursor: no-drop;
-                            }
-                        }
-                    }
-                }
-            }
+        /* 標籤 */
+        .tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 6px 12px;
+            border-radius: 0 0 10px 0;
+            font-size: 14px;
         }
     </style>
 </head>
 
 <body>
-    <div class="setringBox_langselect animated zoomIn">
-        <input type="radio" name="optionlang">
-        <span class="placeholder">請選擇語言</span>
-        <label class="optionlang">
-            <input type="radio" name="optionlang">
-            <span class="title animated fadeIn"></i>繁體中文</span>
-        </label>
-        <label class="optionlang">
-            <input type="radio" name="optionlang">
-            <span class="title animated fadeIn"></i>英文</span>
-        </label>
+    <div class="scroll-container">
+        <div class="card card-left">
+            <div class="tag">推薦單曲</div>
+            <img src="left.jpg" alt="Card 1">
+            <h3>我其實一點都不酷</h3>
+        </div>
+        <div class="card card-center">
+            <div class="tag">推薦單曲</div>
+            <img src="center.jpg" alt="Card 2">
+            <h2>給妳們</h2>
+            <p>張仁與 Jewel Chang</p>
+        </div>
+        <div class="card card-right">
+            <div class="tag">周邊商品</div>
+            <h2>質感流氓</h2>
+            <p>《我們離開這》專輯</p>
+        </div>
     </div>
 </body>
 

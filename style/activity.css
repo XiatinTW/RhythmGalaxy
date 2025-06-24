@@ -23,7 +23,6 @@
     flex-direction: row;
     align-items: flex-start;
     gap: 45px;
-    padding-left: var(--RecentEventsCrad-x-padding);
     flex-shrink: 0;
     overflow-y: hidden;
     scroll-behavior: smooth;
@@ -121,7 +120,6 @@
 .Activity_body {
     display: flex;
     width: auto;
-    padding-right: 150px;
     flex-direction: column;
     align-items: flex-start;
     gap: 55px;
@@ -265,14 +263,15 @@
 .Activity_list {
     display: flex;
     width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
     gap: 55px;
     flex-direction: column;
 }
 
 .Activity_list_box {
     display: flex;
-    width: 100%;
-    padding: 51px var(--RecentEventsCrad-ActivityList-x-padding);
+    padding: 50px var(--RecentEventsCrad-ActivityList-x-padding);
     align-items: flex-start;
     gap: 45px;
     align-self: stretch;

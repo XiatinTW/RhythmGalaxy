@@ -74,7 +74,8 @@
                     <p>Facebook</p>
                 </div>
             </div>
-            <p data-lang="login_unaccount">Don't have an account?</p><a href="#" class="p" data-lang="login_Signup">Sign up</a>
+            <p data-lang="login_unaccount">Don't have an account?</p><a href="#" class="p" data-lang="login_Signup">Sign
+                up</a>
         </div>
     </div>
     <header id="header">
@@ -244,7 +245,7 @@
             <div class="ActivityCard">
                 <h2 data-lang="main_activity_ActivityCard">Recent Activities</h2>
                 <div class="ActivityCard_list_wrapper">
-                    <div class="ActivityCard_list">
+                    <div id="carouselTrack" class="ActivityCard_list">
                         <div class="ActivityCardTab">
                             <img src="./assets/img/Activity/Activity_img01.jpg" alt="activity_img">
                             <div class="ActivityCard_text1">
@@ -267,35 +268,63 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="ActivityCardTab">
+                            <img src="./assets/img/Activity/Activity_img02.jpg" alt="activity_img">
+                            <div class="ActivityCard_text1">
+                                <h2 class="ActivityCard_title">搖滾樂~</h2>
+                                <div class="ActivityCard_text2">
+                                    <p>2025.07.19 18:30 XXX地方</p>
+                                    <p>你的熱情，就是這場音樂祭最強的燃料，年輕，就是要大聲唱出來！熱血席次，限量搶購中！立即購票，點燃屬於你的搖滾人生！</p>
+                                    <p>#歌手 #台中 #XXX地方</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ActivityCardTab">
+                            <img src="./assets/img/Activity/Activity_img02.jpg" alt="activity_img">
+                            <div class="ActivityCard_text1">
+                                <h2 class="ActivityCard_title">搖滾樂~</h2>
+                                <div class="ActivityCard_text2">
+                                    <p>2025.07.19 18:30 XXX地方</p>
+                                    <p>你的熱情，就是這場音樂祭最強的燃料，年輕，就是要大聲唱出來！熱血席次，限量搶購中！立即購票，點燃屬於你的搖滾人生！</p>
+                                    <p>#歌手 #台中 #XXX地方</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="Activity_body">
-                <div class="activity_list_title">
-                    <h2 data-lang="main_activity_ActivityList">Activity List</h2>
-                    <div class="activity_list_tool">
-                        <input class="ActivitySearch" type="text">
-                        <button class="ActivitySearch_bt"><span></span></button>
-                        <div class="ActivitySearchBox">
-                            <div class="ActivitySearchBox_grid">
-                                <button style="grid-row: 1; grid-column: 1;" data-lang="main_activity_SearchBox1">全部</button>
-                                <button style="grid-row: 2; grid-column: 1;" data-lang="main_activity_SearchBox2">北部</button>
-                                <button style="grid-row: 3; grid-column: 1;" data-lang="main_activity_SearchBox3">中部</button>
-                                <button style="grid-row: 4; grid-column: 1;" data-lang="main_activity_SearchBox4">南部</button>
-                                <button style="grid-row: 5; grid-column: 1;" data-lang="main_activity_SearchBox5">東部</button>
-                                <button style="grid-row: 1; grid-column: 2;" data-lang="main_activity_SearchBox6">外島</button>
-                            </div>
-                            <select class="ActivitySearchselect">
-                                <option data-lang="main_activity_Search1">14天內</option>
-                                <option data-lang="main_activity_Search2">這個月</option>
-                                <option data-lang="main_activity_Search3">近三個月</option>
-                                <option data-lang="main_activity_Search4">選擇日期</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
                 <!-- 活動表 -->
                 <div class="Activity_list">
+                    <div class="activity_list_title">
+                        <h2 data-lang="main_activity_ActivityList">Activity List</h2>
+                        <div class="activity_list_tool">
+                            <input class="ActivitySearch" type="text">
+                            <button class="ActivitySearch_bt"><span></span></button>
+                            <div class="ActivitySearchBox">
+                                <div class="ActivitySearchBox_grid">
+                                    <button style="grid-row: 1; grid-column: 1;"
+                                        data-lang="main_activity_SearchBox1">全部</button>
+                                    <button style="grid-row: 2; grid-column: 1;"
+                                        data-lang="main_activity_SearchBox2">北部</button>
+                                    <button style="grid-row: 3; grid-column: 1;"
+                                        data-lang="main_activity_SearchBox3">中部</button>
+                                    <button style="grid-row: 4; grid-column: 1;"
+                                        data-lang="main_activity_SearchBox4">南部</button>
+                                    <button style="grid-row: 5; grid-column: 1;"
+                                        data-lang="main_activity_SearchBox5">東部</button>
+                                    <button style="grid-row: 1; grid-column: 2;"
+                                        data-lang="main_activity_SearchBox6">外島</button>
+                                </div>
+                                <select class="ActivitySearchselect">
+                                    <option data-lang="main_activity_Search1">14天內</option>
+                                    <option data-lang="main_activity_Search2">這個月</option>
+                                    <option data-lang="main_activity_Search3">近三個月</option>
+                                    <option data-lang="main_activity_Search4">選擇日期</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                     <div class="Activity_list_box">
                         <div class="Activity_data">
                             <h2 data-lang="main_activity_data6">JUNE</h2>
@@ -482,6 +511,36 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const track = document.getElementById("carouselTrack");
+        const cards = Array.from(track.children);
+        const cardWidth = cards[0].offsetWidth + 20; // 卡片寬度 + gap
+        let currentIndex = 0;
+
+        // 複製前幾張卡片，接到最後
+        cards.slice(0, 2).forEach(card => {
+            const clone = card.cloneNode(true);
+            track.appendChild(clone);
+        });
+
+        function autoScroll() {
+            currentIndex++;
+            track.style.transition = "transform 0.5s ease";
+            track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
+
+            // 當滑到原本最後一張（含 clone 前）時，瞬間重設位置
+            if (currentIndex === cards.length) {
+                setTimeout(() => {
+                    track.style.transition = "none";
+                    track.style.transform = "translateX(0)";
+                    currentIndex = 0;
+                }, 500); // 等動畫結束再重置
+            }
+        }
+
+        setInterval(autoScroll, 4000);
+    </script>
 </body>
 
 </html>
