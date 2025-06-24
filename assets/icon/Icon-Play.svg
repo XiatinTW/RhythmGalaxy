@@ -1,3 +1,10 @@
-<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M30 7.5C42.4264 7.5 52.5 17.5736 52.5 30C52.5 42.4264 42.4264 52.5 30 52.5C17.5736 52.5 7.5 42.4264 7.5 30C7.5 17.5736 17.5736 7.5 30 7.5ZM24.2363 20.8682C23.4386 20.4696 22.5002 21.0496 22.5 21.9414V38.0586C22.5002 38.9504 23.4386 39.5304 24.2363 39.1318L40.7109 30.8945C41.448 30.526 41.448 29.474 40.7109 29.1055L24.2363 20.8682Z" fill="#979797"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 28.3 28.3" style="enable-background:new 0 0 28.3 28.3;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#979797;}
+</style>
+<path class="st0" d="M14.2,0C22,0,28.3,6.3,28.3,14.2S22,28.3,14.2,28.3S0,22,0,14.2S6.3,0,14.2,0z M10.5,8.4
+	C10,8.2,9.4,8.5,9.4,9.1v10.2c0,0.6,0.6,0.9,1.1,0.7l10.4-5.2c0.5-0.2,0.5-0.9,0-1.1L10.5,8.4z"/>
 </svg>

@@ -30,6 +30,8 @@
     background-color: var(--Color-gray-300);
     border-radius: 5px;
     margin-right: 10px;
+    background-size: cover;
+    background-position: center;
 }
 
 .songInfo .text {
@@ -63,7 +65,18 @@
     border: transparent;
 }
 
-.controls .Play {
+.controls .playing {
+    width: 30px;
+    height: 30px;
+    background-color: var(--Color-gray-500);
+    mask-image: url('../assets/icon/Icon-Play.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    border: transparent;
+}
+
+.controls .pause {
     width: 30px;
     height: 30px;
     background-color: var(--Color-gray-500);
@@ -295,9 +308,10 @@
 
 .progress {
     height: 100%;
-    width: 20%;
+    width: 1%;
     /* 動態控制進度 */
     background-color: var(--Color-01);
+    transition: width 0.2s;
 }
 
 .VolumeBar {
@@ -342,9 +356,11 @@
     background: var(--Color-01);
     z-index: 1;
 }
+
 .PlayBarCard_body .show {
     display: flex;
 }
+
 .PlayBarCard_body .hide {
     display: none;
 }

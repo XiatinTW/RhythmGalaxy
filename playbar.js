@@ -48,6 +48,8 @@ document.addEventListener('mousemove', (e) => {
   const percent = x / rect.width;
   volumeLine.style.width = `${percent * 100}%`;
   volumeDot.style.left = `${percent * 100}%`;
+  const audio = document.getElementById('mainAudio');
+  audio.volume = percent; // 拖動中改變音量
 
   // 3. 根據百分比切換 Volume 按鈕圖示
   if (percent === 0) {
@@ -60,6 +62,7 @@ document.addEventListener('mousemove', (e) => {
     volumeBtn.style.maskImage = "url('./assets/icon/Icon-Volume_normal.svg')";
     volumeBtn.style.webkitMaskImage = "url('./assets/icon/Icon-Volume_normal.svg')";
   }
+
 });
 
 document.addEventListener('mouseup', () => {
@@ -84,6 +87,8 @@ volumeBtn.addEventListener('click', () => {
     lastVolume = parseFloat(volumeLine.style.width) / 100 || 1;
     volumeLine.style.width = '0%';
     volumeDot.style.left = '0%';
+    const audio = document.getElementById('mainAudio');
+    audio.volume = 0;// 點擊靜音
     volumeBtn.style.maskImage = "url('./assets/icon/Icon-Volume_mute.svg')";
     volumeBtn.style.webkitMaskImage = "url('./assets/icon/Icon-Volume_mute.svg')";
     // 這裡可加 audio.volume = 0;
@@ -92,6 +97,7 @@ volumeBtn.addEventListener('click', () => {
     isMuted = false;
     volumeLine.style.width = `${lastVolume * 100}%`;
     volumeDot.style.left = `${lastVolume * 100}%`;
+    audio.volume = lastVolume;// 取消靜音
     if (lastVolume < 0.5) {
       volumeBtn.style.maskImage = "url('./assets/icon/Icon-Volume_low.svg')";
       volumeBtn.style.webkitMaskImage = "url('./assets/icon/Icon-Volume_low.svg')";
@@ -102,3 +108,4 @@ volumeBtn.addEventListener('click', () => {
     // 這裡可加 audio.volume = lastVolume;
   }
 });
+document.getElementById('mainAudio').volume = 0.7;

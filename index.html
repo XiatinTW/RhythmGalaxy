@@ -353,7 +353,8 @@
                 <div id="MusicCharts_playmusic">
                     <div id="Music_Charts_List">
                         <div class="Music_List">
-                            <div class="Music_item_img" style="background-image: url(./assets/img/music/Rectangle01.jpg);"></div>
+                            <div class="Music_item_img"
+                                style="background-image: url(./assets/img/music/Rectangle01.jpg);"></div>
                             <div class="Music_item_text">
                                 <h6>music</h6>
                                 <p>singer</p>
@@ -370,7 +371,8 @@
                             </div>
                         </div>
                         <div class="Music_List">
-                            <div class="Music_item_img" style="background-image: url(./assets/img/music/Rectangle02.jpg);"></div>
+                            <div class="Music_item_img"
+                                style="background-image: url(./assets/img/music/Rectangle02.jpg);"></div>
                             <div class="Music_item_text">
                                 <h6>music</h6>
                                 <p>singer</p>
@@ -387,7 +389,8 @@
                             </div>
                         </div>
                         <div class="Music_List">
-                            <div class="Music_item_img" style="background-image: url(./assets/img/music/Rectangle03.jpg);"></div>
+                            <div class="Music_item_img"
+                                style="background-image: url(./assets/img/music/Rectangle03.jpg);"></div>
                             <div class="Music_item_text">
                                 <h6>music</h6>
                                 <p>singer</p>
@@ -404,7 +407,8 @@
                             </div>
                         </div>
                         <div class="Music_List">
-                            <div class="Music_item_img" style="background-image: url(./assets/img/music/Rectangle04.jpg);"></div>
+                            <div class="Music_item_img"
+                                style="background-image: url(./assets/img/music/Rectangle04.jpg);"></div>
                             <div class="Music_item_text">
                                 <h6>music</h6>
                                 <p>singer</p>
@@ -421,7 +425,8 @@
                             </div>
                         </div>
                         <div class="Music_List">
-                            <div class="Music_item_img" style="background-image: url(./assets/img/music/Rectangle05.jpg);"></div>
+                            <div class="Music_item_img"
+                                style="background-image: url(./assets/img/music/Rectangle05.jpg);"></div>
                             <div class="Music_item_text">
                                 <h6>music</h6>
                                 <p>singer</p>
@@ -438,7 +443,8 @@
                             </div>
                         </div>
                         <div class="Music_List">
-                            <div class="Music_item_img" style="background-image: url(./assets/img/music/Rectangle06.jpg);"></div>
+                            <div class="Music_item_img"
+                                style="background-image: url(./assets/img/music/Rectangle06.jpg);"></div>
                             <div class="Music_item_text">
                                 <h6>music</h6>
                                 <p>singer</p>
@@ -455,7 +461,8 @@
                             </div>
                         </div>
                         <div class="Music_List">
-                            <div class="Music_item_img" style="background-image: url(./assets/img/music/Rectangle07.jpg);"></div>
+                            <div class="Music_item_img"
+                                style="background-image: url(./assets/img/music/Rectangle07.jpg);"></div>
                             <div class="Music_item_text">
                                 <h6>music</h6>
                                 <p>singer</p>
@@ -472,7 +479,8 @@
                             </div>
                         </div>
                         <div class="Music_List">
-                            <div class="Music_item_img" style="background-image: url(./assets/img/music/Rectangle08.jpg);"></div>
+                            <div class="Music_item_img"
+                                style="background-image: url(./assets/img/music/Rectangle08.jpg);"></div>
                             <div class="Music_item_text">
                                 <h6>music</h6>
                                 <p>singer</p>
@@ -489,7 +497,8 @@
                             </div>
                         </div>
                         <div class="Music_List">
-                            <div class="Music_item_img" style="background-image: url(./assets/img/music/Rectangle09.jpg);"></div>
+                            <div class="Music_item_img"
+                                style="background-image: url(./assets/img/music/Rectangle09.jpg);"></div>
                             <div class="Music_item_text">
                                 <h6>music</h6>
                                 <p>singer</p>
@@ -506,7 +515,8 @@
                             </div>
                         </div>
                         <div class="Music_List">
-                            <div class="Music_item_img" style="background-image: url(./assets/img/music/Rectangle10.jpg);"></div>
+                            <div class="Music_item_img"
+                                style="background-image: url(./assets/img/music/Rectangle10.jpg);"></div>
                             <div class="Music_item_text">
                                 <h6>music</h6>
                                 <p>singer</p>
@@ -525,7 +535,8 @@
                     </div>
                     <div ID="DailyMusic">
                         <h6 class="title" data-lang="main_DailyMusic">Daily Music</h6>
-                        <button class="MusicCrad" data-bg="./assets/img/500x500.jpg" style="padding: 45px 20px;">
+                        <button class="MusicCrad" data-bg="./assets/img/500x500.jpg"
+                            data-audio="./assets/music/music01.mp3" style="padding: 45px 20px;">
                             <div class="MusicCrad_1">
                                 <div class="MusicCrad_2"></div>
                                 <div class="CD_icon">
@@ -842,7 +853,7 @@
             </div>
             <div class="controls">
                 <button class="Previous"></button>
-                <button class="Play"></button>
+                <button class="playing"></button>
                 <button class="Next"></button>
                 <p class="lyrics">Lyrics</p>
             </div>
@@ -922,6 +933,59 @@
                 </div>
             </div>
         </div>
+        <audio id="mainAudio" preload="auto"></audio>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('mainAudio');
+            const buttons = document.querySelectorAll('.MusicCrad');
+            const playBtn = document.querySelector('.playing');
+            const progress = document.querySelector('.progress');
+
+            audio.volume = 1; // 預設 100% 音量
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const audioSrc = button.dataset.audio; // 讀取 data-audio 的 mp3 路徑
+                    if (audioSrc) {
+                        audio.src = audioSrc;
+                        audio.play();
+
+                        // 可以加上更新播放器UI的函式，例如：
+                        updateAudioPlayerUI(button);
+                        playBtn.classList.add('pause'); // 播放中，換圖示
+                    }
+                });
+            });
+
+            playBtn.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                    playBtn.classList.add('pause'); // 播放中，換圖示
+                } else {
+                    audio.pause();
+                    playBtn.classList.remove('pause'); // 暫停，還原圖示
+                }
+            });
+
+            function updateAudioPlayerUI(button) {
+                const title = button.querySelector('h5')?.textContent || 'Music';//讀取
+                const artist = button.querySelector('p')?.textContent || 'Artist';//讀取
+                const coverUrl = button.dataset.bg || '';
+
+                document.querySelector('#AudioPlayer .title').textContent = title;//套用
+                document.querySelector('#AudioPlayer .artist').textContent = artist;//套用
+                document.querySelector('#AudioPlayer .cover').style.backgroundImage = `url(${coverUrl})`;
+            }
+            // 每當 audio 播放時間改變，就更新進度條寬度
+            audio.addEventListener('timeupdate', () => {
+                if (audio.duration) {
+                    const percent = (audio.currentTime / audio.duration) * 100;
+                    progress.style.width = percent + '%';
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
