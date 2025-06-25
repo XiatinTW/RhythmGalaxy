@@ -24,6 +24,9 @@
     width: 70px;
     height: 70px;
     background-image: url(../assets/img/LOGO.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: 100%;
 }
 
