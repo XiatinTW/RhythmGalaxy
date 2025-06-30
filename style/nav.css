@@ -28,6 +28,7 @@
     height: 100vh;
     overflow-y: auto;
 }
+
 #Nav2::-webkit-scrollbar {
     width: 8px;
     background: transparent;
@@ -217,6 +218,13 @@
     justify-content: right;
 }
 
+.NavP {
+    display: block;
+    margin-top: 20px;
+    padding: 0px 30px;
+    color: var(--Color-gray-500);
+}
+
 /* 切換互動 */
 #Nav.Nav_D {
     min-width: 0;
@@ -227,6 +235,10 @@
 #Nav.Nav_D a {
     justify-content: center
 }
+
 #Nav.Nav_D .Nav_Menu {
     padding: 20px 10px;
+}
+#Nav.Nav_D .NavP {
+    padding: 0px 10px;
 }

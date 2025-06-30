@@ -45,7 +45,7 @@
     }
 
     #Nav_medium {
-        visibility: visible;
+        display: flex;
     }
 
     /* main */
@@ -198,9 +198,13 @@
         font-size: 20px;
         font-style: normal;
         font-weight: 500;
-        line-height: normal;
         margin: 0px;
         line-height: 100%;
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
     .RadioCard_body h3 {
@@ -229,6 +233,17 @@
         flex-wrap: nowrap;
         gap: 15px;
         overflow-x: auto;
+    }
+
+    .Navbar #SiginInBox {
+        display: none;
+        width: 0px;
+        height: 0px;
+    }
+
+    #SiginInBox {
+        width: 100%;
+        padding: 20px;
     }
 }
 

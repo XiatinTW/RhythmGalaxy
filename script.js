@@ -342,29 +342,40 @@ document.querySelector('.related_bt').addEventListener('click', () => {
 });
 // 活動卡輪播
 const track = document.getElementById("carouselTrack");
-const cards = Array.from(track.children);
-const cardWidth = cards[0].offsetWidth + 20; // 卡片寬度 + gap
-let currentIndex = 0;
+if (track) {
+  const cards = Array.from(track.children);
+  const cardWidth = cards[0].offsetWidth + 20; // 卡片寬度 + gap
+  let currentIndex = 0;
 
-// 複製前幾張卡片，接到最後
-cards.slice(0, 2).forEach(card => {
-  const clone = card.cloneNode(true);
-  track.appendChild(clone);
-});
+  // 複製前幾張卡片，接到最後
+  cards.slice(0, 2).forEach(card => {
+    const clone = card.cloneNode(true);
+    track.appendChild(clone);
+  });
 
-function autoScroll() {
-  currentIndex++;
-  track.style.transition = "transform 0.5s ease";
-  track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
+  function autoScroll() {
+    currentIndex++;
+    track.style.transition = "transform 0.5s ease";
+    track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
 
-  // 當滑到原本最後一張（含 clone 前）時，瞬間重設位置
-  if (currentIndex === cards.length) {
-    setTimeout(() => {
-      track.style.transition = "none";
-      track.style.transform = "translateX(0)";
-      currentIndex = 0;
-    }, 500); // 等動畫結束再重置
+    if (currentIndex === cards.length) {
+      setTimeout(() => {
+        track.style.transition = "none";
+        track.style.transform = "translateX(0)";
+        currentIndex = 0;
+      }, 500);
+    }
   }
+
+  setInterval(autoScroll, 4000);
 }
 
-setInterval(autoScroll, 4000);
+document.addEventListener('DOMContentLoaded', function () {
+  const loginBtn = document.getElementById('LoginButton');
+  if (loginBtn) {
+    loginBtn.addEventListener('click', function (e) {
+      e.stopPropagation(); // 避免被外部 click 統一關閉邏輯干擾
+      window.location.href = 'index_Login.html';
+    });
+  }
+});

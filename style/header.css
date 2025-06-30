@@ -182,7 +182,8 @@
     position: absolute;
     top: 75px;
     right: 180px;
-    width: 150px; /* 預設寬度 */
+    width: 150px;
+    /* 預設寬度 */
     height: auto;
     padding: 20px;
     z-index: 999;
@@ -216,14 +217,17 @@
     padding: 0;
     overflow: hidden;
 }
+
 .setringBox.colse p {
     width: 0px;
     height: 0px;
     color: transparent;
 }
+
 .setringBox.colse select {
     padding: 0px;
 }
+
 #PopularKeywords {
     display: flex;
     width: 100%;
@@ -257,15 +261,68 @@
     translate: 1px;
 }
 
-#Nav_medium {
+#LoginButton {
     display: flex;
+    width: auto;
+    height: 50px;
+    padding: 10px 15px 15px 15px;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--Button-radius, 15px);
+    border: 1px solid var(--White, #FFF);
+    background: var(--Button02, linear-gradient(269deg, rgba(255, 255, 255, 0.00) 0.67%, rgba(255, 255, 255, 0.60) 99.44%));
+    /* Music */
+    box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+    transition: 0.15s ease;
+}
+#LoginButton:hover {
+    box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 0.80) inset, 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+}
+#LoginButton:active {
+    translate: 1px;
+}
+
+/* 登入狀態 */
+#SiginInBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: var(--Button-radius);
+    padding: 0px 10px;
+}
+
+#SiginInBox:hover {
+    box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 0.80) inset;
+    background-color: var(--white-50);
+    cursor: pointer;
+}
+
+#SiginInBox span {
+    width: 60px;
+    height: 60px;
+    aspect-ratio: 1/1;
+    background-color: var(--Color-01);
+    mask-image: url('../assets/icon/Icon-User.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+#SiginInBox p {
+    color: var(--Color-01);
+}
+
+/* medium版 */
+#Nav_medium {
+    display: none;
     width: 60px;
     height: 50px;
     flex-direction: column;
     align-items: flex-end;
     gap: 10px;
     aspect-ratio: 6/5;
-    visibility: hidden;
 }
 
 /* 關鍵字按鈕 */
@@ -425,7 +482,6 @@ body.no-scroll {
     height: 20px;
     border: 1px solid #c8ccd4;
     border-radius: 3px;
-    vertical-align: middle;
     transition: background 0.1s ease;
     cursor: pointer;
     display: block;

@@ -7,7 +7,7 @@
     <title>Rhythm Galaxy - activity</title>
     <script src="./data/lang.js" defer></script>
     <script src="script.js" defer></script>
-    <script src="playbar.js" defer></script>
+    <script src="./data/playbar.js" defer></script>
     <style>
         @import url(./style.css);
         @import url(./style/nav.css);
@@ -160,36 +160,7 @@
                 <span></span>
                 <p data-lang="Nav_Podcast">Podcast</p>
             </a>
-            <h6 class="Nav_Menu" data-lang="Nav_Library">Library</h6>
-            <a href="#" class="LeftButton Recent">
-                <span></span>
-                <p data-lang="Nav_Recent">Recent</p>
-            </a>
-            <a href="#" class="LeftButton Favorites">
-                <span></span>
-                <p data-lang="Nav_Favorites">Favorites</p>
-            </a>
-            <a href="#" class="LeftButton Offline">
-                <span></span>
-                <p data-lang="Nav_Offline">Offline</p>
-            </a>
-            <h6 class="Nav_Menu" data-lang="Nav_Playlist">Playlist</h6>
-            <a href="#" class="LeftButton Create">
-                <span></span>
-                <p data-lang="Nav_Create">Create playlist</p>
-            </a>
-            <a href="#" class="LeftButton Album">
-                <span></span>
-                <p>Light music</p>
-            </a>
-            <a href="#" class="LeftButton Album">
-                <span></span>
-                <p>Hip hop music</p>
-            </a>
-            <a href="#" class="LeftButton Album">
-                <span></span>
-                <p>K-pop music</p>
-            </a>
+            <p class="NavP" data-lang="Nav_P">Sign in to create & share playlists, get personalized recommendations, and more.</p>
         </nav>
         <nav id="Nav2">
             <div id="LeftList_menu">
@@ -220,24 +191,7 @@
                 <span></span>
                 <p data-lang="Nav_Podcast">Podcast</p>
             </a>
-            <h6 class="Nav_Menu" data-lang="Nav_Library">Library</h6>
-            <a href="#" class="LeftButton Recent">
-                <span></span>
-                <p data-lang="Nav_Recent">Recent</p>
-            </a>
-            <a href="#" class="LeftButton Favorites">
-                <span></span>
-                <p data-lang="Nav_Favorites">Favorites</p>
-            </a>
-            <a href="#" class="LeftButton Offline">
-                <span></span>
-                <p data-lang="Nav_Offline">Offline</p>
-            </a>
-            <h6 class="Nav_Menu" data-lang="Nav_Playlist">Playlist</h6>
-            <a href="#" class="LeftButton Create">
-                <span></span>
-                <p data-lang="Nav_Create">Create playlist</p>
-            </a>
+            <p class="NavP" data-lang="Nav_P">Sign in to create & share playlists, get personalized recommendations, and more.</p>
         </nav>
         <main id="main_activity">
             <div class="ActivityCard">
@@ -428,7 +382,7 @@
             </div>
             <div class="controls">
                 <button class="Previous"></button>
-                <button class="Play"></button>
+                <button class="playing"></button>
                 <button class="Next"></button>
                 <p class="lyrics">Lyrics</p>
             </div>
@@ -447,7 +401,7 @@
         <div class="PlayBarCard">
             <div class="PlayBarCard_body colse">
                 <span></span>
-                <button class="MusicCrad" data-bg="./assets/img/500x500.jpg">
+                <button class="MusicCrad" data-bg="./assets/img/music/Rectangle07.jpg">
                     <div class="MusicCrad_1">
                         <div class="MusicCrad_2"></div>
                         <div class="CD_icon">
@@ -474,7 +428,8 @@
                 </div>
                 <div id="related" class="PlayBarCard_lyrics hide">
                     <div class="Music_List">
-                        <div class="Music_item_img"></div>
+                        <div class="Music_item_img" style="background-image: url(./assets/img/music/Rectangle01.jpg);">
+                        </div>
                         <div class="Music_item_text">
                             <h6>music</h6>
                             <p>singer</p>
@@ -482,7 +437,8 @@
                         <p class="Music_item_playtime">03:30</p>
                     </div>
                     <div class="Music_List">
-                        <div class="Music_item_img"></div>
+                        <div class="Music_item_img" style="background-image: url(./assets/img/music/Rectangle02.jpg);">
+                        </div>
                         <div class="Music_item_text">
                             <h6>music</h6>
                             <p>singer</p>
@@ -490,7 +446,8 @@
                         <p class="Music_item_playtime">03:30</p>
                     </div>
                     <div class="Music_List">
-                        <div class="Music_item_img"></div>
+                        <div class="Music_item_img" style="background-image: url(./assets/img/music/Rectangle08.jpg);">
+                        </div>
                         <div class="Music_item_text">
                             <h6>music</h6>
                             <p>singer</p>
@@ -498,7 +455,8 @@
                         <p class="Music_item_playtime">03:30</p>
                     </div>
                     <div class="Music_List">
-                        <div class="Music_item_img"></div>
+                        <div class="Music_item_img" style="background-image: url(./assets/img/music/Rectangle17.jpg);">
+                        </div>
                         <div class="Music_item_text">
                             <h6>music</h6>
                             <p>singer</p>
@@ -508,6 +466,7 @@
                 </div>
             </div>
         </div>
+        <audio id="mainAudio" preload="auto"></audio>
     </div>
 </body>
 

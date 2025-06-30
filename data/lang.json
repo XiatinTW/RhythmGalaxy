@@ -103,6 +103,10 @@
     "zh": "建立清單",
     "en": "Create playlist"
   },
+  "Nav_P": {
+    "zh": "只要登入帳戶，就能享受建立及分享播放清單、取得個人化推薦內容。",
+    "en": "Sign in to create & share playlists, get personalized recommendations, and more."
+  },
   "footer_About": {
     "zh": "關於",
     "en": "About"

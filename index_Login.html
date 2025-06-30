@@ -28,6 +28,7 @@
         .layout {
             display: flex;
         }
+
     </style>
 </head>
 
@@ -39,7 +40,7 @@
             <p data-lang="login_text">Please enter your email and password to log in.</p>
             <div id="LoginBox_account">
                 <p>Email</p>
-                <input type="email" name="LoginBox_account" value="112233@gmail.com">
+                <input type="email" name="LoginBox_account">
             </div>
             <div id="LoginBox_account">
                 <p>Password</p>
@@ -52,7 +53,7 @@
                 </div>
                 <p data-lang="login_Remember">Remember me</p>
             </div>
-            <button id="LoginButton" class="h6" data-lang="login_Login">Log in</button>
+            <button id="SiginIn" class="h6" data-lang="login_Login">Log in</button>
             <div class="LoginBox_SiginIn">
                 <div class="LoginBox_SiginIn_box">
                     <span class="google"></span>
@@ -99,9 +100,10 @@
                     <option data-lang="setringBox_lang_eh">English</option>
                 </select>
             </div>
-            <Button id="SiginIn" class="h6">
-                <p data-lang="paragraph">Sign in</p>
-            </Button>
+            <div id="SiginInBox">
+                <span></span>
+                <p>演示版</p>
+            </div>
             <span id="Nav_medium"><img src="./assets/icon/nav-medium.svg" alt="Nav"></span>
             <div id="SearchBox_medium">
                 <input id="search_Input_medium" type="text" data-lang-placeholder="header_input01">
@@ -148,15 +150,43 @@
                 <span></span>
                 <p data-lang="Nav_Podcast">Podcast</p>
             </a>
-            <p class="NavP" data-lang="Nav_P">Sign in to create & share playlists, get personalized recommendations, and more.</p>
+            <h6 class="Nav_Menu" data-lang="Nav_Library">Library</h6>
+            <a href="#" class="LeftButton Recent">
+                <span></span>
+                <p data-lang="Nav_Recent">Recent</p>
+            </a>
+            <a href="#" class="LeftButton Favorites">
+                <span></span>
+                <p data-lang="Nav_Favorites">Favorites</p>
+            </a>
+            <a href="#" class="LeftButton Offline">
+                <span></span>
+                <p data-lang="Nav_Offline">Offline</p>
+            </a>
+            <h6 class="Nav_Menu" data-lang="Nav_Playlist">Playlist</h6>
+            <a href="#" class="LeftButton Create">
+                <span></span>
+                <p data-lang="Nav_Create">Create playlist</p>
+            </a>
+            <a href="#" class="LeftButton Album">
+                <span></span>
+                <p>Light music</p>
+            </a>
+            <a href="#" class="LeftButton Album">
+                <span></span>
+                <p>Hip hop music</p>
+            </a>
+            <a href="#" class="LeftButton Album">
+                <span></span>
+                <p>K-pop music</p>
+            </a>
         </nav>
         <nav id="Nav2">
             <div id="LeftList_menu">
             </div>
-            <div class="SiginInBox">
-                <Button id="SiginIn" class="h6">
-                    <p data-lang="paragraph">Sign in</p>
-                </Button>
+            <div id="SiginInBox">
+                <span></span>
+                <p>演示版</p>
             </div>
             <h6 class="Nav_Menu" data-lang="Nav_menu">Menu</h6>
             <a href="index.html" class="LeftButton Explore LeftButton_H">
@@ -179,7 +209,24 @@
                 <span></span>
                 <p data-lang="Nav_Podcast">Podcast</p>
             </a>
-            <p class="NavP" data-lang="Nav_P">Sign in to create & share playlists, get personalized recommendations, and more.</p>
+            <h6 class="Nav_Menu" data-lang="Nav_Library">Library</h6>
+            <a href="#" class="LeftButton Recent">
+                <span></span>
+                <p data-lang="Nav_Recent">Recent</p>
+            </a>
+            <a href="#" class="LeftButton Favorites">
+                <span></span>
+                <p data-lang="Nav_Favorites">Favorites</p>
+            </a>
+            <a href="#" class="LeftButton Offline">
+                <span></span>
+                <p data-lang="Nav_Offline">Offline</p>
+            </a>
+            <h6 class="Nav_Menu" data-lang="Nav_Playlist">Playlist</h6>
+            <a href="#" class="LeftButton Create">
+                <span></span>
+                <p data-lang="Nav_Create">Create playlist</p>
+            </a>
         </nav>
         <main id="main1">
             <div id="main1_1">
@@ -510,14 +557,6 @@
                 </div>
             </div>
             <div class="main1_2">
-                <div class="main1_2">
-                    <div class="ArtistPhotos"></div>
-                    <div class="main1_2_text">
-                        <h1 data-lang="main1_2_title">挑選喜歡的藝人</h1>
-                        <h3 data-lang="main1_2_text">創造專屬自己的專輯。馬上來體驗吧!</h3>
-                        <a href="#" data-lang="main1_2_bt">開始使用</a>
-                    </div>
-                </div>
                 <div class="AlbumMusic Recommended">
                     <h2 style="min-width: 350px;" data-lang="Recommended_title">Hot Picks for You</h2>
                     <div class="MusicCradList">
