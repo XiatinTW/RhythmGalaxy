@@ -193,4 +193,57 @@ document.addEventListener('DOMContentLoaded', () => {
       progress.style.width = percent + '%';
     }
   });
+  // 讓 Music_List 也能點擊播放
+  const musicLists = document.querySelectorAll('.Music_List');
+  const player = document.getElementById('AudioPlayer');
+  const coverEl = player.querySelector('.cover');
+  const titleEl = player.querySelector('.title');
+  const artistEl = player.querySelector('.artist');
+  musicLists.forEach(item => {
+    item.addEventListener('click', () => {
+      const audioSrc = item.dataset.audio;
+      if (audioSrc) {
+        audio.src = audioSrc;
+        audio.play();
+        playBtn.classList.add('pause');
+        // 正確抓取歌名、歌手、封面
+        const title = item.querySelector('.Music_item_text h6')?.textContent || 'Music';
+        const artist = item.querySelector('.Music_item_text p')?.textContent || 'Artist';
+        const imgDiv = item.querySelector('.Music_item_img');
+        let coverUrl = '';
+        if (imgDiv) {
+          // 取得 url("xxx") 只取 xxx
+          const bg = imgDiv.style.backgroundImage;
+          const match = bg.match(/url\(["']?(.*?)["']?\)/);
+          if (match) coverUrl = match[1];
+        }
+        titleEl.textContent = title;
+        artistEl.textContent = artist;
+        coverEl.style.backgroundImage = coverUrl ? `url(${coverUrl})` : '';
+
+        // 同步 PlayBarCard 中的封面和內部元件
+        const card = document.querySelector('.PlayBarCard_body .MusicCrad');
+        if (card) {
+          card.style.backgroundImage = `url(${coverUrl})`;
+
+          const cardInner = card.querySelector('.MusicCrad_2');
+          const cd = card.querySelector('.CD');
+
+          if (cardInner) {
+            cardInner.style.backgroundImage = `url(${coverUrl})`;
+            cardInner.style.backgroundSize = 'cover';
+            cardInner.style.backgroundPosition = 'center';
+            cardInner.style.backgroundRepeat = 'no-repeat';
+          }
+
+          if (cd) {
+            cd.style.backgroundImage = `url(${coverUrl})`;
+            cd.style.backgroundSize = 'cover';
+            cd.style.backgroundPosition = 'center';
+            cd.style.backgroundRepeat = 'no-repeat';
+          }
+        }
+      }
+    });
+  });
 });
