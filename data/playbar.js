@@ -78,7 +78,7 @@ volumeBar.style.display = 'none';
 
 
 let isMuted = false;
-let lastVolume = 1; // 預設最大音量
+let lastVolume = 0.75; // 預設最大音量
 
 volumeBtn.addEventListener('click', () => {
   if (!isMuted) {
