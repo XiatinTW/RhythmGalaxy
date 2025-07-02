@@ -88,13 +88,17 @@
     .ActivityCardTab {
         max-width: 350px;
         min-width: 0px;
-        height: 700px;
+        height: auto;
         flex-direction: column
     }
 
     .ActivityCardTab img {
         width: 265px;
         height: 300px;
+    }
+
+    .ActivityCardBox {
+        gap: 10px;
     }
 
     .ActivityCard_text1 {
@@ -244,6 +248,18 @@
     #SiginInBox {
         width: 100%;
         padding: 20px;
+    }
+
+    .MusicCradList {
+        padding: 15px 0px;
+    }
+
+    .PodcastList {
+        padding: 20px 0px;
+    }
+
+    .PodcastCradList {
+        padding: 25px 0px;
     }
 }
 
