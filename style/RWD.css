@@ -261,6 +261,20 @@
     .PodcastCradList {
         padding: 25px 0px;
     }
+
+    .ArtistPhotos {
+        height: 280px;
+    }
+
+    .Playtool .Volume,
+    .Playtool .Loop,
+    .Playtool .Shuffle {
+        display: none;
+    }
+
+    .controls .lyrics {
+        display: none;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -276,5 +290,80 @@
 
     .ActivityCard_text1 {
         gap: 15px;
+    }
+}
+
+@media (max-width: 920px) {
+    .ActivityCardTab {
+        min-width: 0;
+        max-width: none;
+    }
+
+    .ActivityCardTab img {
+        max-width: 350px;
+        height: 200px;
+    }
+
+    .ActivityCard_text1 {
+        gap: 15px;
+    }
+
+    #Nav2 {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: -260px;
+        width: 200px;
+        height: 100vh;
+        z-index: 1000;
+        transition: right 0.3s;
+        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+    }
+
+    #Nav2.active {
+        right: 0;
+        /* 顯示 */
+    }
+
+    #Nav {
+        display: none;
+    }
+
+    #header {
+        padding: 0px 24px;
+    }
+
+    #Logo {
+        padding: 0px 10px;
+    }
+
+    #search_setring {
+        display: none
+    }
+
+    #Search_pc {
+        display: none;
+    }
+
+    #Search_medium {
+        visibility: visible;
+    }
+
+    .Navbar>#SiginIn {
+        display: none;
+    }
+
+    #Nav_medium {
+        display: flex;
+    }
+    .ActivityCardTab {
+        max-width: 770px;
+        min-width: 0px;
+        height: auto;
+    }
+
+    .ActivityCardTab img {
+        width: 600px;
+        height: 300px;
     }
 }
