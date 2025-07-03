@@ -317,6 +317,7 @@
     flex: 1 0 0;
     align-self: stretch;
 }
+
 /* 按鈕列表 */
 .Button_list {
     display: flex;
@@ -371,4 +372,48 @@
 
 .genres_bt svg {
     width: 3em;
+}
+/* 訊息窗 */
+.message {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    background-color: var(--white-50);
+    z-index: 99999;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    align-items: center
+}
+
+.message.colse {
+    display: none;
+}
+
+.message .box {
+    background-color: var(--white-50);
+    border-radius: 20px;
+    padding: 20px;
+    width: 600px;
+    height: 600px;
+    max-width: 600px;
+    max-height: 600px;
+    box-shadow: -5px 5px 5px 0px rgba(255, 255, 255, 0.50) inset, 0px 4px 10px 3px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(5px);
+}
+
+.message .box .close {
+    width: 50px;
+    height: 50px;
+    float: right;
+    background-color: var(--Color-02);
+    mask-image: url('./assets/icon/Icon-close.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+.message .box .close:hover {
+    background-color: var(--Color-01);
 }
