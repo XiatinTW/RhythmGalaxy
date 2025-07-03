@@ -12,6 +12,7 @@
     .ActivityCard_text1 {
         gap: 15px;
     }
+
     #header {
         padding: 0px 25px;
     }
@@ -407,6 +408,29 @@
 
 /* 手機 */
 @media (max-width: 540px) {
+    #main1 {
+        margin-top: 60px;
+    }
+    #header {
+        height: 60px;
+    }
+
+    #Logo {
+        height: auto;
+        width: 50px;
+    }
+
+    #Nav_medium {
+        height: auto;
+        width: 50px;
+        align-items: unset;
+    }
+
+    #Search_medium {
+        width: 35px;
+        height: 35px;
+    }
+
     .MusicCradList .MusicCrad {
         width: 150px;
         min-width: 150px;
