@@ -14,6 +14,14 @@ body {
     flex-direction: column;
     min-height: 100%;
 }
+/* 這段很重要，不要任意刪掉 */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+}
 
 .body_background {
     position: fixed;
