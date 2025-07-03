@@ -1,4 +1,127 @@
-@media (max-width: 767px) {
+@media (max-width: 1140px) {
+    .ActivityCardTab {
+        min-width: 0;
+        max-width: none;
+    }
+
+    .ActivityCardTab img {
+        max-width: 350px;
+        height: 200px;
+    }
+
+    .ActivityCard_text1 {
+        gap: 15px;
+    }
+}
+
+/* 平板 */
+@media (max-width: 960px) {
+    .ActivityCardTab {
+        min-width: 0;
+        max-width: none;
+    }
+
+    .ActivityCard_text1 {
+        gap: 15px;
+    }
+
+    #Nav2 {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: -260px;
+        width: 200px;
+        height: 100vh;
+        z-index: 1000;
+        transition: right 0.3s;
+        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+    }
+
+    #Nav2.active {
+        right: 0;
+        /* 顯示 */
+    }
+
+    #Nav {
+        display: none;
+    }
+
+    #header {
+        padding: 0px 24px;
+    }
+
+    #Logo {
+        padding: 0px 10px;
+    }
+
+    #search_setring {
+        display: none
+    }
+
+    #Search_pc {
+        display: none;
+    }
+
+    #Search_medium {
+        visibility: visible;
+    }
+
+    .Navbar>#SiginIn {
+        display: none;
+    }
+
+    #Nav_medium {
+        display: flex;
+    }
+
+    .ActivityCardTab {
+        max-width: 770px;
+        min-width: 0px;
+        height: auto;
+    }
+
+    .ActivityCardTab img {
+        height: 300px;
+    }
+
+    .MusicCradList {
+        padding: 15px 0px;
+        gap: 25px;
+    }
+
+    #main_radio {
+        padding: 20px 80px;
+    }
+
+    .PodcastCrad2 {
+        width: 420px;
+    }
+
+    .PodcastCrad2_text p {
+        max-width: 220px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+    }
+
+    .PodcastList {
+        padding: 0;
+    }
+
+    .PodcastCradList {
+        padding: 25px 0px;
+    }
+}
+
+@media (min-width: 960px) {
+    #SearchBox_medium {
+        display: none !important;
+    }
+}
+
+@media (max-width: 720px) {
     #Nav2 {
         display: flex;
         position: fixed;
@@ -279,140 +402,77 @@
     }
 }
 
-@media (max-width: 1200px) {
-    .ActivityCardTab {
-        min-width: 0;
-        max-width: none;
-    }
-
-    .ActivityCardTab img {
-        max-width: 350px;
-        height: 200px;
-    }
-
-    .ActivityCard_text1 {
-        gap: 15px;
-    }
-}
-
-@media (max-width: 920px) {
-    .ActivityCardTab {
-        min-width: 0;
-        max-width: none;
-    }
-
-    .ActivityCardTab img {
-        max-width: 350px;
-        height: 200px;
-    }
-
-    .ActivityCard_text1 {
-        gap: 15px;
-    }
-
-    #Nav2 {
-        display: flex;
-        position: fixed;
-        top: 0;
-        right: -260px;
-        width: 200px;
-        height: 100vh;
-        z-index: 1000;
-        transition: right 0.3s;
-        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
-    }
-
-    #Nav2.active {
-        right: 0;
-        /* 顯示 */
-    }
-
-    #Nav {
-        display: none;
-    }
-
-    #header {
-        padding: 0px 24px;
-    }
-
-    #Logo {
-        padding: 0px 10px;
-    }
-
-    #search_setring {
-        display: none
-    }
-
-    #Search_pc {
-        display: none;
-    }
-
-    #Search_medium {
-        visibility: visible;
-    }
-
-    .Navbar>#SiginIn {
-        display: none;
-    }
-
-    #Nav_medium {
-        display: flex;
-    }
-
-    .ActivityCardTab {
-        max-width: 770px;
-        min-width: 0px;
-        height: auto;
-    }
-
-    .ActivityCardTab img {
-        width: 600px;
-        height: 300px;
-    }
-
-    .MusicCradList {
-        padding: 15px 0px;
-        gap: 25px;
-    }
-}
-
-@media (min-width: 920px) {
-    #SearchBox_medium {
-        display: none !important;
-    }
-}
-
-@media (max-width: 600px) {
-    .MusicCrad {
+/* 手機 */
+@media (max-width: 540px) {
+    .MusicCradList .MusicCrad {
         width: 150px;
         min-width: 150px;
     }
 
-    .MusicCrad_1 {
+    .MusicCradList .MusicCrad_1 {
         visibility: hidden;
     }
 
-    .MusicCrad:hover .CD_icon {
+    .MusicCradList .MusicCrad:hover .CD_icon {
         padding: 0;
         visibility: hidden;
     }
-    .MusicCrad_text h6 {
+
+    .MusicCradList .MusicCrad_text h6 {
         width: 100%;
     }
+
     .PodcastCrad {
         width: 100px;
         height: 100px;
     }
+
     .PodcastCradList {
         padding: 0;
     }
+
     .Button_list {
         margin-top: 0;
     }
-}
-@media (max-width: 767px) {
-  #main1 {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
+
+    .ActivityCardBox img {
+        max-width: 250px;
+        min-width: unset;
+    }
+
+    .activity_list_title {
+        min-width: 350px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ActivitySearchBox {
+        top: 50px;
+        right: 40px;
+    }
+
+    .ActivityCardTab {
+        max-width: 250px;
+        padding: 50px 30px;
+    }
+
+    .ActivityCardTab img {
+        width: 200px;
+    }
+
+    .Radio_list {
+        gap: 10px;
+    }
+
+    .RadioCard_body {
+        width: 120px;
+    }
+
+    .RadioCard_body:hover {
+        width: 140px;
+    }
+
+    .RadioCard_body h5 {
+        font-size: 14px;
+    }
 }
