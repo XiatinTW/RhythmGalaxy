@@ -321,7 +321,7 @@
 .Button_list {
     display: flex;
     margin-top: 15px;
-    padding: 15px var(--Layout-x-padding, 32px);
+    padding: 15px var(25px, 32px);
     align-items: flex-start;
     align-content: flex-start;
     gap: 10px;

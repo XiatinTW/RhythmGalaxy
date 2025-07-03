@@ -12,6 +12,9 @@
     .ActivityCard_text1 {
         gap: 15px;
     }
+    #header {
+        padding: 0px 25px;
+    }
 }
 
 /* 平板 */

@@ -1,7 +1,7 @@
 /* footer */
 footer {
     display: flex;
-    padding: 50px var(--Layout-x-padding) 90px var(--Layout-x-padding);
+    padding: 50px 25px 90px 25px;
     align-items: flex-start;
     gap: 45px;
     background: var(--Color-02);

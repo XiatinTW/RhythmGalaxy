@@ -132,7 +132,7 @@ html {
 }
 
 :root {
-    --Layout-x-padding: 32px;
+    --Layout-x-padding: 150px;
     --LOGO-x-padding: 35px;
     --Nav-x-padding: 20px;
     --PlayStyle: linear-gradient(90deg, #FFF 17%, rgba(255, 255, 255, 0.70) 30.77%);
