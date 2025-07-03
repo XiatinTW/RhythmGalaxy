@@ -18,7 +18,7 @@ if (input1 && searchBox1) {
   input1.addEventListener("click", (event) => {
     event.stopPropagation();
     isBoxVisible = !isBoxVisible;
-    searchBox1.style.display = isBoxVisible ? "block" : "none";
+    searchBox1.style.display = isBoxVisible ? "flex" : "none";
   });
   searchBox1.addEventListener("click", (event) => {
     event.stopPropagation();

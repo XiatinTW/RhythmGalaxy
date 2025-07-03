@@ -117,7 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 預設音量為 100%
   audio.volume = 1;
 
-  // 點擊 MusicCrad 切換音樂
+  let currentMusicListIndex = -1; // 全域變數，追蹤 related 播放索引
+  // 點擊 MusicCrad
   buttons.forEach(button => {
     button.addEventListener('click', () => {
       const audioSrc = button.dataset.audio;
@@ -125,7 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
         audio.src = audioSrc;
         audio.play();
         updateAudioPlayerUI(button);
-        playBtn.classList.add('pause'); // 顯示暫停圖示
+        playBtn.classList.add('pause');
+        currentMusicListIndex = -1; // 不是 related 區塊
       }
     });
   });
@@ -250,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-  // 自動接續播放 #related 裡歌曲
+  // 只綁定一次自動接續播放
   audio.addEventListener('ended', () => {
     const relatedLists = Array.from(document.querySelectorAll('#related .Music_List'));
     if (currentMusicListIndex >= 0 && currentMusicListIndex < relatedLists.length - 1) {

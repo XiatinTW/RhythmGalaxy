@@ -252,6 +252,7 @@
 
     .MusicCradList {
         padding: 15px 0px;
+        gap: 25px;
     }
 
     .PodcastList {
@@ -356,6 +357,7 @@
     #Nav_medium {
         display: flex;
     }
+
     .ActivityCardTab {
         max-width: 770px;
         min-width: 0px;
@@ -365,5 +367,39 @@
     .ActivityCardTab img {
         width: 600px;
         height: 300px;
+    }
+
+    .MusicCradList {
+        padding: 15px 0px;
+        gap: 25px;
+    }
+}
+
+@media (min-width: 920px) {
+    #SearchBox_medium {
+        display: none !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .MusicCrad {
+        width: 150px;
+        min-width: 150px;
+    }
+
+    .MusicCrad_1 {
+        visibility: hidden;
+    }
+
+    .MusicCrad:hover .CD_icon {
+        padding: 0;
+        visibility: hidden;
+    }
+    .MusicCrad_text h6 {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 }

@@ -147,6 +147,7 @@
 
 .Music_item_text {
     display: flex;
+    max-width: 150px;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
@@ -215,9 +216,6 @@
     background-color: rgb(255, 62, 120);
 }
 
-.Music_item_like:hover>.Music_item_like_text {
-    color: var(--White);
-}
 
 /* 增加播放列表物件 */
 .Music_item_share {
