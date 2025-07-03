@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const artistEl = wrapper.querySelector('.DailyMusic_title p');
 
     // musicCrad
-    const fallbackTitleEl = button.querySelector('h5');
+    const fallbackTitleEl = button.querySelector('h6');
     const fallbackArtistEl = button.querySelector('p');
 
     const title = titleEl?.textContent || fallbackTitleEl?.textContent || 'Music';
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const coverEl = player.querySelector('.cover');
   const titleEl = player.querySelector('.title');
   const artistEl = player.querySelector('.artist');
-  musicLists.forEach(item => {
+  musicLists.forEach((item, idx) => {
     item.addEventListener('click', () => {
       const audioSrc = item.dataset.audio;
       if (audioSrc) {
@@ -243,7 +243,23 @@ document.addEventListener('DOMContentLoaded', () => {
             cd.style.backgroundRepeat = 'no-repeat';
           }
         }
+        // 記錄目前 related 播放索引
+        const relatedLists = Array.from(document.querySelectorAll('#related .Music_List'));
+        const relatedIdx = relatedLists.indexOf(item);
+        currentMusicListIndex = relatedIdx;
       }
     });
+  });
+  // 自動接續播放 #related 裡歌曲
+  audio.addEventListener('ended', () => {
+    const relatedLists = Array.from(document.querySelectorAll('#related .Music_List'));
+    if (currentMusicListIndex >= 0 && currentMusicListIndex < relatedLists.length - 1) {
+      const nextItem = relatedLists[currentMusicListIndex + 1];
+      if (nextItem) {
+        nextItem.click();
+      }
+    } else {
+      // relatedLists[0]?.click(); // 若要循環播放，取消註解這行
+    }
   });
 });
