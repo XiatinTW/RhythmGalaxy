@@ -59,7 +59,24 @@
     }
 
     #search_setring {
-        display: none
+        padding: 0;
+        background-color: var(--Color-02);
+        mask-image: url(../assets/icon/setring-medium.svg);
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        mask-position: center;
+    }
+
+    #search_setring:hover {
+        padding: 0;
+        background-color: var(--Color-01);
+        mask-image: url(../assets/icon/setring-medium.svg);
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        mask-position: center;
+    }
+    .setringBox {
+        background-color: var(--White);
     }
 
     #Search_pc {
@@ -165,10 +182,6 @@
 
     #Logo {
         padding: 0px 10px;
-    }
-
-    #search_setring {
-        display: none
     }
 
     #Search_pc {
