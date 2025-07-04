@@ -117,12 +117,17 @@
     .PodcastCradList {
         padding: 25px 0px;
     }
+
     .help_main div.body {
         padding: 25px 50px;
     }
+
     nav#Nav_help {
-        min-width: unset;
-        width: 60px;
+        display: none;
+    }
+
+    #Nav_help2.active {
+        right: 0;
     }
 }
 
@@ -418,6 +423,7 @@
     #main1 {
         margin-top: 60px;
     }
+
     #header {
         height: 60px;
     }
@@ -508,5 +514,23 @@
 
     .RadioCard_body h5 {
         font-size: 14px;
+    }
+
+    .help_main div.title {
+        padding: 0px 20px 0px 0px;
+        gap: 20px;
+    }
+
+    .help_main .title h1 {
+        /* h5 */
+        font-family: "Noto Sans TC";
+        font-size: 32px;
+        font-style: normal;
+        line-height: normal;
+        margin: 0px;
+    }
+
+    .help_main div.body {
+        padding: 15px 10px;
     }
 }

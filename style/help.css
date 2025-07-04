@@ -21,10 +21,7 @@
     backdrop-filter: blur(20px);
     z-index: 1;
     flex-shrink: 0;
-    transition: min-width 0.3s linear, width 0.3s linear;
-}
-#Nav_help .Nav_D {
-    width: 60px;
+    transition: 0.3s linear;
 }
 
 .help_box h5 {
@@ -37,7 +34,6 @@
 
 .help_box p {
     display: flex;
-    width: 100%;
     padding: 0px 25px;
     color: var(--Color-02);
 }

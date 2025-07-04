@@ -39,14 +39,14 @@ if (activitySearchBtn && activitySearchBox) {
 }
 
 // 切換Nav2
-const nav = document.getElementById('Nav2');
+const nav2 = document.getElementById('Nav2');
 const siginInMedium = document.getElementById('Nav_medium');
-if (nav && siginInMedium) {
+if (nav2 && siginInMedium) {
   siginInMedium.addEventListener('click', function (e) {
     e.stopPropagation();
-    nav.classList.toggle('active');
+    nav2.classList.toggle('active');
   });
-  nav.addEventListener('click', function (e) {
+  nav2.addEventListener('click', function (e) {
     e.stopPropagation();
   });
 }
@@ -106,9 +106,9 @@ document.addEventListener('click', function (e) {
     activitySearchBox.classList.remove('active');
   }
   // Nav2
-  if (nav && nav.classList.contains('active') &&
-    !nav.contains(e.target) && !siginInMedium.contains(e.target)) {
-    nav.classList.remove('active');
+  if (nav2 && nav2.classList.contains('active') &&
+    !nav2.contains(e.target) && !siginInMedium.contains(e.target)) {
+    nav2.classList.remove('active');
   }
   // 設定視窗
   if (setringBox && !setringBox.classList.contains('colse') &&
@@ -334,12 +334,19 @@ function toggleSection(showId, hideId) {
   document.getElementById(hideId).classList.remove('show');
 }
 
-document.querySelector('.lyrics_bt').addEventListener('click', () => {
-  toggleSection('lyrics', 'related');
-});
-document.querySelector('.related_bt').addEventListener('click', () => {
-  toggleSection('related', 'lyrics');
-});
+const lyricsBtn = document.querySelector('.lyrics_bt');
+if (lyricsBtn) {
+  lyricsBtn.addEventListener('click', () => {
+    toggleSection('lyrics', 'related');
+  });
+}
+const relatedBtn = document.querySelector('.related_bt');
+if (relatedBtn) {
+  relatedBtn.addEventListener('click', () => {
+    toggleSection('related', 'lyrics');
+  });
+}
+
 // 活動卡輪播
 const track = document.getElementById("carouselTrack");
 if (track) {

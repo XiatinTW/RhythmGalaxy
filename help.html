@@ -18,6 +18,25 @@
         .layout {
             display: flex;
         }
+
+        #Nav_help2 {
+            display: flex;
+            position: fixed;
+            top: 0;
+            right: -260px;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 100vh;
+            min-width: 200px;
+            max-width: 200px;
+            z-index: 1000;
+            transition: right 0.3s;
+            padding: 80px 0px 0px 2px;
+            background: var(--white-50);
+            backdrop-filter: blur(20px);
+            flex-shrink: 0;
+            overflow-y: auto;
+        }
     </style>
 </head>
 
@@ -115,137 +134,154 @@
     <div class="layout">
         <nav id="Nav_help">
             <div class="help_box">
-                <h5>關於</h5>
-                <p class="help_box01">關於Rhythm Galaxy</p>
-                <p class="help_box02">最新消息</p>
-                <p class="help_box03">會員服務條款</p>
-                <p class="help_box04">隱私權保護政策</p>
-                <p class="help_box05">著作權保護措施</p>
-                <p class="help_box06">免責聲明</p>
+                <h5 data-lang="footer_About">關於</h5>
+                <p class="help_box01" data-lang="footer_About2">關於Rhythm Galaxy</p>
+                <p class="help_box02" data-lang="footer_Latest">最新消息</p>
+                <p class="help_box03" data-lang="footer_MST">會員服務條款</p>
+                <p class="help_box04" data-lang="footer_PPP">隱私權保護政策</p>
+                <p class="help_box05" data-lang="footer_CPM">著作權保護措施</p>
+                <p class="help_box06" data-lang="footer_Disclaimer">免責聲明</p>
             </div>
             <div class="help_box">
-                <h5>其他</h5>
-                <p class="other_box01">常見問題</p>
-                <p class="other_box02">尋求幫助</p>
-                <p class="other_box03">使用者指南</p>
+                <h5 data-lang="footer_Others">其他</h5>
+                <p class="other_box01" data-lang="footer_Others1">常見問題</p>
+                <p class="other_box02" data-lang="footer_Others2">尋求幫助</p>
+                <p class="other_box03" data-lang="footer_Others3">使用者指南</p>
+            </div>
+        </nav>
+        <nav id="Nav_help2">
+            <div class="help_box">
+                <h5 data-lang="footer_About">關於</h5>
+                <p class="help_box01" data-lang="footer_About2">關於Rhythm Galaxy</p>
+                <p class="help_box02" data-lang="footer_Latest">最新消息</p>
+                <p class="help_box03" data-lang="footer_MST">會員服務條款</p>
+                <p class="help_box04" data-lang="footer_PPP">隱私權保護政策</p>
+                <p class="help_box05" data-lang="footer_CPM">著作權保護措施</p>
+                <p class="help_box06" data-lang="footer_Disclaimer">免責聲明</p>
+            </div>
+            <div class="help_box">
+                <h5 data-lang="footer_Others">其他</h5>
+                <p class="other_box01" data-lang="footer_Others1">常見問題</p>
+                <p class="other_box02" data-lang="footer_Others2">尋求幫助</p>
+                <p class="other_box03" data-lang="footer_Others3">使用者指南</p>
             </div>
         </nav>
         <main class="help_main">
             <div class="help_main_01">
                 <div class="title">
                     <div class="liil">
-                        <a href="#" class="p">關於</a>
+                        <a href="#" class="p" data-lang="footer_About">About</a>
                         <span></span>
-                        <a href="#" class="p">關於Rhythm</a>
+                        <a href="#" class="p" data-lang="footer_About2">About Rhythm Galaxy</a>
                     </div>
-                    <h1>關於Rhythm Galaxy</h1>
+                    <h1 data-lang="footer_About2">About Rhythm Galaxy</h1>
                 </div>
                 <div class="body">
-                    <p>我是內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容</p>
+                    <p>I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , </p>
                 </div>
             </div>
             <div class="help_main_02">
                 <div class="title">
                     <div class="liil">
-                        <a href="#" class="p">關於</a>
+                        <a href="#" class="p" data-lang="footer_About">About</a>
                         <span></span>
-                        <a href="#" class="p">最新消息</a>
+                        <a href="#" class="p" data-lang="footer_Latest">Latest news</a>
                     </div>
-                    <h1>最新消息</h1>
+                    <h1 data-lang="footer_Latest">Latest news</h1>
                 </div>
                 <div class="body">
-                    <p>我是內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容</p>
+                    <p>I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , </p>
                 </div>
             </div>
             <div class="help_main_03">
                 <div class="title">
                     <div class="liil">
-                        <a href="#" class="p">關於</a>
+                        <a href="#" class="p" data-lang="footer_About">About</a>
                         <span></span>
-                        <a href="#" class="p">會員服務條款</a>
+                        <a href="#" class="p" data-lang="footer_MST">Member Service Terms</a>
                     </div>
-                    <h1>會員服務條款</h1>
+                    <h1 data-lang="footer_MST">Member Service Terms</h1>
                 </div>
                 <div class="body">
-                    <p>我是內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容</p>
+                    <p>I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , </p>
                 </div>
             </div>
             <div class="help_main_04">
                 <div class="title">
                     <div class="liil">
-                        <a href="#" class="p">關於</a>
+                        <a href="#" class="p" data-lang="footer_About">About</a>
                         <span></span>
-                        <a href="#" class="p">隱私權保護政策</a>
+                        <a href="#" class="p" data-lang="footer_PPP">Privacy Protection Policy</a>
                     </div>
-                    <h1>隱私權保護政策</h1>
+                    <h1 data-lang="footer_PPP">Privacy Protection Policy</h1>
                 </div>
                 <div class="body">
-                    <p>我是內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容</p>
+                    <p>I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , </p>
                 </div>
             </div>
             <div class="help_main_05">
                 <div class="title">
                     <div class="liil">
-                        <a href="#" class="p">關於</a>
+                        <a href="#" class="p" data-lang="footer_About">About</a>
                         <span></span>
-                        <a href="#" class="p">著作權保護措施</a>
+                        <a href="#" class="p" data-lang="footer_CPM">Copyright protection measures</a>
                     </div>
-                    <h1>著作權保護措施</h1>
+                    <h1 data-lang="footer_CPM">Copyright protection measures</h1>
                 </div>
                 <div class="body">
-                    <p>我是內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容</p>
+                    <p>I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , </p>
                 </div>
             </div>
             <div class="help_main_06">
                 <div class="title">
                     <div class="liil">
-                        <a href="#" class="p">關於</a>
+                        <a href="#" class="p" data-lang="footer_About">About</a>
                         <span></span>
-                        <a href="#" class="p">免責聲明</a>
+                        <a href="#" class="p" data-lang="footer_Disclaimer">Disclaimer</a>
                     </div>
-                    <h1>免責聲明</h1>
+                    <h1 data-lang="footer_Disclaimer">Disclaimer</h1>
                 </div>
                 <div class="body">
-                    <p>我是內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容</p>
+                    <p>I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , </p>
                 </div>
             </div>
             <div class="other_main_01">
                 <div class="title">
                     <div class="liil">
-                        <a href="#" class="p">其他</a>
+                        <a href="#" class="p" data-lang="footer_Others">Others</a>
                         <span></span>
-                        <a href="#" class="p">常見問題</a>
+                        <a href="#" class="p" data-lang="footer_Others1">FAQ?</a>
                     </div>
-                    <h1>常見問題</h1>
+                    <h1 data-lang="footer_Others1">FAQ?</h1>
                 </div>
                 <div class="body">
-                    <p>我是內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容</p>
+                    <p>I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , </p>
                 </div>
             </div>
             <div class="other_main_02">
                 <div class="title">
                     <div class="liil">
-                        <a href="#" class="p">其他</a>
+                        <a href="#" class="p" data-lang="footer_Others">Others</a>
                         <span></span>
-                        <a href="#" class="p">尋求問題</a>
+                        <a href="#" class="p" data-lang="footer_Others2">help</a>
                     </div>
-                    <h1>尋求問題</h1>
+                    <h1 data-lang="footer_Others2">help</h1>
                 </div>
                 <div class="body">
-                    <p>我是內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容</p>
+                    <p>I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , </p>
                 </div>
             </div>
             <div class="other_main_03">
                 <div class="title">
                     <div class="liil">
-                        <a href="#" class="p">其他</a>
+                        <a href="#" class="p" data-lang="footer_Others">Others</a>
                         <span></span>
-                        <a href="#" class="p">使用者指南</a>
+                        <a href="#" class="p" data-lang="footer_Others3">User Guide</a>
                     </div>
-                    <h1>使用者指南</h1>
+                    <h1 data-lang="footer_Others3">User Guide</h1>
                 </div>
                 <div class="body">
-                    <p>我是內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容</p>
+                    <p>I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , I'm text , </p>
                 </div>
             </div>
         </main>
@@ -254,12 +290,12 @@
         <div class="footer_body">
             <div class="footer_text">
                 <h6 data-lang="footer_About">關於</h6>
-                <a class="p" href="#" data-lang="footer_About2">關於?</a>
-                <a class="p" href="#" data-lang="footer_Latest">最新消息</a>
-                <a class="p" href="#" data-lang="footer_MST">會員服務條款</a>
-                <a class="p" href="#" data-lang="footer_PPP">隱私權保護政策</a>
-                <a class="p" href="#" data-lang="footer_CPM">著作權保護措施</a>
-                <a class="p" href="#" data-lang="footer_Disclaimer">免責聲明</a>
+                <a class="p" href="help.html" data-lang="footer_About2">關於?</a>
+                <a class="p" href="help.html" data-lang="footer_Latest">最新消息</a>
+                <a class="p" href="help.html" data-lang="footer_MST">會員服務條款</a>
+                <a class="p" href="help.html" data-lang="footer_PPP">隱私權保護政策</a>
+                <a class="p" href="help.html" data-lang="footer_CPM">著作權保護措施</a>
+                <a class="p" href="help.html" data-lang="footer_Disclaimer">免責聲明</a>
             </div>
             <div class="footer_text">
                 <h6 data-lang="footer_QG">快速導覽</h6>
@@ -271,9 +307,9 @@
             </div>
             <div class="footer_text">
                 <h6 data-lang="footer_Others">其他</h6>
-                <a class="p" href="#" data-lang="footer_Others1">常見問題</a>
-                <a class="p" href="#" data-lang="footer_Others2">尋求幫助</a>
-                <a class="p" href="#" data-lang="footer_Others3">使用者指南</a>
+                <a class="p" href="help.html" data-lang="footer_Others1">常見問題</a>
+                <a class="p" href="help.html" data-lang="footer_Others2">尋求幫助</a>
+                <a class="p" href="help.html" data-lang="footer_Others3">使用者指南</a>
             </div>
             <div class="footer_text2">
                 <div class="footer_button">
