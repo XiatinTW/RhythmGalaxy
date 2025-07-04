@@ -201,15 +201,18 @@
 .NAV_bt {
     width: 30px;
     height: 30px;
-    background-color: var(--Color-04);
+    background-color: var(--Color-02);
     mask-image: url('../assets/icon/Icon-Nav.svg');
     mask-size: contain;
     mask-repeat: no-repeat;
     mask-position: center;
 }
+#NAV_bt.active {
+  mask-image: url('../assets/icon/Icon-Nav2.svg');
+}
 
 .NAV_bt:hover {
-    background-color: var(--white-50);
+    background-color: var(--Color-01);
 }
 
 #LeftList_menu {

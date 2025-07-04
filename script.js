@@ -313,7 +313,7 @@ const sidebar = document.getElementById('Nav');
 if (toggleBtn && sidebar) {
   toggleBtn.addEventListener('click', () => {
     sidebar.classList.toggle('Nav_D');
-    console.log('clicked!');
+    toggleBtn.classList.toggle('active');
   });
 }
 
@@ -370,12 +370,6 @@ if (track) {
   setInterval(autoScroll, 4000);
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  const loginBtn = document.getElementById('LoginButton');
-  if (loginBtn) {
-    loginBtn.addEventListener('click', function (e) {
-      e.stopPropagation(); // 避免被外部 click 統一關閉邏輯干擾
-      window.location.href = 'index_Login.html';
-    });
-  }
-});
+function lgin() {
+  window.location.href = 'index_Login.html';
+}

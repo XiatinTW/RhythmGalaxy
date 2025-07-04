@@ -117,6 +117,13 @@
     .PodcastCradList {
         padding: 25px 0px;
     }
+    .help_main div.body {
+        padding: 25px 50px;
+    }
+    nav#Nav_help {
+        min-width: unset;
+        width: 60px;
+    }
 }
 
 @media (min-width: 960px) {
