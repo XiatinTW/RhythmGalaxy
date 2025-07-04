@@ -14,10 +14,12 @@ document.querySelectorAll('nav .help_box p[class^="help_box"], nav .help_box p[c
     box.addEventListener('click', () => {
         // 先全部隱藏
         document.querySelectorAll('.help_main > div').forEach(main => {
+            main.style.display = 'none';
             main.style.opacity = '0';
         });
         // 顯示對應內容
         const show = document.querySelector('.' + box.dataset.target);
+        if (show) show.style.display = 'block';
         if (show) show.style.opacity = '1';
     });
 });

@@ -97,16 +97,17 @@
 .help_main .body p {
     flex: 1 0 0;
     align-self: stretch;
+    line-height: 50px;
 }
 
 .help_main>div {
     opacity: 0;
-    position: absolute;
+    display: none;
     transition: 1s;
 }
 
 div.help_main_01 {
     opacity: 1;
-    position: absolute;
+    display: block;
     transition: 1s;
 }

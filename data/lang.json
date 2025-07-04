@@ -454,5 +454,125 @@
   "main_podcast_HOT": {
     "zh": "熱門節目",
     "en": "Popular shows"
+  },
+  "help_About_text1": {
+    "zh": "Rhythm Galaxy 是一個跨越音樂類型與形式的節奏宇宙。<br>我們為每一位聽眾與創作者，打造一個能自由探索、分享與沉浸的音樂空間。<br>從流行樂、嘻哈到輕音樂，從排行榜熱歌到獨立聲音，這裡收錄的不只是音樂，而是你的情感、記憶與故事。<br>無論你想發現新歌、建立自己的播放清單，還是收聽深度 Podcast 節目，Rhythm Galaxy 都是你專屬的聲音宇宙。<br>讓節奏引領你，展開一場音樂的星際之旅。",
+    "en": "Rhythm Galaxy is a universe built for music lovers and creators to explore, share, and immerse in sound. <br>From chart-topping hits to indie gems, from relaxing light music to energizing hip-hop beats, we bring together a world of rhythm — all in one place. <br>Discover new songs, build your personalized playlists, or dive into thought-provoking podcasts. <br>Let the rhythm guide you through your own journey across the galaxy of sound."
+  },
+  "help_Latest_text1": {
+    "zh": "暫無最新消息",
+    "en": "Latest updates will appear here."
+  },
+  "help_MST_text1": {
+    "zh": "Rhythm Galaxy 會員服務條款 <br>最後更新日期：2025 年 7 月 4 日 <br>歡迎使用 Rhythm Galaxy（以下簡稱「本平台」）所提供之服務。為保障您的權益，請詳細閱讀下列會員服務條款（以下簡稱「本條款」）。<br>當您註冊成為會員，即表示您已閱讀、瞭解並同意遵守本條款之所有內容。<br>※本網站是草稿網站非營利",
+    "en": "Rhythm Galaxy Terms of Service<br>Last Updated: July 4, 2025<br>Welcome to Rhythm Galaxy (the “Platform”). These Terms of Service (“Terms”) govern your use of all services provided by Rhythm Galaxy. <br>By registering as a member, you acknowledge that you have read, understood, and agreed to be bound by these Terms.<br>※This website is a non-profit draft and is not intended for commercial purposes."
+  },
+  "help_MST_text2": {
+    "zh": "一、會員註冊與帳戶管理 <br>1.  使用本平台前，您需註冊成為會員並提供完整、正確的個人資訊。 <br>2.  您應妥善保管您的帳號與密碼，所有經由您帳號進行之行為，將視為您本人行為。 <br>3.  若發現帳號遭他人未經授權使用，應立即通知本平台客服。",
+    "en": "Ⅰ. Account Registration and Management<br>1.  You must register and provide accurate, complete personal information to use our services.<br>2.  You are solely responsible for maintaining the confidentiality of your account and password.<br>3.  If you suspect unauthorized use of your account, please contact our support team immediately."
+  },
+  "help_MST_text3": {
+    "zh": "二、服務內容與使用限制<br>1.  本平台提供音樂播放、Podcast 節目、個人播放清單、媒體收藏等服務內容。<br>2.  會員不得將本平台內容作為商業用途，或以任何非法方式使用平台資源。<br>3.  本平台保留隨時調整、修改或終止部分或全部服務之權利。",
+    "en": "Ⅱ. Services and Usage Restrictions<br>1.  The Platform offers music streaming, podcast access, personal playlists, and media library features.<br>2.  You may not use the Platform for commercial purposes or engage in any illegal activity through the services.<br>3.  Rhythm Galaxy reserves the right to modify, suspend, or discontinue any part of the services at any time without notice."
+  },
+  "help_MST_text4": {
+    "zh": "三、智慧財產權<br>1.  本平台內所有內容，包括但不限於音樂、圖像、文字、介面設計、商標等，其智慧財產權均為本平台或原創作者所有。<br>2.  未經授權，會員不得複製、傳播、散布、公開播送或以任何方式使用本平台之內容。",
+    "en": "Ⅲ. Intellectual Property Rights<br>1.  All content on the Platform—including but not limited to music, artwork, text, interface designs, and trademarks—is the intellectual property of Rhythm Galaxy or the original creators.<br>2.  You may not reproduce, distribute, broadcast, or otherwise use any content without prior authorization."
+  },
+  "help_MST_text5": {
+    "zh": "四、會員義務與責任<br>1.  會員應遵守中華民國相關法律及本條款之規定。<br>2.  會員不得從事任何干擾、破壞平台運作或影響其他使用者權益之行為。<br>3.  若會員違反本條款，本平台有權停止其帳號或限制其使用服務。",
+    "en": "Ⅳ. User Responsibilities<br>1.  You must comply with all applicable laws and these Terms while using the Platform.<br>2.  You agree not to interfere with the Platform’s operations or disrupt other users’ experiences.<br>3.  Violations of these Terms may result in suspension or termination of your account."
+  },
+  "help_MST_text6": {
+    "zh": "五、隱私權保護<br>我們尊重您的個人資料，所有資訊將依據《隱私權政策》進行蒐集、處理與使用。詳細內容請參閱本平台之【隱私權政策】。",
+    "en": "Ⅴ. Privacy Protection<br>Your personal data is important to us. All information is collected, processed, and used in accordance with our Privacy Policy, which we encourage you to review in full."
+  },
+  "help_MST_text7": {
+    "zh": "六、條款修改<br>本平台有權隨時修改本條款，修改後將公告於網站，您繼續使用本服務即視為同意該修改。",
+    "en": "Ⅵ. Modifications to Terms<br>We reserve the right to revise these Terms at any time. Changes will be posted on the Platform. Continued use of the services constitutes acceptance of the updated Terms."
+  },
+  "help_MST_text8": {
+    "zh": "📢若有任何問題，歡迎與我們聯繫：<br>📧 客服信箱：bifi112537@gmail.com",
+    "en": "📢If you do not agree with any part of these Terms, please do not use our services.<br>📧 Contact Us:bifi112537@gmail.com"
+  },
+  "help_PPP_text1": {
+    "zh": "最後更新日期：2025 年 7 月 4 日<br>Rhythm Galaxy（以下簡稱「本平台」）非常重視使用者的隱私與個人資料保護。<br>本政策說明我們如何蒐集、使用、儲存及保護您在使用本網站與服務時所提供的資訊。",
+    "en": "Last Updated: July 4, 2025<br>Rhythm Galaxy (“we”, “our”, or “the Platform”) is committed to protecting your privacy. <br>This policy explains how we collect, use, store, and safeguard your personal information when you use our services."
+  },
+  "help_PPP_text2": {
+    "zh": "一、我們收集的資料<br>· 註冊資料（如：姓名、電子信箱）<br>· 使用紀錄與偏好設定（如：收藏清單、播放紀錄）<br>· 瀏覽行為分析（用於改善平台體驗）",
+    "en": "Ⅰ. We may collect the following types of information:<br>· Registration details (e.g. name, email address)<br>· Usage data and preferences (e.g. playlists, listening history)<br>· Browsing behavior (for improving user experience)"
+  },
+  "help_PPP_text3": {
+    "zh": "二、資料使用方式<br>· 提供與改善平台功能<br>· 客服聯繫與會員通知<br>· 分析使用行為以優化推薦內容<br>· 遵守法律規範",
+    "en": "Ⅱ. We use your information to:<br>· Provide and enhance our services<br>· Contact you regarding support or important updates<br>· Analyze user behavior to personalize your experience<br>· Comply with legal obligations"
+  },
+  "help_PPP_text4": {
+    "zh": "三、資料分享與第三方服務<br>我們不會在未經您同意的情況下出售或交換您的個人資料。部分服務可能會使用第三方工具（如分析服務），這些工具將依自身隱私條款處理資料。",
+    "en": "Ⅲ. Sharing with Third Parties<br>We do not sell or trade your personal data. Some features may involve third-party services (e.g., analytics tools), which handle data in accordance with their own privacy policies."
+  },
+  "help_PPP_text5": {
+    "zh": "四、資料儲存與安全<br>我們採取合理的技術與管理措施保護您的個人資料不被未授權存取、使用或洩漏。",
+    "en": "Ⅳ. Data Storage & Security<br>We take reasonable technical and organizational measures to protect your personal information from unauthorized access, use, or disclosure."
+  },
+  "help_PPP_text6": {
+    "zh": "五、使用者權利<br>您有權查詢、修改或刪除您的個人資料。如您希望行使相關權利，請透過客服聯繫我們。",
+    "en": "Ⅴ. Your Rights<br>You have the right to access, correct, or delete your personal information. Please contact us if you wish to make any changes."
+  },
+  "help_PPP_text7": {
+    "zh": "六、草稿網站聲明<br>本網站為草稿網站，僅用於展示與非營利測試之目的，未進行實際資料商業處理。",
+    "en": "Ⅵ. Prototype Disclaimer<br>This website is a prototype for demonstration and non-commercial testing purposes only. No actual personal data is used for commercial processing."
+  },
+  "help_PPP_text8": {
+    "zh": "📢如您對本隱私政策有任何疑問，歡迎來信：<br>📧 客服信箱：bifi112537@gmail.com",
+    "en": "📢If you do not agree with any part of these Terms, please do not use our services.<br>📧 Contact Us:bifi112537@gmail.com"
+  },
+  "help_CPM_text1": {
+    "zh": "最後更新：2025 年 7 月 4 日<br>Rhythm Galaxy 重視並尊重所有創作者與內容提供者的智慧財產權。<br>為保障原創內容、合法使用與創作者權益，本平台採取以下著作權保護措施：",
+    "en": "Last Updated: July 4, 2025<br>Rhythm Galaxy values and respects the intellectual property rights of all creators and content providers. <br>To protect original works and ensure lawful use, we have implemented the following copyright protection measures:"
+  },
+  "help_CPM_text2": {
+    "zh": "Rhythm Galaxy 網站所使用之音樂與素材，均來自無版權音樂來源或公有領域，並遵守其使用規範。<br>本網站目前不開放使用者上傳音樂內容，因此不涉及使用者產生內容之著作權風險。<br>若您認為本站某項內容仍涉及著作權爭議，請透過以下信箱與我們聯繫，我們將立即處理並配合下架：<br>📧 聯絡信箱：bifi112537@gmail.com",
+    "en": "All music and media used on Rhythm Galaxy are sourced from royalty-free libraries or public domain materials, in compliance with their respective usage licenses.<br>At this time, the platform does not allow users to upload their own audio content, eliminating risks related to user-generated copyright issues.<br>If you believe any material on our website violates your copyright, please contact us and we will promptly investigate and take appropriate action.<br>📧 Contact Email: bifi112537@gmail.com"
+  },
+  "help_CPM_text3": {
+    "zh": "※ 本網站內容使用來源皆為無版權音樂，僅供展示與非商業使用。",
+    "en": "※ This site uses royalty-free audio for non-commercial demonstration purposes."
+  },
+  "help_Disclaimer_text1": {
+    "zh": "Rhythm Galaxy 為一個非營利、草稿性質之網站，主要用於展示設計概念與測試平台功能。<br>網站中所使用之音樂、圖片與媒體內容，皆來自無版權來源或公有領域，並依照各資源授權規範使用。<br>本網站僅供學習與展示用途，不對內容之完整性、即時性或正確性作出保證，亦不構成任何商業行為或法律建議。<br>使用者瀏覽本網站即表示了解並同意：<br>· 本平台不對因使用本網站資料而產生之任何直接或間接損失負責。<br>· Rhythm Galaxy 對於任何第三方網站連結或資源亦不負責任。<br>如您發現任何可能涉及侵權或不當使用之內容，請即時與我們聯繫，我們將儘速處理。<br>📧 聯絡信箱：bifi112537@gmail.com",
+    "en": "Rhythm Galaxy is a non-commercial, prototype website created for educational and demonstration purposes only. <br>All music, images, and media featured on the site are sourced from royalty-free or public domain resources, used in accordance with their respective licenses.<br>This site makes no guarantees regarding the completeness, accuracy, or timeliness of its content and does not constitute any form of legal or commercial advice.<br>By using this website, you acknowledge and agree that:<br>· Rhythm Galaxy shall not be held liable for any direct or indirect damages arising from the use of the site or its content.<br>· We are not responsible for the content or reliability of any third-party websites linked from this platform.<br>If you believe any content on this site infringes upon your rights, please contact us immediately and we will take prompt action.<br>📧 Contact Email: bifi112537@gmail.com"
+  },
+  "help_FAQ_text1": {
+    "zh": "Rhythm Galaxy 是什麼？<br>Rhythm Galaxy 是一個以節奏、音樂與創意為核心的網站平台，目前處於非營利草稿階段，主要用於展示設計概念與功能雛形。",
+    "en": "What is Rhythm Galaxy?<br>Rhythm Galaxy is a music-focused platform designed around rhythm and creativity. <br>It is currently a non-commercial prototype site used to showcase design concepts and early features."
+  },
+  "help_FAQ_text2": {
+    "zh": "Q. 音樂來源是什麼？<br>A. 我們使用的音樂來自無版權音樂庫與公有領域素材，皆遵守原始授權規範。",
+    "en": "Q. Where does the music come from?<br>A. All music is sourced from royalty-free libraries or public domain materials, used in compliance with their respective licenses."
+  },
+  "help_FAQ_text3": {
+    "zh": "Q. Rhythm Galaxy 是否提供商業服務？<br>A. 本站目前為非營利展示用途，不進行商業營運。",
+    "en": "Q. Is Rhythm Galaxy a commercial service?<br>A. No, this is a non-commercial prototype site with no active business operations."
+  },
+  "help_FAQ_text4": {
+    "zh": "Q. 我發現某些內容可能有版權疑慮，該怎麼辦？<br>A. 請立即來信告知我們，我們將儘速處理並移除相關內容。<br>📧 聯絡信箱: bifi112537@gmail.com",
+    "en": "Q. What if I find a copyright issue on the site?<br>A. Please email us right away. We will review and take appropriate action as soon as possible.<br>📧 Contact Email: bifi112537@gmail.com"
+  },
+  "help_FAQ_text5": {
+    "zh": "Q. 未來會開放哪些功能？<br>A. 我們正在規劃更多互動功能，包括播放清單管理、使用者個人化頁面與節奏可視化動畫等，敬請期待！",
+    "en": "Q. What features are planned for the future?<br>A. We’re planning to add features such as playlist customization, user profiles, and rhythm visualizations. Stay tuned!"
+  },
+  "help_FAQ_text6": {
+    "zh": "Q. 我可以在哪裡聯絡您？<br>A. 歡迎透過電子郵件聯繫我們：📧 聯絡信箱: bifi112537@gmail.com",
+    "en": "Q. How can I contact you?<br>A. 📧 Contact Email: bifi112537@gmail.com<br>You’re welcome to reach out via email at the address above."
+  },
+  "help_help_text1": {
+    "zh": "歡迎透過電子郵件聯繫我們：📧 聯絡信箱: bifi112537@gmail.com",
+    "en": "📧 Contact Email: bifi112537@gmail.com<br>You’re welcome to reach out via email at the address above."
+  },
+  "help_Guide_text1": {
+    "zh": "暫無內容",
+    "en": "Oops! Looks like there's nothing here for now."
   }
 }

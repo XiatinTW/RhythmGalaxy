@@ -17,7 +17,7 @@ function setLanguage(lang) {
     document.querySelectorAll('[data-lang]').forEach(el => {
         const key = el.getAttribute('data-lang');
         if (translations[key] && translations[key][lang]) {
-            el.textContent = translations[key][lang];
+            el.innerHTML = translations[key][lang];
         }
         // 找不到對應翻譯，保留原文字
     });

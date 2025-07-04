@@ -116,6 +116,11 @@ document.addEventListener('click', function (e) {
     setringBox.classList.add('colse');
     document.body.classList.remove('colse');
   }
+  // Nav2
+  if (Nav_help2 && Nav_help2.classList.contains('active') &&
+    !Nav_help2.contains(e.target) && !siginInMedium.contains(e.target)) {
+    Nav_help2.classList.remove('active');
+  }
 });
 
 // musicCrad 圖片
