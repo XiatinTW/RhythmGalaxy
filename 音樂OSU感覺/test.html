@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .box {
+            display: flex;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #a85dd3;
+            border: 5px solid white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: Arial;
+            font-size: 32px;
+            position: absolute;
+        }
+
+        .box1 {
+            background-color: #e7e7e7;
+            position: absolute;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            animation: anime 2s ease-out forwards;
+            z-index: 0;
+        }
+
+        @keyframes anime {
+            from {
+                transform: scale(2);
+                opacity: 0.5;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+
+        .message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            padding: 16px 24px;
+            transform: translate(-50%, -50%);
+            border-radius: 8px;
+            background-color: rgb(51, 51, 51);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            font-size: 20px;
+            z-index: 9999;
+            opacity: 0;
+            animation: fadeInOut 1.2s ease-in-out;
+        }
+
+        .success {
+            color: white;
+            border: 2px solid rgb(18, 255, 18);
+        }
+
+        .rail {
+            color: white;
+            border: 2px solid rgb(255, 34, 34);
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+
+            10% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.05);
+            }
+        }
+
+        video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="box" onclick="test1()"></div> -->
+    <video autoplay muted loop>
+        <source
+            src="./53KpIkbEsTJxE.mp4"
+            type="video/mp4">
+    </video>
+
+    <script>
+        function showMessage(text, isSuccess) {
+            const msg = document.createElement('div');
+            msg.className = 'message ' + (isSuccess ? 'success' : 'fail');
+            msg.textContent = text;
+
+            document.body.appendChild(msg);
+            setTimeout(() => msg.remove(), 1000);
+        }
+
+        function test1() {
+            const box = document.createElement('div');
+            const box1 = document.createElement('div');
+
+            box.classList.add('box')
+            box1.classList.add('box1')
+
+            box.textContent = "1";
+
+            const maxX = window.innerWidth - 150;
+            const maxY = window.innerHeight - 150;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            const boxsize = Math.floor(Math.random() * (200 - 80 + 1)) + 80;
+            const offset = (boxsize - 100) / 2;
+
+            box.style.left = `${randomX}px`;
+            box.style.top = `${randomY}px`;
+            box.style.width = `${boxsize}px`;
+            box.style.height = `${boxsize}px`;
+            box1.style.left = `${randomX}px`;
+            box1.style.top = `${randomY}px`;
+            box1.style.width = `${boxsize}px`;
+            box1.style.height = `${boxsize}px`;
+
+            let colorList = ['#a85dd3', '#ff5b92', '#5b74ff', '#5fb887', '#e69e4c']
+            const colorFL = colorList[Math.floor(Math.random() * colorList.length)];
+            box.style.backgroundColor = colorFL;
+
+            box1.addEventListener('animationend', () => {
+                ready = true;
+            },1000)
+
+            box.addEventListener('click', function () {
+                if (ready) {
+                    showMessage('成功!', true);
+                    this.remove();
+                    box1.remove()
+                } else {
+                    showMessage('失敗!', false);
+                    this.remove();
+                    box1.remove()
+                }
+            });
+            box1.addEventListener('click', function () {
+                if (ready) {
+                    this.remove();
+                    box.remove()
+                    showMessage('成功!', true);
+                } else {
+                    this.remove();
+                    box.remove()
+                    showMessage('失敗!', false);
+                }
+            });
+
+            document.body.appendChild(box);
+            document.body.appendChild(box1);
+        }
+        // setInterval(test1, 1000);
+    </script>
+</body>
+
+</html>
