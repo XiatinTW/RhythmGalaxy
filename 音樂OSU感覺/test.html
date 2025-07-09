@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rhythm Galaxy小遊戲</title>
 
     <style>
         @import url(../style.css);
@@ -14,6 +14,8 @@
             height: 100vh;
             overflow: hidden;
             position: relative;
+            touch-action: none;
+            overscroll-behavior: none;
         }
 
         .box {
@@ -210,7 +212,7 @@
                 font-size: 16px;
                 font-family: Arial;
                 color: white;
-                padding: 10px 5px;
+                padding: 15px 10px;
             }
         }
     </style>
@@ -223,6 +225,10 @@
 
 
     <script>
+        document.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+        }, { passive: false });
+
         let combo = 0;
         let score = 0;
 
