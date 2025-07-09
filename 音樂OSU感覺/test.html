@@ -32,6 +32,12 @@
             font-family: Arial;
             font-size: 32px;
             position: absolute;
+            /* padding: 10px; */
+        }
+
+        .box:active {
+            transform: scale(0.95);
+            filter: brightness(1.2);
         }
 
         .box1 {
@@ -128,6 +134,7 @@
             border-radius: 15px;
             background-color: rgb(51, 51, 51);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: -1;
         }
 
         .rating-text {
@@ -291,11 +298,15 @@
                 setTimeout(() => rating.remove(), 1000);
             }
 
+            let clicked = false;
             function handleClick() {
                 document.getElementById('click-sound').play();
                 const now = performance.now();
                 const elapsed = now - startTime;
                 const percent = elapsed / animationDuration;
+
+                if (clicked) return;
+                clicked = true;
 
                 let result = 'MISS';
                 let color = 'gray';
@@ -335,8 +346,10 @@
                 box1.remove();
             }
 
-            box.addEventListener('click', handleClick);
-            box1.addEventListener('click', handleClick);
+            // box.addEventListener('click', handleClick);舊設定
+            // box1.addEventListener('click', handleClick);舊設定
+            box.addEventListener('pointerdown', handleClick);
+            box1.addEventListener('pointerdown', handleClick);
 
             // document.body.appendChild(box); 舊設定
             // document.body.appendChild(box1); 舊設定
@@ -344,7 +357,8 @@
             document.body.insertBefore(box1, document.body.firstChild);
 
             setTimeout(() => {
-                if (document.body.contains(box)) {
+                if (!clicked && document.body.contains(box)) {
+                    // MISS 判定
                     showRatingText('MISS', 'gray', randomX + boxsize / 2, randomY);
                     combo = 0;
                     box.remove();
