@@ -147,6 +147,8 @@
             opacity: 0;
             transform: translate(-50%, -50%) scale(0.7);
             z-index: 9999;
+            -webkit-text-stroke: 1px white;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
         @keyframes ratingFade {
@@ -316,16 +318,17 @@
                     combo = 0;
                 } else if (percent < 0.4) {
                     result = 'BAN';
-                    color = 'red';
-                    score -= 5;
-                    combo = 0;
+                    color = '#38bf7f';
+                    score += 5;
+                    combo++;
                 } else if (percent < 0.6) {
                     result = 'GOOD';
-                    color = 'orange';
+                    color = '#2ab5e7';
                     score += 10;
+                    combo++;
                 } else if (percent < 0.9) {
                     result = 'GREAT';
-                    color = 'skyblue';
+                    color = '#e74390';
                     score += 20;
                     combo++;
                 } else if (percent <= 1.05) {
