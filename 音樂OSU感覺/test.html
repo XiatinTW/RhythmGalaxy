@@ -238,17 +238,17 @@
             const maxY = window.innerHeight - 150;
             const randomX = Math.random() * maxX;
             const randomY = Math.random() * maxY;
-            const boxsize = Math.floor(Math.random() * (200 - 80 + 1)) + 80;
+            const boxsize = Math.floor(Math.random() * (30 - 10 + 1)) + 5;
 
             box.style.left = `${randomX}px`;
             box.style.top = `${randomY}px`;
-            box.style.width = `${boxsize}px`;
-            box.style.height = `${boxsize}px`;
+            box.style.width = `${boxsize}vh`;
+            box.style.height = `${boxsize}vh`;
 
             box1.style.left = `${randomX}px`;
             box1.style.top = `${randomY}px`;
-            box1.style.width = `${boxsize}px`;
-            box1.style.height = `${boxsize}px`;
+            box1.style.width = `${boxsize}vh`;
+            box1.style.height = `${boxsize}vh`;
 
             const colorList = ['#a85dd3', '#ff5b92', '#5b74ff', '#5fb887', '#e69e4c'];
             const colorFL = colorList[Math.floor(Math.random() * colorList.length)];
@@ -340,18 +340,16 @@
             audio.currentTime = 0;
             audio.play();
 
-            // 根據節奏產生圈圈
             beatTimer = setInterval(() => {
                 test1();
             }, beatInterval);
 
-            // 當音樂播放結束，停止遊戲
             audio.onended = () => {
                 clearInterval(beatTimer);
                 showGameOver();
             };
         }
-        // 結束畫面
+        
         function showGameOver() {
             const msg = document.createElement('div');
             msg.className = 'gameover-message';
