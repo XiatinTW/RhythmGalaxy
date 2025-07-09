@@ -168,6 +168,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 32px;
+            font-family: Arial;
             color: white;
             padding: 24px 32px;
             background: rgba(0, 0, 0, 0.8);
@@ -284,21 +285,21 @@
                 } else if (percent < 0.4) {
                     result = 'BAN';
                     color = 'red';
-                    score -= 1;
+                    score -= 5;
                     combo = 0;
                 } else if (percent < 0.6) {
                     result = 'GOOD';
                     color = 'orange';
-                    score += 1;
+                    score += 10;
                 } else if (percent < 0.9) {
                     result = 'GREAT';
                     color = 'skyblue';
-                    score += 2;
+                    score += 20;
                     combo++;
                 } else if (percent <= 1.05) {
                     result = 'PERFECT';
                     color = 'lime';
-                    score += 3;
+                    score += 30;
                     combo++;
                 } else {
                     result = 'MISS';
