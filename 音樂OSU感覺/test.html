@@ -317,8 +317,10 @@
             box.addEventListener('click', handleClick);
             box1.addEventListener('click', handleClick);
 
-            document.body.appendChild(box);
-            document.body.appendChild(box1);
+            // document.body.appendChild(box); 舊設定
+            // document.body.appendChild(box1); 舊設定
+            document.body.insertBefore(box, document.body.firstChild);
+            document.body.insertBefore(box1, document.body.firstChild);
         }
 
         let combo1 = 0;
