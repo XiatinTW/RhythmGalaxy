@@ -203,6 +203,14 @@
             .message2 {
                 width: 120px;
                 height: 60px;
+                font-size: 32px;
+            }
+
+            .gameover-message {
+                font-size: 16px;
+                font-family: Arial;
+                color: white;
+                padding: 10px 5px;
             }
         }
     </style>
@@ -328,6 +336,15 @@
             // document.body.appendChild(box1); 舊設定
             document.body.insertBefore(box, document.body.firstChild);
             document.body.insertBefore(box1, document.body.firstChild);
+
+            setTimeout(() => {
+                if (document.body.contains(box)) {
+                    showRatingText('MISS', 'gray', randomX + boxsize / 2, randomY);
+                    combo = 0;
+                    box.remove();
+                    box1.remove();
+                }
+            }, 2000);
         }
 
         let combo1 = 0;
@@ -358,7 +375,7 @@
                 showGameOver();
             };
         }
-        
+
         function showGameOver() {
             const msg = document.createElement('div');
             msg.className = 'gameover-message';
