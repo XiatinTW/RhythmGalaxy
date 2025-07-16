@@ -10,7 +10,7 @@ applyTo: 'ai/*.php'
 - 帳號: abuser
 - 密碼: 1234
 - 埠號: 3306
-- 資料庫名稱: addressbook
+- 資料庫名稱: music
 
 # SQL 字串與 PHP 變數
 使用參數綁定方式綁定 SQL 與 PHP 變數
