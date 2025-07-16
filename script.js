@@ -41,6 +41,8 @@ if (activitySearchBtn && activitySearchBox) {
 // 切換Nav2
 const nav2 = document.getElementById('Nav2');
 const siginInMedium = document.getElementById('Nav_medium');
+// 新增宣告 Nav_help2
+const Nav_help2 = document.getElementById('Nav_help2');
 if (nav2 && siginInMedium) {
   siginInMedium.addEventListener('click', function (e) {
     e.stopPropagation();

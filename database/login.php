@@ -10,7 +10,7 @@ try {
     $stmt->execute([':email' => $email, ':password' => $password]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($user) {
-        echo json_encode(['status' => 1]);
+        echo json_encode(['status' => 1, 'user_id' => $user['user_id']]);
     } else {
         echo json_encode(['status' => 0]);
     }

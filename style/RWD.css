@@ -20,6 +20,11 @@
 
 /* 平板 */
 @media (max-width: 960px) {
+
+    #header #SiginInBox {
+        display: none !important;
+    }
+
     .ActivityCardTab {
         min-width: 0;
         max-width: none;
@@ -564,6 +569,7 @@
         white-space: nowrap;
         text-overflow: ellipsis;
     }
+
     .PodcastCrad p {
         display: none;
     }

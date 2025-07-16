@@ -12,9 +12,16 @@ if (document.getElementById('loginForm')) {
         const data = await res.json();
         const msg = document.getElementById('resultMsg');
         if (data.status === 1) {
+            // 儲存 user_id 到 cookie，有效期 7 天
+            if (data.user_id) {
+                const d = new Date();
+                d.setTime(d.getTime() + (7 * 24 * 60 * 60 * 1000));
+                document.cookie = `user_id=${data.user_id};expires=${d.toUTCString()};path=/`;
+            }
             alert('登入成功');
             msg.textContent = '';
             msg.style.color = 'transparent';
+            location.href = 'http://localhost/Portfolio_web/index_Login.html';
         } else if (data.status === 0) {
             msg.textContent = '登入失敗';
             msg.style.color = 'red';
