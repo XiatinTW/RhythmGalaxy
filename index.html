@@ -26,6 +26,7 @@
     <meta name="twitter:description" content="我們為每一位聽眾與創作者，打造一個能自由探索、分享與沉浸的音樂空間。">
     <meta name="twitter:image" content="https://rhythmgalaxy.vercel.app/assets/img/LOGO.png">
     <script src="./data/lang.js" defer></script>
+    <script src="data/pplayhhpp.js" defer></script>
     <script src="script.js" defer></script>
     <script src="./data/playbar.js" defer></script>
     <script src="./data/login.js" defer></script>
@@ -205,123 +206,7 @@
         <main id="main1">
             <div id="main1_1">
                 <h2 style="min-width: 350px;" data-lang="main_TrendingHits">Trending Hits</h2>
-                <div class="MusicCradList">
-                    <button class="MusicCrad" data-bg="./assets/img/music/Rectangle01.jpg"
-                        data-audio="./assets/music/EONA - Emotional Ambient Pop-Rockot.mp3">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h6>Lost in the Sky</h6>
-                            <p>Emma Stone</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/music/Rectangle02.jpg"
-                        data-audio="./assets/music/Gardens - Stylish Chill-penguinmusic.mp3">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h6>Echoes of You</h6>
-                            <p>Kevin Lee</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/music/Rectangle03.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h6>Canvas of Dreams</h6>
-                            <p>Mia Park</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/music/Rectangle04.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h6>Night Whisper</h6>
-                            <p>Lily Grace</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/music/Rectangle05.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h6>Into the Wild</h6>
-                            <p>Black Bear</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/music/Rectangle06.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h6>Seaside Memories</h6>
-                            <p>Azure Blue</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/music/Rectangle07.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h6>Bloom Again</h6>
-                            <p>Violet Fields</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/music/Rectangle08.jpg"
-                        data-audio="./assets/music/Spinning Head-Gvidon.mp3">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h6>Shadow Dance</h6>
-                            <p>Luna Black</p>
-                        </div>
-                    </button>
-                </div>
+                <div class="MusicCradList" playlist="hotmusic"></div>
                 <div id="MusicCharts">
                     <h2 style="min-width: 320px;" data-lang="main_MusicCharts">Music Charts</h2>
                     <a href="#" class="view-all h6" data-lang="main_Viewall">View all</a>
@@ -916,70 +801,4 @@
     </div>
     <bg class="body_background"></bg>
 </body>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const dailyMusicDiv = document.getElementById('DailyMusic');
-        if (!dailyMusicDiv) return;
-        const songId = dailyMusicDiv.getAttribute('song_id');
-        if (!songId) return;
-
-        fetch(`api/get_song_info.php?song_id=${encodeURIComponent(songId)}`)
-            .then(res => res.json())
-            .then(data => {
-                if (data.title && data.artist) {
-                    const titleElem = dailyMusicDiv.querySelector('.DailyMusic_title h5');
-                    const artistElem = dailyMusicDiv.querySelector('.DailyMusic_title p');
-                    if (titleElem) titleElem.textContent = data.title;
-                    if (artistElem) artistElem.textContent = data.artist;
-                }
-                // 設定 data-audio, data-bg 並強制重繪
-                const musicCradBtn = dailyMusicDiv.querySelector('.MusicCrad');
-                if (musicCradBtn) {
-                    if (data.audio_url) {
-                        musicCradBtn.setAttribute('data-audio', data.audio_url);
-                        // 觸發一次 click 事件，讓 playbar.js 重新監聽
-                        musicCradBtn.addEventListener('click', function handler() {
-                            musicCradBtn.removeEventListener('click', handler);
-                        });
-                    }
-                    if (data.cover_url) {
-                        musicCradBtn.setAttribute('data-bg', data.cover_url);
-                        musicCradBtn.style.backgroundImage = `url(${data.cover_url})`;
-                        const child = musicCradBtn.querySelector('.MusicCrad_2');
-                        const child2 = musicCradBtn.querySelector('.CD');
-                        if (child) {
-                            child.style.backgroundImage = `url(${data.cover_url})`;
-                            child.style.backgroundSize = 'cover';
-                            child.style.backgroundPosition = 'center';
-                            child.style.backgroundRepeat = 'no-repeat';
-                        }
-                        if (child2) {
-                            child2.style.backgroundImage = `url(${data.cover_url})`;
-                            child2.style.backgroundSize = 'cover';
-                            child2.style.backgroundPosition = 'center';
-                            child2.style.backgroundRepeat = 'no-repeat';
-                        }
-                    }
-                    // 新增：點擊時呼叫 PHP 增加播放次數
-                    musicCradBtn.addEventListener('click', function () {
-                        fetch('api/increase_play_count.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            },
-                            body: `song_id=${encodeURIComponent(songId)}`
-                        })
-                        .then(res => res.json())
-                        .then(data => {
-                            // 可依需求顯示訊息
-                            if (!data.success) {
-                                console.warn('播放次數更新失敗:', data.error);
-                            }
-                        });
-                    });
-                }
-            });
-    });
-</script>
-
 </html>

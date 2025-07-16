@@ -124,7 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const audioSrc = button.dataset.audio;
       if (audioSrc) {
         audio.src = audioSrc;
-        audio.play();
+        audio.load();
+        audio.play().catch(err => {
+          console.error('音樂播放失敗:', err);
+        });
         updateAudioPlayerUI(button);
         playBtn.classList.add('pause');
         currentMusicListIndex = -1; // 不是 related 區塊
@@ -206,7 +209,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const audioSrc = item.dataset.audio;
       if (audioSrc) {
         audio.src = audioSrc;
-        audio.play();
+        audio.load();
+        audio.play().catch(err => {
+          console.error('音樂播放失敗:', err);
+        });
         playBtn.classList.add('pause');
         // 正確抓取歌名、歌手、封面
         const title = item.querySelector('.Music_item_text h6')?.textContent || 'Music';
