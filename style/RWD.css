@@ -16,12 +16,18 @@
     #header {
         padding: 0px 25px;
     }
+    #logputBox {
+        right: 15px !important;
+    }
 }
 
 /* 平板 */
 @media (max-width: 960px) {
 
     #header #SiginInBox {
+        display: none !important;
+    }
+    #logputBox {
         display: none !important;
     }
 

@@ -37,6 +37,18 @@ if (!is_dir($audio_dir)) mkdir($audio_dir, 0777, true);
 
 $cover_ext = pathinfo($_FILES['cover_url']['name'], PATHINFO_EXTENSION);
 $audio_ext = pathinfo($_FILES['audio_url']['name'], PATHINFO_EXTENSION);
+// 副檔名檢查
+if (empty($cover_ext) || empty($audio_ext)) {
+    echo json_encode([
+        'status' => -1,
+        'error' => '檔案副檔名缺失，請重新選擇檔案',
+        'debug_cover_ext' => $cover_ext,
+        'debug_audio_ext' => $audio_ext,
+        'debug_cover_name' => $_FILES['cover_url']['name'],
+        'debug_audio_name' => $_FILES['audio_url']['name']
+    ]);
+    exit;
+}
 
 $cover_filename = "{$song_id}_cover." . $cover_ext;
 $audio_filename = "{$song_id}_audio." . $audio_ext;

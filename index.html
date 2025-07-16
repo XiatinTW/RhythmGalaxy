@@ -30,6 +30,7 @@
     <script src="./data/playbar.js" defer></script>
     <script src="./data/login.js" defer></script>
     <script src="./data/user.js" defer></script>
+    <script src="./data/innnne.js" defer></script>
     <style>
         @import url(./style.css);
         @import url(./style/nav.css);
@@ -53,7 +54,7 @@
             <p data-lang="login_text">Please enter your email and password to log in.</p>
             <div id="LoginBox_account">
                 <p>Email</p>
-                <input type="email" id="email" name="LoginBox_account" value="112233@gmail.com">
+                <input type="email" id="email" name="LoginBox_account" value="123@gmail.com">
             </div>
             <div id="LoginBox_account">
                 <p>Password</p>
@@ -174,7 +175,7 @@
                     <p data-lang="paragraph">Sign in</p>
                 </Button>
                 <p>
-                  <span id="usernameDisplay">演示版</span>
+                    <span id="usernameDisplay">演示版</span>
                 </p>
             </div>
             <h6 class="Nav_Menu" data-lang="Nav_menu">Menu</h6>
@@ -508,10 +509,9 @@
                             </div>
                         </div>
                     </div>
-                    <div ID="DailyMusic">
+                    <div ID="DailyMusic" song_id="ed089a">
                         <h6 class="title" data-lang="main_DailyMusic">Daily Music</h6>
-                        <button class="MusicCrad" data-bg="./assets/img/music/Rectangle41.jpg"
-                            data-audio="./assets/music/Gorila_Alex_MakeMusic.mp3" style="padding: 45px 20px;">
+                        <button class="MusicCrad" style="padding: 45px 20px;">
                             <div class="MusicCrad_1">
                                 <div class="MusicCrad_2"></div>
                                 <div class="CD_icon">
@@ -916,5 +916,70 @@
     </div>
     <bg class="body_background"></bg>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const dailyMusicDiv = document.getElementById('DailyMusic');
+        if (!dailyMusicDiv) return;
+        const songId = dailyMusicDiv.getAttribute('song_id');
+        if (!songId) return;
+
+        fetch(`api/get_song_info.php?song_id=${encodeURIComponent(songId)}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.title && data.artist) {
+                    const titleElem = dailyMusicDiv.querySelector('.DailyMusic_title h5');
+                    const artistElem = dailyMusicDiv.querySelector('.DailyMusic_title p');
+                    if (titleElem) titleElem.textContent = data.title;
+                    if (artistElem) artistElem.textContent = data.artist;
+                }
+                // 設定 data-audio, data-bg 並強制重繪
+                const musicCradBtn = dailyMusicDiv.querySelector('.MusicCrad');
+                if (musicCradBtn) {
+                    if (data.audio_url) {
+                        musicCradBtn.setAttribute('data-audio', data.audio_url);
+                        // 觸發一次 click 事件，讓 playbar.js 重新監聽
+                        musicCradBtn.addEventListener('click', function handler() {
+                            musicCradBtn.removeEventListener('click', handler);
+                        });
+                    }
+                    if (data.cover_url) {
+                        musicCradBtn.setAttribute('data-bg', data.cover_url);
+                        musicCradBtn.style.backgroundImage = `url(${data.cover_url})`;
+                        const child = musicCradBtn.querySelector('.MusicCrad_2');
+                        const child2 = musicCradBtn.querySelector('.CD');
+                        if (child) {
+                            child.style.backgroundImage = `url(${data.cover_url})`;
+                            child.style.backgroundSize = 'cover';
+                            child.style.backgroundPosition = 'center';
+                            child.style.backgroundRepeat = 'no-repeat';
+                        }
+                        if (child2) {
+                            child2.style.backgroundImage = `url(${data.cover_url})`;
+                            child2.style.backgroundSize = 'cover';
+                            child2.style.backgroundPosition = 'center';
+                            child2.style.backgroundRepeat = 'no-repeat';
+                        }
+                    }
+                    // 新增：點擊時呼叫 PHP 增加播放次數
+                    musicCradBtn.addEventListener('click', function () {
+                        fetch('api/increase_play_count.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: `song_id=${encodeURIComponent(songId)}`
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            // 可依需求顯示訊息
+                            if (!data.success) {
+                                console.warn('播放次數更新失敗:', data.error);
+                            }
+                        });
+                    });
+                }
+            });
+    });
+</script>
 
 </html>

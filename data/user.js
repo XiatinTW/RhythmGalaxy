@@ -14,7 +14,7 @@ function showUsername() {
     displays.forEach(d => d.textContent = '演示版');
     return;
   }
-  fetch('ai/get_username.php?user_id=' + encodeURIComponent(userId))
+  fetch('api/get_username.php?user_id=' + encodeURIComponent(userId))
     .then(res => res.json())
     .then(data => {
       if (data.username && data.username.trim()) {

@@ -21,7 +21,7 @@ if (document.getElementById('loginForm')) {
             alert('登入成功');
             msg.textContent = '';
             msg.style.color = 'transparent';
-            location.href = 'http://localhost/Portfolio_web/index_Login.html';
+            location.href = 'http://localhost/rhythmGalaxy/index_Login.html';
         } else if (data.status === 0) {
             msg.textContent = '登入失敗';
             msg.style.color = 'red';
@@ -33,7 +33,17 @@ if (document.getElementById('loginForm')) {
 }
 
 function sigup() {
-    location.href = 'http://localhost/Portfolio_web/signup.html'
+    location.href = 'http://localhost/rhythmGalaxy/signup.html'
+};
+
+
+function logout() {
+    fetch('http://localhost/rhythmGalaxy/api/logout.php')
+        .then(res => res.text())
+        .then(msg => {
+            alert(msg);
+            location.href = 'http://localhost/rhythmGalaxy/index.html';
+        });
 };
 
 
@@ -64,7 +74,7 @@ if (document.getElementById('signupForm')) {
             msg.textContent = '註冊成功';
             msg.style.color = 'green';
             setTimeout(() => {
-                location.href = 'http://localhost/Portfolio_web/index.html';
+                location.href = 'http://localhost/rhythmGalaxy/index.html';
             }, 1000);
         } else if (data.status === 0) {
             msg.textContent = '已經註冊過囉';

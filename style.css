@@ -258,13 +258,13 @@ a {
 
 .button {
     display: flex;
-    padding: 10px;
+    padding: 5px 10px;
     justify-content: center;
     align-items: center;
     border: 0;
     border-radius: var(--Button-radius);
     background: var(--white-50);
-    box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(20px);
 }
 
