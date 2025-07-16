@@ -55,6 +55,34 @@
     "zh": "我要註冊",
     "en": "Sign up"
   },
+  "logintext": {
+    "zh": "註冊",
+    "en": "Sign up"
+  },
+  "logintext2": {
+    "zh": "帳戶名稱",
+    "en": "Name"
+  },
+  "logintext3": {
+    "zh": "電子信箱",
+    "en": "Email"
+  },
+  "logintext4": {
+    "zh": "密碼",
+    "en": "Password"
+  },
+  "logintext5": {
+    "zh": "確認密碼",
+    "en": "Confirm Password"
+  },
+  "logintext6": {
+    "zh": "註冊",
+    "en": "Send"
+  },
+  "logintext7": {
+    "zh": "已經有帳戶",
+    "en": "Already have an account"
+  },
   "Nav_menu": {
     "zh": "目錄",
     "en": "Menu"

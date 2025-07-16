@@ -13,6 +13,20 @@ fetch('./data/lang.json')
         }
     });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const savedLang = localStorage.getItem("Language") || 'zh';
+    setLanguage(savedLang); // 強制刷新語言
+    const langSelect = document.getElementById('setringBox_langselect');
+    if (langSelect) {
+        langSelect.addEventListener('change', function () {
+            // 根據選項 index 切換語言（0: 繁體中文, 1: English）
+            const lang = langSelect.selectedIndex === 0 ? 'zh' : 'en';
+            setLanguage(lang);
+            localStorage.setItem("Language", lang);
+        });
+    }
+});
+
 function setLanguage(lang) {
     document.querySelectorAll('[data-lang]').forEach(el => {
         const key = el.getAttribute('data-lang');
@@ -30,14 +44,3 @@ function setLanguage(lang) {
     });
     // 如果還有 button title、alt 等屬性，也可以新增
 }
-document.addEventListener('DOMContentLoaded', function () {
-    const langSelect = document.getElementById('setringBox_langselect');
-    if (langSelect) {
-        langSelect.addEventListener('change', function () {
-            // 根據選項 index 切換語言（0: 繁體中文, 1: English）
-            const lang = langSelect.selectedIndex === 0 ? 'zh' : 'en';
-            setLanguage(lang);
-            localStorage.setItem("Language", lang);
-        });
-    }
-});
