@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <a href="#" class="LeftButton Offline"><span></span><p data-lang="Nav_Offline">Offline</p></a>
                 <h6 class="Nav_Menu" data-lang="Nav_Playlist">Playlist</h6>
                 <a href="#" class="LeftButton Create"><span></span><p data-lang="Nav_Create">Create playlist</p></a>
+                <div id="UserPlaylistList" style="width: 100%;"></div>
             `;
             // 綁定 Create playlist 彈窗
             setTimeout(function () {
@@ -49,6 +50,19 @@ document.addEventListener('DOMContentLoaded', function () {
                         e.preventDefault();
                         showCreatePlaylistModal();
                     });
+                }
+                // 載入使用者歌單列表
+                var userId = getCookie('user_id');
+                if (userId) {
+                    fetch('api/get_user_playlists.php?user_id=' + encodeURIComponent(userId))
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.success && Array.isArray(data.data)) {
+                                var html = data.data.map(pl => `<a href="#" class="LeftButton Album"><span></span><p>${pl.playname}</p></a>`).join('');
+                                var listDiv = nav.querySelector('#UserPlaylistList');
+                                if (listDiv) listDiv.innerHTML = html;
+                            }
+                        });
                 }
             }, 0);
         } else {
@@ -85,8 +99,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         <textarea name="playdescription" style="display: flex;align-items: flex-start;flex-direction: column;padding: 10px;border: 0;border-radius: 10px;background-color: #616161;color: white;" required maxlength="200" style="width:100%;padding:6px;"></textarea>
                         </div>
                         <div style="margin-bottom:12px;">
-                        <h6>歌單封面圖片網址</h6><br>
-                        <input type="file" style="display: flex;align-items: flex-start;flex-direction: column;padding: 10px;border: 0;border-radius: 10px;background-color: #616161;color: white;" name="cover_url" required>
+                        <h6>歌單封面圖片</h6><br>
+                        <input type="file" style="display: flex;align-items: flex-start;flex-direction: column;padding: 10px;border: 0;border-radius: 10px;background-color: #616161;color: white;" name="cover_file" required>
                     </div>
                     <button type="submit" class="button" style="padding:15px;">建立</button>
                 </form>
@@ -102,21 +116,20 @@ document.addEventListener('DOMContentLoaded', function () {
             var form = e.target;
             var playname = form.playname.value.trim();
             var playdescription = form.playdescription.value.trim();
-            var cover_url = form.cover_url.value.trim();
-            if (!playname || !playdescription || !cover_url) {
+            var coverFile = form.cover_file.files[0];
+            if (!playname || !playdescription || !coverFile) {
                 document.getElementById('createPlaylistMsg').textContent = '所有欄位皆必填';
                 return;
             }
             var userId = getCookie('user_id');
+            var fd = new FormData();
+            fd.append('user_id', userId);
+            fd.append('playname', playname);
+            fd.append('playdescription', playdescription);
+            fd.append('cover_file', coverFile);
             fetch('api/create_playlist.php', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    user_id: userId,
-                    playname: playname,
-                    playdescription: playdescription,
-                    cover_url: cover_url
-                })
+                body: fd
             })
                 .then(res => res.json())
                 .then(data => {
