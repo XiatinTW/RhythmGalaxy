@@ -79,13 +79,13 @@ CREATE TABLE playlist_songs (
 );
 
 CREATE TABLE charts (
-    charts_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '排行榜ID',
+    charts_id VARCHAR(36) NOT NULL PRIMARY KEY COMMENT '排行榜ID',
     chart_name VARCHAR(100) NOT NULL COMMENT '排行榜名稱',
     chart_type VARCHAR(50) NOT NULL COMMENT '排行榜型'
 );
 
 CREATE TABLE chart_songs (
-    chart_id INT(11) NOT NULL COMMENT '排行榜ID',
+    chart_id VARCHAR(36) NOT NULL COMMENT '排行榜ID',
     song_id VARCHAR(36) NOT NULL COMMENT '歌曲ID',
     position INT(11) NOT NULL COMMENT '名次',
     PRIMARY KEY (chart_id, song_id),

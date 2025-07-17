@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (json.success && Array.isArray(json.data)) {
                 const list = document.querySelector('.MusicCradList[playlist="hotmusic"]');
                 if (!list) return;
-                json.data.forEach(song => {
+                json.data.slice(0, 10).forEach(song => {
                     const btn = document.createElement('button');
                     btn.className = 'MusicCrad';
                     btn.setAttribute('song_id', song.song_id);

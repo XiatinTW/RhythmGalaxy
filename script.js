@@ -1,75 +1,6 @@
 // 參考 pplayhhpp.js 實作：載入所有 .Music_List[data-song-id]，AJAX 套用資料，點擊才播放
-document.addEventListener('DOMContentLoaded', function() {
-  // 頁面載入時自動抓取所有 .Music_List[data-song-id] 的 duration 並顯示
-  document.querySelectorAll('.Music_List[data-song-id]').forEach(function(item) {
-    const songId = item.getAttribute('data-song-id');
-    if (!songId) return;
-    fetch('api/get_song_info.php?song_id=' + encodeURIComponent(songId))
-      .then(res => res.json())
-      .then(data => {
-        const playtimeEl = item.querySelector('.Music_item_playtime');
-        if (playtimeEl) {
-          if (data.duration === null || data.duration === undefined || data.duration === '') {
-            playtimeEl.textContent = '';
-          } else {
-            playtimeEl.textContent = formatDuration(data.duration);
-          }
-        }
-      });
-  });
-// 秒數轉 mm:ss 格式
-function formatDuration(seconds) {
-  if (isNaN(seconds)) return '';
-  const m = Math.floor(seconds / 60).toString().padStart(2, '0');
-  const s = Math.floor(seconds % 60).toString().padStart(2, '0');
-  return `${m}:${s}`;
-}
-  const musicLists = document.querySelectorAll('.Music_List[data-song-id]');
-  musicLists.forEach(function(item) {
-    const songId = item.getAttribute('data-song-id');
-    fetch('api/get_song_info.php?song_id=' + encodeURIComponent(songId))
-      .then(res => res.json())
-      .then(data => {
-        if (data.error) return;
-        // 套用到卡片
-        const imgDiv = item.querySelector('.Music_item_img');
-        if (imgDiv && data.cover_url) {
-          imgDiv.style.backgroundImage = `url('${data.cover_url}')`;
-        }
-        const titleEl = item.querySelector('.Music_item_text h6');
-        const artistEl = item.querySelector('.Music_item_text p');
-        if (titleEl) titleEl.textContent = (data.title === null || data.title === undefined) ? '' : data.title;
-        if (artistEl) artistEl.textContent = (data.artist === null || data.artist === undefined) ? '' : data.artist;
-        // 顯示音樂長度
-        const playtimeEl = item.querySelector('.Music_item_playtime');
-        if (playtimeEl) {
-          if (data.duration === null || data.duration === undefined || data.duration === '') {
-            playtimeEl.textContent = '';
-          } else {
-            playtimeEl.textContent = formatDuration(data.duration);
-          }
-        }
-        // 點擊才播放
-        item.addEventListener('click', function() {
-          const cover = document.querySelector('#AudioPlayer .cover');
-          if (cover && data.cover_url) {
-            cover.style.backgroundImage = `url('${data.cover_url}')`;
-          }
-          const title = document.querySelector('#AudioPlayer .title');
-          const artist = document.querySelector('#AudioPlayer .artist');
-          if (title) title.textContent = data.title || '';
-          if (artist) artist.textContent = data.artist || '';
-          const audio = document.getElementById('mainAudio');
-          if (audio && data.audio_url) {
-            audio.src = data.audio_url;
-            audio.play();
-          }
-          // 切換播放按鈕狀態
-          const playBtn = document.querySelector('.playing');
-          if (playBtn) playBtn.classList.add('pause');
-        });
-      });
-  });
+document.addEventListener('DOMContentLoaded', function () {
+  // ...existing code...
 });
 // 點擊 .Music_List（有 data-song-id）自動撈歌並播放
 // (已移除重複的 .Music_List[data-song-id] click 綁定，僅保留 DOMContentLoaded 內的事件)
@@ -429,35 +360,178 @@ if (relatedBtn) {
   });
 }
 
-// 收藏功能：監聽所有 .Music_item_like 按鈕
-document.querySelectorAll('.Music_item_like').forEach(function(btn) {
-  btn.addEventListener('click', function(e) {
-    e.stopPropagation(); // 避免觸發父層播放
-    // 找到最近的 .Music_List 並取得 data-song-id
-    const musicList = btn.closest('.Music_List');
-    if (!musicList) return;
-    const songId = musicList.getAttribute('data-song-id');
-    if (!songId) {
-      alert('找不到歌曲ID');
-      return;
-    }
-    fetch('api/add_favorite.php', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ song_id: songId })
-    })
-    .then(res => res.json())
-    .then(data => {
-      if (data.success) {
-        alert('已加入收藏!');
-      } else {
-        alert('收藏失敗: ' + (data.error || '未知錯誤'));
+// 秒數轉 mm:ss 格式
+function formatDuration(seconds) {
+  if (isNaN(seconds)) return '';
+  const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+  const s = Math.floor(seconds % 60).toString().padStart(2, '0');
+  return `${m}:${s}`;
+}
+
+// 動態載入排行榜歌曲 function
+function loadHotListMusic() {
+  const chartsList = document.querySelector('#Music_Charts_List[playlist="hotlistmusic"]');
+  if (chartsList) {
+    fetch('api/get_hotlist_songs.php')
+      .then(res => res.json())
+      .then(json => {
+        if (!json.success || !Array.isArray(json.data)) return;
+        chartsList.innerHTML = '';
+        // 取得 cookie user_id
+        function getCookie(name) {
+          const value = `; ${document.cookie}`;
+          const parts = value.split(`; ${name}=`);
+          if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+        const userId = getCookie('user_id');
+        json.data.forEach(row => {
+          const songId = row.song_id;
+          const title = row.title || '';
+          const artist = row.artist || '';
+          const cover = row.cover_url || './assets/img/music/Rectangle01.jpg';
+          const duration = row.duration ? formatDuration(row.duration) : '';
+          // 先建立卡片 DOM
+          const div = document.createElement('div');
+          div.className = 'Music_List';
+          div.setAttribute('data-song-id', songId);
+          div.innerHTML = `
+            <div class="Music_item_img" style="background-image: url('${cover}');"></div>
+            <div class="Music_item_text">
+              <h6>${title}</h6>
+              <p>${artist}</p>
+            </div>
+            <p class="Music_item_playtime">${duration}</p>
+            ${userId ? `<div class="Music_item2">
+              <button class="Music_item_like"><div class="icon_like"></div></button>
+              <button class="Music_item_share"><div class="icon_share"></div></button>
+            </div>` : ''}
+          `;
+          chartsList.appendChild(div);
+          // 依 song_id 再 AJAX 撈 audio_url
+          fetch('api/get_song_info.php?song_id=' + encodeURIComponent(songId))
+            .then(res => res.json())
+            .then(data => {
+              if (data.audio_url) {
+                div.setAttribute('data-audio', data.audio_url);
+              }
+            });
+        });
+        // 觸發現有的資料補全與事件
+        if (typeof window.MusicListEnhance === 'function') window.MusicListEnhance();
+        // 綁定收藏按鈕
+        bindLikeButtons();
+        // 綁定排行榜 .Music_List 播放事件
+        bindMusicListPlay();
+      });
+  }
+}
+
+// 綁定排行榜 .Music_List 播放事件
+function bindMusicListPlay() {
+  document.querySelectorAll('.Music_List[data-song-id]').forEach(function (item) {
+    // 避免重複綁定
+    if (item.dataset.bindPlay) return;
+    item.dataset.bindPlay = '1';
+    item.addEventListener('click', function () {
+      const audio = document.getElementById('mainAudio');
+      const playBtn = document.querySelector('.playing');
+      const player = document.getElementById('AudioPlayer');
+      const audioSrc = item.getAttribute('data-audio');
+      // 取得歌名、歌手、封面
+      const title = item.querySelector('.Music_item_text h6')?.textContent || 'Music';
+      const artist = item.querySelector('.Music_item_text p')?.textContent || 'Artist';
+      const imgDiv = item.querySelector('.Music_item_img');
+      let coverUrl = '';
+      if (imgDiv) {
+        const bg = imgDiv.style.backgroundImage;
+        const match = bg.match(/url\(["']?(.*?)["']?\)/);
+        if (match) coverUrl = match[1];
       }
-    })
-    .catch(() => {
-      alert('收藏請求失敗');
+      if (audio && audioSrc) {
+        // console.log('[MusicList] 切換音樂:', audioSrc);
+        audio.pause();
+        audio.src = audioSrc;
+        audio.load();
+        audio.play().then(()=>{
+          // console.log('[MusicList] 播放成功');
+        }).catch(err => {
+          // console.error('音樂播放失敗:', err);
+        });
+      } else {
+        // console.warn('[MusicList] 找不到 audio 或 audioSrc:', audio, audioSrc);
+      }
+      // 更新 AudioPlayer UI
+      if (player) {
+        const titleEl = player.querySelector('.title');
+        const artistEl = player.querySelector('.artist');
+        const coverEl = player.querySelector('.cover');
+        if (titleEl) titleEl.textContent = title;
+        if (artistEl) artistEl.textContent = artist;
+        if (coverEl) coverEl.style.backgroundImage = coverUrl ? `url(${coverUrl})` : '';
+      }
+      // 同步 PlayBarCard 中的封面和內部元件
+      const card = document.querySelector('.PlayBarCard_body .MusicCrad');
+      if (card) {
+        card.style.backgroundImage = `url(${coverUrl})`;
+        const cardInner = card.querySelector('.MusicCrad_2');
+        const cd = card.querySelector('.CD');
+        if (cardInner) {
+          cardInner.style.backgroundImage = `url(${coverUrl})`;
+          cardInner.style.backgroundSize = 'cover';
+          cardInner.style.backgroundPosition = 'center';
+          cardInner.style.backgroundRepeat = 'no-repeat';
+        }
+        if (cd) {
+          cd.style.backgroundImage = `url(${coverUrl})`;
+          cd.style.backgroundSize = 'cover';
+          cd.style.backgroundPosition = 'center';
+          cd.style.backgroundRepeat = 'no-repeat';
+        }
+      }
+      if (playBtn) playBtn.classList.add('pause');
     });
   });
+};
+
+// 收藏功能：動態綁定 .Music_item_like 按鈕
+function bindLikeButtons() {
+  document.querySelectorAll('.Music_item_like').forEach(function (btn) {
+    // 避免重複綁定
+    if (btn.dataset.bindLike) return;
+    btn.dataset.bindLike = '1';
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation(); // 避免觸發父層播放
+      // 找到最近的 .Music_List 並取得 data-song-id
+      const musicList = btn.closest('.Music_List');
+      if (!musicList) return;
+      const songId = musicList.getAttribute('data-song-id');
+      if (!songId) {
+        alert('找不到歌曲ID');
+        return;
+      }
+      fetch('api/add_favorite.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ song_id: songId })
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            alert('已加入收藏!');
+            loadHotListMusic(); // 收藏成功後重新載入排行榜
+          } else {
+            alert('收藏失敗: ' + (data.error || '未知錯誤'));
+          }
+        })
+        .catch(() => {
+          alert('收藏請求失敗');
+        });
+    });
+  });
+}
+// 頁面載入時自動載入排行榜
+document.addEventListener('DOMContentLoaded', function () {
+  loadHotListMusic();
 });
 
 // 活動卡輪播
