@@ -602,5 +602,17 @@
   "logintext7": {
     "zh": "已經有帳戶",
     "en": "Already have an account"
+  },
+  "login_success": {
+    "zh": "登入成功",
+    "en": "Login Success"
+  },
+  "login_fail": {
+    "zh": "登入失敗",
+    "en": "Login Failed"
+  },
+  "login_error": {
+    "zh": "登入錯誤",
+    "en": "Login Error"
   }
 }
