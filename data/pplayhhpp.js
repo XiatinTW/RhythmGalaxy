@@ -1,3 +1,30 @@
+// 根據登入狀態動態切換 Nav 側邊欄內容
+document.addEventListener('DOMContentLoaded', function () {
+    var nav = document.getElementById('Nav');
+    if (!nav) return;
+    // 這裡以 localStorage.getItem('username') 是否有值作為登入判斷，可依實際登入邏輯調整
+    var isLoggedIn = !!localStorage.getItem('username');
+    if (isLoggedIn) {
+        nav.innerHTML = `
+            <div id="LeftList_menu"></div>
+            <h6 class="Nav_Menu" data-lang="Nav_menu">Menu</h6>
+            <a href="index.html" class="LeftButton Explore LeftButton_H"><span></span><p data-lang="Nav_Explore">Explore</p></a>
+            <a href="genres.html" class="LeftButton Genres"><span></span><p data-lang="Nav_Genres">Genres</p></a>
+            <a href="activity.html" class="LeftButton Activity"><span></span><p data-lang="Nav_Activity">Activity</p></a>
+            <a href="Radio.html" class="LeftButton Radio"><span></span><p data-lang="Nav_Radio">Radio</p></a>
+            <a href="podcast.html" class="LeftButton Podcast"><span></span><p data-lang="Nav_Podcast">Podcast</p></a>
+            <h6 class="Nav_Menu" data-lang="Nav_Library">Library</h6>
+            <a href="#" class="LeftButton Recent"><span></span><p data-lang="Nav_Recent">Recent</p></a>
+            <a href="#" class="LeftButton Favorites"><span></span><p data-lang="Nav_Favorites">Favorites</p></a>
+            <a href="#" class="LeftButton Offline"><span></span><p data-lang="Nav_Offline">Offline</p></a>
+            <h6 class="Nav_Menu" data-lang="Nav_Playlist">Playlist</h6>
+            <a href="#" class="LeftButton Create"><span></span><p data-lang="Nav_Create">Create playlist</p></a>
+            <a href="#" class="LeftButton Album"><span></span><p>Light music</p></a>
+            <a href="#" class="LeftButton Album"><span></span><p>Hip hop music</p></a>
+            <a href="#" class="LeftButton Album"><span></span><p>K-pop music</p></a>
+        `;
+    } // 沒登入則保留原本 HTML Nav 結構
+});
 document.addEventListener('DOMContentLoaded', function () {
     const dailyMusicDiv = document.getElementById('DailyMusic');
     if (!dailyMusicDiv) return;
