@@ -177,8 +177,6 @@
 /* 愛心物件 */
 .Music_item_like {
     display: flex;
-    width: 69px;
-    height: 40px;
     padding: 5px 10px;
     justify-content: flex-start;
     align-items: center;

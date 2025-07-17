@@ -1,30 +1,63 @@
-// 根據登入狀態動態切換 Nav 側邊欄內容
+// 根據登入狀態動態切換 Nav 側邊欄內容，並自動高亮active頁面
 document.addEventListener('DOMContentLoaded', function () {
-    var nav = document.getElementById('Nav');
-    if (!nav) return;
-    // 這裡以 localStorage.getItem('username') 是否有值作為登入判斷，可依實際登入邏輯調整
-    var isLoggedIn = !!localStorage.getItem('username');
-    if (isLoggedIn) {
-        nav.innerHTML = `
-            <div id="LeftList_menu"></div>
-            <h6 class="Nav_Menu" data-lang="Nav_menu">Menu</h6>
-            <a href="index.html" class="LeftButton Explore LeftButton_H"><span></span><p data-lang="Nav_Explore">Explore</p></a>
-            <a href="genres.html" class="LeftButton Genres"><span></span><p data-lang="Nav_Genres">Genres</p></a>
-            <a href="activity.html" class="LeftButton Activity"><span></span><p data-lang="Nav_Activity">Activity</p></a>
-            <a href="Radio.html" class="LeftButton Radio"><span></span><p data-lang="Nav_Radio">Radio</p></a>
-            <a href="podcast.html" class="LeftButton Podcast"><span></span><p data-lang="Nav_Podcast">Podcast</p></a>
-            <h6 class="Nav_Menu" data-lang="Nav_Library">Library</h6>
-            <a href="#" class="LeftButton Recent"><span></span><p data-lang="Nav_Recent">Recent</p></a>
-            <a href="#" class="LeftButton Favorites"><span></span><p data-lang="Nav_Favorites">Favorites</p></a>
-            <a href="#" class="LeftButton Offline"><span></span><p data-lang="Nav_Offline">Offline</p></a>
-            <h6 class="Nav_Menu" data-lang="Nav_Playlist">Playlist</h6>
-            <a href="#" class="LeftButton Create"><span></span><p data-lang="Nav_Create">Create playlist</p></a>
-            <a href="#" class="LeftButton Album"><span></span><p>Light music</p></a>
-            <a href="#" class="LeftButton Album"><span></span><p>Hip hop music</p></a>
-            <a href="#" class="LeftButton Album"><span></span><p>K-pop music</p></a>
-        `;
-    } // 沒登入則保留原本 HTML Nav 結構
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+    }
+    var userId = getCookie('user_id');
+    var isLoggedIn = !!userId;
+    var path = window.location.pathname.split('/').pop();
+    if (path === '' || path === undefined) path = 'index.html';
+
+    // 處理 Nav/Nav2
+    ['Nav', 'Nav2'].forEach(function(navId) {
+        var nav = document.getElementById(navId);
+        if (!nav) return;
+        if (isLoggedIn) {
+            // Nav2多一個登入資訊區塊
+            var signinBox = '';
+            if (navId === 'Nav2') {
+                // 登入時隱藏 Sign in 按鈕，只顯示 usernameDisplay
+                signinBox = `<div class="SiginInBox" style="display:none">
+                    <Button id="SiginIn" class="h6"><p data-lang="paragraph">Sign in</p></Button>
+                </div>
+                <div id="SiginInBox"><span></span><p id="usernameDisplay"></p></div>`;
+            }
+            nav.innerHTML = `
+                <div id="LeftList_menu"></div>
+                ${signinBox}
+                <h6 class="Nav_Menu" data-lang="Nav_menu">Menu</h6>
+                <a href="index.html" class="LeftButton Explore${path==='index.html'?' LeftButton_H':''}"><span></span><p data-lang="Nav_Explore">Explore</p></a>
+                <a href="genres.html" class="LeftButton Genres${path==='genres.html'?' LeftButton_H':''}"><span></span><p data-lang="Nav_Genres">Genres</p></a>
+                <a href="activity.html" class="LeftButton Activity${path==='activity.html'?' LeftButton_H':''}"><span></span><p data-lang="Nav_Activity">Activity</p></a>
+                <a href="Radio.html" class="LeftButton Radio${path==='Radio.html'?' LeftButton_H':''}"><span></span><p data-lang="Nav_Radio">Radio</p></a>
+                <a href="podcast.html" class="LeftButton Podcast${path==='podcast.html'?' LeftButton_H':''}"><span></span><p data-lang="Nav_Podcast">Podcast</p></a>
+                <h6 class="Nav_Menu" data-lang="Nav_Library">Library</h6>
+                <a href="#" class="LeftButton Recent"><span></span><p data-lang="Nav_Recent">Recent</p></a>
+                <a href="#" class="LeftButton Favorites"><span></span><p data-lang="Nav_Favorites">Favorites</p></a>
+                <a href="#" class="LeftButton Offline"><span></span><p data-lang="Nav_Offline">Offline</p></a>
+                <h6 class="Nav_Menu" data-lang="Nav_Playlist">Playlist</h6>
+                <a href="#" class="LeftButton Create"><span></span><p data-lang="Nav_Create">Create playlist</p></a>
+            `;
+        } else {
+            // 沒登入時自動高亮
+            var links = nav.querySelectorAll('a.LeftButton');
+            links.forEach(function (a) {
+                var href = a.getAttribute('href');
+                if (href && href.split('?')[0] === path) {
+                    a.classList.add('LeftButton_H');
+                } else {
+                    a.classList.remove('LeftButton_H');
+                }
+            });
+        }
+    });
 });
+
+
+// 顯示每日音樂資訊
 document.addEventListener('DOMContentLoaded', function () {
     const dailyMusicDiv = document.getElementById('DailyMusic');
     if (!dailyMusicDiv) return;

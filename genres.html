@@ -28,6 +28,8 @@
     <script src="./data/lang.js" defer></script>
     <script src="script.js" defer></script>
     <script src="./data/playbar.js" defer></script>
+    <script src="data/pplayhhpp.js" defer></script>
+    <script src="./data/innnne.js" defer></script>
 
     <style>
         @import url(./style.css);
@@ -56,17 +58,18 @@
 <body>
     <bg class="body_background"></bg>
     <div class="Login colse">
-        <div class="LoginBox">
+        <form id="loginForm" class="LoginBox">
             <h2 data-lang="login_Welcome">Welcome</h2>
             <p data-lang="login_text">Please enter your email and password to log in.</p>
             <div id="LoginBox_account">
                 <p>Email</p>
-                <input type="email" name="LoginBox_account">
+                <input type="email" id="email" name="LoginBox_account" placeholder="123@gmail.com">
             </div>
             <div id="LoginBox_account">
                 <p>Password</p>
-                <input type="password" name="LoginBox_account">
+                <input type="password" id="password" name="LoginBox_account" pattern="[A-Za-z0-9]+">
             </div>
+            <p id="resultMsg"></p>
             <div id="LoginBox_Remember">
                 <div class="LoginBox_checkbox">
                     <input checked="" type="checkbox" id="LRC" class="hidden-xs-up">
@@ -74,7 +77,7 @@
                 </div>
                 <p data-lang="login_Remember">Remember me</p>
             </div>
-            <button id="SiginIn" class="h6" data-lang="login_Login">Log in</button>
+            <button type="submit" id="LoginButton" class="h6" data-lang="login_Login">Log in</button>
             <div class="LoginBox_SiginIn">
                 <div class="LoginBox_SiginIn_box">
                     <span class="google"></span>
@@ -85,8 +88,9 @@
                     <p>Facebook</p>
                 </div>
             </div>
-            <p data-lang="login_unaccount">Don't have an account?</p><a href="#" class="p" data-lang="login_Signup">Sign up</a>
-        </div>
+            <p data-lang="login_unaccount">Don't have an account?</p>
+            <a href="#" class="p" data-lang="login_Signup" onclick="sigup()">Signup</a>
+        </form>
     </div>
     <header id="header">
         <a id="Logo" href="index.html"></a>
@@ -123,6 +127,15 @@
             <Button id="SiginIn" class="h6">
                 <p data-lang="paragraph">Sign in</p>
             </Button>
+            <div id="SiginInBox">
+                <span></span>
+                <p id="usernameDisplay"></p>
+            </div>
+            <div id="logputBox" class="close">
+                <p>功能選單</p>
+                <button class="button">設定</button>
+                <button class="button" onclick="logout()">登出</button>
+            </div>
             <span id="Nav_medium"><img src="./assets/icon/nav-medium.svg" alt="Nav"></span>
             <div id="SearchBox_medium">
                 <input id="search_Input_medium" type="text" data-lang-placeholder="header_input01">

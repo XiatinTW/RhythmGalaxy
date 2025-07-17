@@ -1,8 +1,12 @@
 let translations = {};
 
 fetch('./data/lang.json')
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) throw new Error('語言包載入失敗');
+        return response.json();
+    })
     .then(data => {
+        window.translations = data;
         translations = data;
         const savedLang = localStorage.getItem("Language") || 'zh';
         setLanguage(savedLang);
@@ -11,6 +15,10 @@ fetch('./data/lang.json')
         if (langSelect) {
             langSelect.selectedIndex = savedLang === 'zh' ? 0 : 1;
         }
+    })
+    .catch(err => {
+        alert('語言包載入失敗，請檢查 data/lang.json 是否存在且內容正確');
+        console.error(err);
     });
 
 document.addEventListener('DOMContentLoaded', function () {

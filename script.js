@@ -1,3 +1,74 @@
+// 參考 pplayhhpp.js 實作：載入所有 .Music_List[data-song-id]，AJAX 套用資料，點擊才播放
+document.addEventListener('DOMContentLoaded', function() {
+  const musicLists = document.querySelectorAll('.Music_List[data-song-id]');
+  musicLists.forEach(function(item) {
+    const songId = item.getAttribute('data-song-id');
+    fetch('api/get_song_info.php?song_id=' + encodeURIComponent(songId))
+      .then(res => res.json())
+      .then(data => {
+        if (data.error) return;
+        // 套用到卡片
+        const imgDiv = item.querySelector('.Music_item_img');
+        if (imgDiv && data.cover_url) {
+          imgDiv.style.backgroundImage = `url('${data.cover_url}')`;
+        }
+        const titleEl = item.querySelector('.Music_item_text h6');
+        const artistEl = item.querySelector('.Music_item_text p');
+        if (titleEl) titleEl.textContent = data.title || '';
+        if (artistEl) artistEl.textContent = data.artist || '';
+        // 點擊才播放
+        item.addEventListener('click', function() {
+          const cover = document.querySelector('#AudioPlayer .cover');
+          if (cover && data.cover_url) {
+            cover.style.backgroundImage = `url('${data.cover_url}')`;
+          }
+          const title = document.querySelector('#AudioPlayer .title');
+          const artist = document.querySelector('#AudioPlayer .artist');
+          if (title) title.textContent = data.title || '';
+          if (artist) artist.textContent = data.artist || '';
+          const audio = document.getElementById('mainAudio');
+          if (audio && data.audio_url) {
+            audio.src = data.audio_url;
+            audio.play();
+          }
+        });
+      });
+  });
+});
+// 點擊 .Music_List（有 data-song-id）自動撈歌並播放
+document.querySelectorAll('.Music_List[data-song-id]').forEach(function(item) {
+  item.addEventListener('click', function() {
+    const songId = item.getAttribute('data-song-id');
+    if (!songId) return;
+    fetch('api/get_song_info.php?song_id=' + encodeURIComponent(songId))
+      .then(res => res.json())
+      .then(data => {
+        if (data.error) {
+          alert('找不到歌曲或資料庫錯誤');
+          return;
+        }
+        // 換播放器圖片
+        const cover = document.querySelector('#AudioPlayer .cover');
+        if (cover && data.cover_url) {
+          cover.style.backgroundImage = `url('${data.cover_url}')`;
+        }
+        // 換標題/歌手
+        const title = document.querySelector('#AudioPlayer .title');
+        const artist = document.querySelector('#AudioPlayer .artist');
+        if (title) title.textContent = data.title || '';
+        if (artist) artist.textContent = data.artist || '';
+        // 換音樂來源並播放
+        const audio = document.getElementById('mainAudio');
+        if (audio && data.audio_url) {
+          audio.src = data.audio_url;
+          audio.play();
+        }
+      })
+      .catch(() => {
+        alert('歌曲資料載入失敗');
+      });
+  });
+});
 // 搜尋框、彈窗等顯示/隱藏控制
 const input = document.getElementById("search_Input");
 const searchBox = document.getElementById("SearchBox");
@@ -382,8 +453,4 @@ if (track) {
   }
 
   setInterval(autoScroll, 4000);
-}
-
-function lgin() {
-  window.location.href = 'index_Login.html';
 }

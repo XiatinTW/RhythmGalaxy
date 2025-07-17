@@ -1,7 +1,6 @@
 if (document.getElementById('loginForm')) {
     document.getElementById('loginForm').addEventListener('submit', function (e) {
         e.preventDefault();
-        // 確保 translations 載入
         function doLogin() {
             const formData = new FormData();
             formData.append('email', document.getElementById('email').value);
@@ -14,10 +13,11 @@ if (document.getElementById('loginForm')) {
             .then(res => res.json())
             .then(data => {
                 const msg = document.getElementById('resultMsg');
-                let lang = localStorage.getItem('Language') || 'zh';
-                const loginSuccessMsg = (window.translations && window.translations.login_success) ? window.translations.login_success[lang] : (lang === 'zh' ? '登入成功' : 'Login Success');
-                const loginFailMsg = (window.translations && window.translations.login_fail) ? window.translations.login_fail[lang] : (lang === 'zh' ? '登入失敗' : 'Login Failed');
-                const loginErrorMsg = (window.translations && window.translations.login_error) ? window.translations.login_error[lang] : (lang === 'zh' ? '登入錯誤' : 'Login Error');
+                let lang = localStorage.getItem('Language');
+                if (lang !== 'zh' && lang !== 'en') lang = 'zh';
+                const loginSuccessMsg = lang === 'zh' ? '登入成功' : 'Login Success';
+                const loginFailMsg = lang === 'zh' ? '登入失敗' : 'Login Failed';
+                const loginErrorMsg = lang === 'zh' ? '登入錯誤' : 'Login Error';
                 if (data.status === 1) {
                     if (data.user_id) {
                         const d = new Date();
@@ -27,7 +27,7 @@ if (document.getElementById('loginForm')) {
                     alert(loginSuccessMsg);
                     msg.textContent = '';
                     msg.style.color = 'transparent';
-                    location.href = 'http://localhost/rhythmGalaxy/index_Login.html';
+                    location.href = 'http://localhost/rhythmgalaxy/index.html';
                 } else if (data.status === 0) {
                     msg.textContent = loginFailMsg;
                     msg.style.color = 'red';
@@ -37,36 +37,21 @@ if (document.getElementById('loginForm')) {
                 }
             });
         }
-        if (window.translations && window.translations.login_success) {
-            doLogin();
-        } else {
-            // 若 translations 尚未載入，等待載入後再執行
-            let check = 0;
-            const waitTranslations = setInterval(() => {
-                check++;
-                if (window.translations && window.translations.login_success) {
-                    clearInterval(waitTranslations);
-                    doLogin();
-                } else if (check > 20) { // 最多等2秒
-                    clearInterval(waitTranslations);
-                    alert('語言包載入失敗，請重整頁面');
-                }
-            }, 100);
-        }
+        doLogin();
     });
 }
 
 function sigup() {
-    location.href = 'http://localhost/rhythmGalaxy/signup.html'
+    location.href = 'http://localhost/rhythmgalaxy/signup.html'
 };
 
 
 function logout() {
-    fetch('http://localhost/rhythmGalaxy/api/logout.php')
+    fetch('http://localhost/rhythmgalaxy/api/logout.php')
         .then(res => res.text())
         .then(msg => {
             alert(msg);
-            location.href = 'http://localhost/rhythmGalaxy/index.html';
+            location.href = 'http://localhost/rhythmgalaxy/index.html';
         });
 };
 
@@ -98,7 +83,7 @@ if (document.getElementById('signupForm')) {
             msg.textContent = '註冊成功';
             msg.style.color = 'green';
             setTimeout(() => {
-                location.href = 'http://localhost/rhythmGalaxy/index.html';
+                location.href = 'http://localhost/rhythmgalaxy/index.html';
             }, 1000);
         } else if (data.status === 0) {
             msg.textContent = '已經註冊過囉';
