@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <a href="podcast.html" class="LeftButton Podcast${path === 'podcast.html' ? ' LeftButton_H' : ''}"><span></span><p data-lang="Nav_Podcast">Podcast</p></a>
                 <h6 class="Nav_Menu" data-lang="Nav_Library">Library</h6>
                 <a href="#" class="LeftButton Recent"><span></span><p data-lang="Nav_Recent">Recent</p></a>
-                <a href="#" class="LeftButton Favorites"><span></span><p data-lang="Nav_Favorites">Favorites</p></a>
+                <a href="favorites.html" class="LeftButton Favorites"><span></span><p data-lang="Nav_Favorites">Favorites</p></a>
                 <a href="#" class="LeftButton Offline"><span></span><p data-lang="Nav_Offline">Offline</p></a>
                 <h6 class="Nav_Menu" data-lang="Nav_Playlist">Playlist</h6>
                 <a href="#" class="LeftButton Create"><span></span><p data-lang="Nav_Create">Create playlist</p></a>

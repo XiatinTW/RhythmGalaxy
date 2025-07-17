@@ -189,6 +189,20 @@
     box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(20px);
 }
+.Music_item_close {
+    display: flex;
+    padding: 5px 5px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    aspect-ratio: 69/40;
+    border-radius: var(--Button-radius);
+    border: 0px solid;
+    background: var(--white-50);
+    /* Button風格 */
+    box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 255, 255, 0.44) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+}
 
 .icon_like {
     width: 24px;
@@ -198,6 +212,19 @@
     mask-size: contain;
     mask-repeat: no-repeat;
     mask-position: center;
+}
+.icon_close {
+    width: 24px;
+    height: 24px;
+    background-color: var(--Color-gray-500);
+    mask-image: url('../assets/icon/Icon-close.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+.Music_item_close:hover>.icon_close {
+    cursor: pointer;
+    background-color: var(--Color-01);
 }
 
 .Music_item_like_text {
