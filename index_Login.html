@@ -26,6 +26,7 @@
     <meta name="twitter:description" content="我們為每一位聽眾與創作者，打造一個能自由探索、分享與沉浸的音樂空間。">
     <meta name="twitter:image" content="https://rhythmgalaxy.vercel.app/assets/img/LOGO.png">
     <script src="./data/lang.js" defer></script>
+    <script src="data/pplayhhpp.js" defer></script>
     <script src="script.js" defer></script>
     <script src="./data/playbar.js" defer></script>
     <script src="./data/user.js" defer></script>
@@ -258,123 +259,7 @@
         <main id="main1">
             <div id="main1_1">
                 <h2 style="min-width: 350px;" data-lang="main_TrendingHits">Trending Hits</h2>
-                <div class="MusicCradList">
-                    <button class="MusicCrad" data-bg="./assets/img/music/Rectangle01.jpg"
-                        data-audio="./assets/music/EONA - Emotional Ambient Pop-Rockot.mp3">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h6>Lost in the Sky</h6>
-                            <p>Emma Stone</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/music/Rectangle02.jpg"
-                        data-audio="./assets/music/Gardens - Stylish Chill-penguinmusic.mp3">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h6>Echoes of You</h6>
-                            <p>Kevin Lee</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/music/Rectangle03.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h6>Canvas of Dreams</h6>
-                            <p>Mia Park</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/music/Rectangle04.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h6>Night Whisper</h6>
-                            <p>Lily Grace</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/music/Rectangle05.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h6>Into the Wild</h6>
-                            <p>Black Bear</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/music/Rectangle06.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h6>Seaside Memories</h6>
-                            <p>Azure Blue</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/music/Rectangle07.jpg">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h6>Bloom Again</h6>
-                            <p>Violet Fields</p>
-                        </div>
-                    </button>
-                    <button class="MusicCrad" data-bg="./assets/img/music/Rectangle08.jpg"
-                        data-audio="./assets/music/Spinning Head-Gvidon.mp3">
-                        <div class="MusicCrad_1">
-                            <div class="MusicCrad_2"></div>
-                            <div class="CD_icon">
-                                <div class="CD3"></div>
-                                <div class="CD"></div>
-                                <div class="CD1"></div>
-                            </div>
-                        </div>
-                        <div class="MusicCrad_text">
-                            <h6>Shadow Dance</h6>
-                            <p>Luna Black</p>
-                        </div>
-                    </button>
-                </div>
+                <div class="MusicCradList" playlist="hotmusic"></div>
                 <div id="MusicCharts">
                     <h2 style="min-width: 320px;" data-lang="main_MusicCharts">Music Charts</h2>
                     <a href="#" class="view-all h6" data-lang="main_Viewall">View all</a>
@@ -562,10 +447,9 @@
                             </div>
                         </div>
                     </div>
-                    <div ID="DailyMusic">
+                    <div ID="DailyMusic" song_id="eac9b5">
                         <h6 class="title" data-lang="main_DailyMusic">Daily Music</h6>
-                        <button class="MusicCrad" data-bg="./assets/img/music/Rectangle41.jpg"
-                            data-audio="./assets/music/Gorila_Alex_MakeMusic.mp3" style="padding: 45px 20px;">
+                        <button class="MusicCrad" style="padding: 45px 20px;">
                             <div class="MusicCrad_1">
                                 <div class="MusicCrad_2"></div>
                                 <div class="CD_icon">
@@ -576,8 +460,8 @@
                             </div>
                         </button>
                         <div class="DailyMusic_title">
-                            <h5>Gorila</h5>
-                            <p>Alex_MakeMusic</p>
+                            <h5>null</h5>
+                            <p>null</p>
                         </div>
                         <hr>
                         <div class="DailyMusic_text">
