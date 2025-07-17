@@ -10,7 +10,7 @@ if (!$song_id) {
 }
 
 try {
-    $stmt = $pdo->prepare('SELECT title, artist, audio_url, cover_url FROM songs WHERE song_id = :song_id');
+    $stmt = $pdo->prepare('SELECT title, artist, duration, audio_url, cover_url FROM songs WHERE song_id = :song_id');
     $stmt->bindParam(':song_id', $song_id);
     $stmt->execute();
     $song = $stmt->fetch(PDO::FETCH_ASSOC);

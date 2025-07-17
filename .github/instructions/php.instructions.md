@@ -20,7 +20,7 @@ JSON
 
 # MYSQL 的資料庫 DDL
 ```sql
-CREATE TABLE music_users (
+CREATE TABLE users (
     user_id VARCHAR(36) NOT NULL PRIMARY KEY COMMENT '使用者ID',
     username VARCHAR(24) NOT NULL COMMENT '帳號',
     email VARCHAR(100) NOT NULL COMMENT '電子信箱',
@@ -28,7 +28,7 @@ CREATE TABLE music_users (
     created_at DATE NOT NULL COMMENT '註冊時間'
 );
 
-CREATE TABLE music_songs (
+CREATE TABLE songs (
     song_id VARCHAR(36) NOT NULL PRIMARY KEY COMMENT '歌曲ID',
     artist VARCHAR(20) NOT NULL COMMENT '歌手',
     title VARCHAR(20) NOT NULL COMMENT '歌名',
@@ -42,7 +42,7 @@ CREATE TABLE music_songs (
     lyrics_url VARCHAR(100) NOT NULL COMMENT '歌詞連結'
 );
 
-CREATE TABLE music_play_history (
+CREATE TABLE play_history (
     history_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '播放紀錄ID',
     user_id VARCHAR(36) NOT NULL COMMENT '使用者ID',
     song_id VARCHAR(36) NOT NULL COMMENT '歌曲ID',
@@ -51,16 +51,16 @@ CREATE TABLE music_play_history (
     FOREIGN KEY (song_id) REFERENCES music_songs(song_id)
 );
 
-CREATE TABLE music_user_favorites (
-    favorites_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '收藏編碼',
+CREATE TABLE user_favorites (
+    favorites_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '收藏的編碼',
     user_id VARCHAR(36) NOT NULL COMMENT '使用者ID',
     song_id VARCHAR(36) NOT NULL COMMENT '歌曲ID',
-    created_at DATE NOT NULL COMMENT '收藏時間',
+    created_at DATE NOT NULL COMMENT '收藏時間'
     FOREIGN KEY (user_id) REFERENCES music_users(user_id),
     FOREIGN KEY (song_id) REFERENCES music_songs(song_id)
 );
 
-CREATE TABLE music_user_playlists (
+CREATE TABLE user_playlists (
     playlist_id VARCHAR(36) NOT NULL PRIMARY KEY COMMENT '歌單ID',
     user_id VARCHAR(36) NOT NULL COMMENT '使用者',
     playname VARCHAR(15) NOT NULL COMMENT '歌單名稱',
@@ -70,7 +70,7 @@ CREATE TABLE music_user_playlists (
     FOREIGN KEY (user_id) REFERENCES music_users(user_id)
 );
 
-CREATE TABLE music_playlist_songs (
+CREATE TABLE playlist_songs (
     playlist_id VARCHAR(36) NOT NULL COMMENT '歌單ID',
     song_id VARCHAR(36) NOT NULL COMMENT '歌曲ID',
     PRIMARY KEY (playlist_id, song_id),
@@ -78,13 +78,13 @@ CREATE TABLE music_playlist_songs (
     FOREIGN KEY (song_id) REFERENCES music_songs(song_id)
 );
 
-CREATE TABLE music_charts (
+CREATE TABLE charts (
     charts_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '排行榜ID',
     chart_name VARCHAR(100) NOT NULL COMMENT '排行榜名稱',
     chart_type VARCHAR(50) NOT NULL COMMENT '排行榜型'
 );
 
-CREATE TABLE music_chart_songs (
+CREATE TABLE chart_songs (
     chart_id INT(11) NOT NULL COMMENT '排行榜ID',
     song_id VARCHAR(36) NOT NULL COMMENT '歌曲ID',
     position INT(11) NOT NULL COMMENT '名次',

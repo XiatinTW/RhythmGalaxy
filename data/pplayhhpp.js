@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (path === '' || path === undefined) path = 'index.html';
 
     // 處理 Nav/Nav2
-    ['Nav', 'Nav2'].forEach(function(navId) {
+    ['Nav', 'Nav2'].forEach(function (navId) {
         var nav = document.getElementById(navId);
         if (!nav) return;
         if (isLoggedIn) {
@@ -29,11 +29,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div id="LeftList_menu"></div>
                 ${signinBox}
                 <h6 class="Nav_Menu" data-lang="Nav_menu">Menu</h6>
-                <a href="index.html" class="LeftButton Explore${path==='index.html'?' LeftButton_H':''}"><span></span><p data-lang="Nav_Explore">Explore</p></a>
-                <a href="genres.html" class="LeftButton Genres${path==='genres.html'?' LeftButton_H':''}"><span></span><p data-lang="Nav_Genres">Genres</p></a>
-                <a href="activity.html" class="LeftButton Activity${path==='activity.html'?' LeftButton_H':''}"><span></span><p data-lang="Nav_Activity">Activity</p></a>
-                <a href="Radio.html" class="LeftButton Radio${path==='Radio.html'?' LeftButton_H':''}"><span></span><p data-lang="Nav_Radio">Radio</p></a>
-                <a href="podcast.html" class="LeftButton Podcast${path==='podcast.html'?' LeftButton_H':''}"><span></span><p data-lang="Nav_Podcast">Podcast</p></a>
+                <a href="index.html" class="LeftButton Explore${path === 'index.html' ? ' LeftButton_H' : ''}"><span></span><p data-lang="Nav_Explore">Explore</p></a>
+                <a href="genres.html" class="LeftButton Genres${path === 'genres.html' ? ' LeftButton_H' : ''}"><span></span><p data-lang="Nav_Genres">Genres</p></a>
+                <a href="activity.html" class="LeftButton Activity${path === 'activity.html' ? ' LeftButton_H' : ''}"><span></span><p data-lang="Nav_Activity">Activity</p></a>
+                <a href="Radio.html" class="LeftButton Radio${path === 'Radio.html' ? ' LeftButton_H' : ''}"><span></span><p data-lang="Nav_Radio">Radio</p></a>
+                <a href="podcast.html" class="LeftButton Podcast${path === 'podcast.html' ? ' LeftButton_H' : ''}"><span></span><p data-lang="Nav_Podcast">Podcast</p></a>
                 <h6 class="Nav_Menu" data-lang="Nav_Library">Library</h6>
                 <a href="#" class="LeftButton Recent"><span></span><p data-lang="Nav_Recent">Recent</p></a>
                 <a href="#" class="LeftButton Favorites"><span></span><p data-lang="Nav_Favorites">Favorites</p></a>
@@ -41,6 +41,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 <h6 class="Nav_Menu" data-lang="Nav_Playlist">Playlist</h6>
                 <a href="#" class="LeftButton Create"><span></span><p data-lang="Nav_Create">Create playlist</p></a>
             `;
+            // 綁定 Create playlist 彈窗
+            setTimeout(function () {
+                var createBtn = nav.querySelector('.LeftButton.Create');
+                if (createBtn) {
+                    createBtn.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        showCreatePlaylistModal();
+                    });
+                }
+            }, 0);
         } else {
             // 沒登入時自動高亮
             var links = nav.querySelectorAll('a.LeftButton');
@@ -54,6 +64,77 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
     });
+
+    // 建立歌單彈窗
+    function showCreatePlaylistModal() {
+        if (document.getElementById('CreatePlaylistModal')) return;
+        var modal = document.createElement('div');
+        modal.id = 'CreatePlaylistModal';
+        modal.style = 'position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(255, 255, 255, 0.66);display:flex;align-items:center;justify-content:center;';
+        modal.innerHTML = `
+            <div style="background:rgba(255, 255, 255, 0.66);padding:32px 24px;border-radius:12px;min-width:320px;max-width:90vw;box-shadow:0 2px 16px #0002;position:relative;">
+                <button id="closeCreatePlaylistModal" style="position:absolute;top:8px;right:8px;font-size:32px;background:none;border:none;cursor:pointer;">&times;</button>
+                <h3 style="margin-bottom:16px;">建立新歌單</h3>
+                <form id="createPlaylistForm" style="display:flex;flex-direction:column;">
+                    <div style="margin-bottom:12px;">
+                        <h6>歌單名稱</h6><br>
+                        <input type="text" style="display: flex;align-items: flex-start;flex-direction: column;padding: 10px;border: 0;border-radius: 10px;background-color: #616161;color: white;" name="playname" required maxlength="15">
+                        </div>
+                        <div style="margin-bottom:12px;">
+                        <h6>簡介</h6><br>
+                        <textarea name="playdescription" style="display: flex;align-items: flex-start;flex-direction: column;padding: 10px;border: 0;border-radius: 10px;background-color: #616161;color: white;" required maxlength="200" style="width:100%;padding:6px;"></textarea>
+                        </div>
+                        <div style="margin-bottom:12px;">
+                        <h6>歌單封面圖片網址</h6><br>
+                        <input type="file" style="display: flex;align-items: flex-start;flex-direction: column;padding: 10px;border: 0;border-radius: 10px;background-color: #616161;color: white;" name="cover_url" required>
+                    </div>
+                    <button type="submit" class="button" style="padding:15px;">建立</button>
+                </form>
+                <div id="createPlaylistMsg" style="color:red;margin-top:8px;"></div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+        document.getElementById('closeCreatePlaylistModal').onclick = function () {
+            modal.remove();
+        };
+        document.getElementById('createPlaylistForm').onsubmit = function (e) {
+            e.preventDefault();
+            var form = e.target;
+            var playname = form.playname.value.trim();
+            var playdescription = form.playdescription.value.trim();
+            var cover_url = form.cover_url.value.trim();
+            if (!playname || !playdescription || !cover_url) {
+                document.getElementById('createPlaylistMsg').textContent = '所有欄位皆必填';
+                return;
+            }
+            var userId = getCookie('user_id');
+            fetch('api/create_playlist.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    user_id: userId,
+                    playname: playname,
+                    playdescription: playdescription,
+                    cover_url: cover_url
+                })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById('createPlaylistMsg').style.color = 'green';
+                        document.getElementById('createPlaylistMsg').textContent = '歌單建立成功！';
+                        setTimeout(() => modal.remove(), 1200);
+                    } else {
+                        document.getElementById('createPlaylistMsg').style.color = 'red';
+                        document.getElementById('createPlaylistMsg').textContent = data.error || '建立失敗';
+                    }
+                })
+                .catch(() => {
+                    document.getElementById('createPlaylistMsg').style.color = 'red';
+                    document.getElementById('createPlaylistMsg').textContent = '建立失敗';
+                });
+        };
+    }
 });
 
 

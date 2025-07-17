@@ -1,5 +1,29 @@
 // 參考 pplayhhpp.js 實作：載入所有 .Music_List[data-song-id]，AJAX 套用資料，點擊才播放
 document.addEventListener('DOMContentLoaded', function() {
+  // 頁面載入時自動抓取所有 .Music_List[data-song-id] 的 duration 並顯示
+  document.querySelectorAll('.Music_List[data-song-id]').forEach(function(item) {
+    const songId = item.getAttribute('data-song-id');
+    if (!songId) return;
+    fetch('api/get_song_info.php?song_id=' + encodeURIComponent(songId))
+      .then(res => res.json())
+      .then(data => {
+        const playtimeEl = item.querySelector('.Music_item_playtime');
+        if (playtimeEl) {
+          if (data.duration === null || data.duration === undefined || data.duration === '') {
+            playtimeEl.textContent = '';
+          } else {
+            playtimeEl.textContent = formatDuration(data.duration);
+          }
+        }
+      });
+  });
+// 秒數轉 mm:ss 格式
+function formatDuration(seconds) {
+  if (isNaN(seconds)) return '';
+  const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+  const s = Math.floor(seconds % 60).toString().padStart(2, '0');
+  return `${m}:${s}`;
+}
   const musicLists = document.querySelectorAll('.Music_List[data-song-id]');
   musicLists.forEach(function(item) {
     const songId = item.getAttribute('data-song-id');
@@ -14,8 +38,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         const titleEl = item.querySelector('.Music_item_text h6');
         const artistEl = item.querySelector('.Music_item_text p');
-        if (titleEl) titleEl.textContent = data.title || '';
-        if (artistEl) artistEl.textContent = data.artist || '';
+        if (titleEl) titleEl.textContent = (data.title === null || data.title === undefined) ? '' : data.title;
+        if (artistEl) artistEl.textContent = (data.artist === null || data.artist === undefined) ? '' : data.artist;
+        // 顯示音樂長度
+        const playtimeEl = item.querySelector('.Music_item_playtime');
+        if (playtimeEl) {
+          if (data.duration === null || data.duration === undefined || data.duration === '') {
+            playtimeEl.textContent = '';
+          } else {
+            playtimeEl.textContent = formatDuration(data.duration);
+          }
+        }
         // 點擊才播放
         item.addEventListener('click', function() {
           const cover = document.querySelector('#AudioPlayer .cover');
@@ -31,44 +64,15 @@ document.addEventListener('DOMContentLoaded', function() {
             audio.src = data.audio_url;
             audio.play();
           }
+          // 切換播放按鈕狀態
+          const playBtn = document.querySelector('.playing');
+          if (playBtn) playBtn.classList.add('pause');
         });
       });
   });
 });
 // 點擊 .Music_List（有 data-song-id）自動撈歌並播放
-document.querySelectorAll('.Music_List[data-song-id]').forEach(function(item) {
-  item.addEventListener('click', function() {
-    const songId = item.getAttribute('data-song-id');
-    if (!songId) return;
-    fetch('api/get_song_info.php?song_id=' + encodeURIComponent(songId))
-      .then(res => res.json())
-      .then(data => {
-        if (data.error) {
-          alert('找不到歌曲或資料庫錯誤');
-          return;
-        }
-        // 換播放器圖片
-        const cover = document.querySelector('#AudioPlayer .cover');
-        if (cover && data.cover_url) {
-          cover.style.backgroundImage = `url('${data.cover_url}')`;
-        }
-        // 換標題/歌手
-        const title = document.querySelector('#AudioPlayer .title');
-        const artist = document.querySelector('#AudioPlayer .artist');
-        if (title) title.textContent = data.title || '';
-        if (artist) artist.textContent = data.artist || '';
-        // 換音樂來源並播放
-        const audio = document.getElementById('mainAudio');
-        if (audio && data.audio_url) {
-          audio.src = data.audio_url;
-          audio.play();
-        }
-      })
-      .catch(() => {
-        alert('歌曲資料載入失敗');
-      });
-  });
-});
+// (已移除重複的 .Music_List[data-song-id] click 綁定，僅保留 DOMContentLoaded 內的事件)
 // 搜尋框、彈窗等顯示/隱藏控制
 const input = document.getElementById("search_Input");
 const searchBox = document.getElementById("SearchBox");
@@ -424,6 +428,37 @@ if (relatedBtn) {
     toggleSection('related', 'lyrics');
   });
 }
+
+// 收藏功能：監聽所有 .Music_item_like 按鈕
+document.querySelectorAll('.Music_item_like').forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation(); // 避免觸發父層播放
+    // 找到最近的 .Music_List 並取得 data-song-id
+    const musicList = btn.closest('.Music_List');
+    if (!musicList) return;
+    const songId = musicList.getAttribute('data-song-id');
+    if (!songId) {
+      alert('找不到歌曲ID');
+      return;
+    }
+    fetch('api/add_favorite.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ song_id: songId })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        alert('已加入收藏!');
+      } else {
+        alert('收藏失敗: ' + (data.error || '未知錯誤'));
+      }
+    })
+    .catch(() => {
+      alert('收藏請求失敗');
+    });
+  });
+});
 
 // 活動卡輪播
 const track = document.getElementById("carouselTrack");
