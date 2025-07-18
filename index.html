@@ -33,6 +33,7 @@
     <script src="./data/innnne.js" defer></script>
     <script src="./data/featuredmusic.js" defer></script>
     <script src="./data/newdmusic.js" defer></script>
+    <script src="./data/searchbox.js" defer></script>
     <style>
         @import url(./style.css);
         @import url(./style/nav.css);
@@ -45,6 +46,18 @@
 
         .layout {
             display: flex;
+        }
+
+        /* 補充登入切換顯示用CSS */
+        .SiginInBox,
+        .SiginIn {
+            display: flex !important;
+            align-items: center;
+        }
+
+        .SiginInBox[style*="display: none"],
+        .SiginIn[style*="display: none"] {
+            display: none !important;
         }
     </style>
 </head>
@@ -95,7 +108,7 @@
                     <div id="PopularKeywords">
                         <h5 data-lang="header_input02">PopularKeywords.</h5>
                         <div id="SearchInput_list_button">
-                            <button class="SearchKeywords" data-lang="header_input02-1">🔥I am a keyword.</button>
+                            <button class="SearchKeywords" data-lang="header_input02-1"></button>
                         </div>
                     </div>
                     <div id="SearchHistoryBox">
@@ -117,12 +130,12 @@
                     <option data-lang="setringBox_lang_eh">English</option>
                 </select>
             </div>
-            <Button id="SiginIn" class="h6">
-                <p data-lang="paragraph">Sign in</p>
-            </Button>
+            <button id="SiginIn" class="h6">
+                <p data-lang="paragraph">登入</p>
+            </button>
             <div id="SiginInBox">
                 <span></span>
-                <p id="usernameDisplay"></p>
+                <p id="usernameDisplay">測試員</p>
             </div>
             <div id="logputBox" class="close">
                 <p>功能選單</p>
@@ -143,9 +156,7 @@
                         <h5 data-lang="header_input03">Search History</h5>
                         <button class="ClearButton" data-lang="header_input04">Clear</button>
                     </div>
-                    <div id="SearchHistory_buttonList">
-                        <p class="SearchHistory_button" data-lang="header_input03-1">I am History.</p>
-                    </div>
+                    <div id="SearchHistory_buttonList"></div>
                 </div>
             </div>
         </div>
@@ -182,10 +193,10 @@
             <div id="LeftList_menu">
             </div>
             <div class="SiginInBox">
-                <Button id="SiginIn" class="h6">
+                <Button class="SiginIn h6">
                     <p data-lang="paragraph">Sign in</p>
                 </Button>
-                <div id="SiginInBox">
+                <div class="SiginInBox">
                     <span></span>
                     <p id="usernameDisplay"></p>
                 </div>
@@ -401,21 +412,5 @@
         <audio id="mainAudio" preload="auto"></audio>
     </div>
     <bg class="body_background"></bg>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var searchInput = document.getElementById('search_Input');
-            if (searchInput) {
-                searchInput.addEventListener('keydown', function (e) {
-                    if (e.key === 'Enter') {
-                        var keyword = searchInput.value.trim();
-                        if (keyword) {
-                            window.location.href = 'search.html?q=' + encodeURIComponent(keyword);
-                        }
-                    }
-                });
-            }
-        });
-    </script>
 </body>
-
 </html>

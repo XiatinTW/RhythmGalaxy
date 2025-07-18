@@ -28,8 +28,9 @@
     <script src="./data/lang.js" defer></script>
     <script src="script.js" defer></script>
     <script src="./data/playbar.js" defer></script>
-    <script src="data/pplayhhpp.js" defer></script>
+    <script src="./data/pplayhhpp.js" defer></script>
     <script src="./data/innnne.js" defer></script>
+    <script src="./data/searchbox.js" defer></script>
     <style>
         @import url(./style.css);
         @import url(./style/nav.css);
@@ -111,7 +112,7 @@
                     <div id="PopularKeywords">
                         <h5 data-lang="header_input02">PopularKeywords.</h5>
                         <div id="SearchInput_list_button">
-                            <button class="SearchKeywords" data-lang="header_input02-1">🔥I am a keyword.</button>
+                            <button class="SearchKeywords" data-lang="header_input02-1"></button>
                         </div>
                     </div>
                     <div id="SearchHistoryBox">
@@ -136,7 +137,7 @@
             <Button id="SiginIn" class="h6">
                 <p data-lang="paragraph">Sign in</p>
             </Button>
-            <div id="SiginInBox">
+            <div id="SiginInBox" style="display:none;">
                 <span></span>
                 <p id="usernameDisplay"></p>
             </div>
@@ -159,9 +160,7 @@
                         <h5 data-lang="header_input03">Search History</h5>
                         <button class="ClearButton" data-lang="header_input04">Clear</button>
                     </div>
-                    <div id="SearchHistory_buttonList">
-                        <p class="SearchHistory_button" data-lang="header_input03-1">I am History.</p>
-                    </div>
+                    <div id="SearchHistory_buttonList"></div>
                 </div>
             </div>
         </div>
