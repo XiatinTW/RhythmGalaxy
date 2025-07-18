@@ -422,6 +422,8 @@ function loadHotListMusic() {
         bindLikeButtons();
         // 綁定排行榜 .Music_List 播放事件
         bindMusicListPlay();
+        // 綁定分享按鈕
+        bindShareButtons();
       });
   }
 }
@@ -461,16 +463,16 @@ function bindMusicListPlay() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ song_id: item.getAttribute('data-song-id') })
         })
-        .then(res => res.json())
-        .then(data => {
-          // 可依需求處理回應
-        });
+          .then(res => res.json())
+          .then(data => {
+            // 可依需求處理回應
+          });
       }
       if (audio && audioSrc) {
         audio.pause();
         audio.src = audioSrc;
         audio.load();
-        audio.play().then(()=>{
+        audio.play().then(() => {
           // ...existing code...
         }).catch(err => {
           // ...existing code...
@@ -580,4 +582,123 @@ if (track) {
   }
 
   setInterval(autoScroll, 4000);
+}
+
+// ====== 歌曲加入歌單功能 ======
+
+// 建立歌單選擇視窗
+function createPlaylistModal(playlists, songId) {
+  // 若已存在則移除
+  let oldModal = document.getElementById('playlistModal');
+  if (oldModal) oldModal.remove();
+
+  const modal = document.createElement('div');
+  modal.id = 'playlistModal';
+  modal.style = 'position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(255,255,255,0.66);display:flex;align-items:center;justify-content:center;';
+  modal.innerHTML = `
+    <div style="background:rgba(255,255,255,0.95);padding:32px 24px;border-radius:12px;min-width:320px;max-width:90vw;box-shadow:0 2px 16px #0002;position:relative;">
+      <button id="closePlaylistModal" style="position:absolute;top:8px;right:8px;font-size:32px;background:none;border:none;cursor:pointer;">&times;</button>
+      <h3 style="margin-bottom:16px;">加入歌單</h3>
+      <div id="playlistModalContent"></div>
+      <div id="playlistModalMsg" style="color:red;margin-top:8px;"></div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  document.getElementById('closePlaylistModal').onclick = function () {
+    modal.remove();
+  };
+
+  const content = modal.querySelector('#playlistModalContent');
+  if (!playlists.length) {
+    content.innerHTML = `
+      <p>你還沒有建立歌單</p>
+      <button id="showCreatePlaylistBtn" class="button" style="margin-top:12px;padding:10px 20px;">建立新歌單</button>
+    `;
+    document.getElementById('showCreatePlaylistBtn').onclick = function () {
+      modal.remove();
+      showCreatePlaylistModal();
+    };
+  } else {
+    content.innerHTML = `
+      <select id="playlistSelect" style="width:100%;margin-bottom:16px;padding:8px;border-radius:6px;">
+        ${playlists.map(pl => `<option value="${pl.playlist_id}">${pl.playname}</option>`).join('')}
+      </select>
+      <div style="display: flex;gap: 10px;">
+        <button id="addToPlaylistBtn" class="button" style="padding:10px 20px;margin-right:8px;">加入</button>
+        <button id="showCreatePlaylistBtn" class="button" style="padding:10px 20px;">建立新歌單</button>
+      </div>
+    `;
+    document.getElementById('addToPlaylistBtn').onclick = function () {
+      const playlistId = document.getElementById('playlistSelect').value;
+      if (!playlistId) return;
+      fetch('api/add_song_to_playlist.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ playlist_id: playlistId, song_id: songId })
+      })
+        .then(res => res.json())
+        .then(data => {
+          const msg = document.getElementById('playlistModalMsg');
+          if (data.success) {
+            msg.style.color = 'green';
+            msg.textContent = '已加入歌單！';
+            setTimeout(() => modal.remove(), 1000);
+          } else {
+            msg.style.color = 'red';
+            msg.textContent = data.error || '加入失敗';
+          }
+        })
+        .catch(() => {
+          const msg = document.getElementById('playlistModalMsg');
+          msg.style.color = 'red';
+          msg.textContent = '加入失敗';
+        });
+    };
+    document.getElementById('showCreatePlaylistBtn').onclick = function () {
+      modal.remove();
+      showCreatePlaylistModal();
+    };
+  }
+
+  // 點背景也可關閉
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) modal.remove();
+  });
+}
+
+// 綁定分享按鈕
+function bindShareButtons() {
+  document.querySelectorAll('.Music_item_share').forEach(function (btn) {
+    if (btn.dataset.bindShare) return;
+    btn.dataset.bindShare = '1';
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      const musicList = btn.closest('.Music_List');
+      if (!musicList) return;
+      const songId = musicList.getAttribute('data-song-id');
+      if (!songId) {
+        alert('找不到歌曲ID');
+        return;
+      }
+      // 取得使用者歌單
+      fetch('api/get_user_playlists.php')
+        .then(res => {
+          if (!res.ok) throw new Error('Network response was not ok');
+          return res.json();
+        })
+        .then(data => {
+          if (data.success && Array.isArray(data.playlists)) {
+            createPlaylistModal(data.playlists, songId);
+          } else {
+            alert('無法取得歌單: ' + (data.error || ''));
+            console.log('API 回傳:', data);
+          }
+        })
+        .catch((err) => {
+          alert('請求失敗');
+          console.error('API 請求失敗:', err);
+        });
+    });
+  });
 }

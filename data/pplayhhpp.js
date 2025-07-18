@@ -57,8 +57,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     fetch('api/get_user_playlists.php?user_id=' + encodeURIComponent(userId))
                         .then(res => res.json())
                         .then(data => {
-                            if (data.success && Array.isArray(data.data)) {
-                                var html = data.data.map(pl => `<a href="#" class="LeftButton Album"><span></span><p>${pl.playname}</p></a>`).join('');
+                            if (data.success && Array.isArray(data.playlists)) {
+                                var html = data.playlists.map(pl => `<a href="#" class="LeftButton Album"><span></span><p>${pl.playname}</p></a>`).join('');
                                 var listDiv = nav.querySelector('#UserPlaylistList');
                                 if (listDiv) listDiv.innerHTML = html;
                             }
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // 建立歌單彈窗
-    function showCreatePlaylistModal() {
+    window.showCreatePlaylistModal = function showCreatePlaylistModal() {
         if (document.getElementById('CreatePlaylistModal')) return;
         var modal = document.createElement('div');
         modal.id = 'CreatePlaylistModal';
