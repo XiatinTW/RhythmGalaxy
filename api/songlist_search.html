@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>歌曲清單查詢</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f6f3fa; }
+        .table thead th { background: #b39ddb; color: #fff; cursor: pointer; }
+        .form-select, .form-control, .btn { border-color: #b39ddb; }
+        .btn-primary { background: #9575cd; border-color: #9575cd; }
+        .btn-primary:hover { background: #7e57c2; }
+    </style>
+</head>
+<body>
+<div class="container py-4">
+    <h2 class="mb-4 text-center" style="color:#7e57c2;">歌曲清單查詢</h2>
+    <form id="searchForm" class="row g-3 mb-3">
+        <div class="col-md-3">
+            <input type="text" class="form-control" name="artist" placeholder="歌手">
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control" name="title" placeholder="歌名">
+        </div>
+        <div class="col-md-3">
+            <select class="form-select" name="genre" id="genreSelect">
+                <option value="">所有類型</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-primary w-100">搜尋</button>
+        </div>
+    </form>
+    <div class="table-responsive">
+        <table class="table table-hover align-middle" id="songTable">
+            <thead>
+                <tr>
+                    <th data-sort="artist">歌手</th>
+                    <th data-sort="title">歌名</th>
+                    <th data-sort="album">專輯名稱</th>
+                    <th data-sort="genre">類型</th>
+                    <th data-sort="duration">音樂長度</th>
+                    <th data-sort="upload_time">上架時間</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 資料動態產生 -->
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const apiUrl = 'songlist_search.php';
+let sort = 'upload_time', order = 'desc';
+
+function fetchGenres() {
+    fetch(apiUrl)
+        .then(r=>r.json())
+        .then(res=>{
+            if(res.status===0){
+                const genres = [...new Set(res.data.map(row=>row.genre))];
+                const sel = document.getElementById('genreSelect');
+                genres.forEach(g=>{
+                    const opt = document.createElement('option');
+                    opt.value = g; opt.textContent = g;
+                    sel.appendChild(opt);
+                });
+            }
+        });
+}
+function fetchSongs() {
+    const fd = new FormData(document.getElementById('searchForm'));
+    let params = new URLSearchParams(fd);
+    params.append('sort', sort);
+    params.append('order', order);
+    fetch(apiUrl + '?' + params)
+        .then(r=>r.json())
+        .then(res=>{
+            const tbody = document.querySelector('#songTable tbody');
+            tbody.innerHTML = '';
+            if(res.status===0){
+                res.data.forEach(row=>{
+                    tbody.innerHTML += `<tr>
+                        <td>${row.artist}</td>
+                        <td>${row.title}</td>
+                        <td>${row.album}</td>
+                        <td>${row.genre}</td>
+                        <td>${row.duration}</td>
+                        <td>${row.upload_time}</td>
+                    </tr>`;
+                });
+            } else {
+                tbody.innerHTML = `<tr><td colspan="6" class="text-danger">${res.error}</td></tr>`;
+            }
+        });
+}
+document.getElementById('searchForm').onsubmit = e => {
+    e.preventDefault();
+    fetchSongs();
+};
+document.querySelectorAll('#songTable thead th').forEach(th=>{
+    th.onclick = ()=>{
+        const s = th.getAttribute('data-sort');
+        if(sort===s) order = order==='asc'?'desc':'asc';
+        else { sort = s; order = 'asc'; }
+        fetchSongs();
+    };
+});
+fetchGenres();
+fetchSongs();
+</script>
+</body>
+</html>
