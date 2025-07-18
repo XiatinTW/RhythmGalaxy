@@ -1,4 +1,3 @@
-
 // data/favorites_songs.js 收藏歌曲列表
 // 這段程式碼會在頁面載入時自動載入使用者的收藏歌曲列表
 function getCookie(name) {
@@ -52,10 +51,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 `;
                 listDiv.appendChild(div);
-                musicListDivs.push({div, song_id: song.song_id});
+                musicListDivs.push({ div, song_id: song.song_id });
             });
             // 依 song_id AJAX 撈 audio_url
-            musicListDivs.forEach(({div, song_id}) => {
+            musicListDivs.forEach(({ div, song_id }) => {
                 fetch('api/get_song_info.php?song_id=' + encodeURIComponent(song_id))
                     .then(res => res.json())
                     .then(data => {

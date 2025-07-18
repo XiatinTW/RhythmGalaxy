@@ -395,4 +395,15 @@
     <bg class="body_background"></bg>
     <script src="data/recent_history.js"></script>
 </body>
+    <script>
+        // 檢查 user_id cookie，沒有就導向首頁
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+        if (!getCookie('user_id')) {
+            window.location.href = 'index.html';
+        }
+    </script>
 </html>
