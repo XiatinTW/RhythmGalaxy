@@ -31,16 +31,16 @@ function bindLikeButtonEvents(list) {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ song_id: songId })
             })
-            .then(res => res.json())
-            .then(json => {
-                if (json.success) {
-                    icon.classList.add('active');
-                    // 顯示收藏成功提示
-                    showFavoriteSuccess(btn, '收藏成功！');
-                } else {
-                    alert(json.error || '操作失敗');
-                }
-            });
+                .then(res => res.json())
+                .then(json => {
+                    if (json.success) {
+                        icon.classList.add('active');
+                        // 顯示收藏成功提示
+                        showFavoriteSuccess(btn, '收藏成功！');
+                    } else {
+                        alert(json.error || '操作失敗');
+                    }
+                });
         };
     });
 }
@@ -48,6 +48,115 @@ function bindLikeButtonEvents(list) {
 // 顯示收藏成功提示
 function showFavoriteSuccess(targetBtn, msg) {
     alert(msg);
+}
+
+// ====== 歌曲加入歌單功能 ======
+function createPlaylistModal(playlists, songId) {
+    let oldModal = document.getElementById('playlistModal');
+    if (oldModal) oldModal.remove();
+    const modal = document.createElement('div');
+    modal.id = 'playlistModal';
+    modal.style = 'position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(255,255,255,0.66);display:flex;align-items:center;justify-content:center;';
+    modal.innerHTML = `
+      <div style="background:rgba(255,255,255,0.95);padding:32px 24px;border-radius:12px;min-width:320px;max-width:90vw;box-shadow:0 2px 16px #0002;position:relative;">
+        <button id="closePlaylistModal" style="position:absolute;top:8px;right:8px;font-size:32px;background:none;border:none;cursor:pointer;">&times;</button>
+        <h3 style="margin-bottom:16px;">加入歌單</h3>
+        <div id="playlistModalContent"></div>
+        <div id="playlistModalMsg" style="color:red;margin-top:8px;"></div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+    document.getElementById('closePlaylistModal').onclick = function () {
+        modal.remove();
+    };
+    const content = modal.querySelector('#playlistModalContent');
+    if (!playlists.length) {
+        content.innerHTML = `
+          <p>你還沒有建立歌單</p>
+          <button id="showCreatePlaylistBtn" class="button" style="margin-top:12px;padding:10px 20px;">建立新歌單</button>
+        `;
+        document.getElementById('showCreatePlaylistBtn').onclick = function () {
+            modal.remove();
+            if (typeof showCreatePlaylistModal === 'function') showCreatePlaylistModal();
+        };
+    } else {
+        content.innerHTML = `
+          <select id="playlistSelect" style="width:100%;margin-bottom:16px;padding:8px;border-radius:6px;">
+            ${playlists.map(pl => `<option value="${pl.playlist_id}">${pl.playname}</option>`).join('')}
+          </select>
+          <div style="display: flex;gap: 10px;">
+            <button id="addToPlaylistBtn" class="button" style="padding:10px 20px;margin-right:8px;">加入</button>
+            <button id="showCreatePlaylistBtn" class="button" style="padding:10px 20px;">建立新歌單</button>
+          </div>
+        `;
+        document.getElementById('addToPlaylistBtn').onclick = function () {
+            const playlistId = document.getElementById('playlistSelect').value;
+            if (!playlistId) return;
+            fetch('api/add_song_to_playlist.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ playlist_id: playlistId, song_id: songId })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    const msg = document.getElementById('playlistModalMsg');
+                    if (data.success) {
+                        msg.style.color = 'green';
+                        msg.textContent = '已加入歌單！';
+                        setTimeout(() => modal.remove(), 1000);
+                    } else {
+                        msg.style.color = 'red';
+                        msg.textContent = data.error || '加入失敗';
+                    }
+                })
+                .catch(() => {
+                    const msg = document.getElementById('playlistModalMsg');
+                    msg.style.color = 'red';
+                    msg.textContent = '加入失敗';
+                });
+        };
+        document.getElementById('showCreatePlaylistBtn').onclick = function () {
+            modal.remove();
+            if (typeof showCreatePlaylistModal === 'function') showCreatePlaylistModal();
+        };
+    }
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) modal.remove();
+    });
+}
+
+function bindShareButtons(list) {
+    list.querySelectorAll('.Music_item_share').forEach(function (btn) {
+        if (btn.dataset.bindShare) return;
+        btn.dataset.bindShare = '1';
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const musicList = btn.closest('.Music_List');
+            if (!musicList) return;
+            const songId = musicList.getAttribute('data-song-id');
+            if (!songId) {
+                alert('找不到歌曲ID');
+                return;
+            }
+            fetch('api/get_user_playlists.php')
+                .then(res => {
+                    if (!res.ok) throw new Error('Network response was not ok');
+                    return res.json();
+                })
+                .then(data => {
+                    if (data.success && Array.isArray(data.playlists)) {
+                        createPlaylistModal(data.playlists, songId);
+                    } else {
+                        alert('無法取得歌單: ' + (data.error || ''));
+                        console.log('API 回傳:', data);
+                    }
+                })
+                .catch((err) => {
+                    alert('請求失敗');
+                    console.error('API 請求失敗:', err);
+                });
+        });
+    });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -87,6 +196,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
                 // 綁定收藏事件
                 bindLikeButtonEvents(list);
+                // 綁定分享按鈕（加入歌單）
+                bindShareButtons(list);
             });
     });
 
@@ -123,6 +234,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
                 // 綁定收藏事件
                 bindLikeButtonEvents(list);
+                // 綁定分享按鈕（加入歌單）
+                bindShareButtons(list);
             });
     });
 });
