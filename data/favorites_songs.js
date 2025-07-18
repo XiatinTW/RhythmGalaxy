@@ -64,7 +64,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     });
             });
             // 綁定播放事件
-            setTimeout(bindFavoritesMusicListPlay, 300); // 等待 audio_url AJAX 完成
+            setTimeout(() => {
+                bindFavoritesMusicListPlay();
+                bindFavoritesMusicListDelete();
+            }, 300); // 等待 audio_url AJAX 完成
         })
         .catch(() => {
             loadingDiv.textContent = '載入失敗';
@@ -75,7 +78,9 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('.Music_List[data-song-id]').forEach(function (item) {
             if (item.dataset.bindPlay) return;
             item.dataset.bindPlay = '1';
-            item.addEventListener('click', function () {
+            item.addEventListener('click', function (e) {
+                // 如果點擊的是關閉按鈕，不觸發播放
+                if (e.target.closest('.Music_item_close')) return;
                 const audio = document.getElementById('mainAudio');
                 const playBtn = document.querySelector('.playing');
                 const player = document.getElementById('AudioPlayer');
@@ -122,6 +127,47 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
                 if (playBtn) playBtn.classList.add('pause');
+            });
+        });
+    }
+
+    // 綁定刪除收藏事件
+    function bindFavoritesMusicListDelete() {
+        document.querySelectorAll('.Music_List[data-song-id] .Music_item_close').forEach(function (btn) {
+            if (btn.dataset.bindDelete) return;
+            btn.dataset.bindDelete = '1';
+            btn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                const musicDiv = btn.closest('.Music_List[data-song-id]');
+                if (!musicDiv) return;
+                const song_id = musicDiv.getAttribute('data-song-id');
+                const user_id = getCookie('user_id');
+                if (!user_id || !song_id) return;
+                if (!confirm('確定要移除這首收藏歌曲嗎？')) return;
+                fetch('./api/delete_favorite.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: `user_id=${encodeURIComponent(user_id)}&song_id=${encodeURIComponent(song_id)}`
+                })
+                .then(r => r.json())
+                .then(data => {
+                    if (data.success) {
+                        musicDiv.remove();
+                        // 若全部刪光，顯示提示
+                        if (!document.querySelector('.Music_List[data-song-id]')) {
+                            const loadingDiv = document.createElement('div');
+                            loadingDiv.id = 'favorites_songs_loading';
+                            loadingDiv.textContent = '尚未收藏任何歌曲';
+                            const listDiv = document.getElementById('favorites_songs_loading')?.parentElement || document.body;
+                            listDiv.appendChild(loadingDiv);
+                        }
+                    } else {
+                        alert('刪除失敗：' + (data.message || '未知錯誤'));
+                    }
+                })
+                .catch(() => {
+                    alert('刪除失敗');
+                });
             });
         });
     }
