@@ -1,4 +1,5 @@
 // 幫所有 nav .help_box p 加上 data-target，並用 data-target 控制顯示內容
+
 document.querySelectorAll('nav .help_box p[class^="help_box"], nav .help_box p[class^="other_box"]').forEach(box => {
     // 取得對應內容 class
     let target = '';
@@ -24,13 +25,14 @@ document.querySelectorAll('nav .help_box p[class^="help_box"], nav .help_box p[c
     });
 });
 // 切換Nav_help2
-const Nav_help2 = document.getElementById('Nav_help2');
-if (Nav_help2 && siginInMedium) {
-    siginInMedium.addEventListener('click', function (e) {
+const Nav_help3 = document.getElementById('Nav_help2');
+const siginInMedium2 = document.getElementById('Nav_medium');
+if (Nav_help3 && siginInMedium2) {
+    siginInMedium2.addEventListener('click', function (e) {
         e.stopPropagation();
-        Nav_help2.classList.toggle('active');
+        Nav_help3.classList.toggle('active');
     });
-    Nav_help2.addEventListener('click', function (e) {
+    Nav_help3.addEventListener('click', function (e) {
         e.stopPropagation();
     });
 }
