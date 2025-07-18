@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         .then(res => res.json())
                         .then(data => {
                             if (data.success && Array.isArray(data.playlists)) {
-                                var html = data.playlists.map(pl => `<a href="#" class="LeftButton Album"><span></span><p>${pl.playname}</p></a>`).join('');
+                                var html = data.playlists.map(pl => `<a href="playlist.html?playlist_id=${encodeURIComponent(pl.playlist_id)}" class="LeftButton Album"><span></span><p>${pl.playname}</p></a>`).join('');
                                 var listDiv = nav.querySelector('#UserPlaylistList');
                                 if (listDiv) listDiv.innerHTML = html;
                             }
