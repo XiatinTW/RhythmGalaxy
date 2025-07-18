@@ -9,7 +9,7 @@ try {
     $sql = "SELECT song_id, artist, title, album, genre, duration, cover_url, audio_url, play_count
             FROM songs
             ORDER BY play_count DESC
-            LIMIT 5";
+            LIMIT 10";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $hotSongs = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -216,8 +216,11 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(res => res.json())
         .then(json => {
             if (json.success && Array.isArray(json.data)) {
+                console.log('熱門歌曲數量:', json.data.length); // ← 加這行檢查
                 const list = document.querySelector('.MusicCradList[playlist="hotmusic"]');
                 if (!list) return;
+                // 先清空列表，確保最多只顯示十個
+                list.innerHTML = '';
                 json.data.slice(0, 10).forEach(song => {
                     const btn = document.createElement('button');
                     btn.className = 'MusicCrad';
@@ -288,7 +291,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                         playBtn.classList.add('pause');
                     });
-                    list.prepend(btn);
+                    list.appendChild(btn);
                 });
             }
         });
