@@ -447,18 +447,36 @@ function bindMusicListPlay() {
         const match = bg.match(/url\(["']?(.*?)["']?\)/);
         if (match) coverUrl = match[1];
       }
+      // 新增：呼叫 add_play_history.php 寫入觀聽紀錄
+      // 取得 cookie user_id
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+      const userId = getCookie('user_id');
+      if (userId) {
+        fetch('api/add_play_history.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ song_id: item.getAttribute('data-song-id') })
+        })
+        .then(res => res.json())
+        .then(data => {
+          // 可依需求處理回應
+        });
+      }
       if (audio && audioSrc) {
-        // console.log('[MusicList] 切換音樂:', audioSrc);
         audio.pause();
         audio.src = audioSrc;
         audio.load();
         audio.play().then(()=>{
-          // console.log('[MusicList] 播放成功');
+          // ...existing code...
         }).catch(err => {
-          // console.error('音樂播放失敗:', err);
+          // ...existing code...
         });
       } else {
-        // console.warn('[MusicList] 找不到 audio 或 audioSrc:', audio, audioSrc);
+        // ...existing code...
       }
       // 更新 AudioPlayer UI
       if (player) {

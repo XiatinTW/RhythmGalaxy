@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhythm Galaxy</title>
+    <link rel="icon" href="./assets/img/LOGO.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <!-- HTML Meta Tags -->
+    <title>Rhythm Galaxy music</title>
+    <meta name="description" content="我們為每一位聽眾與創作者，打造一個能自由探索、分享與沉浸的音樂空間。">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://rhythmgalaxy.vercel.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Rhythm Galaxy music">
+    <meta property="og:description" content="我們為每一位聽眾與創作者，打造一個能自由探索、分享與沉浸的音樂空間。">
+    <meta property="og:image" content="https://rhythmgalaxy.vercel.app/assets/img/LOGO.png">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="rhythmgalaxy.vercel.app">
+    <meta property="twitter:url" content="https://rhythmgalaxy.vercel.app/">
+    <meta name="twitter:title" content="Rhythm Galaxy music">
+    <meta name="twitter:description" content="我們為每一位聽眾與創作者，打造一個能自由探索、分享與沉浸的音樂空間。">
+    <meta name="twitter:image" content="https://rhythmgalaxy.vercel.app/assets/img/LOGO.png">
+    <script src="./data/lang.js" defer></script>
+    <script src="data/pplayhhpp.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="./data/playbar.js" defer></script>
+    <script src="./data/login.js" defer></script>
+    <!-- <script src="./data/user.js" defer></script> -->
+    <script src="./data/innnne.js" defer></script>
+    <style>
+        @import url(./style.css);
+        @import url(./style/nav.css);
+        @import url(./style/header.css);
+        @import url(./style/main.css);
+        @import url(./style/footer.css);
+        @import url(./style/object.css);
+        @import url(./style/audioplayer.css);
+        @import url(./style/RWD.css);
+
+        .layout {
+            display: flex;
+        }
+
+        #main1 {
+            flex-direction: row
+        }
+
+        .recent_left {
+            display: flex;
+            width: 30%;
+            height: 100vh;
+            flex-direction: column;
+            align-items: center;
+            padding: 10% 10%;
+            gap: 25px;
+        }
+
+        .recent_right {
+            width: 70%;
+            height: 100vh;
+            overflow-y: auto;
+            padding: 10% 10% 10% 0%;
+        }
+
+        .recent_img {
+            width: 250px;
+            height: 250px;
+            border-radius: 15px;
+            background-color: #fff;
+        }
+
+        #Music_Charts_List {
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Login colse">
+        <form id="loginForm" class="LoginBox">
+            <h2 data-lang="login_Welcome">Welcome</h2>
+            <p data-lang="login_text">Please enter your email and password to log in.</p>
+            <div id="LoginBox_account">
+                <p>Email</p>
+                <input type="email" id="email" name="LoginBox_account" placeholder="123@gmail.com">
+            </div>
+            <div id="LoginBox_account">
+                <p>Password</p>
+                <input type="password" id="password" name="LoginBox_account" pattern="[A-Za-z0-9]+">
+            </div>
+            <p id="resultMsg"></p>
+            <div id="LoginBox_Remember">
+                <div class="LoginBox_checkbox">
+                    <input checked="" type="checkbox" id="LRC" class="hidden-xs-up">
+                    <label for="LRC" class="LRC p"></label>
+                </div>
+                <p data-lang="login_Remember">Remember me</p>
+            </div>
+            <button type="submit" id="LoginButton" class="h6" data-lang="login_Login">Log in</button>
+            <div class="LoginBox_SiginIn">
+                <div class="LoginBox_SiginIn_box">
+                    <span class="google"></span>
+                    <p>Google</p>
+                </div>
+                <div class="LoginBox_SiginIn_box">
+                    <span class="facebook"></span>
+                    <p>Facebook</p>
+                </div>
+            </div>
+            <p data-lang="login_unaccount">Don't have an account?</p>
+            <a href="#" class="p" data-lang="login_Signup" onclick="sigup()">Signup</a>
+        </form>
+    </div>
+    <header id="header">
+        <a id="Logo" href="index.html"></a>
+        <div class="Navbar">
+            <span id="Search_medium"><img src="./assets/icon/Search.svg" alt="search"></span>
+            <div id="Search_pc">
+                <input id="search_Input" type="text" data-lang-placeholder="header_input01">
+                <div id="SearchBox">
+                    <div id="PopularKeywords">
+                        <h5 data-lang="header_input02">PopularKeywords.</h5>
+                        <div id="SearchInput_list_button">
+                            <button class="SearchKeywords" data-lang="header_input02-1">🔥I am a keyword.</button>
+                        </div>
+                    </div>
+                    <div id="SearchHistoryBox">
+                        <div id="SearchHistory">
+                            <h5 data-lang="header_input03">Search History</h5>
+                            <button class="ClearButton" data-lang="header_input04">Clear</button>
+                        </div>
+                        <div id="SearchHistory_buttonList">
+                            <p class="SearchHistory_button" data-lang="header_input03-1">I am History.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="search_setring"></button>
+            <div class="setringBox colse">
+                <p>語言</p>
+                <select id="setringBox_langselect" class="setringBox_langselect">
+                    <option data-lang="setringBox_lang_zh">繁體中文</option>
+                    <option data-lang="setringBox_lang_eh">English</option>
+                </select>
+            </div>
+            <Button id="SiginIn" class="h6">
+                <p data-lang="paragraph">Sign in</p>
+            </Button>
+            <div id="SiginInBox">
+                <span></span>
+                <p id="usernameDisplay"></p>
+            </div>
+            <div id="logputBox" class="close">
+                <p>功能選單</p>
+                <button class="button">設定</button>
+                <button class="button" onclick="logout()">登出</button>
+            </div>
+            <span id="Nav_medium"><img src="./assets/icon/nav-medium.svg" alt="Nav"></span>
+            <div id="SearchBox_medium">
+                <input id="search_Input_medium" type="text" data-lang-placeholder="header_input01">
+                <div id="PopularKeywords">
+                    <h5 data-lang="header_input02">PopularKeywords</h5>
+                    <div id="SearchInput_list_button">
+                        <button class="SearchKeywords" data-lang="header_input02-1">🔥I am a keyword.</button>
+                    </div>
+                </div>
+                <div id="SearchHistoryBox">
+                    <div id="SearchHistory">
+                        <h5 data-lang="header_input03">Search History</h5>
+                        <button class="ClearButton" data-lang="header_input04">Clear</button>
+                    </div>
+                    <div id="SearchHistory_buttonList">
+                        <p class="SearchHistory_button" data-lang="header_input03-1">I am History.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="layout">
+        <nav id="Nav">
+            <div id="LeftList_menu">
+            </div>
+            <h6 class="Nav_Menu" data-lang="Nav_menu">Menu</h6>
+            <a href="index.html" class="LeftButton Explore">
+                <span></span>
+                <p data-lang="Nav_Explore">Explore</p>
+            </a>
+            <a href="genres.html" class="LeftButton Genres">
+                <span></span>
+                <p data-lang="Nav_Genres">Genres</p>
+            </a>
+            <a href="activity.html" class="LeftButton Activity">
+                <span></span>
+                <p data-lang="Nav_Activity">Activity</p>
+            </a>
+            <a href="Radio.html" class="LeftButton Radio">
+                <span></span>
+                <p data-lang="Nav_Radio">Radio</p>
+            </a>
+            <a href="podcast.html" class="LeftButton Podcast">
+                <span></span>
+                <p data-lang="Nav_Podcast">Podcast</p>
+            </a>
+            <p class="NavP" data-lang="Nav_P">Sign in to create & share playlists, get personalized recommendations, and
+                more.</p>
+        </nav>
+        <nav id="Nav2">
+            <div id="LeftList_menu">
+            </div>
+            <div class="SiginInBox">
+                <Button id="SiginIn" class="h6">
+                    <p data-lang="paragraph">Sign in</p>
+                </Button>
+                <p>
+                    <span id="usernameDisplay">演示版</span>
+                </p>
+            </div>
+            <h6 class="Nav_Menu" data-lang="Nav_menu">Menu</h6>
+            <a href="index.html" class="LeftButton Explore">
+                <span></span>
+                <p data-lang="Nav_Explore">Explore</p>
+            </a>
+            <a href="genres.html" class="LeftButton Genres">
+                <span></span>
+                <p data-lang="Nav_Genres">Genres</p>
+            </a>
+            <a href="activity.html" class="LeftButton Activity">
+                <span></span>
+                <p data-lang="Nav_Activity">Activity</p>
+            </a>
+            <a href="Radio.html" class="LeftButton Radio">
+                <span></span>
+                <p data-lang="Nav_Radio">Radio</p>
+            </a>
+            <a href="podcast.html" class="LeftButton Podcast">
+                <span></span>
+                <p data-lang="Nav_Podcast">Podcast</p>
+            </a>
+            <p class="NavP" data-lang="Nav_P">Sign in to create & share playlists, get personalized recommendations, and
+                more.</p>
+        </nav>
+        <main id="main1">
+            <div class="recent_left">
+                <img src="./assets/img/music/recentCover.png" alt="recent_img" class="recent_img">
+                <h5>觀看的紀錄</h5>
+            </div>
+            <div class="recent_right">
+                <div id="Music_Charts_List">
+                    <!-- js自動載入歌曲 -->
+                    <div id="recent_songs_loading">載入中...</div>
+                </div>
+            </div>
+    </div>
+    </main>
+    </div>
+    <footer>
+        <div class="footer_body">
+            <div class="footer_text">
+                <h6 data-lang="footer_About">關於</h6>
+                <a class="p" href="help.html" data-lang="footer_About2">關於?</a>
+                <a class="p" href="help.html" data-lang="footer_Latest">最新消息</a>
+                <a class="p" href="help.html" data-lang="footer_MST">會員服務條款</a>
+                <a class="p" href="help.html" data-lang="footer_PPP">隱私權保護政策</a>
+                <a class="p" href="help.html" data-lang="footer_CPM">著作權保護措施</a>
+                <a class="p" href="help.html" data-lang="footer_Disclaimer">免責聲明</a>
+            </div>
+            <div class="footer_text">
+                <h6 data-lang="footer_QG">快速導覽</h6>
+                <a class="p" href="index.html" data-lang="footer_QG1">探索</a>
+                <a class="p" href="genres.html" data-lang="footer_QG2">類別</a>
+                <a class="p" href="activity.html" data-lang="footer_QG3">最近活動</a>
+                <a class="p" href="Radio.html" data-lang="footer_QG4">電台收聽</a>
+                <a class="p" href="podcast.html" data-lang="footer_QG5">熱門節目Podcast</a>
+            </div>
+            <div class="footer_text">
+                <h6 data-lang="footer_Others">其他</h6>
+                <a class="p" href="help.html" data-lang="footer_Others1">常見問題</a>
+                <a class="p" href="help.html" data-lang="footer_Others2">尋求幫助</a>
+                <a class="p" href="help.html" data-lang="footer_Others3">使用者指南</a>
+            </div>
+            <div class="footer_text2">
+                <div class="footer_button">
+                    <a href="https://github.com/XiatinTW/" id="facebook"></a>
+                    <a href="https://github.com/XiatinTW/" id="instagram"></a>
+                    <a href="https://github.com/XiatinTW/" id="youtube"></a>
+                </div>
+                <div class="footer_text3">
+                    <p>© 2023 Rhythm Galaxy. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="AudioPlayer">
+        <div class="progressBar">
+            <div class="progress"></div>
+        </div>
+        <div class="playerContent">
+            <div class="songInfo">
+                <div class="cover"></div>
+                <div class="text">
+                    <p class="title">music</p>
+                    <p class="artist">singer</p>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="Previous"></button>
+                <button class="playing"></button>
+                <button class="Next"></button>
+                <p class="lyrics">Lyrics</p>
+            </div>
+            <div class="VolumeBar">
+                <span class="VolumeBar_bg"></span>
+                <span class="VolumeBar_bu"></span>
+                <span class="VolumeBar_li"></span>
+            </div>
+            <div class="Playtool">
+                <button class="Volume"></button>
+                <button class="Loop"></button>
+                <button class="Shuffle"></button>
+                <button class="Top"></button>
+            </div>
+        </div>
+        <div class="PlayBarCard">
+            <div class="PlayBarCard_body colse">
+                <span></span>
+                <button class="MusicCrad" data-bg="./assets/img/music/Rectangle07.jpg">
+                    <div class="MusicCrad_1">
+                        <div class="MusicCrad_2"></div>
+                        <div class="CD_icon">
+                            <div class="CD3"></div>
+                            <div class="CD"></div>
+                            <div class="CD1"></div>
+                        </div>
+                    </div>
+                </button>
+                <div class="PlayBarCard_toll">
+                    <p class="lyrics_bt" data-lang="lyrics_bt">歌詞</p>
+                    <p class="related_bt" data-lang="related_bt">接著播放</p>
+                </div>
+                <div id="lyrics" class="show">
+                    <div class="PlayBarCard_lyrics">
+                        <h6>
+                            Lyrics
+                        </h6>
+                    </div>
+                </div>
+                <div id="related" class="PlayBarCard_lyrics hide">
+                    <div class="Music_List" data-audio="./assets/music/EONA - Emotional Ambient Pop-Rockot.mp3">
+                        <div class="Music_item_img" style="background-image: url(./assets/img/music/Rectangle01.jpg);">
+                        </div>
+                        <div class="Music_item_text">
+                            <h6>Lost in the Sky</h6>
+                            <p>Emma Stone</p>
+                        </div>
+                        <p class="Music_item_playtime">02:32</p>
+                    </div>
+                    <div class="Music_List" data-audio="./assets/music/Gardens - Stylish Chill-penguinmusic.mp3">
+                        <div class="Music_item_img" style="background-image: url(./assets/img/music/Rectangle02.jpg);">
+                        </div>
+                        <div class="Music_item_text">
+                            <h6>Echoes of You</h6>
+                            <p>Kevin Lee</p>
+                        </div>
+                        <p class="Music_item_playtime">01:56</p>
+                    </div>
+                    <div class="Music_List" data-audio="./assets/music/Spinning Head-Gvidon.mp3">
+                        <div class="Music_item_img" style="background-image: url(./assets/img/music/Rectangle08.jpg);">
+                        </div>
+                        <div class="Music_item_text">
+                            <h6>Shadow Dance</h6>
+                            <p>Luna Black</p>
+                        </div>
+                        <p class="Music_item_playtime">02:08</p>
+                    </div>
+                    <div class="Music_List" data-audio="./assets/music/Alone-BoDleasons.mp3">
+                        <div class="Music_item_img" style="background-image: url(./assets/img/music/Rectangle17.jpg);">
+                        </div>
+                        <div class="Music_item_text">
+                            <h6>Starlight Journey</h6>
+                            <p>Ella Moon</p>
+                        </div>
+                        <p class="Music_item_playtime">01:32</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <audio id="mainAudio" preload="auto"></audio>
+    </div>
+    <bg class="body_background"></bg>
+    <script src="js/recent_history.js"></script>
+</body>
+
+</html>

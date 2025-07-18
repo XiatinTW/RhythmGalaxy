@@ -43,7 +43,7 @@ CREATE TABLE songs (
 );
 
 CREATE TABLE play_history (
-    history_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '播放紀錄ID',
+    history_id VARCHAR(48) NOT NULL PRIMARY KEY COMMENT '播放紀錄ID',
     user_id VARCHAR(36) NOT NULL COMMENT '使用者ID',
     song_id VARCHAR(36) NOT NULL COMMENT '歌曲ID',
     played_at DATE NOT NULL COMMENT '播放時間',

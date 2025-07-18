@@ -106,3 +106,6 @@ document.addEventListener('DOMContentLoaded', function () {
 ```html
 <script src="js/music_card_list.js"></script>
 ```
+
+# user_id引入
+- 從cookie抓user_id
