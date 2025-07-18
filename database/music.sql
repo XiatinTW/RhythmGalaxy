@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2025-07-17 17:21:10
+-- 產生時間： 2025-07-18 08:14:02
 -- 伺服器版本： 10.4.32-MariaDB
--- PHP 版本： 8.0.30
+-- PHP 版本： 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -106,6 +106,15 @@ CREATE TABLE `playlist_songs` (
   `song_id` varchar(36) NOT NULL COMMENT '歌曲ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- 傾印資料表的資料 `playlist_songs`
+--
+
+INSERT INTO `playlist_songs` (`playlist_id`, `song_id`) VALUES
+('6878da63e9389', '1e439e'),
+('6878da63e9389', '41cdff'),
+('6878da63e9389', '946b71');
+
 -- --------------------------------------------------------
 
 --
@@ -114,7 +123,7 @@ CREATE TABLE `playlist_songs` (
 
 DROP TABLE IF EXISTS `play_history`;
 CREATE TABLE `play_history` (
-  `history_id` int(11) NOT NULL COMMENT '播放紀錄ID',
+  `history_id` varchar(48) NOT NULL COMMENT '播放紀錄ID',
   `user_id` varchar(36) NOT NULL COMMENT '使用者ID',
   `song_id` varchar(36) NOT NULL COMMENT '歌曲ID',
   `played_at` date NOT NULL COMMENT '播放時間'
@@ -224,7 +233,8 @@ INSERT INTO `user_favorites` (`favorites_id`, `user_id`, `song_id`, `created_at`
 (6, '24f808f9d613ab53998c543a2d176276cf74', '440b77', '2025-07-17'),
 (7, '24f808f9d613ab53998c543a2d176276cf74', '06eb6d', '2025-07-17'),
 (8, '24f808f9d613ab53998c543a2d176276cf74', 'f4cf42', '2025-07-17'),
-(9, '24f808f9d613ab53998c543a2d176276cf74', 'e65e65', '2025-07-17');
+(9, '24f808f9d613ab53998c543a2d176276cf74', 'e65e65', '2025-07-17'),
+(16, '24f808f9d613ab53998c543a2d176276cf74', '1e439e', '2025-07-18');
 
 -- --------------------------------------------------------
 
@@ -280,9 +290,8 @@ ALTER TABLE `playlist_songs`
 -- 資料表索引 `play_history`
 --
 ALTER TABLE `play_history`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `history_id` (`history_id`,`user_id`,`song_id`),
-  ADD KEY `song_id` (`song_id`);
+  ADD UNIQUE KEY `song_id` (`song_id`),
+  ADD KEY `history_id` (`history_id`,`user_id`);
 
 --
 -- 資料表索引 `songs`
@@ -322,7 +331,7 @@ ALTER TABLE `user_playlists`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `user_favorites`
 --
 ALTER TABLE `user_favorites`
-  MODIFY `favorites_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '收藏的編碼', AUTO_INCREMENT=10;
+  MODIFY `favorites_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '收藏的編碼', AUTO_INCREMENT=17;
 
 --
 -- 已傾印資料表的限制式
@@ -341,13 +350,6 @@ ALTER TABLE `chart_songs`
 ALTER TABLE `playlist_songs`
   ADD CONSTRAINT `playlist_songs_ibfk_2` FOREIGN KEY (`song_id`) REFERENCES `songs` (`song_id`),
   ADD CONSTRAINT `playlist_songs_ibfk_3` FOREIGN KEY (`playlist_id`) REFERENCES `user_playlists` (`playlist_id`);
-
---
--- 資料表的限制式 `play_history`
---
-ALTER TABLE `play_history`
-  ADD CONSTRAINT `play_history_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
-  ADD CONSTRAINT `play_history_ibfk_2` FOREIGN KEY (`song_id`) REFERENCES `songs` (`song_id`);
 
 --
 -- 資料表的限制式 `user_favorites`
