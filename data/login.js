@@ -22,12 +22,19 @@ if (document.getElementById('loginForm')) {
                     if (data.user_id) {
                         const d = new Date();
                         d.setTime(d.getTime() + (7 * 24 * 60 * 60 * 1000));
+                        // 修正 cookie 設置，domain 可省略，path 設為 /
                         document.cookie = `user_id=${data.user_id};expires=${d.toUTCString()};path=/`;
+                        // 除錯用：顯示設置後的 cookie
+                        // console.log('Set-Cookie:', document.cookie);
+                    } else {
+                        // 除錯：user_id 未回傳
+                        // console.error('No user_id in response:', data);
                     }
                     alert(loginSuccessMsg);
                     msg.textContent = '';
                     msg.style.color = 'transparent';
-                    location.href = 'http://localhost/rhythmgalaxy/index.html';
+                    // 導向改為相對路徑，避免跨網域
+                    location.href = './index.html';
                 } else if (data.status === 0) {
                     msg.textContent = loginFailMsg;
                     msg.style.color = 'red';
