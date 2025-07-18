@@ -65,3 +65,29 @@ document.addEventListener('click', function (e) {
         logputBox.classList.add('close');
     }
 });
+
+const activitySearchBox = document.getElementById('activitySearchBox');
+const activitySearchBtn = document.getElementById('activitySearchBtn');
+
+document.addEventListener('click', function (e) {
+    // 活動篩選
+    if (
+        activitySearchBox &&
+        activitySearchBtn &&
+        activitySearchBox.classList.contains('active') &&
+        !activitySearchBox.contains(e.target) &&
+        !activitySearchBtn.contains(e.target)
+    ) {
+        activitySearchBox.classList.remove('active');
+    }
+});
+
+const someElement = document.getElementById('someElementId'); // 假設這是你的元素
+document.addEventListener('click', function (e) {
+    // 其他程式碼...
+
+    // 假設第 64 行如下
+    if (someElement && someElement.contains(e.target)) {
+        // ...原本的程式...
+    }
+});

@@ -30,8 +30,8 @@
     <script src="script.js" defer></script>
     <script src="./data/playbar.js" defer></script>
     <script src="./data/login.js" defer></script>
-    <script src="./data/user.js" defer></script>
     <script src="./data/innnne.js" defer></script>
+    <script src="./data/searchmusic_list.js"></script>
     <style>
         @import url(./style.css);
         @import url(./style/nav.css);
@@ -44,6 +44,28 @@
 
         .layout {
             display: flex;
+        }
+
+        #main1 {
+            max-width: 50%;
+            padding: 0% 15%;
+        }
+
+        .Featured_List {
+            display: flex;
+            width: 100%;
+            height: 575px;
+            min-width: 300px;
+            flex-direction: column;
+            align-items: flex-start;
+            flex: 1 0 0;
+            gap: 15px;
+            overflow-x: auto;
+        }
+
+        .Music_List .Music_List {
+            background-color: transparent;
+            padding: 0;
         }
     </style>
 </head>
@@ -119,6 +141,10 @@
             <Button id="SiginIn" class="h6">
                 <p data-lang="paragraph">Sign in</p>
             </Button>
+            <div id="SiginInBox">
+                <span></span>
+                <p id="usernameDisplay"></p>
+            </div>
             <span id="Nav_medium"><img src="./assets/icon/nav-medium.svg" alt="Nav"></span>
             <div id="SearchBox_medium">
                 <input id="search_Input_medium" type="text" data-lang-placeholder="header_input01">
@@ -204,7 +230,15 @@
                 more.</p>
         </nav>
         <main id="main1">
-            
+            <h2>熱門搜尋結果</h2>
+            <div class="Music_List" playlist="searchmusic">
+                <!-- 插入使用者搜尋歌曲、歌手的資訊從song資料庫抓資料 -->
+            </div>
+            <br>
+            <h5>其他推薦歌曲</h5>
+            <div class="Featured_List" playlist="Featuredmusic">
+                <!-- 從song資料庫隨機抓5首歌曲 -->
+            </div>
         </main>
     </div>
     <footer>
@@ -342,4 +376,5 @@
     </div>
     <bg class="body_background"></bg>
 </body>
+
 </html>

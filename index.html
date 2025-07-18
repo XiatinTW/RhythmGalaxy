@@ -401,6 +401,21 @@
         <audio id="mainAudio" preload="auto"></audio>
     </div>
     <bg class="body_background"></bg>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var searchInput = document.getElementById('search_Input');
+            if (searchInput) {
+                searchInput.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter') {
+                        var keyword = searchInput.value.trim();
+                        if (keyword) {
+                            window.location.href = 'search.html?q=' + encodeURIComponent(keyword);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
