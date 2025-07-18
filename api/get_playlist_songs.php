@@ -9,8 +9,8 @@ try {
     $pdo = new PDO('mysql:host=localhost;dbname=music;port=3306;charset=utf8', 'abuser', '1234');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // 取得歌單名稱
-    $stmt = $pdo->prepare('SELECT playname FROM user_playlists WHERE playlist_id = :playlist_id');
+    // 取得歌單名稱與封面
+    $stmt = $pdo->prepare('SELECT playname, cover_url FROM user_playlists WHERE playlist_id = :playlist_id');
     $stmt->execute([':playlist_id' => $playlist_id]);
     $playlist = $stmt->fetch(PDO::FETCH_ASSOC);
     if (!$playlist) {
@@ -31,6 +31,7 @@ try {
     echo json_encode([
         'success' => true,
         'playname' => $playlist['playname'],
+        'cover_url' => $playlist['cover_url'], // 新增回傳 cover_url
         'songs' => $songs
     ]);
 } catch (Exception $e) {

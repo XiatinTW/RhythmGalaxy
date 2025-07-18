@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!loadingDiv) return;
     const listDiv = loadingDiv.parentElement;
     const playlist_id = getQueryParam('playlist_id');
+    let playlistCoverUrl = ''; // 新增變數儲存 cover_url
     if (!playlist_id) {
         loadingDiv.textContent = '無效的歌單';
         return;
@@ -33,6 +34,15 @@ document.addEventListener('DOMContentLoaded', function () {
             // 顯示歌單名稱
             const nameEl = document.querySelector('.playlist_play_left h5');
             if (nameEl && data.playname) nameEl.textContent = data.playname;
+            // 顯示歌單封面
+            const coverImg = document.getElementById('playlist_cover_img');
+            if (coverImg && data.cover_url) {
+                // 若 cover_url 沒有以 / 或 ./ 開頭，補上 ./
+                let url = data.cover_url;
+                if (!/^(\.\/|\/)/.test(url)) url = './' + url;
+                coverImg.src = url;
+                playlistCoverUrl = url; // 儲存正確的 cover_url
+            }
             if (!data.songs || data.songs.length === 0) {
                 loadingDiv.textContent = '歌單內沒有歌曲';
                 return;
@@ -43,8 +53,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 const div = document.createElement('div');
                 div.className = 'Music_List';
                 div.setAttribute('data-song-id', song.song_id);
+                // 處理 cover_url 前綴
+                let imgUrl = song.cover_url ? song.cover_url : './assets/img/music/Rectangle01.jpg';
+                if (song.cover_url && !/^(\.\/|\/)/.test(song.cover_url)) {
+                    imgUrl = './' + song.cover_url;
+                }
                 div.innerHTML = `
-                    <div class="Music_item_img" style="background-image: url('${song.cover_url ? song.cover_url : './assets/img/music/Rectangle01.jpg'}');"></div>
+                    <div class="Music_item_img" style="background-image: url('${imgUrl}');">
+                        <img src="${imgUrl}" alt="cover" style="display:none;" onload="this.parentNode.style.backgroundImage='url(' + this.src + ')';">
+                    </div>
                     <div class="Music_item_text">
                         <h6>${song.title ? song.title : 'null'}</h6>
                         <p>${song.artist ? song.artist : 'null'}</p>
@@ -52,10 +69,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     <p class="Music_item_playtime">${formatDuration(song.duration)}</p>
                 `;
                 listDiv.appendChild(div);
-                musicListDivs.push({div, song_id: song.song_id});
+                musicListDivs.push({ div, song_id: song.song_id });
             });
             // 依 song_id AJAX 撈 audio_url
-            musicListDivs.forEach(({div, song_id}) => {
+            musicListDivs.forEach(({ div, song_id }) => {
                 fetch('api/get_song_info.php?song_id=' + encodeURIComponent(song_id))
                     .then(res => res.json())
                     .then(data => {
@@ -103,6 +120,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (artistEl) artistEl.textContent = artist;
                     if (coverEl) coverEl.style.backgroundImage = coverUrl ? `url(${coverUrl})` : '';
                 }
+                // 修正：播放時正確套用歌單封面
+                const coverImg = document.getElementById('playlist_cover_img');
+                if (coverImg && playlistCoverUrl) coverImg.src = playlistCoverUrl;
                 const card = document.querySelector('.PlayBarCard_body .MusicCrad');
                 if (card) {
                     card.style.backgroundImage = `url(${coverUrl})`;
